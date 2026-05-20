@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Asociación Abaniko. Asociación social en Cádiz dedicada a la inclusión, la autonomía personal, el ocio, el deporte, el empleo y el acompañamiento comunitario.">
+  <title>Asociación Abaniko | Inclusión, autonomía y comunidad en Cádiz</title>
+  <style>
+    :root {
+      --bg: #f7efe1;
+      --bg-2: #f1e3cf;
+      --paper: rgba(255, 250, 241, 0.88);
+      --paper-strong: #fffaf2;
+      --text: #2a231c;
+      --muted: #6f655d;
+      --line: rgba(89, 63, 44, 0.12);
+      --primary: #cf6d2e;
+      --primary-deep: #ab4d21;
+      --secondary: #2e6f89;
+      --secondary-soft: #dfeef4;
+      --olive: #6f8a32;
+      --sand: #d0a04f;
+      --shadow: 0 28px 60px rgba(76, 48, 28, 0.13);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(208, 160, 79, 0.18), transparent 22%),
+        radial-gradient(circle at 86% 10%, rgba(46, 111, 137, 0.14), transparent 22%),
+        linear-gradient(180deg, #f8f0e2 0%, #f6efe4 34%, #f0e4d0 100%);
+      line-height: 1.6;
+    }
+
+    body.loading {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .page-shell {
+      opacity: 1;
+      transition: opacity 0.45s ease;
+    }
+
+    body.loading .page-shell {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .site-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      padding: 1.4rem;
+      background:
+        radial-gradient(circle at 14% 14%, rgba(208, 160, 79, 0.24), transparent 24%),
+        radial-gradient(circle at 84% 12%, rgba(46, 111, 137, 0.18), transparent 22%),
+        linear-gradient(180deg, #f8f0e2 0%, #f2e7d5 100%);
+      transition: opacity 0.55s ease, visibility 0.55s ease;
+    }
+
+    .site-loader.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-card {
+      width: min(100%, 560px);
+      padding: 2rem 1.5rem 1.8rem;
+      border-radius: 36px;
+      background: rgba(255, 250, 241, 0.92);
+      border: 1px solid rgba(89, 63, 44, 0.09);
+      box-shadow: 0 30px 70px rgba(76, 48, 28, 0.16);
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.4rem 0.82rem;
+      border-radius: 999px;
+      background: rgba(46, 111, 137, 0.1);
+      color: var(--secondary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .loader-card strong {
+      display: block;
+      margin-top: 0.95rem;
+      font-size: 1.7rem;
+      letter-spacing: -0.03em;
+    }
+
+    .loader-card p {
+      margin: 0.7rem auto 0;
+      max-width: 34ch;
+      color: var(--muted);
+    }
+
+    .loader-status {
+      margin-top: 0.35rem;
+      color: var(--secondary);
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(247, 239, 225, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(89, 63, 44, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.95rem;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      object-fit: contain;
+      background: #fff9f2;
+      border: 1px solid rgba(89, 63, 44, 0.08);
+      box-shadow: 0 14px 28px rgba(60, 39, 25, 0.12);
+      padding: 0.35rem;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.95rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-deep);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.92rem 1.35rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: var(--primary);
+      color: #fff9f2;
+      box-shadow: 0 18px 28px rgba(207, 109, 46, 0.24);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--text);
+      border-color: rgba(89, 63, 44, 0.1);
+    }
+
+    .hero {
+      padding: 4.3rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-side,
+    .program-card,
+    .story-card,
+    .news-card,
+    .comment-panel,
+    .contact-card,
+    .collab-card,
+    .info-card,
+    .gallery-frame {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -90px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(208, 160, 79, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.08;
+    }
+
+    h1 {
+      margin-top: 1rem;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      letter-spacing: -0.05em;
+    }
+
+    .hero-copy p {
+      max-width: 62ch;
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 1.55rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1.15rem;
+    }
+
+    .social-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.82rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(89, 63, 44, 0.1);
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: 0 12px 24px rgba(76, 48, 28, 0.08);
+      font-weight: 700;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .social-button:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .social-button img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .social-button.facebook {
+      color: #215f98;
+    }
+
+    .social-button.instagram {
+      color: #c23e74;
+    }
+
+    .social-button.twitter {
+      color: #2e6f89;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin-top: 1.6rem;
+    }
+
+    .meta-chip {
+      padding: 1rem 0.95rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(89, 63, 44, 0.08);
+    }
+
+    .meta-chip strong {
+      display: block;
+      color: var(--primary-deep);
+      font-size: 1.35rem;
+    }
+
+    .meta-chip span {
+      display: block;
+      margin-top: 0.12rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-side {
+      padding: 1.2rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .hero-visual {
+      min-height: 280px;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        linear-gradient(140deg, rgba(46, 111, 137, 0.12), rgba(207, 109, 46, 0.14)),
+        #fffaf2;
+      border: 1px solid rgba(89, 63, 44, 0.08);
+      position: relative;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-visual::after {
+      content: "Cádiz · Colegio Campo del Sur";
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(42, 35, 28, 0.68);
+      color: #fff9f2;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-note {
+      padding: 1.15rem 1.15rem 0.2rem;
+    }
+
+    .hero-note h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    main section {
+      padding: 2.4rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-head p {
+      margin: 0.65rem 0 0;
+      max-width: 62ch;
+      color: var(--muted);
+    }
+
+    .story-grid,
+    .filler-grid,
+    .program-grid,
+    .news-grid,
+    .community-grid,
+    .footer-grid,
+    .contact-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .story-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .story-card {
+      padding: 1.55rem;
+    }
+
+    .story-card h3 {
+      font-size: 1.38rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .story-card p,
+    .story-card li,
+    .program-card p,
+    .program-card li,
+    .news-card p,
+    .contact-card p,
+    .collab-card p,
+    .info-card p {
+      color: var(--muted);
+    }
+
+    .story-card ul,
+    .program-card ul,
+    .news-card ul {
+      margin: 0.9rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .filler-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filler-card {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .filler-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .filler-body {
+      padding: 1.35rem;
+    }
+
+    .filler-body h3 {
+      font-size: 1.28rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .filler-body p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .program-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .program-card {
+      padding: 1.6rem;
+      display: grid;
+      gap: 0.9rem;
+      align-content: start;
+    }
+
+    .program-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .program-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--sand));
+    }
+
+    .program-time {
+      padding: 0.38rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(46, 111, 137, 0.1);
+      color: var(--secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .news-grid {
+      grid-template-columns: 1.15fr 0.85fr 0.85fr;
+    }
+
+    .news-card {
+      padding: 1.55rem;
+    }
+
+    .news-card.featured {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 235, 220, 0.98)),
+        #fff;
+    }
+
+    .news-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.38rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(46, 111, 137, 0.1);
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .news-date {
+      display: block;
+      margin: 0.95rem 0 0.55rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .news-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .gallery-shell {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .gallery-frame {
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      min-height: 520px;
+      background: #eadbc3;
+    }
+
+    .gallery-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.75s cubic-bezier(.4,0,.2,1);
+    }
+
+    .gallery-slide {
+      min-width: 100%;
+      min-height: 520px;
+      position: relative;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      object-fit: cover;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 2rem;
+      background: linear-gradient(180deg, transparent, rgba(31, 22, 17, 0.82));
+      color: #fffaf2;
+    }
+
+    .gallery-overlay h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-overlay p {
+      margin: 0;
+      max-width: 44ch;
+      color: rgba(255, 250, 242, 0.84);
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 250, 241, 0.82);
+      color: var(--text);
+      font-size: 1.55rem;
+      cursor: pointer;
+      z-index: 2;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .gallery-arrow.prev {
+      left: 1rem;
+    }
+
+    .gallery-arrow.next {
+      right: 1rem;
+    }
+
+    .gallery-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 1.2rem;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      gap: 0.55rem;
+    }
+
+    .gallery-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255, 250, 242, 0.5);
+      cursor: pointer;
+    }
+
+    .gallery-dot.active {
+      background: #fffaf2;
+      transform: scale(1.16);
+    }
+
+    .gallery-side {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .info-card {
+      padding: 1.4rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .info-card.media {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .info-card.media img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 0.85rem;
+    }
+
+    .info-card.media .info-body {
+      padding: 1.3rem;
+    }
+
+    .community-grid {
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: start;
+    }
+
+    .comment-panel {
+      padding: 1.5rem;
+    }
+
+    .comment-panel h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .comment-panel p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .comment-hint {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius-md);
+      background: rgba(46, 111, 137, 0.08);
+      color: #395b67;
+      font-size: 0.94rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.1rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .muted-label {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(89, 63, 44, 0.14);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(207, 109, 46, 0.52);
+      box-shadow: 0 0 0 4px rgba(207, 109, 46, 0.12);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .switch-row {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .switch-row input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--secondary);
+    }
+
+    .comment-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .comment-feed {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .comment-card {
+      padding: 1.15rem 1.2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(89, 63, 44, 0.1);
+      background: var(--paper-strong);
+      box-shadow: 0 14px 28px rgba(76, 48, 28, 0.08);
+    }
+
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.7rem;
+    }
+
+    .comment-meta strong {
+      font-size: 1rem;
+    }
+
+    .comment-meta span,
+    .comment-card p {
+      color: var(--muted);
+    }
+
+    .comment-card p {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    .empty-state {
+      padding: 1.5rem;
+      border-radius: 20px;
+      border: 1px dashed rgba(89, 63, 44, 0.2);
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-card,
+    .collab-card {
+      padding: 1.55rem;
+    }
+
+    .contact-card h3,
+    .collab-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .contact-list,
+    .partner-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item,
+    .partner-item {
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(89, 63, 44, 0.08);
+    }
+
+    .contact-item strong,
+    .partner-item strong {
+      display: block;
+      margin-bottom: 0.18rem;
+    }
+
+    .contact-note {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .site-footer {
+      padding: 0 0 2.5rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .legal-note {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: rise 0.75s ease forwards;
+    }
+
+    .reveal.delay-1 { animation-delay: 0.12s; }
+    .reveal.delay-2 { animation-delay: 0.22s; }
+    .reveal.delay-3 { animation-delay: 0.32s; }
+
+    #fan-stage {
+      position: relative;
+      width: 100%;
+      min-height: 340px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .fan-base {
+      position: absolute;
+      bottom: 38px;
+      width: 120px;
+      height: 22px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #7c553e, #b1805c, #7c553e);
+      box-shadow: 0 10px 24px rgba(45, 30, 20, 0.18);
+    }
+
+    .fan-pivot {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #453127;
+      z-index: 10;
+      box-shadow: 0 0 0 6px rgba(255, 250, 241, 0.95);
+    }
+
+    .fan-letter {
+      position: absolute;
+      bottom: 42px;
+      left: 50%;
+      transform-origin: center bottom;
+      width: 52px;
+      height: 182px;
+      margin-left: -26px;
+      border-radius: 24px 24px 8px 8px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 18px;
+      color: #fffef8;
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+      border: 2px solid rgba(255, 255, 255, 0.28);
+      opacity: 0;
+      transform: rotate(0deg);
+      transition: transform 0.7s cubic-bezier(.4,0,.2,1), opacity 0.35s ease;
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .story-grid,
+      .filler-grid,
+      .program-grid,
+      .news-grid,
+      .gallery-shell,
+      .community-grid,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(var(--max), calc(100% - 1.2rem));
+      }
+
+      .nav,
+      .section-head {
+        display: block;
+      }
+
+      .nav-links {
+        margin-top: 1rem;
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .gallery-frame,
+      .gallery-slide,
+      .gallery-slide img {
+        min-height: 380px;
+      }
+
+      .gallery-overlay {
+        padding: 1.4rem;
+      }
+
+      .gallery-overlay h3 {
+        font-size: 1.55rem;
+      }
+
+      #fan-stage {
+        min-height: 290px;
+      }
+
+      .fan-letter {
+        width: 44px;
+        height: 156px;
+        margin-left: -22px;
+        font-size: 1.65rem;
+      }
+    }
+  </style>
+</head>
+<body class="loading">
+  <div id="site-loader" class="site-loader" aria-live="polite">
+    <div class="loader-card">
+      <span class="eyebrow">Asociación Abaniko</span>
+      <strong>Preparando la web</strong>
+      <p>Cargando programas, noticias, imágenes y contenido para mostrar una versión más moderna de Abaniko.</p>
+      <div id="fan-stage" aria-label="Animación del abanico durante la carga">
+        <div class="fan-base"></div>
+        <div class="fan-pivot"></div>
+      </div>
+      <div class="loader-status">Abriendo Abaniko...</div>
+    </div>
+  </div>
+
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="shell nav">
+        <a class="brand" href="#inicio">
+          <img class="brand-mark" src="assets/images/abaniko-logo.png" alt="Logo de la Asociación Abaniko">
+          <div class="brand-copy">
+            <strong>Asociación Abaniko</strong>
+            <span>Cádiz · Inclusión, autonomía y comunidad desde 2009</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#quienes-somos">Quiénes somos</a>
+          <a href="#ocio">Ocio</a>
+          <a href="#deportes">Deportes</a>
+          <a href="#empleo">Empleo</a>
+          <a href="#autonomia">Autonomía</a>
+          <a href="#noticias">Noticias</a>
+          <a href="#comentarios">Comentarios</a>
+          <a class="button secondary" href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">Basada en la web original de Abaniko</span>
+            <h1>La misma identidad social de Abaniko, ahora con una web más clara, moderna y útil.</h1>
+            <p>
+              Tomando como referencia la página oficial, esta versión reúne los programas de ocio,
+              deportes, empleo, autonomía doméstica y contacto en una sola experiencia más visual,
+              ordenada y preparada para publicarse.
+            </p>
+            <p>
+              La misión sigue siendo la misma: mejorar la calidad de vida de personas en situación
+              de vulnerabilidad, promover su inclusión y acompañar procesos reales de autonomía e integración.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#noticias">Ver noticias</a>
+              <a class="button secondary" href="#comentarios">Dejar comentario</a>
+            </div>
+            <div class="social-links" aria-label="Redes sociales de Abaniko">
+              <a class="social-button facebook" href="https://www.facebook.com/asociacion.abaniko?fref=ts" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/icon-facebook-blog.png" alt="">
+                <span>Facebook</span>
+              </a>
+              <a class="social-button instagram" href="https://www.instagram.com/asoc.abaniko/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/instagram-icon.png" alt="">
+                <span>Instagram</span>
+              </a>
+              <a class="social-button twitter" href="https://twitter.com/AsocAbaniko" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/icon-twitter-blog.png" alt="">
+                <span>X / Twitter</span>
+              </a>
+            </div>
+            <div class="hero-meta">
+              <div class="meta-chip">
+                <strong>2009</strong>
+                <span>Nacimiento de la asociación</span>
+              </div>
+              <div class="meta-chip">
+                <strong>Cádiz</strong>
+                <span>Trabajo cercano en la provincia</span>
+              </div>
+              <div class="meta-chip">
+                <strong>956 415 065</strong>
+                <span>Teléfono mostrado en la web de referencia</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-side reveal delay-1">
+            <div class="hero-visual">
+              <img src="assets/images/actividad-museo.jpg" alt="Actividad del grupo de ocio de Asociación Abaniko">
+            </div>
+            <div class="hero-note">
+              <h3>Una web mejorada, sin perder el origen</h3>
+              <p>
+                Se conservan los apartados clave del blog original: quiénes sois, programas, noticias,
+                colaboración y contacto, pero con una presentación más limpia y actual.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="quienes-somos">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Quiénes somos</span>
+              <h2>Una asociación de profesionales unida por un objetivo común.</h2>
+              <p>
+                Según la página original, Abaniko nace en 2009 para mejorar la calidad de vida de personas
+                de colectivos socialmente desfavorecidos o en riesgo de exclusión social en la provincia de Cádiz.
+              </p>
+            </div>
+          </div>
+
+          <div class="story-grid">
+            <article class="story-card reveal delay-1">
+              <h3>Qué es Abaniko</h3>
+              <p>
+                Abaniko es una asociación orientada al acompañamiento de niños, jóvenes, mujeres, personas con discapacidad,
+                familias y comunidad en general. Su razón de ser es la inclusión, la autonomía y la mejora de la calidad de vida.
+              </p>
+              <p>
+                Esta nueva web mantiene ese mismo mensaje y lo organiza mejor para que cualquier visitante entienda rápidamente
+                qué hace la entidad y cómo puede contactar o colaborar.
+              </p>
+            </article>
+
+            <article class="story-card reveal delay-2">
+              <h3>Quiénes la forman y qué experiencia tiene</h3>
+              <p>
+                La web original menciona un equipo formado por psicólogos, maestros, mediadores, orientadores sociolaborales,
+                monitores deportivos, enfermeros y profesionales de talleres y formación.
+              </p>
+              <ul>
+                <li>Programas educativos y de habilidades sociales.</li>
+                <li>Autonomía personal y vida independiente.</li>
+                <li>Orientación e inserción sociolaboral.</li>
+                <li>Deporte, ocio, tiempo libre y formación ocupacional.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="programas">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Programas</span>
+              <h2>Los apartados principales del blog original, transformados en una web más accesible.</h2>
+              <p>
+                He reorganizado los contenidos de Ocio, Deportes, Empleo y Autonomía Doméstica para que tengan más presencia
+                visual y una lectura mucho más cómoda.
+              </p>
+            </div>
+          </div>
+
+          <div class="program-grid">
+            <article class="program-card reveal delay-1" id="ocio">
+              <div class="program-top">
+                <div class="program-badge">O</div>
+                <span class="program-time">Viernes · 17:00 a 20:00</span>
+              </div>
+              <h3>Programa de Ocio y Tiempo Libre</h3>
+              <p>
+                Basado en la página “Prog de Ocio”, este programa busca que las personas participantes adquieran herramientas
+                para organizar su propio ocio de una forma sana, creativa, libre y placentera.
+              </p>
+              <ul>
+                <li>Actividades culturales y salidas.</li>
+                <li>Espacios de convivencia y socialización.</li>
+                <li>Participación adaptada a las propuestas del grupo.</li>
+              </ul>
+            </article>
+
+            <article class="program-card reveal delay-2" id="deportes">
+              <div class="program-top">
+                <div class="program-badge">D</div>
+                <span class="program-time">Lun / Mié · 18:00 a 19:30</span>
+              </div>
+              <h3>Deporte para todos</h3>
+              <p>
+                La web original describe este proyecto como un lugar de encuentro donde niños y jóvenes desarrollan actividades
+                deportivas conjuntas, tradicionales y alternativas, aprovechando también el entorno de la Bahía de Cádiz.
+              </p>
+              <ul>
+                <li>Baloncesto, fútbol, hockey y deportes alternativos.</li>
+                <li>Juegos, dinámicas y psicomotricidad.</li>
+                <li>Salidas al entorno natural y urbano.</li>
+              </ul>
+            </article>
+
+            <article class="program-card reveal delay-3" id="empleo">
+              <div class="program-top">
+                <div class="program-badge">E</div>
+                <span class="program-time">Inserción laboral</span>
+              </div>
+              <h3>Programa de Empleo</h3>
+              <p>
+                Según la página “Empleo”, Abaniko trabaja la formación específica y general, la orientación a familias,
+                la prospección de empresas, las prácticas formativas y el acompañamiento en la inserción laboral.
+              </p>
+              <ul>
+                <li>Habilidades prelaborales y autonomía.</li>
+                <li>Formación adaptada a perfiles profesionales.</li>
+                <li>Mediación sociolaboral y apoyo en contratación.</li>
+              </ul>
+            </article>
+
+            <article class="program-card reveal delay-1" id="autonomia">
+              <div class="program-top">
+                <div class="program-badge">A</div>
+                <span class="program-time">Viernes · 10:00 a 13:30</span>
+              </div>
+              <h3>Autonomía Doméstica</h3>
+              <p>
+                La entrada y la página específica de 2024 destacan este programa como una apuesta para fomentar independencia
+                y desarrollo personal a través de un aula-hogar equipada.
+              </p>
+              <ul>
+                <li>Orden, limpieza y autocuidado.</li>
+                <li>Uso básico de electrodomésticos y responsabilidades del hogar.</li>
+                <li>Recetas sencillas, manejo del dinero y organización diaria.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="dia-a-dia">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Información útil</span>
+              <h2>Contenido de apoyo para explicar mejor el trabajo diario de la asociación.</h2>
+              <p>
+                He añadido información de relleno coherente con la identidad de Abaniko para que la web se vea más completa
+                mientras decides qué textos definitivos quieres mantener.
+              </p>
+            </div>
+          </div>
+
+          <div class="filler-grid">
+            <article class="filler-card reveal delay-1">
+              <img src="assets/images/programa-ocio.jpg" alt="Imagen del programa de ocio de Abaniko">
+              <div class="filler-body">
+                <h3>Acompañamiento cercano</h3>
+                <p>
+                  Este bloque puede usarse para explicar cómo se acompaña a cada persona, cómo se hace el seguimiento
+                  y cómo se adaptan las actividades a las necesidades reales del grupo.
+                </p>
+              </div>
+            </article>
+
+            <article class="filler-card reveal delay-2">
+              <img src="assets/images/abanicos.jpg" alt="Imagen simbólica de Abaniko">
+              <div class="filler-body">
+                <h3>Participación y comunidad</h3>
+                <p>
+                  También sirve para contar que la entidad no solo organiza talleres, sino que crea espacios de relación,
+                  escucha, apoyo mutuo y participación activa en la vida social.
+                </p>
+              </div>
+            </article>
+
+            <article class="filler-card reveal delay-3">
+              <img src="assets/images/actividad-04.jpg" alt="Actividad grupal de Abaniko">
+              <div class="filler-body">
+                <h3>Procesos que crecen con el tiempo</h3>
+                <p>
+                  Aquí puedes hablar de avances, pequeños logros cotidianos, nuevas metas, coordinación con familias
+                  y cualquier información adicional que ayude a entender el impacto del proyecto.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="noticias">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Noticias</span>
+              <h2>Un bloque pensado para publicar actividades, anuncios y novedades del grupo.</h2>
+              <p>
+                La web de Blogger original está muy apoyada en entradas. Aquí ese mismo espíritu se transforma en un panel
+                de noticias más visual y más útil para visitantes nuevos.
+              </p>
+            </div>
+          </div>
+
+          <div class="news-grid">
+            <article class="news-card featured reveal delay-1">
+              <span class="news-tag">Destacada</span>
+              <span class="news-date">1 de febrero de 2024</span>
+              <h3>Nuevo programa de Autonomía Doméstica</h3>
+              <p>
+                La noticia principal de la página de referencia anuncia la puesta en marcha del nuevo programa de autonomía
+                doméstica para trabajar tareas básicas del hogar, autocuidado, recetas sencillas y manejo del dinero.
+              </p>
+              <ul>
+                <li>Programa en aula-hogar.</li>
+                <li>Contacto visible para familias interesadas.</li>
+                <li>Enfoque directo en independencia personal.</li>
+              </ul>
+            </article>
+
+            <article class="news-card reveal delay-2">
+              <span class="news-tag">Ocio</span>
+              <span class="news-date">1 de febrero de 2024</span>
+              <h3>Más actividades del grupo de ocio</h3>
+              <p>
+                El blog original comparte fotitos de salidas y encuentros: Museo del Carnaval, Casa de la Juventud,
+                parques, refrescos, paseos y convivencia cotidiana.
+              </p>
+            </article>
+
+            <article class="news-card reveal delay-3">
+              <span class="news-tag">Empleo</span>
+              <span class="news-date">1 de febrero de 2024</span>
+              <h3>Programa de Inserción Laboral</h3>
+              <p>
+                Otra de las últimas publicaciones recoge asambleas semanales, formación básica, trabajo en parejas
+                y habilidades prelaborales dentro del programa de empleo.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Galería</span>
+              <h2>Imágenes del proyecto con un carrusel automático más sólido que el del blog original.</h2>
+              <p>
+                He mantenido la idea de mostrar actividad real, pero con imágenes locales dentro del proyecto para que
+                la web no dependa de enlaces externos al publicarla.
+              </p>
+            </div>
+          </div>
+
+          <div class="gallery-shell">
+            <article class="gallery-frame reveal delay-1" aria-label="Carrusel automático de imágenes de Abaniko">
+              <div id="gallery-track" class="gallery-track">
+                <figure class="gallery-slide">
+                  <img src="assets/images/actividad-11.jpg" alt="Actividad del grupo de ocio en un espacio cultural">
+                  <figcaption class="gallery-overlay">
+                    <h3>Salidas culturales</h3>
+                    <p>Una forma de aprender, disfrutar y compartir experiencias fuera del entorno habitual.</p>
+                  </figcaption>
+                </figure>
+                <figure class="gallery-slide">
+                  <img src="assets/images/actividad-03.jpg" alt="Encuentro grupal de la Asociación Abaniko">
+                  <figcaption class="gallery-overlay">
+                    <h3>Encuentros del grupo</h3>
+                    <p>Momentos compartidos para reforzar vínculos, habilidades sociales y participación.</p>
+                  </figcaption>
+                </figure>
+                <figure class="gallery-slide">
+                  <img src="assets/images/actividad-04.jpg" alt="Actividad comunitaria de Abaniko">
+                  <figcaption class="gallery-overlay">
+                    <h3>Vida comunitaria</h3>
+                    <p>La presencia del grupo en espacios cotidianos forma parte del trabajo de inclusión social.</p>
+                  </figcaption>
+                </figure>
+                <figure class="gallery-slide">
+                  <img src="assets/images/actividad-06.jpg" alt="Actividad exterior del grupo">
+                  <figcaption class="gallery-overlay">
+                    <h3>Experiencias compartidas</h3>
+                    <p>Más imágenes reales descargadas de la web original para que la nueva versión tenga más vida y contexto.</p>
+                  </figcaption>
+                </figure>
+                <figure class="gallery-slide">
+                  <img src="assets/images/actividad-08.jpg" alt="Participación en actividad colectiva">
+                  <figcaption class="gallery-overlay">
+                    <h3>Participación activa</h3>
+                    <p>El día a día de la asociación también se puede contar desde la cercanía, la convivencia y la acción.</p>
+                  </figcaption>
+                </figure>
+                <figure class="gallery-slide">
+                  <img src="assets/images/actividad-09.jpg" alt="Actividad del grupo en formato vertical">
+                  <figcaption class="gallery-overlay">
+                    <h3>Nuevos momentos para mostrar</h3>
+                    <p>La galería ya cuenta con más imágenes locales reales para futuras noticias, tarjetas o secciones nuevas.</p>
+                  </figcaption>
+                </figure>
+              </div>
+              <button class="gallery-arrow prev" id="gallery-prev" type="button" aria-label="Imagen anterior">&#8249;</button>
+              <button class="gallery-arrow next" id="gallery-next" type="button" aria-label="Imagen siguiente">&#8250;</button>
+              <div id="gallery-dots" class="gallery-dots" aria-label="Selección de imágenes"></div>
+            </article>
+
+            <div class="gallery-side">
+              <article class="info-card media reveal delay-2">
+                <img src="assets/images/diptico-abaniko.png" alt="Díptico informativo de Abaniko">
+                <div class="info-body">
+                  <h3>Material informativo</h3>
+                  <p>
+                    También he descargado folletos e imágenes de apoyo del blog para que puedas reutilizarlos dentro de la nueva web.
+                  </p>
+                </div>
+              </article>
+              <article class="info-card media reveal delay-3">
+                <img src="assets/images/folleto-empleo.png" alt="Folleto del programa de empleo">
+                <div class="info-body">
+                  <h3>Programas visibles</h3>
+                  <p>
+                    Ocio, empleo, deportes y autonomía pueden tener ahora más apoyo visual con carteles y material del propio proyecto.
+                  </p>
+                </div>
+              </article>
+              <article class="info-card media reveal delay-1">
+                <img src="assets/images/direccion.jpg" alt="Imagen de dirección y ubicación">
+                <div class="info-body">
+                  <h3>Dónde está Abaniko</h3>
+                  <p>
+                    La ubicación y el contacto también se pueden reforzar con imágenes propias para dar más contexto a quien visita la web.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="comentarios">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Comentarios</span>
+              <h2>Un espacio para opinar sin registrarse.</h2>
+              <p>
+                A diferencia del sistema del blog, aquí cualquier persona puede escribir con nombre o de forma anónima sin abrir cuenta.
+              </p>
+            </div>
+          </div>
+
+          <div class="community-grid">
+            <aside class="comment-panel reveal delay-1">
+              <h3>Escribe tu mensaje</h3>
+              <p>
+                Esta versión permite comentarios sin registro. Ahora mismo se guardan en el navegador de quien escribe.
+              </p>
+              <div class="comment-hint">
+                Si luego quieres que todos los visitantes vean los mismos comentarios públicos en internet, el siguiente paso será conectarlos a una base de datos.
+              </div>
+
+              <form id="comment-form">
+                <label for="comment-name">
+                  Nombre
+                  <span class="muted-label">Opcional si eliges publicar como anónimo.</span>
+                </label>
+                <input id="comment-name" name="name" type="text" maxlength="60" placeholder="Ejemplo: María">
+
+                <div class="switch-row">
+                  <input id="comment-anonymous" name="anonymous" type="checkbox">
+                  <label for="comment-anonymous">Publicar como anónimo</label>
+                </div>
+
+                <label for="comment-message">
+                  Comentario
+                  <span class="muted-label">Máximo 500 caracteres.</span>
+                </label>
+                <textarea id="comment-message" name="message" maxlength="500" placeholder="Escribe aquí tu comentario..."></textarea>
+
+                <div class="comment-actions">
+                  <button class="button primary" type="submit">Publicar comentario</button>
+                  <button class="button secondary" type="button" id="clear-comments">Borrar comentarios de este navegador</button>
+                </div>
+              </form>
+            </aside>
+
+            <div class="comment-panel reveal delay-2">
+              <h3>Lo que dice la comunidad</h3>
+              <p>Los mensajes más recientes aparecen primero.</p>
+              <div id="comment-feed" class="comment-feed" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="shell">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Contacto y colaboración</span>
+              <h2>Los datos visibles de la web original, ahora presentados de forma más clara.</h2>
+              <p>
+                He tomado como referencia el contenido público del blog para mostrar teléfono, correo, ubicación y colaboración económica.
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-grid">
+            <article class="contact-card reveal delay-1">
+              <h3>Contacto principal</h3>
+              <p>
+                Datos tomados de la página de contacto y de las publicaciones recientes de la web de referencia.
+              </p>
+              <div class="social-links" aria-label="Botones de acceso a las redes sociales">
+                <a class="social-button facebook" href="https://www.facebook.com/asociacion.abaniko?fref=ts" target="_blank" rel="noopener noreferrer">
+                  <img src="assets/images/icon-facebook-blog.png" alt="">
+                  <span>Ir a Facebook</span>
+                </a>
+                <a class="social-button instagram" href="https://www.instagram.com/asoc.abaniko/" target="_blank" rel="noopener noreferrer">
+                  <img src="assets/images/instagram-icon.png" alt="">
+                  <span>Ir a Instagram</span>
+                </a>
+                <a class="social-button twitter" href="https://twitter.com/AsocAbaniko" target="_blank" rel="noopener noreferrer">
+                  <img src="assets/images/icon-twitter-blog.png" alt="">
+                  <span>Ir a X / Twitter</span>
+                </a>
+              </div>
+              <div class="contact-list">
+                <div class="contact-item">
+                  <strong>Teléfono</strong>
+                  <span>956 415 065</span>
+                </div>
+                <div class="contact-item">
+                  <strong>Email</strong>
+                  <span>asoc.abaniko@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                  <strong>Ubicación</strong>
+                  <span>Colegio Campo del Sur · Concepción Arenal s/n · Cádiz</span>
+                </div>
+                <div class="contact-item">
+                  <strong>Redes mencionadas en la web original</strong>
+                  <span>Facebook: asociacion.abaniko · X/Twitter: @AsocAbaniko · Instagram: @AsocAbaniko</span>
+                </div>
+                <div class="contact-item">
+                  <strong>Información adicional de relleno</strong>
+                  <span>Este espacio puede usarse para añadir horarios, persona de referencia, cómo llegar o indicaciones para visitas.</span>
+                </div>
+              </div>
+              <p class="contact-note">
+                Los botones superiores abren directamente las redes sociales públicas que aparecen enlazadas en la web de referencia.
+              </p>
+            </article>
+
+            <article class="collab-card reveal delay-2">
+              <h3>Colabora con nosotros</h3>
+              <p>
+                El blog original incluye un apartado de colaboración y también referencias a entidades con las que trabajan o se relacionan.
+              </p>
+              <div class="contact-list">
+                <div class="contact-item">
+                  <strong>Cuenta de colaboración</strong>
+                  <span>CaixaBank · 2100-2180-12-0200371923</span>
+                </div>
+                <div class="contact-item">
+                  <strong>Entidades citadas en la web</strong>
+                  <span>CEPA · AGAMAMA · ADACCA · Cruz Roja · EQUA · ALENDOY · CUSPYDE</span>
+                </div>
+                <div class="contact-item">
+                  <strong>Cómo puede crecer esta web</strong>
+                  <span>Se puede ampliar con formularios reales, noticias públicas, mapa y gestor sencillo de contenidos.</span>
+                </div>
+                <div class="contact-item">
+                  <strong>Texto de apoyo editable</strong>
+                  <span>Puedes usar este hueco para hablar de voluntariado, patrocinios, donaciones puntuales o alianzas con entidades locales.</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <section class="contact-card reveal">
+          <span class="eyebrow">Resumen</span>
+          <h3>Qué se ha modernizado</h3>
+          <p>
+            Esta versión convierte un blog clásico en una landing web completa: mejor jerarquía, más claridad, secciones más visibles,
+            carrusel, comentarios sin registro y un apartado de noticias mucho más aprovechable.
+          </p>
+        </section>
+
+        <section class="contact-card reveal delay-1">
+          <span class="eyebrow">Importante</span>
+          <h3>Antes de publicarla del todo</h3>
+          <p>
+            Si vas a recoger datos reales o abrir comentarios públicos compartidos, conviene añadir aviso legal, política de privacidad
+            y un sistema de almacenamiento externo para comentarios y noticias.
+          </p>
+          <p class="legal-note">
+            Referencia usada para el contenido: https://asociacionabaniko.blogspot.com/ y sus apartados públicos de programas y contacto.
+          </p>
+        </section>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const LETTERS = ["A", "B", "A", "N", "I", "K", "O"];
+    const COLORS = ["#cf6d2e", "#d4872f", "#d7a344", "#6f8a32", "#2e6f89", "#4066a9", "#7b538f"];
+    const COMMENTS_KEY = "abaniko_comments_v1";
+    const FAN_START_DELAY_MS = 180;
+    const FAN_CLOSE_START_MS = 2600;
+    const FAN_CLOSE_DURATION_MS = 800;
+    const LOADER_MIN_MS = FAN_START_DELAY_MS + FAN_CLOSE_START_MS + FAN_CLOSE_DURATION_MS;
+
+    const siteLoader = document.getElementById("site-loader");
+    const fanStage = document.getElementById("fan-stage");
+    const galleryTrack = document.getElementById("gallery-track");
+    const galleryDots = document.getElementById("gallery-dots");
+    const galleryPrev = document.getElementById("gallery-prev");
+    const galleryNext = document.getElementById("gallery-next");
+    const commentForm = document.getElementById("comment-form");
+    const commentFeed = document.getElementById("comment-feed");
+    const anonymousToggle = document.getElementById("comment-anonymous");
+    const nameInput = document.getElementById("comment-name");
+    const clearCommentsButton = document.getElementById("clear-comments");
+
+    let fanLetters = [];
+    const loaderStartedAt = Date.now();
+    let galleryIndex = 0;
+    let galleryTimer = null;
+
+    function buildFan() {
+      fanStage.querySelectorAll(".fan-letter").forEach((node) => node.remove());
+      fanLetters = [];
+
+      LETTERS.forEach((letter, index) => {
+        const piece = document.createElement("div");
+        piece.className = "fan-letter";
+        piece.style.background = COLORS[index];
+        piece.style.zIndex = String(index + 1);
+        piece.textContent = letter;
+        fanStage.appendChild(piece);
+        fanLetters.push(piece);
+      });
+    }
+
+    function getOpenAngle(index, total) {
+      const spread = 146;
+      const start = -(spread / 2);
+      return start + (index / (total - 1)) * spread;
+    }
+
+    function animateFan() {
+      buildFan();
+
+      LETTERS.forEach((_, index) => {
+        window.setTimeout(() => {
+          const piece = fanLetters[index];
+          piece.style.opacity = "1";
+          piece.style.transform = "rotate(" + getOpenAngle(index, LETTERS.length) + "deg)";
+        }, index * 180);
+      });
+
+      window.setTimeout(() => {
+        LETTERS.forEach((_, index) => {
+          const piece = fanLetters[index];
+          piece.style.transform = "rotate(" + (index * 4 - 12) + "deg)";
+        });
+      }, FAN_CLOSE_START_MS);
+    }
+
+    function hideLoader() {
+      const elapsed = Date.now() - loaderStartedAt;
+      const wait = Math.max(0, LOADER_MIN_MS - elapsed);
+
+      window.setTimeout(() => {
+        siteLoader.classList.add("is-hidden");
+        document.body.classList.remove("loading");
+      }, wait);
+    }
+
+    function renderGalleryDots() {
+      const slides = Array.from(galleryTrack.querySelectorAll(".gallery-slide"));
+      galleryDots.innerHTML = slides.map((_, index) => {
+        const activeClass = index === galleryIndex ? "gallery-dot active" : "gallery-dot";
+        return '<button class="' + activeClass + '" type="button" data-index="' + index + '" aria-label="Ir a la imagen ' + (index + 1) + '"></button>';
+      }).join("");
+    }
+
+    function goToSlide(index) {
+      const slides = galleryTrack.querySelectorAll(".gallery-slide");
+      const total = slides.length;
+      galleryIndex = (index + total) % total;
+      galleryTrack.style.transform = "translateX(-" + (galleryIndex * 100) + "%)";
+      renderGalleryDots();
+    }
+
+    function restartGalleryTimer() {
+      if (galleryTimer) {
+        window.clearInterval(galleryTimer);
+      }
+
+      galleryTimer = window.setInterval(() => {
+        goToSlide(galleryIndex + 1);
+      }, 4200);
+    }
+
+    function setupGallery() {
+      if (!galleryTrack) return;
+
+      renderGalleryDots();
+      goToSlide(0);
+      restartGalleryTimer();
+
+      galleryPrev.addEventListener("click", () => {
+        goToSlide(galleryIndex - 1);
+        restartGalleryTimer();
+      });
+
+      galleryNext.addEventListener("click", () => {
+        goToSlide(galleryIndex + 1);
+        restartGalleryTimer();
+      });
+
+      galleryDots.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) return;
+        if (!target.dataset.index) return;
+        goToSlide(Number(target.dataset.index));
+        restartGalleryTimer();
+      });
+    }
+
+    function escapeHtml(value) {
+      return value
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function readComments() {
+      try {
+        const raw = localStorage.getItem(COMMENTS_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveComments(comments) {
+      localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+    }
+
+    function formatDate(isoDate) {
+      const date = new Date(isoDate);
+      return new Intl.DateTimeFormat("es-ES", {
+        dateStyle: "medium",
+        timeStyle: "short"
+      }).format(date);
+    }
+
+    function renderComments() {
+      const comments = readComments();
+
+      if (!comments.length) {
+        commentFeed.innerHTML = '<div class="empty-state">Todavía no hay comentarios. El primero puede ser el tuyo.</div>';
+        return;
+      }
+
+      commentFeed.innerHTML = comments
+        .slice()
+        .reverse()
+        .map((comment) => {
+          const author = comment.anonymous ? "Anónimo" : escapeHtml(comment.name || "Invitado");
+          const message = escapeHtml(comment.message);
+          return [
+            '<article class="comment-card">',
+            '  <div class="comment-meta">',
+            "    <strong>" + author + "</strong>",
+            "    <span>" + formatDate(comment.createdAt) + "</span>",
+            "  </div>",
+            "  <p>" + message + "</p>",
+            "</article>"
+          ].join("");
+        })
+        .join("");
+    }
+
+    function syncNameState() {
+      nameInput.disabled = anonymousToggle.checked;
+      nameInput.placeholder = anonymousToggle.checked ? "Se publicará como anónimo" : "Ejemplo: María";
+    }
+
+    commentForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(commentForm);
+      const isAnonymous = Boolean(formData.get("anonymous"));
+      const name = String(formData.get("name") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+
+      if (!message) {
+        alert("Escribe un comentario antes de publicarlo.");
+        return;
+      }
+
+      if (!isAnonymous && !name) {
+        alert("Escribe un nombre o marca la opción de anónimo.");
+        return;
+      }
+
+      const comments = readComments();
+      comments.push({
+        anonymous: isAnonymous,
+        name: isAnonymous ? "" : name,
+        message,
+        createdAt: new Date().toISOString()
+      });
+
+      saveComments(comments);
+      commentForm.reset();
+      syncNameState();
+      renderComments();
+    });
+
+    anonymousToggle.addEventListener("change", syncNameState);
+
+    clearCommentsButton.addEventListener("click", () => {
+      const accepted = window.confirm("Se borrarán los comentarios guardados en este navegador. ¿Quieres continuar?");
+      if (!accepted) return;
+      localStorage.removeItem(COMMENTS_KEY);
+      renderComments();
+    });
+
+    syncNameState();
+    setupGallery();
+    renderComments();
+    window.setTimeout(animateFan, FAN_START_DELAY_MS);
+    window.addEventListener("load", hideLoader);
+  </script>
+</body>
+</html>
