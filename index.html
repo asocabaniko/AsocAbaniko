@@ -3,924 +3,2833 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Asociación Abaniko. Entidad social en Cádiz dedicada al acompañamiento, la inclusión y la mejora de la calidad de vida.">
-<title>Asociación Abaniko | Inclusión, apoyo y comunidad · Cádiz</title>
+<meta name="description" content="Asociación Abaniko · Cádiz. Entidad social dedicada al acompañamiento, la inclusión y la mejora de la calidad de vida desde 2009. Programas de autonomía, ocio inclusivo y apoyo a familias.">
+<meta name="keywords" content="asociación Abaniko, inclusión Cádiz, autonomía personal, discapacidad Cádiz, apoyo familias, ocio inclusivo, voluntariado Cádiz, entidad social Cádiz">
+<meta name="author" content="Asociación Abaniko">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#B84A28">
+<title>Asociación Abaniko · Inclusión y Autonomía en Cádiz</title>
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://www.asociacionabaniko.org/">
+<meta property="og:title" content="Asociación Abaniko · Inclusión y Autonomía en Cádiz">
+<meta property="og:description" content="Entidad social en Cádiz que acompaña, apoya e impulsa la autonomía y participación de personas con discapacidad desde 2009.">
+<meta property="og:site_name" content="Asociación Abaniko">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Asociación Abaniko · Cádiz">
+<meta name="twitter:description" content="Inclusión, autonomía y acompañamiento en Cádiz desde 2009. Programas, ocio y apoyo a familias.">
+<!-- Canonical -->
+<link rel="canonical" href="https://www.asociacionabaniko.org/">
+<!-- Favicon SVG inline -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B84A28'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Georgia%2C serif' font-size='22' font-weight='900' font-style='italic' fill='%23F7EFDC'%3EA%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23B84A28'/%3E%3Ctext x='90' y='135' text-anchor='middle' font-family='Georgia%2C serif' font-size='120' font-weight='900' font-style='italic' fill='%23F7EFDC'%3EA%3C%2Ftext%3E%3C%2Fsvg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
+/* ════════════════════════════════════════════════════════════
+   ABANIKO · refined editorial design system
+   ════════════════════════════════════════════════════════════ */
+
 :root {
-  --terracota:  #C4572F;
-  --terracota-d:#8F3A1D;
-  --verde:      #1F6A62;
-  --verde-l:    #2D9B8B;
-  --ocre:       #D9A441;
-  --ocre-l:     #F2C76A;
-  --crema:      #FBF5E6;
-  --crema-d:    #F0E6CC;
-  --oscuro:     #1A100A;
-  --muted:      #7A6355;
-  --blanco:     #FFFDF8;
-  --line:       rgba(90,63,44,0.12);
-  --r-xl: 32px;
-  --r-lg: 22px;
+  /* Paleta refinada (Cádiz · sal, tierra, mar) */
+  --terracota:   #B84A28;
+  --terracota-d: #7E2F18;
+  --terracota-l: #E0673E;
+  --verde:       #1B5E55;
+  --verde-d:     #0F3A35;
+  --verde-l:     #46A395;
+  --ocre:        #C99548;
+  --ocre-l:      #E8C27A;
+  --ocre-d:      #8C6420;
+  --crema:       #F7EFDC;
+  --crema-d:     #EBDEC1;
+  --crema-l:     #FBF7EC;
+  --tinta:       #1A0F08;
+  --tinta-2:     #2A1B11;
+  --muted:       #7A604F;
+  --line:        rgba(26,15,8,.12);
+  --line-l:      rgba(247,239,220,.14);
+
+  --r-xl: 28px;
+  --r-lg: 20px;
   --r-md: 14px;
-  --sh: 0 32px 80px rgba(60,35,18,0.14);
+  --r-sm: 10px;
+
+  --sh-card:    0 24px 64px -16px rgba(60,30,12,.18);
+  --sh-card-h:  0 40px 96px -16px rgba(60,30,12,.28);
+  --sh-soft:    0 12px 40px -12px rgba(60,30,12,.14);
+
+  --ease:       cubic-bezier(.65,.05,.36,1);
+  --ease-bounce:cubic-bezier(.34,1.56,.64,1);
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
   background: var(--crema);
-  color: var(--oscuro);
-  line-height: 1.65;
+  color: var(--tinta);
+  line-height: 1.6;
   overflow-x: hidden;
+  cursor: none;
 }
-
 body.is-loading { overflow: hidden; }
 
 img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
+a { color: inherit; text-decoration: none; cursor: none; }
+button, input, textarea, select, label { cursor: none; }
 
-/* ─── GRAIN OVERLAY ─────────────────────────────── */
-body::before {
-  content:'';
-  position: fixed; inset: 0; z-index: 9998;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  background-size: 160px;
-  opacity: 0.4;
+/* ───── CUSTOM CURSOR ───── */
+#cursor, #cursor-dot {
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9997;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+#cursor {
+  width: 36px; height: 36px;
+  border: 1.5px solid #fff;
+  transform: translate(-50%, -50%);
+  transition: width .45s var(--ease-bounce), height .45s var(--ease-bounce), background .3s, border-color .3s;
+}
+#cursor-dot {
+  width: 5px; height: 5px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: opacity .25s;
+}
+#cursor-text {
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .48rem; letter-spacing: .2em; text-transform: uppercase;
+  color: #fff;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+  transform: translate(-50%, -50%);
+}
+body.hover-link #cursor { width: 80px; height: 80px; background: #fff; border-color: transparent; }
+body.hover-link #cursor-dot { opacity: 0; }
+body.hover-link #cursor-text { opacity: 1; }
+@media (hover: none), (max-width: 768px) {
+  body { cursor: auto; }
+  a, button, input, textarea, select, label { cursor: auto; }
+  #cursor, #cursor-dot, #cursor-text { display: none; }
 }
 
-/* ─── LOADER ─────────────────────────────────────── */
+/* ───── SCROLL PROGRESS ───── */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 95;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--terracota), var(--ocre), var(--verde-l));
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform .08s linear;
+  pointer-events: none;
+}
+
+/* ───── BACK TO TOP ───── */
+#back-top {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 80;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: var(--crema-l);
+  color: var(--tinta);
+  display: grid; place-items: center;
+  font-size: 1.05rem;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease), background .3s, color .3s, border-color .3s, box-shadow .3s;
+  box-shadow: var(--sh-soft);
+}
+#back-top.visible { opacity: 1; transform: translateY(0); }
+#back-top:hover {
+  background: var(--terracota); color: #fff;
+  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(184,74,40,.35);
+}
+@media (max-width: 740px) { #back-top { bottom: 1.2rem; right: 1.2rem; } }
+
+/* ───── MOBILE NAV TOGGLE ───── */
+.nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  width: 42px; height: 42px;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  border-radius: var(--r-md);
+  transition: border-color .3s;
+}
+.nav-toggle span {
+  display: block; width: 20px; height: 1.5px;
+  background: var(--tinta);
+  border-radius: 2px;
+  transition: all .35s var(--ease);
+}
+.site-header.scrolled .nav-toggle { border-color: rgba(247,239,220,.2); }
+.site-header.scrolled .nav-toggle span { background: var(--crema-l); }
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ───── GRAIN OVERLAY ───── */
+body::before {
+  content:'';
+  position: fixed; inset: 0; z-index: 9996;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  background-size: 180px;
+  mix-blend-mode: multiply;
+}
+
+/* ════════════════════════════════════════════════════════════
+   LOADER · revelación cinemática
+   ════════════════════════════════════════════════════════════ */
 #loader {
   position: fixed; inset: 0; z-index: 9999;
+  background: var(--tinta);
   display: flex; align-items: center; justify-content: center;
-  background: var(--oscuro);
-  transition: opacity .6s ease, visibility .6s ease;
+  flex-direction: column;
+  transition: opacity .8s var(--ease), visibility .8s;
+  overflow: hidden;
 }
 #loader.hide { opacity: 0; visibility: hidden; }
 
-.loader-inner {
-  text-align: center;
-  color: var(--crema);
-  padding: 2rem;
+.loader-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(184,74,40,.25) 0, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(27,94,85,.25) 0, transparent 50%);
+  opacity: .6;
 }
-.loader-inner .l-eyebrow {
-  font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--ocre); margin-bottom: 1.4rem;
+
+.loader-eyebrow {
+  position: relative;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--ocre);
+  margin-bottom: 1.8rem;
+  opacity: 0; animation: fadeUp .8s var(--ease) .2s forwards;
 }
-.loader-inner .l-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 6vw, 3.8rem);
+.loader-title {
+  position: relative;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 9vw, 6.5rem);
   font-weight: 900;
+  line-height: .95;
+  letter-spacing: -.04em;
   color: var(--crema);
-  letter-spacing: -.03em;
-  line-height: 1;
-  margin-bottom: 2.4rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.loader-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px) rotateZ(8deg);
+  animation: titleIn .9s var(--ease) forwards;
+}
+.loader-title em {
+  font-style: italic;
+  color: var(--terracota-l);
+  font-weight: 900;
+}
+
+@keyframes titleIn {
+  to { opacity: 1; transform: translateY(0) rotateZ(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 #fan-wrap {
   position: relative;
-  height: 300px;
+  width: 360px; height: 220px;
   display: flex; align-items: flex-end; justify-content: center;
-  overflow: visible;
 }
 .fan-base {
-  position: absolute; bottom: 28px;
-  width: 100px; height: 16px; border-radius: 999px;
-  background: linear-gradient(90deg, #5a3728, #a0694a, #5a3728);
+  position: absolute; bottom: 14px;
+  width: 90px; height: 12px; border-radius: 999px;
+  background: linear-gradient(90deg, #3a221a 0%, var(--ocre-d) 50%, #3a221a 100%);
 }
 .fan-pivot {
-  position: absolute; bottom: 20px; left: 50%;
-  transform: translateX(-50%);
-  width: 20px; height: 20px; border-radius: 50%;
+  position: absolute; bottom: 14px; left: 50%;
+  width: 18px; height: 18px; border-radius: 50%;
   background: var(--ocre);
+  transform: translateX(-50%) translateY(2px);
+  box-shadow: 0 0 0 4px var(--tinta), 0 0 20px rgba(217,164,65,.5);
   z-index: 20;
-  box-shadow: 0 0 0 5px rgba(26,16,10,.8);
 }
 .fan-letter {
-  position: absolute; bottom: 28px; left: 50%;
-  transform-origin: center bottom;
-  width: 50px; height: 178px; margin-left: -25px;
-  border-radius: 24px 24px 8px 8px;
+  position: absolute; bottom: 18px; left: 50%;
+  width: 44px; height: 160px; margin-left: -22px;
+  transform-origin: 50% 100%;
+  border-radius: 22px 22px 6px 6px;
   display: flex; align-items: flex-start; justify-content: center;
-  padding-top: 16px;
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 900;
-  color: #fffef8;
-  text-shadow: 0 4px 12px rgba(0,0,0,.3);
-  border: 2px solid rgba(255,255,255,.2);
+  padding-top: 18px;
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem; font-weight: 900;
+  color: rgba(255,255,255,.96);
+  border: 1px solid rgba(255,255,255,.18);
   opacity: 0;
   transform: rotate(0deg);
-  transition: transform .75s cubic-bezier(.4,0,.2,1), opacity .4s ease;
-  will-change: transform, opacity;
+  transition: transform .9s var(--ease), opacity .35s;
+  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+  text-shadow: 0 2px 6px rgba(0,0,0,.35);
 }
 .fan-status {
-  margin-top: 1.4rem;
-  font-size: .82rem; letter-spacing: .12em; text-transform: uppercase;
-  color: rgba(251,245,230,.55);
+  position: relative;
+  margin-top: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .25em; text-transform: uppercase;
+  color: rgba(247,239,220,.45);
 }
 
-/* ─── HEADER ─────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   HEADER
+   ════════════════════════════════════════════════════════════ */
 .site-header {
-  position: sticky; top: 0; z-index: 100;
-  backdrop-filter: blur(18px) saturate(1.4);
-  background: rgba(26,16,10,.82);
-  border-bottom: 1px solid rgba(217,164,65,.15);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  background: rgba(247,239,220,.72);
+  border-bottom: 1px solid var(--line);
+  transition: background .3s var(--ease), border-color .3s, padding .3s;
+}
+.site-header.scrolled {
+  background: rgba(26,15,8,.88);
+  border-bottom-color: rgba(217,164,65,.18);
 }
 .nav-inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: .9rem 1.5rem;
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  max-width: 1320px; margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  transition: padding .3s;
 }
-.brand {
-  display: flex; align-items: center; gap: .9rem;
+.site-header.scrolled .nav-inner { padding: .75rem 2rem; }
+
+.brand { display: flex; align-items: center; gap: .9rem; }
+.brand-mark {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  background: var(--terracota);
+  color: var(--crema-l);
+  border-radius: 12px;
+  font-family: 'Fraunces', serif;
+  font-weight: 900; font-size: 1.4rem;
+  font-style: italic;
+  box-shadow: 0 4px 14px rgba(184,74,40,.35);
+  transition: transform .3s var(--ease-bounce);
 }
-.brand-logo {
-  width: 48px; height: 48px; border-radius: 14px;
-  object-fit: contain; background: var(--crema);
-  padding: 4px;
-  border: 1px solid rgba(217,164,65,.3);
-}
+.brand:hover .brand-mark { transform: rotate(-12deg) scale(1.08); }
 .brand-text strong {
   display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem; font-weight: 700;
-  color: var(--crema); letter-spacing: .02em;
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem; font-weight: 800;
+  letter-spacing: -.02em;
 }
-.brand-text span { font-size: .82rem; color: rgba(251,245,230,.5); }
+.brand-text span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted);
+}
+.site-header.scrolled .brand-text strong { color: var(--crema); }
+.site-header.scrolled .brand-text span { color: rgba(247,239,220,.5); }
 
 .nav-links {
-  display: flex; align-items: center; gap: 1.2rem;
-  font-size: .88rem; color: rgba(251,245,230,.6);
-  flex-wrap: wrap; justify-content: flex-end;
+  display: flex; align-items: center; gap: 1.6rem;
+  font-size: .88rem; font-weight: 500;
 }
-.nav-links a:hover { color: var(--ocre-l); }
+.nav-links a {
+  position: relative; padding: .25rem 0;
+  color: var(--tinta-2); transition: color .25s;
+}
+.nav-links a::after {
+  content:''; position: absolute; left: 0; bottom: -2px;
+  width: 0; height: 1.5px; background: var(--terracota);
+  transition: width .35s var(--ease);
+}
+.nav-links a:hover { color: var(--terracota); }
+.nav-links a:hover::after { width: 100%; }
+.site-header.scrolled .nav-links a { color: rgba(247,239,220,.78); }
+.site-header.scrolled .nav-links a:hover { color: var(--ocre-l); }
 
 .btn {
-  display: inline-flex; align-items: center; gap: .45rem;
-  border-radius: 999px; padding: .65rem 1.3rem;
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .8rem 1.4rem; border-radius: 999px;
   border: 1.5px solid transparent;
-  font-family: 'DM Sans', sans-serif;
-  font-size: .88rem; font-weight: 500;
-  cursor: pointer; transition: all .2s ease;
+  font: inherit; font-size: .88rem; font-weight: 500;
+  transition: all .3s var(--ease);
+  position: relative; overflow: hidden;
 }
-.btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--terracota); color: #fff; box-shadow: 0 14px 32px rgba(196,87,47,.3); }
-.btn-primary:hover { background: var(--terracota-d); }
-.btn-ghost { background: transparent; color: var(--ocre-l); border-color: rgba(217,164,65,.4); }
-.btn-ghost:hover { background: rgba(217,164,65,.1); }
-.btn-dark { background: var(--oscuro); color: var(--crema); border-color: rgba(251,245,230,.12); }
-.btn-dark:hover { background: #2c1a10; }
+.btn::before {
+  content:''; position: absolute; inset: 0;
+  background: rgba(255,255,255,.18);
+  transform: translateX(-100%);
+  transition: transform .5s var(--ease);
+}
+.btn:hover::before { transform: translateX(0); }
+.btn span { position: relative; z-index: 1; }
+.btn-primary { background: var(--terracota); color: #fff; }
+.btn-primary:hover { background: var(--terracota-d); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(184,74,40,.4); }
+.btn-ghost { background: transparent; color: var(--tinta); border-color: var(--line); }
+.btn-ghost:hover { background: var(--tinta); color: var(--crema); border-color: var(--tinta); }
+.btn-dark { background: var(--tinta); color: var(--crema); }
+.btn-dark:hover { background: var(--tinta-2); transform: translateY(-2px); }
+.btn-outline-light { background: transparent; color: var(--crema); border-color: rgba(247,239,220,.3); }
+.btn-outline-light:hover { background: var(--crema); color: var(--tinta); border-color: var(--crema); }
 
-/* ─── SHELL ──────────────────────────────────────── */
-.shell { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.btn-icon { width: 16px; height: 16px; }
 
-/* ─── HERO ───────────────────────────────────────── */
-.hero {
-  min-height: 92vh;
-  display: grid; place-items: center;
-  padding: 6rem 0 4rem;
-  position: relative;
-  overflow: hidden;
-}
-/* decorative circles */
-.hero::before, .hero::after {
-  content:''; position: absolute; border-radius: 50%; pointer-events: none;
-}
-.hero::before {
-  width: 600px; height: 600px;
-  top: -200px; right: -180px;
-  background: radial-gradient(circle, rgba(217,164,65,.18), transparent 65%);
-}
-.hero::after {
-  width: 400px; height: 400px;
-  bottom: -120px; left: -100px;
-  background: radial-gradient(circle, rgba(31,106,98,.15), transparent 65%);
-}
-
-.hero-grid {
-  display: grid; grid-template-columns: 1.1fr .9fr;
-  gap: 3rem; align-items: center; position: relative; z-index: 1;
-}
+/* ════════════════════════════════════════════════════════════
+   SHELL
+   ════════════════════════════════════════════════════════════ */
+.shell { max-width: 1320px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 7rem 0; position: relative; }
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: .5rem;
-  padding: .35rem .85rem; border-radius: 999px;
-  background: rgba(31,106,98,.12); color: var(--verde);
-  font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
-  border: 1px solid rgba(31,106,98,.2);
-  margin-bottom: 1.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; font-weight: 500;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--terracota);
+  margin-bottom: 1.6rem;
+}
+.eyebrow::before {
+  content:''; width: 28px; height: 1px; background: currentColor;
 }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 5.5vw, 5.4rem);
-  font-weight: 900; letter-spacing: -.04em; line-height: 1.0;
-  color: var(--oscuro);
+.section-head { margin-bottom: 4rem; max-width: 760px; }
+.section-head h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -.035em;
 }
-h1 em { font-style: italic; color: var(--terracota); }
+.section-head h2 em { font-style: italic; color: var(--terracota); }
+.section-head p {
+  margin-top: 1.2rem;
+  font-size: 1.08rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 56ch;
+  line-height: 1.6;
+}
 
-.hero-sub {
-  margin: 1.4rem 0 0; font-size: 1.08rem; color: var(--muted);
-  max-width: 52ch; font-weight: 300;
+/* ════════════════════════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  padding: 9rem 0 5rem;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(217,164,65,.18) 0, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(27,94,85,.14) 0, transparent 55%),
+    var(--crema);
 }
-.hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 2rem; }
 
-.hero-stats {
-  display: flex; gap: 2rem; flex-wrap: wrap;
-  margin-top: 2.5rem; padding-top: 2rem;
-  border-top: 1px solid var(--line);
-}
-.hero-stat strong {
-  display: block; font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 700; color: var(--terracota);
-}
-.hero-stat span { font-size: .88rem; color: var(--muted); }
-
-/* HERO RIGHT CARD */
-.hero-card {
-  position: relative;
-  border-radius: 36px; overflow: hidden;
-  background: var(--oscuro);
-  padding: 2.2rem;
-  box-shadow: 0 48px 100px rgba(30,15,8,.25);
-}
-.hero-card::before {
-  content:''; position: absolute;
-  inset: -60px -60px auto auto;
-  width: 260px; height: 260px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(217,164,65,.22), transparent 60%);
+/* Decorative arc */
+.hero-arc {
+  position: absolute; top: -300px; right: -200px;
+  width: 800px; height: 800px;
+  border: 1px solid rgba(184,74,40,.12);
+  border-radius: 50%;
   pointer-events: none;
 }
-.hero-card-label {
-  font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--ocre); margin-bottom: 1.2rem;
+.hero-arc::before {
+  content:''; position: absolute; inset: 60px;
+  border: 1px solid rgba(184,74,40,.08);
+  border-radius: 50%;
 }
-.hero-logo-wrap {
-  background: rgba(251,245,230,.07);
-  border-radius: 24px;
-  padding: 2rem;
-  display: grid; place-items: center;
-  border: 1px solid rgba(217,164,65,.15);
-  margin-bottom: 1.4rem;
+.hero-arc::after {
+  content:''; position: absolute; inset: 140px;
+  border: 1px solid rgba(184,74,40,.05);
+  border-radius: 50%;
 }
-.hero-logo-wrap img { width: min(100%, 200px); filter: brightness(1.05); }
 
-.card-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem; font-style: italic;
-  color: rgba(251,245,230,.85); line-height: 1.5;
-  border-left: 3px solid var(--ocre); padding-left: 1rem;
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr .85fr;
+  gap: 4rem; align-items: center;
+  position: relative; z-index: 2;
+  width: 100%;
 }
-.card-badge {
-  display: inline-flex; align-items: center; gap: .5rem;
-  margin-top: 1.2rem; padding: .5rem .9rem;
-  border-radius: 999px; background: rgba(31,106,98,.25);
-  color: #5ecfc3; font-size: .82rem; font-weight: 500;
+
+.hero-meta {
+  display: flex; align-items: center; gap: 1.2rem;
+  margin-bottom: 1.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted);
 }
-.badge-dot {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--verde-l);
+.hero-meta .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--verde-l);
   animation: pulse 2s infinite;
 }
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
-
-/* ─── SECTION COMMONS ────────────────────────────── */
-section { padding: 5rem 0; }
-
-.section-head { margin-bottom: 3rem; }
-.section-head h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 900; letter-spacing: -.03em; line-height: 1.05;
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(1.4); }
 }
-.section-head p { margin-top: .8rem; color: var(--muted); max-width: 58ch; font-weight: 300; }
 
-/* ─── QUIÉNES SOMOS ──────────────────────────────── */
-.quienes { background: var(--oscuro); color: var(--crema); position: relative; overflow: hidden; }
-.quienes::after {
-  content:''; position: absolute; right: -100px; top: -100px;
-  width: 500px; height: 500px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(196,87,47,.15), transparent 60%);
-  pointer-events: none;
+h1.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 8vw, 6.4rem);
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: -.045em;
+  color: var(--tinta);
 }
-.quienes .section-head h2 { color: var(--crema); }
-.quienes .section-head p { color: rgba(251,245,230,.6); }
-.quienes .eyebrow { background: rgba(217,164,65,.15); color: var(--ocre-l); border-color: rgba(217,164,65,.2); }
+h1.hero-title em {
+  font-style: italic;
+  font-weight: 900;
+  color: var(--terracota);
+  position: relative;
+  display: inline-block;
+}
+h1.hero-title em::after {
+  content:''; position: absolute;
+  left: 0; bottom: 8px;
+  width: 100%; height: 6px;
+  background: var(--ocre-l);
+  z-index: -1;
+  opacity: .55;
+  transform: skewX(-12deg);
+}
 
-.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-.story-panel {
-  border-radius: var(--r-xl); padding: 2rem;
-  border: 1px solid rgba(217,164,65,.12);
-  background: rgba(251,245,230,.05);
-  transition: background .25s ease;
+.hero-sub {
+  margin-top: 1.8rem;
+  max-width: 52ch;
+  font-size: 1.15rem;
+  color: var(--tinta-2);
+  font-weight: 300;
+  line-height: 1.6;
 }
-.story-panel:hover { background: rgba(251,245,230,.09); }
-.story-panel h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem; font-weight: 700; margin-bottom: .8rem;
-  color: var(--ocre-l);
-}
-.story-panel p { color: rgba(251,245,230,.7); font-weight: 300; }
+.hero-sub strong { color: var(--terracota); font-weight: 600; font-style: italic; font-family: 'Fraunces', serif; }
 
-/* ─── PROGRAMAS ──────────────────────────────────── */
-.program-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
-.program-card {
-  border-radius: var(--r-xl); padding: 2rem;
-  border: 1px solid var(--line);
-  background: var(--blanco);
-  box-shadow: var(--sh);
-  transition: transform .25s ease, box-shadow .25s ease;
-  position: relative; overflow: hidden;
+.hero-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  margin-top: 2.5rem;
 }
-.program-card::before {
-  content:''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(196,87,47,.04), transparent 60%);
-  opacity: 0; transition: opacity .3s ease;
-}
-.program-card:hover { transform: translateY(-6px); box-shadow: 0 48px 100px rgba(60,35,18,.18); }
-.program-card:hover::before { opacity: 1; }
 
-.prog-icon {
-  width: 56px; height: 56px;
-  border-radius: 18px; margin-bottom: 1.4rem;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem; font-weight: 900; color: #fff;
+.hero-marquee {
+  margin-top: 4rem;
+  padding: 1.3rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  position: relative;
 }
-.prog-icon.tc { background: linear-gradient(135deg, var(--terracota), #E07A45); }
-.prog-icon.gr { background: linear-gradient(135deg, var(--verde), #2DBF9F); }
-.prog-icon.oc { background: linear-gradient(135deg, #B8891C, var(--ocre)); }
-
-.program-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.35rem; font-weight: 700; margin-bottom: .7rem;
+.hero-marquee::before, .hero-marquee::after {
+  content:''; position: absolute; top: 0; bottom: 0;
+  width: 60px; z-index: 2; pointer-events: none;
 }
-.program-card p { color: var(--muted); font-weight: 300; }
-
-/* ─── IMPACTO ─────────────────────────────────────── */
-.impacto { background: var(--terracota); color: var(--crema); position: relative; overflow: hidden; }
-.impacto::before {
-  content:''; position: absolute; left: -80px; bottom: -80px;
-  width: 400px; height: 400px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,.08), transparent 60%);
+.hero-marquee::before { left: 0; background: linear-gradient(90deg, var(--crema), transparent); }
+.hero-marquee::after { right: 0; background: linear-gradient(-90deg, var(--crema), transparent); }
+.marquee-track {
+  display: flex; gap: 3rem;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--muted);
 }
-.impacto .section-head h2 { color: var(--crema); }
-.impacto .section-head p { color: rgba(255,255,255,.7); }
-.impacto .eyebrow { background: rgba(255,255,255,.15); color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.2); }
+.marquee-track span { display: flex; align-items: center; gap: 3rem; white-space: nowrap; }
+.marquee-track span::after {
+  content:'✦'; color: var(--terracota); font-style: normal;
+}
+@keyframes scroll {
+  to { transform: translateX(-50%); }
+}
 
-.impact-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; }
-.impact-card {
-  padding: 1.8rem;
+/* HERO RIGHT */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 4/5;
   border-radius: var(--r-xl);
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(8px);
-  transition: background .2s ease;
+  overflow: hidden;
+  background: var(--tinta);
+  box-shadow: 0 50px 100px -20px rgba(60,30,12,.32);
 }
-.impact-card:hover { background: rgba(255,255,255,.18); }
-.impact-card strong {
-  display: block; font-family: 'Playfair Display', serif;
-  font-size: 2.4rem; font-weight: 900; margin-bottom: .5rem;
-  color: #fff;
+.hero-visual-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(217,164,65,.5) 0, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(184,74,40,.6) 0, transparent 50%),
+    linear-gradient(180deg, var(--tinta-2) 0%, var(--tinta) 100%);
 }
-.impact-card p { color: rgba(255,255,255,.75); font-size: .95rem; font-weight: 300; }
+.hero-visual-bg::after {
+  content:''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(247,239,220,.04) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(0deg, rgba(247,239,220,.04) 0 1px, transparent 1px 80px);
+}
 
-/* ─── NOTICIAS ───────────────────────────────────── */
-.news-grid { display: grid; grid-template-columns: 1.2fr .9fr .9fr; gap: 1.2rem; }
-.news-card {
-  border-radius: var(--r-xl); padding: 2rem;
-  border: 1px solid var(--line); background: var(--blanco);
-  box-shadow: var(--sh);
-}
-.news-card.featured {
-  background: var(--oscuro); color: var(--crema);
-  border-color: rgba(217,164,65,.2);
-}
-.news-card.featured p,
-.news-card.featured .news-date { color: rgba(251,245,230,.65); }
-
-.news-tag {
-  display: inline-flex; align-items: center;
-  padding: .3rem .7rem; border-radius: 999px;
-  font-size: .74rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
-}
-.news-tag.new { background: rgba(31,106,98,.12); color: var(--verde); }
-.news-tag.act { background: rgba(217,164,65,.15); color: #9B6B0E; }
-.news-tag.com { background: rgba(196,87,47,.1); color: var(--terracota-d); }
-.news-tag.feat { background: rgba(217,164,65,.2); color: var(--ocre); }
-
-.news-date { display: block; margin: .8rem 0 .5rem; color: var(--muted); font-size: .88rem; }
-.news-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.45rem; font-weight: 700; margin-bottom: .7rem; line-height: 1.15;
-}
-.news-card p { color: var(--muted); font-weight: 300; }
-.news-list { margin: 1rem 0 0 1.2rem; color: var(--muted); display: grid; gap: .35rem; font-weight: 300; }
-
-/* ─── GALERÍA ─────────────────────────────────────── */
-.gallery-shell { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.2rem; align-items: stretch; }
-
-.gallery-main {
-  position: relative; border-radius: var(--r-xl); overflow: hidden;
-  min-height: 540px; background: var(--crema-d);
-  box-shadow: var(--sh);
-}
-.gallery-track { display: flex; height: 100%; transition: transform .75s cubic-bezier(.4,0,.2,1); }
-.gallery-slide { position: relative; min-width: 100%; min-height: 540px; }
-.gallery-slide img { width: 100%; height: 100%; min-height: 540px; object-fit: cover; }
-.gallery-caption {
-  position: absolute; inset: auto 0 0;
+.hv-content {
+  position: relative; z-index: 2;
+  height: 100%;
   padding: 2.5rem;
-  background: linear-gradient(0deg, rgba(15,8,4,.85) 0%, rgba(15,8,4,.4) 60%, transparent 100%);
+  display: flex; flex-direction: column; justify-content: space-between;
   color: var(--crema);
 }
+.hv-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.hv-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ocre);
+}
+.hv-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic; font-weight: 700;
+  font-size: 1.2rem;
+  color: rgba(247,239,220,.5);
+}
+
+.hv-center {
+  flex: 1;
+  display: grid; place-items: center;
+  padding: 2rem 0;
+}
+.hv-logo-circle {
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(247,239,220,.15), rgba(247,239,220,.04));
+  border: 1px solid rgba(247,239,220,.15);
+  display: grid; place-items: center;
+  font-family: 'Fraunces', serif;
+  font-size: 6rem; font-weight: 900;
+  font-style: italic;
+  color: var(--ocre-l);
+  position: relative;
+  animation: float 8s ease-in-out infinite;
+}
+.hv-logo-circle::before, .hv-logo-circle::after {
+  content:''; position: absolute; border-radius: 50%;
+  border: 1px dashed rgba(247,239,220,.18);
+}
+.hv-logo-circle::before { inset: -20px; animation: rotate 30s linear infinite; }
+.hv-logo-circle::after { inset: -50px; animation: rotate 50s linear infinite reverse; border-style: dotted; opacity: .5; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.hv-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic; font-weight: 500;
+  font-size: 1.15rem; line-height: 1.45;
+  color: rgba(247,239,220,.92);
+  position: relative; padding-left: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+.hv-quote::before {
+  content:'"'; position: absolute; left: -5px; top: -15px;
+  font-size: 3.5rem; line-height: 1;
+  color: var(--ocre);
+}
+.hv-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(247,239,220,.55);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(247,239,220,.12);
+}
+.hv-badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  color: var(--verde-l);
+}
+.hv-badge .b-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--verde-l);
+  box-shadow: 0 0 8px var(--verde-l);
+  animation: pulse 2s infinite;
+}
+
+/* Floating cards around hero visual */
+.float-tag {
+  position: absolute;
+  background: var(--crema-l);
+  padding: .7rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: var(--sh-card);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--tinta);
+  z-index: 3;
+  display: flex; align-items: center; gap: .5rem;
+}
+.float-tag::before {
+  content:''; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--terracota);
+}
+.float-tag.t1 { top: 8%; left: -8%; animation: float 6s ease-in-out infinite; }
+.float-tag.t2 { bottom: 18%; right: -10%; animation: float 7s ease-in-out infinite .8s; }
+.float-tag.t2::before { background: var(--verde-l); }
+
+/* ════════════════════════════════════════════════════════════
+   STATS COUNTER STRIP
+   ════════════════════════════════════════════════════════════ */
+.stats-strip {
+  background: var(--tinta);
+  color: var(--crema);
+  padding: 5rem 0;
+  position: relative; overflow: hidden;
+}
+.stats-strip::before {
+  content:''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(184,74,40,.18) 0, transparent 50%),
+    radial-gradient(ellipse at 100% 50%, rgba(27,94,85,.18) 0, transparent 50%);
+}
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0;
+  position: relative; z-index: 2;
+}
+.stat {
+  padding: 0 2rem;
+  border-left: 1px solid var(--line-l);
+}
+.stat:first-child { border-left: 0; padding-left: 0; }
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--crema);
+  letter-spacing: -.04em;
+}
+.stat-num em { font-style: italic; color: var(--terracota-l); }
+.stat-num .plus, .stat-num .pct { color: var(--ocre); font-weight: 700; }
+.stat-label {
+  margin-top: .8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(247,239,220,.55);
+}
+.stat-desc {
+  margin-top: .6rem;
+  font-size: .92rem; color: rgba(247,239,220,.7);
+  font-weight: 300;
+  max-width: 24ch;
+}
+
+/* ════════════════════════════════════════════════════════════
+   QUIÉNES SOMOS
+   ════════════════════════════════════════════════════════════ */
+.quienes { background: var(--crema-l); }
+.quienes-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.quienes-left .section-head { margin-bottom: 2rem; }
+.quienes-quote {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: var(--crema);
+  border-left: 3px solid var(--terracota);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--tinta-2);
+}
+.quienes-quote footer {
+  margin-top: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-style: normal;
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+.values-list {
+  display: grid; gap: .8rem;
+}
+.value-item {
+  display: grid; grid-template-columns: 60px 1fr;
+  gap: 1.5rem; align-items: start;
+  padding: 1.8rem;
+  background: var(--crema);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  transition: all .4s var(--ease);
+  position: relative; overflow: hidden;
+}
+.value-item::before {
+  content:''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--terracota);
+  transform: scaleY(0);
+  transition: transform .4s var(--ease);
+  transform-origin: top;
+}
+.value-item:hover {
+  transform: translateX(8px);
+  border-color: rgba(184,74,40,.3);
+  box-shadow: var(--sh-card);
+}
+.value-item:hover::before { transform: scaleY(1); }
+.value-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 2rem; font-weight: 700;
+  color: var(--terracota);
+  line-height: 1;
+}
+.value-content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem; font-weight: 700;
+  margin-bottom: .4rem;
+}
+.value-content p {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: .96rem;
+}
+
+/* ════════════════════════════════════════════════════════════
+   PROGRAMAS
+   ════════════════════════════════════════════════════════════ */
+.programs-bg { background: var(--crema); }
+.program-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem;
+}
+.program-card {
+  position: relative;
+  padding: 2.4rem 2rem;
+  background: var(--crema-l);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--line);
+  transition: all .5s var(--ease);
+  overflow: hidden;
+}
+.program-card::before {
+  content:''; position: absolute;
+  top: 0; left: 0; right: 0; height: 0;
+  background: linear-gradient(180deg, var(--terracota), transparent);
+  opacity: 0;
+  transition: all .5s var(--ease);
+}
+.program-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--sh-card-h);
+  border-color: transparent;
+}
+.program-card:hover::before { height: 100%; opacity: .04; }
+
+.prog-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+}
+.prog-icon {
+  width: 64px; height: 64px;
+  border-radius: 18px;
+  display: grid; place-items: center;
+  margin-bottom: 1.8rem;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.8rem; font-weight: 900;
+  color: #fff;
+  position: relative;
+  transition: transform .4s var(--ease-bounce);
+}
+.program-card:hover .prog-icon {
+  transform: rotate(-8deg) scale(1.1);
+}
+.prog-icon.c1 { background: linear-gradient(135deg, var(--terracota), var(--terracota-l)); }
+.prog-icon.c2 { background: linear-gradient(135deg, var(--verde), var(--verde-l)); }
+.prog-icon.c3 { background: linear-gradient(135deg, var(--ocre-d), var(--ocre)); }
+
+.program-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.55rem; font-weight: 700;
+  margin-bottom: .8rem;
+  letter-spacing: -.01em;
+}
+.program-card p {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: .98rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.prog-features {
+  list-style: none;
+  display: grid; gap: .5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+.prog-features li {
+  display: flex; align-items: center; gap: .6rem;
+  font-size: .88rem;
+  color: var(--tinta-2);
+  font-weight: 500;
+}
+.prog-features li::before {
+  content:''; width: 14px; height: 1.5px;
+  background: var(--terracota);
+}
+
+/* ════════════════════════════════════════════════════════════
+   LÍNEA TEMPORAL
+   ════════════════════════════════════════════════════════════ */
+.timeline-bg {
+  background: var(--tinta);
+  color: var(--crema);
+  position: relative; overflow: hidden;
+}
+.timeline-bg::before {
+  content:''; position: absolute;
+  top: 20%; right: -200px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,74,40,.2) 0, transparent 60%);
+}
+.timeline-bg .section-head h2 { color: var(--crema); }
+.timeline-bg .section-head p { color: rgba(247,239,220,.65); }
+.timeline-bg .eyebrow { color: var(--ocre-l); }
+
+.timeline {
+  position: relative;
+  padding-left: 0;
+}
+.timeline::before {
+  content:''; position: absolute;
+  left: 120px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--ocre) 10%, var(--ocre) 90%, transparent);
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 3rem;
+  padding: 2rem 0;
+  position: relative;
+}
+.tl-item::before {
+  content:''; position: absolute;
+  left: 113px; top: 2.5rem;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--ocre);
+  box-shadow: 0 0 0 5px var(--tinta), 0 0 18px var(--ocre);
+  z-index: 2;
+}
+.tl-year {
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem; font-weight: 800;
+  font-style: italic;
+  color: var(--terracota-l);
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+.tl-content {
+  padding-left: 3rem;
+  padding-top: .2rem;
+}
+.tl-content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem; font-weight: 700;
+  margin-bottom: .5rem;
+  color: var(--crema);
+}
+.tl-content p {
+  color: rgba(247,239,220,.68);
+  font-weight: 300;
+  max-width: 56ch;
+}
+.tl-tag {
+  display: inline-flex;
+  margin-top: .8rem;
+  padding: .25rem .8rem;
+  border-radius: 999px;
+  background: rgba(217,164,65,.15);
+  color: var(--ocre-l);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+}
+
+/* ════════════════════════════════════════════════════════════
+   EQUIPO
+   ════════════════════════════════════════════════════════════ */
+.team-bg { background: var(--crema); }
+.team-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+}
+.team-card {
+  position: relative;
+  background: var(--crema-l);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: all .5s var(--ease);
+}
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--sh-card-h);
+}
+.team-avatar {
+  aspect-ratio: 1;
+  position: relative; overflow: hidden;
+  display: grid; place-items: center;
+  font-family: 'Fraunces', serif;
+  font-size: 4.5rem; font-weight: 900;
+  font-style: italic;
+  color: var(--crema-l);
+}
+.team-avatar.av1 { background: linear-gradient(135deg, var(--terracota) 0%, #8B3520 100%); }
+.team-avatar.av2 { background: linear-gradient(135deg, var(--verde) 0%, #0a3a35 100%); }
+.team-avatar.av3 { background: linear-gradient(135deg, var(--ocre-d) 0%, #5e4416 100%); }
+.team-avatar.av4 { background: linear-gradient(135deg, #6B2D52 0%, #3D1730 100%); }
+.team-avatar::after {
+  content:''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.04) 0 2px, transparent 2px 12px);
+}
+.team-info {
+  padding: 1.6rem;
+}
+.team-info h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem; font-weight: 700;
+  margin-bottom: .3rem;
+}
+.team-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--terracota);
+  margin-bottom: .8rem;
+}
+.team-bio {
+  font-size: .88rem; color: var(--muted);
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+/* ════════════════════════════════════════════════════════════
+   TESTIMONIOS
+   ════════════════════════════════════════════════════════════ */
+.testimonials-bg {
+  background: var(--terracota);
+  color: var(--crema-l);
+  position: relative; overflow: hidden;
+}
+.testimonials-bg::before {
+  content:''; position: absolute;
+  top: -100px; left: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217,164,65,.3) 0, transparent 60%);
+}
+.testimonials-bg::after {
+  content:''; position: absolute;
+  bottom: -150px; right: -150px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,94,85,.25) 0, transparent 60%);
+}
+.testimonials-bg .section-head h2 { color: var(--crema-l); }
+.testimonials-bg .section-head p { color: rgba(247,239,220,.75); }
+.testimonials-bg .eyebrow { color: var(--ocre-l); }
+
+.testimonials-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 1.5rem;
+}
+.testimonial {
+  position: relative;
+  padding: 2.4rem;
+  background: rgba(247,239,220,.08);
+  border: 1px solid rgba(247,239,220,.15);
+  border-radius: var(--r-xl);
+  backdrop-filter: blur(10px);
+  transition: all .4s var(--ease);
+}
+.testimonial:hover {
+  background: rgba(247,239,220,.12);
+  transform: translateY(-6px);
+}
+.testimonial.featured {
+  background: var(--tinta);
+  border-color: rgba(217,164,65,.3);
+}
+.t-quote-mark {
+  font-family: 'Fraunces', serif;
+  font-size: 5rem;
+  font-style: italic;
+  line-height: 1;
+  color: var(--ocre);
+  margin-bottom: -1rem;
+  display: block;
+}
+.testimonial blockquote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+}
+.testimonial.featured blockquote {
+  font-size: 1.4rem;
+}
+.t-author {
+  display: flex; align-items: center; gap: 1rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(247,239,220,.15);
+}
+.t-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--ocre);
+  display: grid; place-items: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 800; font-size: 1.1rem;
+  color: var(--tinta);
+}
+.t-avatar.v2 { background: var(--verde-l); }
+.t-avatar.v3 { background: var(--crema-l); }
+.t-info strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-size: 1rem; font-weight: 700;
+}
+.t-info span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(247,239,220,.65);
+}
+
+/* ════════════════════════════════════════════════════════════
+   CÓMO COLABORAR
+   ════════════════════════════════════════════════════════════ */
+.collab-bg {
+  background:
+    linear-gradient(180deg, var(--crema) 0%, var(--crema-d) 100%);
+}
+.collab-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.collab-card {
+  position: relative;
+  padding: 2.4rem;
+  background: var(--crema-l);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--line);
+  transition: all .5s var(--ease);
+  overflow: hidden;
+}
+.collab-card.featured {
+  background: var(--verde);
+  color: var(--crema-l);
+  border-color: transparent;
+}
+.collab-card:hover {
+  transform: translateY(-10px) rotate(-1deg);
+  box-shadow: var(--sh-card-h);
+}
+.collab-card.featured:hover {
+  background: var(--verde-d);
+}
+.collab-card .c-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: var(--terracota);
+  color: #fff;
+  display: grid; place-items: center;
+  margin-bottom: 1.8rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  font-style: italic;
+  transition: transform .4s var(--ease-bounce);
+}
+.collab-card.featured .c-icon {
+  background: var(--ocre);
+  color: var(--tinta);
+}
+.collab-card:hover .c-icon { transform: rotate(15deg) scale(1.1); }
+.collab-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem; font-weight: 700;
+  margin-bottom: .6rem;
+  letter-spacing: -.01em;
+}
+.collab-card p {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: .98rem;
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+.collab-card.featured p { color: rgba(247,239,220,.8); }
+.c-link {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .76rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--terracota);
+  font-weight: 500;
+  transition: gap .3s var(--ease);
+}
+.collab-card.featured .c-link { color: var(--ocre-l); }
+.c-link::after { content: '→'; transition: transform .3s var(--ease); }
+.collab-card:hover .c-link::after { transform: translateX(6px); }
+.collab-card:hover .c-link { gap: .8rem; }
+
+/* ════════════════════════════════════════════════════════════
+   NOTICIAS
+   ════════════════════════════════════════════════════════════ */
+.news-bg { background: var(--crema-l); }
+.news-grid {
+  display: grid; grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 1.5rem;
+}
+.news-card {
+  position: relative;
+  background: var(--crema);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--line);
+  padding: 2rem;
+  transition: all .5s var(--ease);
+  overflow: hidden;
+}
+.news-card.feat {
+  background: var(--tinta);
+  color: var(--crema);
+  border-color: transparent;
+  padding: 2.4rem;
+}
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sh-card-h);
+}
+.news-tag {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .3rem .8rem;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .15em; text-transform: uppercase;
+  font-weight: 500;
+}
+.news-tag.act { background: rgba(184,74,40,.12); color: var(--terracota-d); }
+.news-tag.com { background: rgba(27,94,85,.12); color: var(--verde-d); }
+.news-tag.fe { background: rgba(217,164,65,.2); color: var(--ocre-l); }
+.news-card .news-date {
+  display: block;
+  margin: 1rem 0 .6rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .76rem; letter-spacing: .12em;
+  color: var(--muted);
+}
+.news-card.feat .news-date { color: rgba(247,239,220,.5); }
+.news-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.45rem; font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: .7rem;
+  letter-spacing: -.01em;
+}
+.news-card.feat h3 { font-size: 1.8rem; }
+.news-card p {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: .96rem;
+  line-height: 1.55;
+}
+.news-card.feat p { color: rgba(247,239,220,.7); }
+.news-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin-top: 1.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .74rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--terracota);
+  font-weight: 500;
+}
+.news-card.feat .news-link { color: var(--ocre-l); }
+.news-link::after { content: '→'; transition: transform .3s var(--ease); }
+.news-card:hover .news-link::after { transform: translateX(5px); }
+
+/* ════════════════════════════════════════════════════════════
+   GALERÍA
+   ════════════════════════════════════════════════════════════ */
+.gallery-bg { background: var(--crema-d); }
+.gallery-shell {
+  display: grid; grid-template-columns: 1.5fr .8fr;
+  gap: 1.5rem;
+}
+.gallery-main {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--tinta);
+  box-shadow: var(--sh-card-h);
+}
+.gallery-track {
+  display: flex; height: 100%;
+  transition: transform .9s var(--ease);
+}
+.gallery-slide {
+  min-width: 100%;
+  position: relative;
+}
+.gallery-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.gallery-caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 3rem 2.5rem 2rem;
+  background: linear-gradient(0deg, rgba(15,8,4,.92) 0%, rgba(15,8,4,.6) 50%, transparent 100%);
+  color: var(--crema);
+}
+.gallery-caption .gc-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ocre);
+  margin-bottom: .8rem;
+  display: block;
+}
 .gallery-caption h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 700; margin-bottom: .4rem; line-height: 1.1;
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem; font-weight: 700;
+  margin-bottom: .5rem;
+  letter-spacing: -.02em;
 }
-.gallery-caption p { color: rgba(251,245,230,.8); font-weight: 300; max-width: 44ch; }
-
+.gallery-caption p {
+  color: rgba(247,239,220,.85);
+  max-width: 50ch;
+  font-weight: 300;
+}
 .gallery-arrow {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 48px; height: 48px; border-radius: 50%; border: 0;
-  background: rgba(251,245,230,.85); color: var(--oscuro);
-  font-size: 1.5rem; cursor: pointer;
-  box-shadow: 0 16px 32px rgba(0,0,0,.14);
-  transition: background .2s, transform .2s;
-  z-index: 2; display: flex; align-items: center; justify-content: center;
+  position: absolute; top: 50%;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(247,239,220,.92);
+  color: var(--tinta);
+  font-size: 1.4rem;
+  display: grid; place-items: center;
+  transform: translateY(-50%);
+  transition: all .3s var(--ease);
+  z-index: 3;
 }
-.gallery-arrow:hover { background: #fff; transform: translateY(-50%) scale(1.06); }
-.gallery-arrow.prev { left: 1rem; }
-.gallery-arrow.next { right: 1rem; }
-
+.gallery-arrow:hover {
+  background: var(--terracota);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+.gallery-arrow.prev { left: 1.5rem; }
+.gallery-arrow.next { right: 1.5rem; }
 .gallery-dots {
-  position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
-  display: flex; gap: .5rem; z-index: 2;
+  position: absolute; bottom: 1.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: .5rem;
+  z-index: 3;
 }
 .gdot {
-  width: 9px; height: 9px; border-radius: 999px; border: 0;
-  background: rgba(255,255,255,.4); cursor: pointer;
-  transition: background .2s, transform .2s;
+  width: 36px; height: 3px;
+  border-radius: 999px;
+  background: rgba(247,239,220,.35);
+  border: 0;
+  transition: background .3s, width .3s;
 }
-.gdot.on { background: #fff; transform: scale(1.25); }
+.gdot.on { background: var(--ocre); width: 48px; }
 
-.gallery-side { display: grid; gap: 1rem; }
+.gallery-side { display: grid; gap: 1.2rem; }
 .side-card {
-  border-radius: var(--r-xl); overflow: hidden;
-  border: 1px solid var(--line); background: var(--blanco);
-  box-shadow: 0 18px 40px rgba(60,35,18,.09);
-  display: grid; grid-template-columns: 110px 1fr;
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  cursor: pointer;
+  transition: all .4s var(--ease);
 }
-.side-card img { width: 110px; height: 100%; object-fit: cover; }
-.side-card-body { padding: 1.2rem; display: grid; align-content: center; gap: .3rem; }
-.side-card-body h4 {
-  font-family: 'Playfair Display', serif;
+.side-card:hover { transform: translateY(-4px); box-shadow: var(--sh-card); }
+.side-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--ease);
+}
+.side-card:hover img { transform: scale(1.05); }
+.side-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(15,8,4,.85) 0%, transparent 60%);
+  padding: 1.3rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: var(--crema);
+}
+.side-card-overlay h4 {
+  font-family: 'Fraunces', serif;
   font-size: 1.05rem; font-weight: 700;
+  line-height: 1.2;
 }
-.side-card-body p { font-size: .88rem; color: var(--muted); font-weight: 300; }
+.side-card-overlay p {
+  font-size: .8rem;
+  color: rgba(247,239,220,.75);
+  margin-top: .2rem;
+}
 
-/* ─── COMENTARIOS ────────────────────────────────── */
-.comments-bg { background: var(--crema-d); }
-.comment-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; align-items: start; }
+/* ════════════════════════════════════════════════════════════
+   FAQ (accordion)
+   ════════════════════════════════════════════════════════════ */
+.faq-bg { background: var(--crema); }
+.faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 4rem; align-items: start; }
 
+.faq-list {
+  display: grid; gap: .8rem;
+}
+.faq-item {
+  background: var(--crema-l);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: all .4s var(--ease);
+}
+.faq-item[open] {
+  border-color: rgba(184,74,40,.3);
+  background: var(--crema-l);
+  box-shadow: var(--sh-soft);
+}
+.faq-item summary {
+  list-style: none;
+  padding: 1.5rem 1.8rem;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem; font-weight: 600;
+  letter-spacing: -.01em;
+  transition: color .3s;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--terracota); }
+.faq-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--crema);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  font-size: 1rem; font-weight: 600;
+  color: var(--terracota);
+  transition: all .4s var(--ease);
+}
+.faq-item[open] .faq-icon {
+  background: var(--terracota);
+  color: #fff;
+  transform: rotate(180deg);
+}
+.faq-content {
+  padding: 0 1.8rem 1.6rem 1.8rem;
+  color: var(--muted);
+  font-weight: 300;
+  font-size: .98rem;
+  line-height: 1.65;
+  max-width: 56ch;
+}
+
+/* ════════════════════════════════════════════════════════════
+   COMENTARIOS
+   ════════════════════════════════════════════════════════════ */
+.comments-bg {
+  background: var(--crema-d);
+  position: relative; overflow: hidden;
+}
+.comments-bg::before {
+  content:''; position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,74,40,.08) 0, transparent 60%);
+}
+
+.comment-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
 .comment-panel {
-  border-radius: var(--r-xl); padding: 2rem;
-  border: 1px solid var(--line); background: var(--blanco);
-  box-shadow: var(--sh);
+  padding: 2.4rem;
+  background: var(--crema-l);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh-card);
+  position: relative;
+}
+.cp-num {
+  position: absolute; top: 1.5rem; right: 1.8rem;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 2.4rem; font-weight: 800;
+  color: var(--terracota);
+  opacity: .12;
+  line-height: 1;
 }
 .comment-panel h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem; font-weight: 700; margin-bottom: .5rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem; font-weight: 700;
+  margin-bottom: .4rem;
+  letter-spacing: -.01em;
 }
-.comment-panel > p { color: var(--muted); font-weight: 300; margin-bottom: 1.2rem; }
-
+.comment-panel > p {
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  font-size: .96rem;
+}
 .hint-box {
-  padding: 1rem 1.2rem; border-radius: var(--r-md);
-  background: rgba(31,106,98,.08); border-left: 3px solid var(--verde);
-  color: #1a4d47; font-size: .9rem; margin-bottom: 1.2rem; font-weight: 300;
+  padding: 1rem 1.2rem;
+  background: rgba(27,94,85,.06);
+  border-left: 3px solid var(--verde);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  color: var(--verde-d);
+  font-size: .88rem;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
 }
 
-form { display: grid; gap: .9rem; }
-label { display: grid; gap: .3rem; font-size: .92rem; font-weight: 500; }
-.lsub { font-weight: 300; color: var(--muted); font-size: .84rem; }
+form { display: grid; gap: 1.1rem; }
+label {
+  display: grid; gap: .35rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--tinta-2);
+  font-weight: 500;
+}
+.lsub {
+  font-family: 'Inter', sans-serif;
+  font-size: .82rem; letter-spacing: 0; text-transform: none;
+  color: var(--muted);
+  font-weight: 400;
+}
 input, textarea, select {
-  width: 100%; border: 1.5px solid rgba(90,63,44,.15);
-  border-radius: var(--r-md); background: var(--crema);
-  color: var(--oscuro); font: inherit; padding: .85rem 1rem;
-  outline: none; transition: border-color .2s, box-shadow .2s;
+  width: 100%;
+  padding: .95rem 1.1rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--crema);
+  color: var(--tinta);
+  font: inherit;
+  outline: none;
+  transition: all .25s var(--ease);
 }
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
   border-color: var(--terracota);
-  box-shadow: 0 0 0 4px rgba(196,87,47,.12);
+  box-shadow: 0 0 0 4px rgba(184,74,40,.12);
+  background: var(--crema-l);
 }
-textarea { min-height: 140px; resize: vertical; }
+textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 
 .switch-row {
   display: flex; align-items: center; gap: .7rem;
-  font-size: .9rem; color: var(--muted); cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: .9rem; letter-spacing: 0; text-transform: none;
+  color: var(--tinta-2); font-weight: 400;
 }
-.switch-row input { width: 16px; height: 16px; accent-color: var(--verde); cursor: pointer; }
+.switch-row input { width: 18px; height: 18px; accent-color: var(--terracota); }
+.switch-row label { font-family: inherit; font-size: inherit; letter-spacing: 0; text-transform: none; }
 
 .form-actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: .4rem; }
 
-.comment-feed { display: grid; gap: 1rem; margin-top: 1rem; }
+.comment-feed { display: grid; gap: 1rem; margin-top: 1.4rem; max-height: 480px; overflow-y: auto; padding-right: .5rem; }
+.comment-feed::-webkit-scrollbar { width: 6px; }
+.comment-feed::-webkit-scrollbar-track { background: transparent; }
+.comment-feed::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+
 .comment-card {
-  padding: 1.2rem 1.4rem; border-radius: 20px;
-  border: 1px solid rgba(90,63,44,.1);
-  background: var(--crema); transition: box-shadow .2s;
+  padding: 1.3rem 1.5rem;
+  background: var(--crema);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  transition: all .3s var(--ease);
+  position: relative;
 }
-.comment-card:hover { box-shadow: 0 10px 28px rgba(60,35,18,.1); }
+.comment-card:hover {
+  border-color: rgba(184,74,40,.25);
+  transform: translateX(4px);
+}
+.comment-card::before {
+  content:''; position: absolute;
+  left: 0; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 50%;
+  background: var(--terracota);
+  border-radius: 0 3px 3px 0;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.comment-card:hover::before { opacity: 1; }
 .comment-meta {
   display: flex; justify-content: space-between; align-items: center;
-  gap: 1rem; margin-bottom: .6rem; flex-wrap: wrap;
+  gap: 1rem; margin-bottom: .6rem;
 }
-.comment-meta strong { font-weight: 600; font-size: .97rem; }
-.comment-meta span { color: var(--muted); font-size: .84rem; }
-.comment-card p { color: #47392f; white-space: pre-wrap; font-weight: 300; }
+.comment-meta strong {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.comment-meta span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; letter-spacing: .1em;
+  color: var(--muted);
+}
+.comment-card p {
+  color: var(--tinta-2);
+  white-space: pre-wrap;
+  font-weight: 400;
+  font-size: .96rem;
+  line-height: 1.55;
+}
 .empty-state {
-  padding: 1.6rem; border-radius: 18px; text-align: center;
-  border: 1.5px dashed rgba(90,63,44,.2); color: var(--muted); background: rgba(255,255,255,.4);
+  padding: 2rem 1.4rem;
+  text-align: center;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--r-lg);
+  color: var(--muted);
+  font-weight: 300;
+  background: rgba(247,239,220,.5);
+}
+.empty-state em {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--terracota);
+  margin-bottom: .4rem;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CONTACTO
+   ════════════════════════════════════════════════════════════ */
+.contact-bg {
+  background: var(--tinta);
+  color: var(--crema);
+  position: relative; overflow: hidden;
+}
+.contact-bg::before {
+  content:''; position: absolute;
+  top: -200px; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 600px;
+  background: radial-gradient(ellipse, rgba(184,74,40,.15) 0, transparent 60%);
+}
+.contact-bg .section-head h2 { color: var(--crema); }
+.contact-bg .section-head p { color: rgba(247,239,220,.7); }
+.contact-bg .eyebrow { color: var(--ocre-l); }
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  position: relative; z-index: 2;
+}
+
+.contact-info { display: grid; gap: 1.5rem; }
+.ci-block {
+  padding: 1.6rem;
+  background: rgba(247,239,220,.05);
+  border: 1px solid rgba(247,239,220,.12);
+  border-radius: var(--r-lg);
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 1.2rem; align-items: center;
+  transition: all .3s var(--ease);
+}
+.ci-block:hover {
+  background: rgba(247,239,220,.08);
+  border-color: rgba(217,164,65,.3);
+}
+.ci-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: var(--terracota);
+  display: grid; place-items: center;
+  color: var(--crema-l);
+  font-size: 1.2rem;
+}
+.ci-block strong {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ocre);
+  margin-bottom: .3rem;
+}
+.ci-block span {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  color: var(--crema);
+  font-weight: 500;
+}
+
+.contact-form {
+  padding: 2.5rem;
+  background: rgba(247,239,220,.04);
+  border: 1px solid rgba(247,239,220,.12);
+  border-radius: var(--r-xl);
+  backdrop-filter: blur(10px);
+}
+.contact-form h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem; font-weight: 700;
+  color: var(--crema);
+  margin-bottom: .4rem;
+}
+.contact-form > p {
+  color: rgba(247,239,220,.6);
+  margin-bottom: 1.6rem;
   font-weight: 300;
 }
+.contact-form label {
+  color: var(--ocre-l);
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  background: rgba(247,239,220,.06);
+  border-color: rgba(247,239,220,.14);
+  color: var(--crema);
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: rgba(247,239,220,.4); }
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  background: rgba(247,239,220,.1);
+  border-color: var(--ocre);
+  box-shadow: 0 0 0 4px rgba(217,164,65,.15);
+}
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.row-2 label { display: grid; gap: .35rem; }
 
-/* ─── FOOTER ─────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════════════════════════ */
 .site-footer {
-  background: var(--oscuro); color: var(--crema);
-  padding: 4rem 0 2.5rem;
+  background: var(--tinta-2);
+  color: var(--crema);
+  padding: 5rem 0 2.5rem;
+  border-top: 1px solid rgba(217,164,65,.15);
 }
-.footer-grid { display: grid; grid-template-columns: 1.3fr .7fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
-.footer-brand strong {
-  display: block; font-family: 'Playfair Display', serif;
-  font-size: 1.5rem; font-weight: 700; margin-bottom: .5rem; color: var(--crema);
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr .8fr .8fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
 }
-.footer-brand p { color: rgba(251,245,230,.55); font-weight: 300; max-width: 36ch; }
+.footer-brand .fb-logo {
+  display: flex; align-items: center; gap: .9rem;
+  margin-bottom: 1.4rem;
+}
+.fb-mark {
+  width: 50px; height: 50px;
+  background: var(--terracota);
+  border-radius: 12px;
+  display: grid; place-items: center;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: var(--crema-l);
+}
+.footer-brand h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem; font-weight: 800;
+}
+.footer-brand p {
+  color: rgba(247,239,220,.55);
+  font-weight: 300;
+  max-width: 38ch;
+  margin-bottom: 1.6rem;
+}
+.social-row { display: flex; gap: .8rem; }
+.social-row a {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(247,239,220,.08);
+  display: grid; place-items: center;
+  font-size: 1.1rem;
+  transition: all .3s var(--ease);
+  color: var(--crema);
+}
+.social-row a:hover {
+  background: var(--terracota);
+  transform: translateY(-3px);
+}
 
-.footer-nav h4, .footer-contact h4 {
-  font-size: .82rem; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--ocre); margin-bottom: 1rem;
+.footer-col h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ocre);
+  margin-bottom: 1.2rem;
 }
-.footer-nav ul, .footer-contact ul {
-  list-style: none; display: grid; gap: .6rem;
+.footer-col ul { list-style: none; display: grid; gap: .7rem; }
+.footer-col a {
+  color: rgba(247,239,220,.55);
+  font-size: .92rem;
+  font-weight: 300;
+  transition: color .25s;
 }
-.footer-nav a { color: rgba(251,245,230,.6); font-size: .9rem; font-weight: 300; }
-.footer-nav a:hover { color: var(--ocre-l); }
-.footer-contact li { color: rgba(251,245,230,.6); font-size: .9rem; font-weight: 300; }
+.footer-col a:hover { color: var(--ocre-l); }
 
 .footer-bottom {
-  padding-top: 1.8rem; border-top: 1px solid rgba(251,245,230,.08);
+  padding-top: 2.2rem;
+  border-top: 1px solid rgba(247,239,220,.08);
   display: flex; justify-content: space-between; align-items: center;
   gap: 1rem; flex-wrap: wrap;
-  font-size: .84rem; color: rgba(251,245,230,.35);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .12em;
+  color: rgba(247,239,220,.4);
 }
 
-/* ─── REVEAL ANIMATIONS ─────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   REVEAL ANIMATIONS
+   ════════════════════════════════════════════════════════════ */
 .reveal {
-  opacity: 0; transform: translateY(28px);
-  transition: opacity .7s ease, transform .7s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal.d1 { transition-delay: .1s; }
 .reveal.d2 { transition-delay: .2s; }
 .reveal.d3 { transition-delay: .3s; }
 .reveal.d4 { transition-delay: .4s; }
+.reveal.d5 { transition-delay: .5s; }
 
-/* ─── DIVIDERS ───────────────────────────────────── */
-.wave-divider { line-height: 0; }
-.wave-divider svg { display: block; width: 100%; }
+.reveal-x {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.reveal-x.visible { opacity: 1; transform: translateX(0); }
 
-/* ─── RESPONSIVE ─────────────────────────────────── */
-@media (max-width: 1024px) {
-  .program-grid { grid-template-columns: 1fr 1fr; }
-  .impact-grid { grid-template-columns: 1fr 1fr; }
-  .news-grid { grid-template-columns: 1fr 1fr; }
+/* Split text */
+.split-line { overflow: hidden; }
+.split-line > span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform 1s var(--ease);
+}
+.split-line.visible > span { transform: translateY(0); }
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .quienes-grid, .contact-grid, .faq-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .program-grid, .collab-grid, .testimonials-grid, .news-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 2rem 0; }
+  .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
   .gallery-shell { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 768px) {
-  .hero-grid, .story-grid, .program-grid,
-  .news-grid, .comment-layout, .footer-grid { grid-template-columns: 1fr; }
-  .impact-grid { grid-template-columns: 1fr 1fr; }
-  .side-card { grid-template-columns: 90px 1fr; }
-  .nav-links { display: none; }
-  h1 { font-size: 2.8rem; }
-  .hero { min-height: auto; padding: 4rem 0 3rem; }
-  #fan-wrap { height: 250px; }
-  .fan-letter { width: 42px; height: 150px; margin-left: -21px; font-size: 1.6rem; }
+@media (max-width: 740px) {
+  body { cursor: auto; }
+  section { padding: 5rem 0; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed; inset: 0;
+    background: var(--tinta);
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 2.2rem;
+    transform: translateX(100%);
+    transition: transform .55s var(--ease);
+    z-index: 89;
+    display: flex;
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a {
+    color: rgba(247,239,220,.78);
+    font-size: 1.35rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    letter-spacing: -.02em;
+  }
+  .nav-links a:hover { color: var(--ocre-l); }
+  .nav-links a.btn {
+    padding: .9rem 2.4rem;
+    background: var(--terracota);
+    color: #fff;
+    border-color: transparent;
+    margin-top: .5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .nav-links a.btn::after { display: none; }
+  .program-grid, .collab-grid, .testimonials-grid, .news-grid,
+  .team-grid, .footer-top { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat { border-left: 0 !important; padding-left: 0 !important; }
+  .timeline::before { left: 8px; }
+  .tl-item { grid-template-columns: 1fr; gap: 1rem; padding-left: 40px; }
+  .tl-item::before { left: 2px; top: 1rem; }
+  .tl-content { padding-left: 0; }
+  .hero-visual { aspect-ratio: 1; }
+  .float-tag { display: none; }
+  .row-2 { grid-template-columns: 1fr; }
+  .gallery-caption { padding: 2rem 1.5rem 1.5rem; }
+  .gallery-caption h3 { font-size: 1.5rem; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   MEJORAS VISUALES E INTERACTIVAS
+   ════════════════════════════════════════════════════════════ */
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--terracota); border-radius: 999px; }
+
+/* Selección de texto */
+::selection { background: var(--terracota); color: var(--crema-l); }
+
+/* ───── CURSOR TRAIL ───── */
+.cursor-trail {
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9994;
+  border-radius: 50%; background: #fff;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+
+/* ───── NAV ACTIVO ───── */
+.nav-links a.nav-active { color: var(--terracota) !important; }
+.nav-links a.nav-active::after { width: 100% !important; }
+.site-header.scrolled .nav-links a.nav-active { color: var(--ocre-l) !important; }
+.site-header.scrolled .nav-links a.nav-active::after { background: var(--ocre-l); }
+
+/* ───── INDICADOR DE SECCIÓN ───── */
+#section-indicator {
+  position: fixed; left: 1.5rem; top: 50%;
+  transform: translateY(-50%);
+  z-index: 80;
+  display: flex; flex-direction: column; gap: .7rem;
+  opacity: 0; transition: opacity .5s var(--ease);
+  pointer-events: none;
+}
+#section-indicator.si-visible { opacity: 1; pointer-events: auto; }
+.si-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #fff; mix-blend-mode: difference;
+  border: 0;
+  transition: transform .45s var(--ease-bounce), box-shadow .3s;
+  position: relative;
+}
+.si-dot::before {
+  content: attr(data-label);
+  position: absolute; left: calc(100% + .9rem); top: 50%;
+  transform: translateY(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .6rem; letter-spacing: .18em; text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--tinta); color: var(--crema);
+  padding: .25rem .6rem; border-radius: 999px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  transform: translateY(-50%) translateX(-4px);
+}
+.si-dot:hover::before { opacity: 1; transform: translateY(-50%) translateX(0); }
+.si-dot.active { transform: scale(2.2); }
+@media (max-width: 1280px) { #section-indicator { display: none !important; } }
+
+/* ───── HERO SPOTLIGHT ───── */
+.hero-spotlight {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(
+    circle at var(--mx, 28%) var(--my, 38%),
+    rgba(217,164,65,.12) 0, transparent 42%
+  );
+}
+
+/* ───── CARD GLOWS MEJORADOS ───── */
+.program-card:hover {
+  box-shadow: 0 40px 80px -12px rgba(184,74,40,.16), var(--sh-card-h);
+}
+.collab-card:hover {
+  box-shadow: 0 36px 72px -12px rgba(27,94,85,.14), var(--sh-card-h);
+}
+.news-card.feat:hover {
+  box-shadow: 0 36px 72px -12px rgba(26,15,8,.45);
+}
+
+/* ───── FLECHA PROGRAMA ───── */
+.prog-arrow {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin-top: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--terracota); font-weight: 500;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity .35s var(--ease), transform .35s var(--ease);
+}
+.prog-arrow::after { content: '→'; }
+.program-card:hover .prog-arrow { opacity: 1; transform: translateX(0); }
+
+/* ───── ICONO VALOR ANIMADO ───── */
+.value-num {
+  transition: transform .35s var(--ease-bounce), color .3s;
+}
+.value-item:hover .value-num {
+  transform: scale(1.1) rotate(-5deg);
+  color: var(--terracota-l);
+}
+
+/* ───── TILT CARDS ───── */
+.program-card, .team-card, .collab-card {
+  will-change: auto;
+}
+
+/* ───── STATS GLOW ───── */
+.stat-num .counter.counting {
+  text-shadow: 0 0 30px rgba(217,164,65,.4);
+}
+
+/* ───── SWIPE HINT ───── */
+.swipe-hint {
+  display: none;
+  position: absolute; bottom: 1.2rem; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(247,239,220,.45); z-index: 4;
+  opacity: 0; animation: fadeUp .7s var(--ease) 2.5s forwards;
+  white-space: nowrap; pointer-events: none;
+}
+@media (max-width: 740px) { .swipe-hint { display: block; } }
+
+/* ───── TL ITEM MEJORADO ───── */
+.tl-item:hover .tl-year {
+  color: var(--ocre-l);
+  transition: color .3s;
+}
+.tl-item .tl-year { transition: color .3s; }
+
+/* ───── HEADER BLUR MEJORADO ───── */
+.site-header {
+  background: rgba(247,239,220,.65);
+  backdrop-filter: blur(28px) saturate(1.8) brightness(1.02);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8) brightness(1.02);
+}
+
+/* ───── HERO ORBS ANIMADOS ───── */
+.hero-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(70px); pointer-events: none; z-index: 0;
+}
+.hero-orb-1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(217,164,65,.22) 0, transparent 70%);
+  top: -80px; left: -60px;
+  animation: orbFloat 12s ease-in-out infinite;
+}
+.hero-orb-2 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(27,94,85,.18) 0, transparent 70%);
+  bottom: -60px; right: 10%;
+  animation: orbFloat 15s ease-in-out infinite .8s reverse;
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(.95); }
+}
+
+/* ───── TESTIMONIAL FEATURED QUOTE MARK ───── */
+.testimonial.featured .t-quote-mark {
+  font-size: 6rem;
+  color: var(--ocre-l);
+}
+
+/* ───── FOOTER SOCIAL MEJORADO ───── */
+.social-row a {
+  font-size: 1.2rem;
+  border: 1px solid rgba(247,239,220,.12);
+}
+.social-row a:hover {
+  background: var(--terracota);
+  border-color: var(--terracota);
+  box-shadow: 0 8px 20px rgba(184,74,40,.3);
+}
+
+/* ════════════════════════════════════════════════════════════
+   COOKIE BANNER · MODALES LEGALES · WHATSAPP
+   ════════════════════════════════════════════════════════════ */
+
+/* Cookie banner */
+#cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9990;
+  background: rgba(26,15,8,.97);
+  border-top: 1px solid rgba(217,164,65,.2);
+  padding: 1.3rem 2rem;
+  display: flex; align-items: center; justify-content: center;
+  gap: 2rem; flex-wrap: wrap;
+  transform: translateY(100%);
+  transition: transform .5s var(--ease);
+  box-shadow: 0 -16px 40px rgba(0,0,0,.3);
+  backdrop-filter: blur(10px);
+}
+#cookie-banner.cb-visible { transform: translateY(0); }
+.cb-text {
+  font-size: .92rem; color: rgba(247,239,220,.78);
+  max-width: 58ch; flex: 1; line-height: 1.55;
+}
+.cb-text a { color: var(--ocre-l); text-decoration: underline; text-underline-offset: 3px; }
+.cb-actions { display: flex; gap: .8rem; flex-shrink: 0; }
+@media (max-width: 640px) {
+  #cookie-banner { flex-direction: column; text-align: center; padding: 1.5rem; }
+  .cb-actions { justify-content: center; }
+}
+
+/* Modales legales */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(26,15,8,.88);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+  opacity: 0; visibility: hidden;
+  transition: opacity .4s var(--ease), visibility .4s;
+  backdrop-filter: blur(10px);
+}
+.modal-overlay.mo-open { opacity: 1; visibility: visible; }
+.modal-box {
+  background: var(--crema-l);
+  border-radius: var(--r-xl);
+  padding: 3rem;
+  max-width: 740px; width: 100%;
+  max-height: 88vh; overflow-y: auto;
+  position: relative;
+  transform: translateY(24px) scale(.98);
+  transition: transform .4s var(--ease);
+}
+.modal-overlay.mo-open .modal-box { transform: translateY(0) scale(1); }
+.modal-box::-webkit-scrollbar { width: 5px; }
+.modal-box::-webkit-scrollbar-thumb { background: var(--terracota); border-radius: 999px; }
+.modal-close {
+  position: absolute; top: 1.4rem; right: 1.4rem;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1.5px solid var(--line); background: var(--crema);
+  color: var(--tinta); display: grid; place-items: center;
+  font-size: .9rem; transition: all .3s var(--ease);
+}
+.modal-close:hover { background: var(--terracota); color: #fff; border-color: var(--terracota); }
+.modal-box h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem; font-weight: 800; letter-spacing: -.03em;
+  margin-bottom: .5rem;
+}
+.modal-box .modal-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--terracota); margin-bottom: 2rem; display: block;
+}
+.modal-box h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--tinta); margin: 2rem 0 .5rem;
+  padding-top: 1.5rem; border-top: 1px solid var(--line);
+}
+.modal-box h3:first-of-type { border-top: 0; padding-top: 0; }
+.modal-box p, .modal-box li {
+  color: var(--muted); font-weight: 300;
+  font-size: .95rem; line-height: 1.75; margin-bottom: .5rem;
+}
+.modal-box ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+.modal-box strong { color: var(--tinta); font-weight: 600; }
+.modal-box a { color: var(--terracota); text-decoration: underline; text-underline-offset: 3px; }
+.modal-box .modal-last {
+  margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .12em;
+  color: var(--muted);
+}
+@media (max-width: 640px) { .modal-box { padding: 2rem 1.4rem; } }
+
+/* WhatsApp flotante */
+#whatsapp-btn {
+  position: fixed; bottom: 2rem; right: 5.8rem; z-index: 79;
+  width: 50px; height: 50px; border-radius: 50%;
+  background: #25D366;
+  display: grid; place-items: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.4);
+  transition: all .35s var(--ease-bounce);
+  opacity: 0; transform: translateY(16px);
+}
+#whatsapp-btn.wa-visible { opacity: 1; transform: translateY(0); }
+#whatsapp-btn:hover { transform: translateY(-4px) scale(1.1); box-shadow: 0 10px 30px rgba(37,211,102,.5); }
+#whatsapp-btn svg { width: 26px; height: 26px; fill: #040404; }
+@media (max-width: 740px) { #whatsapp-btn { bottom: 1.2rem; right: 4.5rem; width: 44px; height: 44px; } }
+
+/* Footer legal */
+.footer-legal { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-top: .8rem; }
+.footer-legal button {
+  background: none; border: 0; padding: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(6, 6, 5, 0.38); transition: color .25s;
+}
+.footer-legal button:hover { color: var(--ocre-l); }
+
+/* GDPR row en formulario */
+.gdpr-row {
+  display: flex; align-items: flex-start; gap: .7rem;
+  font-size: .88rem; line-height: 1.5;
+}
+.gdpr-row input[type="checkbox"] {
+  width: 16px; height: 16px; flex-shrink: 0;
+  margin-top: 3px; accent-color: var(--ocre);
+}
+.gdpr-row label {
+  font-family: 'Inter', sans-serif;
+  font-size: .88rem; letter-spacing: 0; text-transform: none;
+  color: rgba(248, 242, 242, 0.65); font-weight: 400; cursor: pointer;
+}
+.gdpr-row label a { color: var(--ocre-l); text-decoration: underline; text-underline-offset: 3px; }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Asociación Abaniko",
+  "alternateName": "Abaniko",
+  "description": "Entidad social en Cádiz dedicada al acompañamiento, la inclusión y la mejora de la calidad de vida de personas con discapacidad desde 2009.",
+  "url": "https://www.asociacionabaniko.org",
+  "foundingDate": "2009",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cádiz",
+    "addressRegion": "Andalucía",
+    "addressCountry": "ES"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+34-677-854-232",
+    "email": "asoc.abaniko@gmail.com",
+    "contactType": "Atención al ciudadano",
+    "availableLanguage": "Spanish",
+    "hoursAvailable": "Mo-Fr 09:00-19:00"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Cádiz"
+  },
+  "knowsAbout": ["Inclusión social", "Autonomía personal", "Discapacidad", "Ocio inclusivo", "Apoyo a familias"]
+}
+</script>
 </head>
 
 <body class="is-loading">
 
-<!-- ══════════════════════════════════════════════════
-  LOADER
-══════════════════════════════════════════════════ -->
-<div id="loader" role="status" aria-live="polite">
-  <div class="loader-inner">
-    <div class="l-eyebrow">Asociación Abaniko · Cádiz</div>
-    <div class="l-title">Abriendo<br><em>puertas.</em></div>
-    <div id="fan-wrap" aria-label="Animación de abanico con las letras A·B·A·N·I·K·O">
-      <div class="fan-base"></div>
-      <div class="fan-pivot"></div>
-    </div>
-    <div class="fan-status" id="fan-status">Abriendo el abanico…</div>
+<div id="cursor"></div>
+<div id="cursor-dot"></div>
+<div id="cursor-text">VER</div>
+<div id="scroll-progress" aria-hidden="true"></div>
+<button id="back-top" aria-label="Volver al inicio">↑</button>
+<nav id="section-indicator" aria-label="Indicador de sección" aria-hidden="true"></nav>
+
+<!-- ════════════ COOKIE BANNER ════════════ -->
+<div id="cookie-banner" role="dialog" aria-label="Aviso de cookies" aria-describedby="cb-desc">
+  <p class="cb-text" id="cb-desc">
+    Usamos <strong>cookies técnicas</strong> necesarias para el funcionamiento de la web.
+    Los comentarios se guardan en tu navegador.
+    Consulta nuestra <button class="cookie-policy-link" onclick="openModal('modal-cookies')" style="background:none;border:0;color:var(--ocre-l);text-decoration:underline;text-underline-offset:3px;font:inherit;cursor:pointer;padding:0;">política de cookies</button>.
+  </p>
+  <div class="cb-actions">
+    <button id="cookie-accept" class="btn btn-primary"><span>Aceptar</span></button>
+    <button id="cookie-reject" class="btn btn-ghost"><span>Solo esenciales</span></button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-  HEADER
-══════════════════════════════════════════════════ -->
-<header class="site-header">
+<!-- ════════════ WHATSAPP ════════════ -->
+<a id="whatsapp-btn" href="https://wa.me/34677854232?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20Abaniko." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ════════════ MODAL: AVISO LEGAL ════════════ -->
+<div id="modal-legal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legal-h2">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-legal')" aria-label="Cerrar">✕</button>
+    <span class="modal-eyebrow">Información legal</span>
+    <h2 id="legal-h2">Aviso Legal</h2>
+    <h3>Titular del sitio web</h3>
+    <p>En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), se facilitan los siguientes datos:</p>
+    <ul>
+      <li><strong>Denominación:</strong> Asociación Abaniko</li>
+      <li><strong>Domicilio social:</strong> Cádiz, Andalucía, España</li>
+      <li><strong>Correo electrónico:</strong> <a href="mailto:asoc.abaniko@gmail.com">asoc.abaniko@gmail.com</a></li>
+      <li><strong>Teléfono:</strong> 677 854 232</li>
+      <li><strong>Inscripción:</strong> Registro de Asociaciones de Andalucía</li>
+    </ul>
+    <h3>Condiciones de uso</h3>
+    <p>El acceso y uso de este sitio web implica la aceptación de las presentes condiciones. La Asociación Abaniko se reserva el derecho a modificar, sin previo aviso, el diseño, contenidos y condiciones de uso del sitio.</p>
+    <h3>Propiedad intelectual</h3>
+    <p>Todos los contenidos de este sitio web —textos, imágenes, logotipos y código— son propiedad de la Asociación Abaniko o de terceros que han autorizado su uso. Queda prohibida su reproducción sin autorización expresa y por escrito.</p>
+    <h3>Limitación de responsabilidad</h3>
+    <p>La Asociación Abaniko no se responsabiliza de los daños derivados del uso del sitio web ni de los posibles errores en los contenidos. Los enlaces a sitios de terceros son responsabilidad de sus respectivos titulares.</p>
+    <h3>Legislación aplicable</h3>
+    <p>Las presentes condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los Juzgados y Tribunales de Cádiz.</p>
+    <p class="modal-last">Última actualización: mayo de 2026</p>
+  </div>
+</div>
+
+<!-- ════════════ MODAL: POLÍTICA DE PRIVACIDAD ════════════ -->
+<div id="modal-privacidad" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="priv-h2">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-privacidad')" aria-label="Cerrar">✕</button>
+    <span class="modal-eyebrow">Tu privacidad importa</span>
+    <h2 id="priv-h2">Política de Privacidad</h2>
+    <h3>Responsable del tratamiento</h3>
+    <p><strong>Asociación Abaniko</strong> · Cádiz, Andalucía, España · <a href="mailto:asoc.abaniko@gmail.com">asoc.abaniko@gmail.com</a></p>
+    <h3>Datos que tratamos</h3>
+    <p>Cuando utilizas el formulario de contacto, recopilamos: nombre, dirección de correo electrónico y el contenido del mensaje. Estos datos se transmiten directamente a través de tu cliente de correo y no se almacenan en ningún servidor.</p>
+    <p>Los comentarios introducidos en la sección de opiniones se guardan exclusivamente en el almacenamiento local (localStorage) de tu propio navegador y no son accesibles por terceros.</p>
+    <h3>Finalidad y base jurídica</h3>
+    <p>Los datos del formulario de contacto se utilizan únicamente para <strong>responder a tu consulta</strong>. La base jurídica es el consentimiento del interesado (art. 6.1.a RGPD).</p>
+    <h3>Destinatarios</h3>
+    <p>No cedemos tus datos a terceros, salvo obligación legal. El formulario de contacto abre tu propio cliente de correo y los datos no son recibidos ni almacenados por nosotros hasta que tú los envíes voluntariamente.</p>
+    <h3>Conservación</h3>
+    <p>Los correos electrónicos recibidos se conservan el tiempo necesario para gestionar tu solicitud y, como máximo, durante el plazo previsto por la normativa aplicable.</p>
+    <h3>Tus derechos</h3>
+    <p>Tienes derecho a <strong>acceder, rectificar, suprimir, limitar el tratamiento, oponerte</strong> al mismo y a la <strong>portabilidad</strong> de tus datos. Para ejercerlos, escríbenos a <a href="mailto:asoc.abaniko@gmail.com">asoc.abaniko@gmail.com</a>. También puedes presentar reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos (AEPD)</a>.</p>
+    <p class="modal-last">Última actualización: mayo de 2026</p>
+  </div>
+</div>
+
+<!-- ════════════ MODAL: POLÍTICA DE COOKIES ════════════ -->
+<div id="modal-cookies" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cook-h2">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-cookies')" aria-label="Cerrar">✕</button>
+    <span class="modal-eyebrow">Transparencia digital</span>
+    <h2 id="cook-h2">Política de Cookies</h2>
+    <h3>¿Qué son las cookies?</h3>
+    <p>Las cookies son pequeños archivos de texto que un sitio web almacena en tu dispositivo para recordar información sobre tu visita.</p>
+    <h3>Cookies que utilizamos</h3>
+    <p>Este sitio web <strong>no utiliza cookies de seguimiento, analítica ni publicidad</strong>. Únicamente empleamos:</p>
+    <ul>
+      <li><strong>localStorage (cookies técnicas propias):</strong> Guardamos en tu navegador la preferencia de cookies (<code>abaniko_cookies_ok</code>) y los comentarios que introduces (<code>abaniko_comments_v3</code>). Estos datos nunca salen de tu dispositivo.</li>
+    </ul>
+    <h3>¿Cómo gestionar las cookies?</h3>
+    <p>Puedes eliminar los datos almacenados en cualquier momento desde la sección de comentarios (botón "Borrar guardados") o desde la configuración de tu navegador en el apartado de almacenamiento local.</p>
+    <p>Para más información sobre cómo gestionar las cookies en tu navegador, consulta la ayuda de <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Chrome</a>, <a href="https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-" target="_blank" rel="noopener">Firefox</a> o <a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a>.</p>
+    <p class="modal-last">Última actualización: mayo de 2026</p>
+  </div>
+</div>
+
+<!-- ════════════ LOADER ════════════ -->
+<div id="loader" role="status" aria-live="polite">
+  <div class="loader-bg"></div>
+  <div class="loader-eyebrow">Asociación Abaniko · Cádiz · Desde 2009</div>
+  <h1 class="loader-title">
+    <span style="animation-delay:.4s">Abriendo</span>
+    <span style="animation-delay:.55s">&nbsp;</span>
+    <span style="animation-delay:.7s"><em>puertas.</em></span>
+  </h1>
+  <div id="fan-wrap" aria-label="Abanico animado A·B·A·N·I·K·O">
+    <div class="fan-base"></div>
+    <div class="fan-pivot"></div>
+  </div>
+  <div class="fan-status" id="fan-status">▸ Abriendo el abanico</div>
+</div>
+
+<!-- ════════════ HEADER ════════════ -->
+<header class="site-header" id="siteHeader">
   <div class="nav-inner">
     <a class="brand" href="#inicio">
-      <img class="brand-logo"
-        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwNzVX0fOq1eC1GGlUCVY9Kij45wQBgZNy25IoZeL9CLhpDtmXeyEG8zpwUP6VXm_2S_2MzW_IzeU8KH7Lt6j1_bR6aiJFyJNqmhTcoFZcJJsf0CC6e9SOVEG9LcLsNy_a9-Hti_Pe_64/s1600/LogoBlog.png"
-        alt="Logo Asociación Abaniko"
-        onerror="this.style.display='none'">
+      <div class="brand-mark">A</div>
       <div class="brand-text">
         <strong>Abaniko</strong>
-        <span>Cádiz · Inclusión social</span>
+        <span>Cádiz · Inclusión</span>
       </div>
     </a>
-    <nav class="nav-links" aria-label="Navegación principal">
+    <nav class="nav-links" id="navLinks" aria-label="Navegación">
       <a href="#quienes-somos">Quiénes somos</a>
       <a href="#programas">Programas</a>
-      <a href="#impacto">Impacto</a>
-      <a href="#noticias">Noticias</a>
-      <a href="#galeria">Galería</a>
-      <a href="#comentarios" class="btn btn-ghost">Comentarios</a>
-      <a href="#contacto" class="btn btn-primary">Contacto</a>
+      <a href="#historia">Historia</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#colabora">Colabora</a>
+      <a href="#contacto" class="btn btn-primary"><span>Contacto</span></a>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<!-- ══════════════════════════════════════════════════
-  HERO
-══════════════════════════════════════════════════ -->
+<!-- ════════════ HERO ════════════ -->
 <section class="hero" id="inicio">
+  <div class="hero-arc"></div>
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <div class="hero-spotlight" aria-hidden="true"></div>
   <div class="shell hero-grid">
     <div>
-      <span class="eyebrow">&#9670; Asociación social en Cádiz</span>
-      <h1>Un espacio para<br><em>acompañar,</em><br>impulsar y crecer.</h1>
-      <p class="hero-sub">
+      <div class="hero-meta">
+        <span class="dot"></span>
+        <span>Activos · Cádiz, Andalucía</span>
+        <span>·</span>
+        <span>Est. 2009</span>
+      </div>
+      <h1 class="hero-title reveal">
+        Un espacio<br>
+        para <em>acompañar,</em><br>
+        impulsar<br>
+        y crecer.
+      </h1>
+      <p class="hero-sub reveal d2">
         Abaniko trabaja para mejorar la calidad de vida de las personas,
-        fomentar la autonomía y crear comunidad donde cada historia
-        tenga apoyo, escucha y oportunidades reales.
+        fomentar la <strong>autonomía</strong> y crear comunidad donde cada
+        historia tenga apoyo, escucha y oportunidades reales.
       </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#comentarios">Dejar un comentario</a>
-        <a class="btn btn-dark" href="#programas">Ver programas</a>
+      <div class="hero-actions reveal d3">
+        <a class="btn btn-primary" href="#colabora"><span>Únete a Abaniko</span></a>
+        <a class="btn btn-ghost" href="#programas"><span>Ver programas →</span></a>
       </div>
-      <div class="hero-stats reveal">
-        <div class="hero-stat">
-          <strong>+15</strong>
-          <span>Años de recorrido social</span>
-        </div>
-        <div class="hero-stat">
-          <strong>100%</strong>
-          <span>Compromiso con la inclusión</span>
-        </div>
-        <div class="hero-stat">
-          <strong>Cádiz</strong>
-          <span>Presencia local cercana</span>
+
+      <div class="hero-marquee">
+        <div class="marquee-track">
+          <span>Acompañar</span><span>Inclusión</span><span>Comunidad</span>
+          <span>Autonomía</span><span>Escucha</span><span>Cuidado</span>
+          <span>Acompañar</span><span>Inclusión</span><span>Comunidad</span>
+          <span>Autonomía</span><span>Escucha</span><span>Cuidado</span>
         </div>
       </div>
     </div>
 
-    <div class="hero-card reveal d1">
-      <div class="hero-card-label">Identidad Abaniko</div>
-      <div class="hero-logo-wrap">
-        <img
-          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwNzVX0fOq1eC1GGlUCVY9Kij45wQBgZNy25IoZeL9CLhpDtmXeyEG8zpwUP6VXm_2S_2MzW_IzeU8KH7Lt6j1_bR6aiJFyJNqmhTcoFZcJJsf0CC6e9SOVEG9LcLsNy_a9-Hti_Pe_64/s1600/LogoBlog.png"
-          alt="Emblema Asociación Abaniko"
-          onerror="this.style.display='none'">
+    <div class="hero-visual reveal d2">
+      <div class="hero-visual-bg"></div>
+      <div class="hv-content">
+        <div class="hv-top">
+          <span class="hv-tag">▸ Identidad / 01</span>
+          <span class="hv-num">2026</span>
+        </div>
+        <div class="hv-center">
+          <div class="hv-logo-circle">A</div>
+        </div>
+        <div>
+          <blockquote class="hv-quote">
+            Una imagen abierta a la diversidad, el movimiento y el acompañamiento.
+          </blockquote>
+          <div class="hv-foot">
+            <span class="hv-badge"><span class="b-dot"></span> Activos</span>
+            <span>Desde 2009</span>
+          </div>
+        </div>
       </div>
-      <p class="card-quote">
-        "Una imagen abierta a la diversidad, el movimiento y el acompañamiento."
-      </p>
-      <div class="card-badge">
-        <span class="badge-dot"></span>
-        Activos desde 2009
+      <div class="float-tag t1">✦ Inclusión real</div>
+      <div class="float-tag t2">+15 años</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ STATS ════════════ -->
+<section class="stats-strip">
+  <div class="shell">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-num"><span class="counter" data-target="15">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Años activos</div>
+        <p class="stat-desc">Una trayectoria construida desde la cercanía y la constancia.</p>
+      </div>
+      <div class="stat reveal d1">
+        <div class="stat-num"><span class="counter" data-target="100">0</span><span class="pct">%</span></div>
+        <div class="stat-label">Compromiso</div>
+        <p class="stat-desc">Todo lo que hacemos parte de la dignidad y la autonomía.</p>
+      </div>
+      <div class="stat reveal d2">
+        <div class="stat-num"><span class="counter" data-target="200">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Personas atendidas</div>
+        <p class="stat-desc">Procesos personales acompañados a lo largo de los años.</p>
+      </div>
+      <div class="stat reveal d3">
+        <div class="stat-num"><em>Cádiz</em></div>
+        <div class="stat-label">Nuestro territorio</div>
+        <p class="stat-desc">Presencia local, mirada cercana, red comunitaria.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="wave-divider">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1A100A"/>
-  </svg>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-  QUIÉNES SOMOS
-══════════════════════════════════════════════════ -->
+<!-- ════════════ QUIÉNES SOMOS ════════════ -->
 <section class="quienes" id="quienes-somos">
-  <div class="shell">
-    <div class="section-head reveal">
-      <span class="eyebrow">&#9670; Quiénes somos</span>
-      <h2>Una asociación construida<br>desde la cercanía.</h2>
-      <p>
-        Somos un equipo de profesionales que acompaña procesos personales,
-        promueve la participación y genera redes de apoyo para fortalecer la vida diaria.
-      </p>
+  <div class="shell quienes-grid">
+    <div class="quienes-left">
+      <div class="section-head reveal">
+        <span class="eyebrow">Quiénes somos · 01</span>
+        <h2>Una asociación<br>construida desde<br>la <em>cercanía.</em></h2>
+        <p>Somos un equipo de profesionales que acompaña procesos personales,
+          promueve la participación y genera redes de apoyo para fortalecer la vida diaria.</p>
+      </div>
+      <blockquote class="quienes-quote reveal d1">
+        "No diseñamos servicios desde un despacho: los construimos junto a las personas que los necesitan."
+        <footer>— Equipo Abaniko</footer>
+      </blockquote>
     </div>
-    <div class="story-grid">
-      <article class="story-panel reveal d1">
-        <h3>Misión</h3>
-        <p>
-          Favorecer la inclusión social, la autonomía personal y la participación activa
-          de las personas mediante programas útiles, acompañamiento continuado y una mirada humana.
-        </p>
+
+    <div class="values-list">
+      <article class="value-item reveal d1">
+        <div class="value-num">01</div>
+        <div class="value-content">
+          <h3>Misión</h3>
+          <p>Favorecer la inclusión, la autonomía y la participación activa mediante programas útiles, acompañamiento continuado y mirada humana.</p>
+        </div>
       </article>
-      <article class="story-panel reveal d2">
-        <h3>Visión</h3>
-        <p>
-          Ser un referente cercano en Cádiz para quienes buscan apoyo, orientación y espacios
-          donde crecer con dignidad, comunidad y oportunidades reales.
-        </p>
+      <article class="value-item reveal d2">
+        <div class="value-num">02</div>
+        <div class="value-content">
+          <h3>Visión</h3>
+          <p>Ser referente cercano en Cádiz para quienes buscan apoyo, orientación y espacios donde crecer con dignidad y comunidad.</p>
+        </div>
+      </article>
+      <article class="value-item reveal d3">
+        <div class="value-num">03</div>
+        <div class="value-content">
+          <h3>Valores</h3>
+          <p>Respeto, escucha, profesionalidad y vocación. Cada gesto, cada decisión y cada actividad están atravesados por ellos.</p>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
-<div class="wave-divider">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,30 C360,0 1080,60 1440,30 L1440,0 L0,0 Z" fill="#1A100A"/>
-  </svg>
-</div>
-
-<!-- ══════════════════════════════════════════════════
-  PROGRAMAS
-══════════════════════════════════════════════════ -->
-<section id="programas">
+<!-- ════════════ PROGRAMAS ════════════ -->
+<section class="programs-bg" id="programas">
   <div class="shell">
     <div class="section-head reveal">
-      <span class="eyebrow">&#9670; Programas y actividades</span>
-      <h2>Servicios pensados<br>para el día a día.</h2>
+      <span class="eyebrow">Programas · 02</span>
+      <h2>Servicios pensados<br>para el <em>día a día.</em></h2>
       <p>Cada programa está diseñado para generar autonomía, inclusión y bienestar real en las personas que acompañamos.</p>
     </div>
     <div class="program-grid">
       <article class="program-card reveal d1">
-        <div class="prog-icon tc">A</div>
+        <div class="prog-num">▸ Programa 01</div>
+        <div class="prog-icon c1">A</div>
         <h3>Autonomía personal</h3>
         <p>Talleres y acompañamiento para reforzar hábitos, organización, habilidades prácticas y confianza en el día a día.</p>
+        <ul class="prog-features">
+          <li>Habilidades domésticas</li>
+          <li>Gestión personal y administrativa</li>
+          <li>Acompañamiento individualizado</li>
+        </ul>
       </article>
       <article class="program-card reveal d2">
-        <div class="prog-icon gr">O</div>
+        <div class="prog-num">▸ Programa 02</div>
+        <div class="prog-icon c2">O</div>
         <h3>Ocio y participación</h3>
         <p>Actividades culturales, convivencia y salidas que crean red social y generan experiencias compartidas e inclusivas.</p>
+        <ul class="prog-features">
+          <li>Salidas culturales</li>
+          <li>Grupo de ocio mensual</li>
+          <li>Eventos comunitarios</li>
+        </ul>
       </article>
       <article class="program-card reveal d3">
-        <div class="prog-icon oc">F</div>
+        <div class="prog-num">▸ Programa 03</div>
+        <div class="prog-icon c3">F</div>
         <h3>Orientación a familias</h3>
         <p>Espacios de escucha, información y apoyo para familias que también forman parte esencial de cada proceso.</p>
+        <ul class="prog-features">
+          <li>Atención individualizada</li>
+          <li>Grupos de apoyo</li>
+          <li>Información y recursos</li>
+        </ul>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-  IMPACTO
-══════════════════════════════════════════════════ -->
-<section class="impacto" id="impacto">
+<!-- ════════════ HISTORIA / TIMELINE ════════════ -->
+<section class="timeline-bg" id="historia">
   <div class="shell">
     <div class="section-head reveal">
-      <span class="eyebrow">&#9670; Impacto social</span>
-      <h2>Una presencia que acompaña<br>y deja huella.</h2>
-      <p>Desde 2009 trabajando en Cádiz con vocación, compromiso y presencia real en la comunidad.</p>
+      <span class="eyebrow">Historia · 03</span>
+      <h2>Más de quince años<br><em>construyendo</em> presencia.</h2>
+      <p>Desde la semilla inicial hasta hoy: una línea de tiempo hecha de personas, encuentros y decisiones.</p>
     </div>
-    <div class="impact-grid">
-      <article class="impact-card reveal d1">
-        <strong>2009</strong>
-        <p>Inicio del recorrido de la asociación en Cádiz.</p>
+    <div class="timeline">
+      <article class="tl-item reveal d1">
+        <div class="tl-year">2009</div>
+        <div class="tl-content">
+          <h3>Nace Abaniko</h3>
+          <p>Un grupo de profesionales decide unirse en Cádiz para acompañar a personas que no encontraban espacios adecuados de apoyo y participación.</p>
+          <span class="tl-tag">Fundación</span>
+        </div>
       </article>
-      <article class="impact-card reveal d2">
-        <strong>Atención</strong>
-        <p>Escucha cercana y seguimiento de procesos personales continuados.</p>
+      <article class="tl-item reveal d1">
+        <div class="tl-year">2014</div>
+        <div class="tl-content">
+          <h3>Primer programa estable</h3>
+          <p>Se consolida el área de autonomía personal con talleres semanales. La asociación abre sede física para acoger a participantes y familias.</p>
+          <span class="tl-tag">Crecimiento</span>
+        </div>
       </article>
-      <article class="impact-card reveal d3">
-        <strong>Red</strong>
-        <p>Trabajo comunitario y colaboración activa con el entorno gaditano.</p>
+      <article class="tl-item reveal d1">
+        <div class="tl-year">2018</div>
+        <div class="tl-content">
+          <h3>Grupo de ocio inclusivo</h3>
+          <p>Arranca el grupo de ocio mensual, con salidas culturales, museos, playa y rutas por el casco antiguo. Se convierte en uno de los espacios más queridos por la comunidad.</p>
+          <span class="tl-tag">Comunidad</span>
+        </div>
       </article>
-      <article class="impact-card reveal d4">
-        <strong>Futuro</strong>
-        <p>Compromiso con nuevas oportunidades y crecimiento social inclusivo.</p>
+      <article class="tl-item reveal d1">
+        <div class="tl-year">2024</div>
+        <div class="tl-content">
+          <h3>Autonomía doméstica</h3>
+          <p>Lanzamos el taller de autonomía doméstica: cocina, limpieza, gestión del hogar y vida independiente. Una formación práctica, paso a paso.</p>
+          <span class="tl-tag">Innovación</span>
+        </div>
+      </article>
+      <article class="tl-item reveal d1">
+        <div class="tl-year">2026</div>
+        <div class="tl-content">
+          <h3>Identidad renovada</h3>
+          <p>Estrenamos web y comunicación digital. Una nueva etapa para llegar a más personas y compartir con la comunidad todo lo que vivimos.</p>
+          <span class="tl-tag">Presente</span>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-  NOTICIAS
-══════════════════════════════════════════════════ -->
-<section id="noticias">
+<!-- ════════════ EQUIPO ════════════ -->
+<section class="team-bg" id="equipo">
   <div class="shell">
     <div class="section-head reveal">
-      <span class="eyebrow">&#9670; Noticias</span>
-      <h2>Lo que está pasando<br>en Abaniko.</h2>
-      <p>Actividades, eventos, logros y todo lo que queremos compartir con la comunidad.</p>
+      <span class="eyebrow">Equipo · 04</span>
+      <h2>Las personas<br>detrás de <em>Abaniko.</em></h2>
+      <p>Un equipo multidisciplinar comprometido con cada proceso. Cercanía, formación y vocación: las tres piezas que nos definen.</p>
+    </div>
+    <div class="team-grid">
+      <article class="team-card reveal d1">
+        <div class="team-avatar av1">M</div>
+        <div class="team-info">
+          <h3>María R.</h3>
+          <div class="team-role">Coordinación general</div>
+          <p class="team-bio">Trabajadora social. Lleva más de una década coordinando programas de inclusión en la provincia.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d2">
+        <div class="team-avatar av2">J</div>
+        <div class="team-info">
+          <h3>Javier L.</h3>
+          <div class="team-role">Programa autonomía</div>
+          <p class="team-bio">Educador. Acompaña talleres y procesos individuales con enfoque práctico y respetuoso.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d3">
+        <div class="team-avatar av3">C</div>
+        <div class="team-info">
+          <h3>Carmen S.</h3>
+          <div class="team-role">Familias y orientación</div>
+          <p class="team-bio">Psicóloga. Coordina los espacios de escucha y apoyo familiar desde 2016.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d4">
+        <div class="team-avatar av4">A</div>
+        <div class="team-info">
+          <h3>Antonio M.</h3>
+          <div class="team-role">Ocio inclusivo</div>
+          <p class="team-bio">Animador sociocultural. Diseña salidas y actividades para crear comunidad y red social.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TESTIMONIOS ════════════ -->
+<section class="testimonials-bg">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">Voces · 05</span>
+      <h2>Lo que dicen<br>quienes nos <em>acompañan.</em></h2>
+      <p>Personas, familias y profesionales que han pasado por Abaniko. Sus palabras son nuestro mejor reflejo.</p>
+    </div>
+    <div class="testimonials-grid">
+      <article class="testimonial featured reveal d1">
+        <span class="t-quote-mark">"</span>
+        <blockquote>
+          Llegamos buscando un sitio donde nuestro hijo pudiera ser él mismo. Encontramos eso y mucho más: una familia que lo acompaña sin prisa y sin etiquetas.
+        </blockquote>
+        <div class="t-author">
+          <div class="t-avatar">LP</div>
+          <div class="t-info">
+            <strong>Laura P.</strong>
+            <span>Familiar · 7 años en Abaniko</span>
+          </div>
+        </div>
+      </article>
+      <article class="testimonial reveal d2">
+        <span class="t-quote-mark">"</span>
+        <blockquote>
+          He aprendido a cocinar, a organizar mi semana y a moverme solo por Cádiz. Pero sobre todo he ganado confianza.
+        </blockquote>
+        <div class="t-author">
+          <div class="t-avatar v2">DG</div>
+          <div class="t-info">
+            <strong>David G.</strong>
+            <span>Participante · Autonomía</span>
+          </div>
+        </div>
+      </article>
+      <article class="testimonial reveal d3">
+        <span class="t-quote-mark">"</span>
+        <blockquote>
+          El grupo de ocio es lo que más espero del mes. Hemos ido al carnaval, a la playa, a museos. Y siempre te ríes.
+        </blockquote>
+        <div class="t-author">
+          <div class="t-avatar v3">SF</div>
+          <div class="t-info">
+            <strong>Sara F.</strong>
+            <span>Participante · Ocio</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ COLABORA ════════════ -->
+<section class="collab-bg" id="colabora">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">Súmate · 06</span>
+      <h2>Hay <em>muchas formas</em><br>de remar con nosotros.</h2>
+      <p>Voluntariado, donaciones, hacerse socio/a o difundir lo que hacemos. Cualquier gesto multiplica el impacto en la comunidad.</p>
+    </div>
+    <div class="collab-grid">
+      <article class="collab-card reveal d1">
+        <div class="c-icon">V</div>
+        <h3>Voluntariado</h3>
+        <p>Apoya talleres, salidas y eventos. Te formamos y te integramos en un equipo cálido. Desde 2 horas a la semana.</p>
+        <a href="#contacto" class="c-link">Quiero ser voluntario/a</a>
+      </article>
+      <article class="collab-card featured reveal d2">
+        <div class="c-icon">D</div>
+        <h3>Donaciones</h3>
+        <p>Tu aportación sostiene programas, materiales y la sede. Aportaciones puntuales o periódicas, todas suman.</p>
+        <a href="#contacto" class="c-link">Quiero donar</a>
+      </article>
+      <article class="collab-card reveal d3">
+        <div class="c-icon">S</div>
+        <h3>Hazte socio/a</h3>
+        <p>Forma parte oficial de Abaniko con una cuota mensual o anual. Asambleas, eventos exclusivos y comunidad activa.</p>
+        <a href="#contacto" class="c-link">Quiero asociarme</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ NOTICIAS ════════════ -->
+<section class="news-bg" id="noticias">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">Noticias · 07</span>
+      <h2>Lo que está pasando<br>en <em>Abaniko.</em></h2>
+      <p>Actividades, eventos, logros y todo lo que queremos compartir con la comunidad gaditana.</p>
     </div>
     <div class="news-grid">
-      <article class="news-card featured reveal d1">
-        <span class="news-tag feat">Destacada</span>
+      <article class="news-card feat reveal d1">
+        <span class="news-tag fe">★ Destacada</span>
         <span class="news-date">21 mayo 2026</span>
-        <h3>Abaniko estrena su nueva web con identidad renovada.</h3>
-        <p>
-          Desde aquí la asociación mantiene a la comunidad al día con actividades, talleres,
-          encuentros y todo lo que vivimos juntos.
-        </p>
-        <ul class="news-list">
-          <li>Publica novedades del grupo.</li>
-          <li>Anuncia talleres y salidas.</li>
-          <li>Comparte logros y recordatorios.</li>
-        </ul>
+        <h3>Abaniko estrena identidad y nueva web</h3>
+        <p>Comenzamos una nueva etapa con una imagen renovada, más cercana y más viva. Aquí compartiremos actividades, logros y recordatorios con toda la comunidad.</p>
+        <a href="#contacto" class="news-link">Contactar</a>
       </article>
       <article class="news-card reveal d2">
         <span class="news-tag act">Actividad</span>
-        <span class="news-date">Próxima publicación</span>
-        <h3>Talleres y actividades semanales</h3>
-        <p>
-          Usa esta tarjeta para resumir una actividad próxima con fecha, descripción
-          y una llamada a participar.
-        </p>
+        <span class="news-date">Próximamente</span>
+        <h3>Salida al museo de Cádiz</h3>
+        <p>El grupo de ocio prepara una visita guiada al museo. Plazas limitadas, inscripción abierta para participantes habituales.</p>
+        <a href="#contacto" class="news-link">Inscribirme</a>
       </article>
       <article class="news-card reveal d3">
         <span class="news-tag com">Comunidad</span>
-        <span class="news-date">Próxima publicación</span>
-        <h3>Avisos, anuncios y logros del grupo</h3>
-        <p>
-          Cambios de horario, celebraciones, agradecimientos o información importante
-          para familias y participantes.
-        </p>
+        <span class="news-date">Convocatoria abierta</span>
+        <h3>Buscamos voluntariado para verano</h3>
+        <p>Si quieres acompañar talleres y salidas durante junio y julio, escríbenos. Formación previa incluida.</p>
+        <a href="#colabora" class="news-link">Apuntarme</a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-  GALERÍA
-══════════════════════════════════════════════════ -->
-<section id="galeria" style="background:var(--crema-d);">
+<!-- ════════════ GALERÍA ════════════ -->
+<section class="gallery-bg" id="galeria">
   <div class="shell">
     <div class="section-head reveal">
-      <span class="eyebrow">&#9670; Galería</span>
-      <h2>Momentos, actividades<br>e identidad visual.</h2>
+      <span class="eyebrow">Galería · 08</span>
+      <h2>Momentos,<br>actividades, <em>vida.</em></h2>
       <p>Imágenes reales de la asociación, sus programas y la comunidad que la forma.</p>
     </div>
     <div class="gallery-shell">
-      <div class="gallery-main reveal d1" aria-label="Carrusel de imágenes">
+      <div class="gallery-main reveal d1">
         <div id="gtTrack" class="gallery-track">
           <figure class="gallery-slide">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNlsB_c4cefwP6KQLQBX3y5oCLcT_4JUIQnR1VJeDVUIQe5Z2O-hCUPmrGl_M1gACaKOn0VHIFIJ1jgYZXzuZjPrgPs74z1iEiT-Ugy0ixLhmxqzZb1-paD2Rgyx2eQOB7rtjPCfvb9kV5vsL2rlfc9BdI-RcfQh9eLUkHvTlBoZFUY1gGQeZomCUuRSR_/w400-h300/2ab77e38-d7e8-4732-8659-e2342d4f5546.jpg" alt="Museo del Carnaval">
             <figcaption class="gallery-caption">
+              <span class="gc-tag">▸ Cultura · 2024</span>
               <h3>Museo del Carnaval</h3>
-              <p>Participación en espacios culturales para compartir presencia y comunidad.</p>
+              <p>Participación en espacios culturales para compartir presencia y comunidad gaditana.</p>
             </figcaption>
           </figure>
           <figure class="gallery-slide">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfbshQ0li8RTbCKUk_JSMFjzAYpdtSFN_S7RkJF1X4v-ARc7T1hECCFco7BMsOlNMw-BxHxiHBs21x5mTfN1EbIAvvBh8n2dh5JOIRBh1VWSE5SHh2HOiONJvRRUPWY_0w5Yz9oZXJGvBIHIRlrqxeFHHGb4A8GGRiX53iXKDpbBVMhVyeNTb9Vvz0Q/w400-h300/b9dbd3e9-b028-42fd-b73b-14be9f33c9c0.jpg" alt="Actividades grupo de ocio">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfbshQ0li8RTbCKUk_JSMFjzAYpdtSFN_S7RkJF1X4v-ARc7T1hECCFco7BMsOlNMw-BxHxiHBs21x5mTfN1EbIAvvBh8n2dh5JOIRBh1VWSE5SHh2HOiONJvRRUPWY_0w5Yz9oZXJGvBIHIRlrqxeFHHGb4A8GGRiX53iXKDpbBVMhVyeNTb9Vvz0Q/w400-h300/b9dbd3e9-b028-42fd-b73b-14be9f33c9c0.jpg" alt="Grupo de ocio" loading="lazy">
             <figcaption class="gallery-caption">
+              <span class="gc-tag">▸ Ocio · 2025</span>
               <h3>Grupo de Ocio</h3>
               <p>Salidas, convivencia y experiencias compartidas en entornos inclusivos.</p>
             </figcaption>
           </figure>
           <figure class="gallery-slide">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzvub-d0_RVOQ_jNrGuWtk-4QfE8u3_FosMgDHrbjCQLD41yBYJytrCpA0z_OMbKR-AGUer47R-Q1GOCa2WwserwudBYGM8BCj7RkWd4GDjnwIxRpsLDh9T8aVxD2tQPVFoPzki9nTrSuARmeuCz-LzODvV2zF5zsu3vIe5d8GKIo-TWSi9AeI4zpeL-Dd/w453-h640/PosterTaller.jpg" alt="Autonomía doméstica 2024">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzvub-d0_RVOQ_jNrGuWtk-4QfE8u3_FosMgDHrbjCQLD41yBYJytrCpA0z_OMbKR-AGUer47R-Q1GOCa2WwserwudBYGM8BCj7RkWd4GDjnwIxRpsLDh9T8aVxD2tQPVFoPzki9nTrSuARmeuCz-LzODvV2zF5zsu3vIe5d8GKIo-TWSi9AeI4zpeL-Dd/w453-h640/PosterTaller.jpg" alt="Autonomía doméstica" loading="lazy">
             <figcaption class="gallery-caption">
+              <span class="gc-tag">▸ Autonomía · 2024</span>
               <h3>Autonomía Doméstica</h3>
               <p>Aprendizajes prácticos para reforzar la independencia y la vida diaria.</p>
             </figcaption>
           </figure>
         </div>
-        <button class="gallery-arrow prev" id="gPrev" aria-label="Anterior">&#8249;</button>
-        <button class="gallery-arrow next" id="gNext" aria-label="Siguiente">&#8250;</button>
+        <button class="gallery-arrow prev" id="gPrev" aria-label="Anterior">‹</button>
+        <button class="gallery-arrow next" id="gNext" aria-label="Siguiente">›</button>
         <div id="gDots" class="gallery-dots"></div>
       </div>
 
       <div class="gallery-side">
         <article class="side-card reveal d2">
           <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNlsB_c4cefwP6KQLQBX3y5oCLcT_4JUIQnR1VJeDVUIQe5Z2O-hCUPmrGl_M1gACaKOn0VHIFIJ1jgYZXzuZjPrgPs74z1iEiT-Ugy0ixLhmxqzZb1-paD2Rgyx2eQOB7rtjPCfvb9kV5vsL2rlfc9BdI-RcfQh9eLUkHvTlBoZFUY1gGQeZomCUuRSR_/w400-h300/2ab77e38-d7e8-4732-8659-e2342d4f5546.jpg" alt="Actividad cultural">
-          <div class="side-card-body">
-            <h4>Actividades con presencia real</h4>
-            <p>Cada salida enriquece la experiencia del grupo y fortalece vínculos comunitarios.</p>
+          <div class="side-card-overlay">
+            <h4>Cultura en la calle</h4>
+            <p>Salidas que fortalecen vínculos comunitarios.</p>
           </div>
         </article>
         <article class="side-card reveal d3">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzvub-d0_RVOQ_jNrGuWtk-4QfE8u3_FosMgDHrbjCQLD41yBYJytrCpA0z_OMbKR-AGUer47R-Q1GOCa2WwserwudBYGM8BCj7RkWd4GDjnwIxRpsLDh9T8aVxD2tQPVFoPzki9nTrSuARmeuCz-LzODvV2zF5zsu3vIe5d8GKIo-TWSi9AeI4zpeL-Dd/w453-h640/PosterTaller.jpg" alt="Autonomía doméstica">
-          <div class="side-card-body">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzvub-d0_RVOQ_jNrGuWtk-4QfE8u3_FosMgDHrbjCQLD41yBYJytrCpA0z_OMbKR-AGUer47R-Q1GOCa2WwserwudBYGM8BCj7RkWd4GDjnwIxRpsLDh9T8aVxD2tQPVFoPzki9nTrSuARmeuCz-LzODvV2zF5zsu3vIe5d8GKIo-TWSi9AeI4zpeL-Dd/w453-h640/PosterTaller.jpg" alt="Autonomía">
+          <div class="side-card-overlay">
             <h4>Autonomía doméstica</h4>
-            <p>Formación práctica y acompañamiento para la vida independiente desde 2024.</p>
+            <p>Formación práctica desde 2024.</p>
           </div>
         </article>
         <article class="side-card reveal d4">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwNzVX0fOq1eC1GGlUCVY9Kij45wQBgZNy25IoZeL9CLhpDtmXeyEG8zpwUP6VXm_2S_2MzW_IzeU8KH7Lt6j1_bR6aiJFyJNqmhTcoFZcJJsf0CC6e9SOVEG9LcLsNy_a9-Hti_Pe_64/s1600/LogoBlog.png" alt="Logo Abaniko">
-          <div class="side-card-body">
-            <h4>Una identidad abierta</h4>
-            <p>El abanico como símbolo de movimiento, diversidad y apertura hacia la comunidad.</p>
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfbshQ0li8RTbCKUk_JSMFjzAYpdtSFN_S7RkJF1X4v-ARc7T1hECCFco7BMsOlNMw-BxHxiHBs21x5mTfN1EbIAvvBh8n2dh5JOIRBh1VWSE5SHh2HOiONJvRRUPWY_0w5Yz9oZXJGvBIHIRlrqxeFHHGb4A8GGRiX53iXKDpbBVMhVyeNTb9Vvz0Q/w400-h300/b9dbd3e9-b028-42fd-b73b-14be9f33c9c0.jpg" alt="Comunidad">
+          <div class="side-card-overlay">
+            <h4>Comunidad activa</h4>
+            <p>Encuentros, risas y vínculos reales.</p>
           </div>
         </article>
       </div>
@@ -928,23 +2837,92 @@ textarea { min-height: 140px; resize: vertical; }
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-  COMENTARIOS
-══════════════════════════════════════════════════ -->
+<!-- ════════════ FAQ ════════════ -->
+<section class="faq-bg" id="faq">
+  <div class="shell faq-grid">
+    <div class="reveal">
+      <div class="section-head" style="margin-bottom: 1.5rem;">
+        <span class="eyebrow">FAQ · 09</span>
+        <h2>Preguntas<br><em>frecuentes.</em></h2>
+        <p>Si tu duda no aparece aquí, escríbenos sin compromiso. Respondemos siempre.</p>
+      </div>
+      <a href="#contacto" class="btn btn-dark"><span>Tengo otra pregunta →</span></a>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item reveal d1" open>
+        <summary>
+          ¿Quién puede participar en los programas?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-content">
+          Personas adultas que busquen acompañamiento para reforzar su autonomía, su vida social o el día a día. Hacemos una primera entrevista sin compromiso para conocernos y valorar juntos qué programa encaja mejor.
+        </div>
+      </details>
+      <details class="faq-item reveal d1">
+        <summary>
+          ¿Cuánto cuesta?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-content">
+          Cada programa tiene su propia estructura. Algunos servicios son gratuitos gracias a subvenciones y donaciones; otros tienen una cuota ajustada. Te lo explicamos todo de forma transparente en la primera reunión.
+        </div>
+      </details>
+      <details class="faq-item reveal d1">
+        <summary>
+          ¿Dónde estáis ubicados?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-content">
+          Tenemos sede en Cádiz capital. Las salidas y actividades del grupo de ocio se hacen por toda la provincia: museos, playa, casco antiguo, eventos locales, etc.
+        </div>
+      </details>
+      <details class="faq-item reveal d1">
+        <summary>
+          ¿Cómo puedo colaborar si no quiero ser voluntario/a?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-content">
+          Puedes hacerte socio/a, hacer una donación puntual o periódica, o ayudarnos a difundir lo que hacemos. Cualquier gesto cuenta y suma. En la sección "Colabora" tienes todas las vías abiertas.
+        </div>
+      </details>
+      <details class="faq-item reveal d1">
+        <summary>
+          ¿Trabajáis con familias?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-content">
+          Sí. Las familias son parte esencial del proceso. Tenemos un programa específico de orientación familiar con escucha individual y grupos de apoyo.
+        </div>
+      </details>
+      <details class="faq-item reveal d1">
+        <summary>
+          ¿Cómo empiezo?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-content">
+          Escríbenos por correo o llámanos. Concretamos una primera cita gratuita y sin compromiso. Vemos quién eres, qué buscas y qué podemos ofrecerte. Sin prisa.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ COMENTARIOS ════════════ -->
 <section id="comentarios" class="comments-bg">
   <div class="shell">
     <div class="section-head reveal">
-      <span class="eyebrow">&#9670; Comentarios</span>
-      <h2>Un espacio para opinar<br>sin registro.</h2>
+      <span class="eyebrow">Comentarios · 10</span>
+      <h2>Un espacio para<br>opinar <em>sin registro.</em></h2>
       <p>Cualquier persona puede escribir y elegir si aparecer con nombre o de forma anónima.</p>
     </div>
     <div class="comment-layout">
       <aside class="comment-panel reveal d1">
+        <div class="cp-num">01</div>
         <h3>Escribe tu mensaje</h3>
         <p>Sin cuentas ni registros. Los comentarios se guardan en este navegador.</p>
         <div class="hint-box">
-          Si más adelante quieres que los comentarios se compartan entre todos los visitantes,
-          será necesario conectar una base de datos. La página ya está preparada para ese paso.
+          Los comentarios se guardan en este navegador. Son visibles solo para ti. Para preguntas directas al equipo, usa el formulario de <a href="#contacto" style="color:var(--verde-d);font-weight:500;">contacto</a>.
         </div>
         <form id="comment-form">
           <label for="c-name">
@@ -962,16 +2940,17 @@ textarea { min-height: 140px; resize: vertical; }
             Comentario
             <span class="lsub">Máximo 500 caracteres.</span>
           </label>
-          <textarea id="c-msg" name="message" maxlength="500" placeholder="Escribe aquí tu comentario…"></textarea>
+          <textarea id="c-msg" name="message" maxlength="500" placeholder="Escribe aquí tu comentario..."></textarea>
 
           <div class="form-actions">
-            <button class="btn btn-primary" type="submit">Publicar comentario</button>
-            <button class="btn btn-dark" type="button" id="clear-btn">Borrar guardados</button>
+            <button class="btn btn-primary" type="submit"><span>Publicar comentario</span></button>
+            <button class="btn btn-ghost" type="button" id="clear-btn"><span>Borrar guardados</span></button>
           </div>
         </form>
       </aside>
 
       <div class="comment-panel reveal d2">
+        <div class="cp-num">02</div>
         <h3>Lo que dice la comunidad</h3>
         <p>Los mensajes más recientes aparecen primero.</p>
         <div id="c-feed" class="comment-feed" aria-live="polite"></div>
@@ -980,61 +2959,189 @@ textarea { min-height: 140px; resize: vertical; }
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-  FOOTER
-══════════════════════════════════════════════════ -->
-<footer id="contacto" class="site-footer">
+<!-- ════════════ CONTACTO ════════════ -->
+<section class="contact-bg" id="contacto">
   <div class="shell">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <strong>Asociación Abaniko</strong>
-        <p>
-          Una asociación de profesionales en Cádiz comprometidos con la inclusión,
-          la autonomía y la mejora de la calidad de vida desde 2009.
-        </p>
+    <div class="section-head reveal" style="max-width: 760px;">
+      <span class="eyebrow">Contacto · 11</span>
+      <h2>Escríbenos.<br>Te <em>responderemos</em><br>siempre.</h2>
+      <p>Sin formularios infinitos ni respuestas automáticas. Una persona del equipo te leerá y te contestará.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="ci-block reveal d1">
+          <div class="ci-icon">✉</div>
+          <div>
+            <strong>Email</strong>
+            <span>asoc.abaniko@gmail.com</span>
+          </div>
+        </div>
+        <div class="ci-block reveal d2">
+          <div class="ci-icon">☏</div>
+          <div>
+            <strong>Teléfono</strong>
+            <span>677 854 232</span>
+          </div>
+        </div>
+        <div class="ci-block reveal d3">
+          <div class="ci-icon">◉</div>
+          <div>
+            <strong>Ubicación</strong>
+            <span>Cádiz, Andalucía</span>
+          </div>
+        </div>
+        <div class="ci-block reveal d4">
+          <div class="ci-icon">◑</div>
+          <div>
+            <strong>Horario</strong>
+            <span>Mañanas y tardes, L-V</span>
+          </div>
+        </div>
       </div>
-      <nav class="footer-nav">
-        <h4>Navegación</h4>
+
+      <form class="contact-form reveal d2" id="contactForm">
+        <h3>Cuéntanos</h3>
+        <p>Rellena el formulario y nos pondremos en contacto contigo.</p>
+        <div class="row-2">
+          <label>
+            Nombre
+            <input type="text" name="name" required placeholder="Tu nombre">
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required placeholder="tu@email.com">
+          </label>
+        </div>
+        <label>
+          Motivo
+          <select name="reason">
+            <option>Quiero información sobre programas</option>
+            <option>Quiero ser voluntario/a</option>
+            <option>Quiero hacer una donación</option>
+            <option>Quiero asociarme</option>
+            <option>Soy familiar de un/a posible participante</option>
+            <option>Otros</option>
+          </select>
+        </label>
+        <label>
+          Mensaje
+          <textarea name="message" required placeholder="Cuéntanos brevemente..."></textarea>
+        </label>
+        <div class="gdpr-row">
+          <input type="checkbox" id="gdpr-contact" name="gdpr" required>
+          <label for="gdpr-contact">He leído y acepto la <button type="button" onclick="openModal('modal-privacidad')" style="background:none;border:0;padding:0;font:inherit;color:var(--ocre-l);text-decoration:underline;text-underline-offset:3px;cursor:pointer;">política de privacidad</button>. Los datos facilitados se usarán exclusivamente para responder a mi consulta.</label>
+        </div>
+        <button type="submit" class="btn btn-primary" style="justify-self: start;"><span>Enviar mensaje →</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-logo">
+          <div class="fb-mark">A</div>
+          <h4>Asociación Abaniko</h4>
+        </div>
+        <p>Una asociación de profesionales en Cádiz comprometidos con la inclusión, la autonomía y la mejora de la calidad de vida desde 2009.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">◐</a>
+          <a href="#" aria-label="Facebook">◑</a>
+          <a href="#" aria-label="Email">✉</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navegación</h5>
         <ul>
           <li><a href="#quienes-somos">Quiénes somos</a></li>
           <li><a href="#programas">Programas</a></li>
-          <li><a href="#impacto">Impacto</a></li>
-          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#equipo">Equipo</a></li>
           <li><a href="#galeria">Galería</a></li>
-          <li><a href="#comentarios">Comentarios</a></li>
         </ul>
-      </nav>
-      <div class="footer-contact">
-        <h4>Contacto</h4>
+      </div>
+
+      <div class="footer-col">
+        <h5>Participa</h5>
         <ul>
-          <li>📍 Cádiz, Andalucía</li>
-          <li>📧 asoc.abaniko@gmail.com</li>
-          <li>📞 677 854 232</li>
-          <li>🕐 Mañanas y tardes</li>
+          <li><a href="#colabora">Voluntariado</a></li>
+          <li><a href="#colabora">Donaciones</a></li>
+          <li><a href="#colabora">Hazte socio/a</a></li>
+          <li><a href="#comentarios">Comentarios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li>Cádiz, Andalucía</li>
+          <li>asoc.abaniko@gmail.com</li>
+          <li>677 854 232</li>
+          <li>Mañanas y tardes</li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <span>© 2026 Asociación Abaniko · Todos los derechos reservados.</span>
-      <span>Cádiz · Inclusión, autonomía y comunidad</span>
+      <div>
+        <span>© 2026 ASOCIACIÓN ABANIKO · TODOS LOS DERECHOS RESERVADOS</span>
+        <div class="footer-legal">
+          <button onclick="openModal('modal-legal')">Aviso Legal</button>
+          <button onclick="openModal('modal-privacidad')">Privacidad</button>
+          <button onclick="openModal('modal-cookies')">Cookies</button>
+        </div>
+      </div>
+      <span>CÁDIZ · INCLUSIÓN · AUTONOMÍA · COMUNIDAD</span>
     </div>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════════════
-  SCRIPTS
-══════════════════════════════════════════════════ -->
 <script>
-/* ─── CONSTANTS ────────────────────────────── */
+/* ═══════════════════════════════════════════
+   CURSOR
+   ═══════════════════════════════════════════ */
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursor-dot');
+const cursorText = document.getElementById('cursor-text');
+let mx = 0, my = 0, cx = 0, cy = 0;
+let clickScale = 1, targetClickScale = 1;
+
+window.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursorDot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+});
+
+document.addEventListener('mousedown', () => { targetClickScale = .74; });
+document.addEventListener('mouseup', () => { targetClickScale = 1; });
+
+(function animateCursor(){
+  cx += (mx - cx) * 0.18;
+  cy += (my - cy) * 0.18;
+  clickScale += (targetClickScale - clickScale) * 0.22;
+  cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%) scale(${clickScale.toFixed(3)})`;
+  cursorText.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+  requestAnimationFrame(animateCursor);
+})();
+
+document.querySelectorAll('a, button, summary, input, textarea, select, label, .side-card, .program-card, .team-card, .testimonial, .collab-card, .news-card, .ci-block, .value-item').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hover-link'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hover-link'));
+});
+
+/* ═══════════════════════════════════════════
+   LOADER · FAN ANIMATION
+   ═══════════════════════════════════════════ */
 const LETTERS = ['A','B','A','N','I','K','O'];
-const COLORS  = ['#C4572F','#CF7B32','#D59A3F','#6F8B2E','#1F6A62','#1C6288','#6C4F8F'];
-const CKEY = 'abaniko_comments_v2';
+const COLORS = ['#B84A28','#C77939','#D59A3F','#7B8E2E','#1B5E55','#2D6E80','#6C4F8F'];
 const fanWrap = document.getElementById('fan-wrap');
 const fanStatus = document.getElementById('fan-status');
 
-/* ─── FAN ANIMATION ────────────────────────── */
 function buildFan() {
-  fanWrap.querySelectorAll('.fan-letter').forEach(n => n.remove());
   return LETTERS.map((l, i) => {
     const el = document.createElement('div');
     el.className = 'fan-letter';
@@ -1046,71 +3153,146 @@ function buildFan() {
   });
 }
 
-function getAngle(i, n) {
-  return -(148 / 2) + (i / (n - 1)) * 148;
-}
-
 function animateFan() {
   const els = buildFan();
+  const startDelay = 900;
   els.forEach((el, i) => {
     setTimeout(() => {
       el.style.opacity = '1';
-      el.style.transform = `rotate(${getAngle(i, LETTERS.length)}deg)`;
-    }, i * 180);
+      const angle = -(140/2) + (i / (LETTERS.length - 1)) * 140;
+      el.style.transform = `rotate(${angle}deg)`;
+    }, startDelay + i * 170);
   });
-
-  const openAt = LETTERS.length * 180 + 600;
-  setTimeout(() => { fanStatus.textContent = 'Cerrando el abanico…'; }, openAt);
-
+  const openAt = startDelay + LETTERS.length * 170 + 600;
+  setTimeout(() => { fanStatus.textContent = '▸ Cerrando el abanico'; }, openAt);
   setTimeout(() => {
     els.forEach((el, i) => {
-      el.style.transition = 'transform .85s cubic-bezier(.4,0,.2,1)';
-      el.style.transform = `rotate(${i * 4.5 - 14}deg)`;
+      el.style.transition = 'transform 1s var(--ease)';
+      el.style.transform = `rotate(${i * 3.5 - 11}deg)`;
     });
   }, openAt + 700);
-
-  setTimeout(() => { fanStatus.textContent = 'Bienvenido/a a Abaniko ✦'; }, openAt + 1700);
-
-  return openAt + 2400;
+  setTimeout(() => { fanStatus.textContent = '▸ Bienvenido/a a Abaniko'; }, openAt + 1800);
+  return openAt + 2300;
 }
 
-/* ─── LOADER ───────────────────────────────── */
 const loader = document.getElementById('loader');
 const startedAt = Date.now();
 const minDuration = animateFan() + 200;
-
 function dismissLoader() {
   const elapsed = Date.now() - startedAt;
   const wait = Math.max(0, minDuration - elapsed);
   setTimeout(() => {
     loader.classList.add('hide');
     document.body.classList.remove('is-loading');
+    triggerInitialReveal();
   }, wait);
 }
 window.addEventListener('load', dismissLoader);
+setTimeout(dismissLoader, 6000); // fallback
 
-/* ─── GALLERY ──────────────────────────────── */
+/* ═══════════════════════════════════════════
+   STICKY HEADER · SCROLL PROGRESS · BACK TOP
+   ═══════════════════════════════════════════ */
+const siteHeader = document.getElementById('siteHeader');
+const scrollProgress = document.getElementById('scroll-progress');
+const backTop = document.getElementById('back-top');
+
+window.addEventListener('scroll', () => {
+  const sy = window.scrollY;
+  siteHeader.classList.toggle('scrolled', sy > 60);
+  const pct = sy / (document.documentElement.scrollHeight - window.innerHeight);
+  scrollProgress.style.transform = `scaleX(${pct})`;
+  backTop.classList.toggle('visible', sy > 500);
+});
+
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV
+   ═══════════════════════════════════════════ */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const open = navToggle.classList.toggle('open');
+    navLinks.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+/* ═══════════════════════════════════════════
+   REVEAL ON SCROLL
+   ═══════════════════════════════════════════ */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-x, .split-line').forEach(el => obs.observe(el));
+
+function triggerInitialReveal() {
+  document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+}
+
+/* ═══════════════════════════════════════════
+   COUNTERS
+   ═══════════════════════════════════════════ */
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1600;
+    const start = performance.now();
+    function tick(t) {
+      const p = Math.min((t - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => countObs.observe(el));
+
+/* ═══════════════════════════════════════════
+   GALLERY
+   ═══════════════════════════════════════════ */
 const track = document.getElementById('gtTrack');
 const dotsEl = document.getElementById('gDots');
 let gIdx = 0, gTimer = null;
+const slides = track.querySelectorAll('.gallery-slide').length;
 
 function renderDots() {
-  const n = track.querySelectorAll('.gallery-slide').length;
-  dotsEl.innerHTML = Array.from({length:n},(_,i) =>
-    `<button class="gdot${i===gIdx?' on':''}" data-i="${i}" aria-label="Imagen ${i+1}"></button>`
+  dotsEl.innerHTML = Array.from({length: slides}, (_, i) =>
+    `<button class="gdot${i === gIdx ? ' on' : ''}" data-i="${i}" aria-label="Imagen ${i+1}"></button>`
   ).join('');
 }
 
 function goSlide(i) {
-  const n = track.querySelectorAll('.gallery-slide').length;
-  gIdx = (i + n) % n;
-  track.style.transform = `translateX(-${gIdx*100}%)`;
+  gIdx = (i + slides) % slides;
+  track.style.transform = `translateX(-${gIdx * 100}%)`;
   renderDots();
 }
 
 function resetTimer() {
   clearInterval(gTimer);
-  gTimer = setInterval(() => goSlide(gIdx + 1), 4500);
+  gTimer = setInterval(() => goSlide(gIdx + 1), 5500);
 }
 
 dotsEl.addEventListener('click', e => {
@@ -1119,11 +3301,15 @@ dotsEl.addEventListener('click', e => {
 });
 document.getElementById('gPrev').onclick = () => { goSlide(gIdx - 1); resetTimer(); };
 document.getElementById('gNext').onclick = () => { goSlide(gIdx + 1); resetTimer(); };
-renderDots(); resetTimer();
+renderDots();
+resetTimer();
 
-/* ─── COMMENTS ─────────────────────────────── */
-const form   = document.getElementById('comment-form');
-const feed   = document.getElementById('c-feed');
+/* ═══════════════════════════════════════════
+   COMMENTS
+   ═══════════════════════════════════════════ */
+const CKEY = 'abaniko_comments_v3';
+const form = document.getElementById('comment-form');
+const feed = document.getElementById('c-feed');
 const anonCk = document.getElementById('c-anon');
 const nameIn = document.getElementById('c-name');
 
@@ -1132,23 +3318,23 @@ function esc(s) {
           .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 function readC() {
-  try { const r = JSON.parse(localStorage.getItem(CKEY)); return Array.isArray(r)?r:[]; }
+  try { const r = JSON.parse(localStorage.getItem(CKEY)); return Array.isArray(r) ? r : []; }
   catch { return []; }
 }
 function saveC(a) { localStorage.setItem(CKEY, JSON.stringify(a)); }
 function fmtDate(d) {
-  return new Intl.DateTimeFormat('es-ES',{dateStyle:'medium',timeStyle:'short'}).format(new Date(d));
+  return new Intl.DateTimeFormat('es-ES', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(d));
 }
 function renderC() {
   const cs = readC();
   if (!cs.length) {
-    feed.innerHTML = '<div class="empty-state">Todavía no hay comentarios. El primero puede ser el tuyo.</div>';
+    feed.innerHTML = '<div class="empty-state"><em>"Silencio expectante"</em>Todavía no hay comentarios. El primero puede ser el tuyo.</div>';
     return;
   }
   feed.innerHTML = cs.slice().reverse().map(c => `
     <article class="comment-card">
       <div class="comment-meta">
-        <strong>${c.anonymous ? 'Anónimo' : esc(c.name||'Invitado')}</strong>
+        <strong>${c.anonymous ? 'Anónimo' : esc(c.name || 'Invitado')}</strong>
         <span>${fmtDate(c.createdAt)}</span>
       </div>
       <p>${esc(c.message)}</p>
@@ -1164,27 +3350,305 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   const fd = new FormData(form);
   const anon = !!fd.get('anonymous');
-  const name = (fd.get('name')||'').trim();
-  const msg  = (fd.get('message')||'').trim();
+  const name = (fd.get('name') || '').trim();
+  const msg = (fd.get('message') || '').trim();
   if (!msg) { alert('Escribe un comentario antes de publicarlo.'); return; }
   if (!anon && !name) { alert('Escribe un nombre o marca la opción de anónimo.'); return; }
   const cs = readC();
-  cs.push({ anonymous: anon, name: anon?'':name, message: msg, createdAt: new Date().toISOString() });
-  saveC(cs); form.reset(); syncAnon(); renderC();
+  cs.push({ anonymous: anon, name: anon ? '' : name, message: msg, createdAt: new Date().toISOString() });
+  saveC(cs);
+  form.reset();
+  syncAnon();
+  renderC();
 });
+
 anonCk.addEventListener('change', syncAnon);
 document.getElementById('clear-btn').addEventListener('click', () => {
   if (!confirm('¿Borrar los comentarios guardados en este navegador?')) return;
-  localStorage.removeItem(CKEY); renderC();
+  localStorage.removeItem(CKEY);
+  renderC();
+});
+syncAnon();
+renderC();
+
+/* ═══════════════════════════════════════════
+   CONTACT FORM (mailto)
+   ═══════════════════════════════════════════ */
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  if (!fd.get('gdpr')) {
+    alert('Debes aceptar la política de privacidad para enviar el formulario.');
+    return;
+  }
+  const name    = (fd.get('name')    || '').trim();
+  const email   = (fd.get('email')   || '').trim();
+  const reason  = (fd.get('reason')  || '').trim();
+  const message = (fd.get('message') || '').trim();
+  const subject = encodeURIComponent(`[Web Abaniko] ${reason}`);
+  const body    = encodeURIComponent(
+    `Nombre: ${name}\nEmail de respuesta: ${email}\nMotivo: ${reason}\n\nMensaje:\n${message}`
+  );
+  window.open(`mailto:asoc.abaniko@gmail.com?subject=${subject}&body=${body}`);
+  const btn = e.target.querySelector('button[type="submit"] span');
+  const orig = btn.textContent;
+  btn.textContent = '✓ Abriendo tu correo…';
+  e.target.reset();
+  setTimeout(() => { btn.textContent = orig; }, 4000);
 });
 
-syncAnon(); renderC();
+/* ═══════════════════════════════════════════
+   COOKIE BANNER
+   ═══════════════════════════════════════════ */
+const COOKIE_KEY = 'abaniko_cookies_ok';
+const cookieBanner = document.getElementById('cookie-banner');
+if (!localStorage.getItem(COOKIE_KEY)) {
+  setTimeout(() => cookieBanner.classList.add('cb-visible'), 900);
+}
+function dismissCookies() {
+  cookieBanner.classList.remove('cb-visible');
+  localStorage.setItem(COOKIE_KEY, '1');
+}
+document.getElementById('cookie-accept').addEventListener('click', dismissCookies);
+document.getElementById('cookie-reject').addEventListener('click', dismissCookies);
 
-/* ─── REVEAL ON SCROLL ─────────────────────── */
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+/* ═══════════════════════════════════════════
+   MODALES LEGALES
+   ═══════════════════════════════════════════ */
+function openModal(id) {
+  const m = document.getElementById(id);
+  if (!m) return;
+  m.classList.add('mo-open');
+  document.body.style.overflow = 'hidden';
+  m.querySelector('.modal-close')?.focus();
+}
+function closeModal(id) {
+  const m = document.getElementById(id);
+  if (!m) return;
+  m.classList.remove('mo-open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.mo-open').forEach(m => closeModal(m.id));
+  }
+});
+
+/* ═══════════════════════════════════════════
+   WHATSAPP: aparece con el back-top
+   ═══════════════════════════════════════════ */
+const whatsappBtn = document.getElementById('whatsapp-btn');
+window.addEventListener('scroll', () => {
+  whatsappBtn.classList.toggle('wa-visible', window.scrollY > 500);
+}, {passive: true});
+
+/* ═══════════════════════════════════════════
+   CURSOR TRAIL
+   ═══════════════════════════════════════════ */
+if (window.matchMedia('(hover: hover)').matches) {
+  const TRAIL_N = 6;
+  const trails = Array.from({length: TRAIL_N}, (_, i) => {
+    const d = document.createElement('div');
+    d.className = 'cursor-trail';
+    const sz = 4.8 - i * 0.55;
+    d.style.width = d.style.height = sz + 'px';
+    d.style.opacity = (0.52 - i * 0.07).toFixed(2);
+    document.body.appendChild(d);
+    return {el: d, x: 0, y: 0};
+  });
+  (function animTrail() {
+    trails[0].x += (mx - trails[0].x) * 0.3;
+    trails[0].y += (my - trails[0].y) * 0.3;
+    trails[0].el.style.transform = `translate(${trails[0].x}px,${trails[0].y}px) translate(-50%,-50%)`;
+    for (let i = 1; i < TRAIL_N; i++) {
+      trails[i].x += (trails[i-1].x - trails[i].x) * 0.3;
+      trails[i].y += (trails[i-1].y - trails[i].y) * 0.3;
+      trails[i].el.style.transform = `translate(${trails[i].x}px,${trails[i].y}px) translate(-50%,-50%)`;
+    }
+    requestAnimationFrame(animTrail);
+  })();
+}
+
+/* ═══════════════════════════════════════════
+   MAGNETIC BUTTONS
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width / 2) * 0.28;
+    const y = (e.clientY - r.top - r.height / 2) * 0.38;
+    btn.style.transition = 'transform .1s, background .3s var(--ease), box-shadow .3s, color .3s';
+    btn.style.transform = `translate(${x}px,${y}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transition = 'transform .7s cubic-bezier(.23,1,.32,1), background .3s var(--ease), box-shadow .3s, color .3s';
+    btn.style.transform = '';
+    setTimeout(() => { btn.style.transition = ''; }, 750);
+  });
+});
+
+/* ═══════════════════════════════════════════
+   3D CARD TILT
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.program-card, .team-card, .collab-card').forEach(card => {
+  const str = card.classList.contains('program-card') ? 9 : 7;
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transition = 'transform .1s, box-shadow .3s, border-color .3s';
+    card.style.transform =
+      `perspective(720px) rotateY(${x * str}deg) rotateX(${-y * str}deg) translateY(-10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transition = 'transform .65s cubic-bezier(.23,1,.32,1), box-shadow .5s var(--ease), border-color .3s';
+    card.style.transform = '';
+    setTimeout(() => { card.style.transition = ''; }, 700);
+  });
+});
+
+/* ═══════════════════════════════════════════
+   HERO SPOTLIGHT + PARALLAX
+   ═══════════════════════════════════════════ */
+const heroSpot = document.querySelector('.hero-spotlight');
+const heroArcEl = document.querySelector('.hero-arc');
+const heroEl = document.querySelector('.hero');
+
+if (heroEl && heroSpot) {
+  heroEl.addEventListener('mousemove', e => {
+    const r = heroEl.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width * 100).toFixed(1);
+    const y = ((e.clientY - r.top) / r.height * 100).toFixed(1);
+    heroSpot.style.setProperty('--mx', x + '%');
+    heroSpot.style.setProperty('--my', y + '%');
+  });
+}
+
+window.addEventListener('scroll', () => {
+  const sy = window.scrollY;
+  if (heroArcEl && sy < window.innerHeight * 1.5) {
+    heroArcEl.style.transform =
+      `translateY(${sy * 0.22}px) rotate(${(sy * 0.014).toFixed(2)}deg)`;
+  }
+}, {passive: true});
+
+/* ═══════════════════════════════════════════
+   INDICADOR DE SECCIÓN
+   ═══════════════════════════════════════════ */
+const SI_MAP = [
+  ['inicio',       'Inicio'],
+  ['quienes-somos','Nosotros'],
+  ['programas',    'Programas'],
+  ['historia',     'Historia'],
+  ['equipo',       'Equipo'],
+  ['colabora',     'Colabora'],
+  ['noticias',     'Noticias'],
+  ['galeria',      'Galería'],
+  ['faq',          'FAQ'],
+  ['comentarios',  'Comentarios'],
+  ['contacto',     'Contacto'],
+];
+
+const siContainer = document.getElementById('section-indicator');
+if (siContainer) {
+  const siDots = SI_MAP.map(([id, label]) => {
+    const btn = document.createElement('button');
+    btn.className = 'si-dot';
+    btn.setAttribute('data-label', label);
+    btn.setAttribute('aria-label', `Ir a ${label}`);
+    btn.addEventListener('click', () =>
+      document.getElementById(id)?.scrollIntoView({behavior: 'smooth'})
+    );
+    siContainer.appendChild(btn);
+    return {btn, id};
+  });
+
+  const siObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const id = e.target.id;
+      siDots.forEach(({btn, id: sid}) => btn.classList.toggle('active', sid === id));
+    });
+  }, {rootMargin: '-40% 0px -40% 0px'});
+
+  SI_MAP.forEach(([id]) => {
+    const el = document.getElementById(id);
+    if (el) siObs.observe(el);
+  });
+
+  window.addEventListener('scroll', () => {
+    siContainer.classList.toggle('si-visible', window.scrollY > 150);
+  }, {passive: true});
+}
+
+/* ═══════════════════════════════════════════
+   NAV LINK ACTIVO
+   ═══════════════════════════════════════════ */
+const navAnchors = document.querySelectorAll('#navLinks a[href^="#"]');
+const navSections = document.querySelectorAll('section[id]');
+
+if (navAnchors.length && navSections.length) {
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      navAnchors.forEach(a =>
+        a.classList.toggle('nav-active', a.getAttribute('href') === `#${e.target.id}`)
+      );
+    });
+  }, {rootMargin: '-44% 0px -44% 0px'});
+  navSections.forEach(s => navObs.observe(s));
+}
+
+/* ═══════════════════════════════════════════
+   GALERÍA: SWIPE TÁCTIL
+   ═══════════════════════════════════════════ */
+let swipeX = 0;
+track.addEventListener('touchstart', e => { swipeX = e.touches[0].clientX; }, {passive: true});
+track.addEventListener('touchend', e => {
+  const dx = swipeX - e.changedTouches[0].clientX;
+  if (Math.abs(dx) > 48) { goSlide(gIdx + (dx > 0 ? 1 : -1)); resetTimer(); }
+}, {passive: true});
+
+const galleryMain = document.querySelector('.gallery-main');
+if (galleryMain) {
+  const hint = document.createElement('div');
+  hint.className = 'swipe-hint';
+  hint.textContent = '← Desliza la galería →';
+  galleryMain.appendChild(hint);
+}
+
+/* ═══════════════════════════════════════════
+   FLECHAS EN TARJETAS DE PROGRAMAS
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.program-card').forEach(card => {
+  const arrow = document.createElement('span');
+  arrow.className = 'prog-arrow';
+  arrow.textContent = 'Saber más';
+  card.appendChild(arrow);
+});
+
+/* ═══════════════════════════════════════════
+   COUNTER GLOW
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.counter').forEach(el => {
+  const parent = el.closest('.stat-num');
+  const orig = countObs;
+  const glowObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      if (parent) {
+        parent.style.transition = 'text-shadow .4s';
+        parent.style.textShadow = '0 0 40px rgba(217,164,65,.35)';
+        setTimeout(() => { parent.style.textShadow = ''; }, 2000);
+      }
+      glowObs.unobserve(e.target);
+    });
+  }, {threshold: 0.8});
+  glowObs.observe(el);
+});
 </script>
 </body>
 </html>
