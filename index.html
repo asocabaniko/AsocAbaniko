@@ -1,1908 +1,1190 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Asociación Abaniko. Asociación social en Cádiz dedicada a la inclusión, la autonomía personal, el ocio, el deporte, el empleo y el acompañamiento comunitario.">
-  <title>Asociación Abaniko | Inclusión, autonomía y comunidad en Cádiz</title>
-  <style>
-    :root {
-      --bg: #f7efe1;
-      --bg-2: #f1e3cf;
-      --paper: rgba(255, 250, 241, 0.88);
-      --paper-strong: #fffaf2;
-      --text: #2a231c;
-      --muted: #6f655d;
-      --line: rgba(89, 63, 44, 0.12);
-      --primary: #cf6d2e;
-      --primary-deep: #ab4d21;
-      --secondary: #2e6f89;
-      --secondary-soft: #dfeef4;
-      --olive: #6f8a32;
-      --sand: #d0a04f;
-      --shadow: 0 28px 60px rgba(76, 48, 28, 0.13);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 12% 12%, rgba(208, 160, 79, 0.18), transparent 22%),
-        radial-gradient(circle at 86% 10%, rgba(46, 111, 137, 0.14), transparent 22%),
-        linear-gradient(180deg, #f8f0e2 0%, #f6efe4 34%, #f0e4d0 100%);
-      line-height: 1.6;
-    }
-
-    body.loading {
-      overflow: hidden;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    .shell {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-    }
-
-    .page-shell {
-      opacity: 1;
-      transition: opacity 0.45s ease;
-    }
-
-    body.loading .page-shell {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .site-loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: grid;
-      place-items: center;
-      padding: 1.4rem;
-      background:
-        radial-gradient(circle at 14% 14%, rgba(208, 160, 79, 0.24), transparent 24%),
-        radial-gradient(circle at 84% 12%, rgba(46, 111, 137, 0.18), transparent 22%),
-        linear-gradient(180deg, #f8f0e2 0%, #f2e7d5 100%);
-      transition: opacity 0.55s ease, visibility 0.55s ease;
-    }
-
-    .site-loader.is-hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .loader-card {
-      width: min(100%, 560px);
-      padding: 2rem 1.5rem 1.8rem;
-      border-radius: 36px;
-      background: rgba(255, 250, 241, 0.92);
-      border: 1px solid rgba(89, 63, 44, 0.09);
-      box-shadow: 0 30px 70px rgba(76, 48, 28, 0.16);
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.4rem 0.82rem;
-      border-radius: 999px;
-      background: rgba(46, 111, 137, 0.1);
-      color: var(--secondary);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .loader-card strong {
-      display: block;
-      margin-top: 0.95rem;
-      font-size: 1.7rem;
-      letter-spacing: -0.03em;
-    }
-
-    .loader-card p {
-      margin: 0.7rem auto 0;
-      max-width: 34ch;
-      color: var(--muted);
-    }
-
-    .loader-status {
-      margin-top: 0.35rem;
-      color: var(--secondary);
-      font-size: 0.92rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      background: rgba(247, 239, 225, 0.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(89, 63, 44, 0.08);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.95rem 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.95rem;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 60px;
-      height: 60px;
-      border-radius: 18px;
-      object-fit: contain;
-      background: #fff9f2;
-      border: 1px solid rgba(89, 63, 44, 0.08);
-      box-shadow: 0 14px 28px rgba(60, 39, 25, 0.12);
-      padding: 0.35rem;
-    }
-
-    .brand-copy strong {
-      display: block;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .brand-copy span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 0.95rem;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-deep);
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      padding: 0.92rem 1.35rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-    }
-
-    .button.primary {
-      background: var(--primary);
-      color: #fff9f2;
-      box-shadow: 0 18px 28px rgba(207, 109, 46, 0.24);
-    }
-
-    .button.secondary {
-      background: rgba(255, 255, 255, 0.55);
-      color: var(--text);
-      border-color: rgba(89, 63, 44, 0.1);
-    }
-
-    .hero {
-      padding: 4.3rem 0 2rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1.4rem;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .hero-side,
-    .program-card,
-    .story-card,
-    .news-card,
-    .comment-panel,
-    .contact-card,
-    .collab-card,
-    .info-card,
-    .gallery-frame {
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--line);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-copy {
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-copy::after {
-      content: "";
-      position: absolute;
-      right: -90px;
-      bottom: -90px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(208, 160, 79, 0.18), transparent 68%);
-      pointer-events: none;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      line-height: 1.08;
-    }
-
-    h1 {
-      margin-top: 1rem;
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      letter-spacing: -0.05em;
-    }
-
-    .hero-copy p {
-      max-width: 62ch;
-      margin: 1rem 0 0;
-      color: var(--muted);
-      font-size: 1.06rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      margin-top: 1.55rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: 1.15rem;
-    }
-
-    .social-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      padding: 0.82rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(89, 63, 44, 0.1);
-      background: rgba(255, 255, 255, 0.62);
-      box-shadow: 0 12px 24px rgba(76, 48, 28, 0.08);
-      font-weight: 700;
-      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-    }
-
-    .social-button:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    .social-button img {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-      flex: 0 0 auto;
-    }
-
-    .social-button.facebook {
-      color: #215f98;
-    }
-
-    .social-button.instagram {
-      color: #c23e74;
-    }
-
-    .social-button.twitter {
-      color: #2e6f89;
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem;
-      margin-top: 1.6rem;
-    }
-
-    .meta-chip {
-      padding: 1rem 0.95rem;
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, 0.58);
-      border: 1px solid rgba(89, 63, 44, 0.08);
-    }
-
-    .meta-chip strong {
-      display: block;
-      color: var(--primary-deep);
-      font-size: 1.35rem;
-    }
-
-    .meta-chip span {
-      display: block;
-      margin-top: 0.12rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .hero-side {
-      padding: 1.2rem;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .hero-visual {
-      min-height: 280px;
-      border-radius: 24px;
-      overflow: hidden;
-      background:
-        linear-gradient(140deg, rgba(46, 111, 137, 0.12), rgba(207, 109, 46, 0.14)),
-        #fffaf2;
-      border: 1px solid rgba(89, 63, 44, 0.08);
-      position: relative;
-    }
-
-    .hero-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-visual::after {
-      content: "Cádiz · Colegio Campo del Sur";
-      position: absolute;
-      left: 1rem;
-      bottom: 1rem;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(42, 35, 28, 0.68);
-      color: #fff9f2;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-    }
-
-    .hero-note {
-      padding: 1.15rem 1.15rem 0.2rem;
-    }
-
-    .hero-note h3 {
-      font-size: 1.35rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .hero-note p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    main section {
-      padding: 2.4rem 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .section-head p {
-      margin: 0.65rem 0 0;
-      max-width: 62ch;
-      color: var(--muted);
-    }
-
-    .story-grid,
-    .filler-grid,
-    .program-grid,
-    .news-grid,
-    .community-grid,
-    .footer-grid,
-    .contact-grid {
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    .story-grid {
-      grid-template-columns: 1.05fr 0.95fr;
-    }
-
-    .story-card {
-      padding: 1.55rem;
-    }
-
-    .story-card h3 {
-      font-size: 1.38rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .story-card p,
-    .story-card li,
-    .program-card p,
-    .program-card li,
-    .news-card p,
-    .contact-card p,
-    .collab-card p,
-    .info-card p {
-      color: var(--muted);
-    }
-
-    .story-card ul,
-    .program-card ul,
-    .news-card ul {
-      margin: 0.9rem 0 0;
-      padding-left: 1.1rem;
-    }
-
-    .filler-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .filler-card {
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--line);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .filler-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .filler-body {
-      padding: 1.35rem;
-    }
-
-    .filler-body h3 {
-      font-size: 1.28rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .filler-body p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .program-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .program-card {
-      padding: 1.6rem;
-      display: grid;
-      gap: 0.9rem;
-      align-content: start;
-    }
-
-    .program-top {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .program-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      border-radius: 16px;
-      font-weight: 700;
-      color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--sand));
-    }
-
-    .program-time {
-      padding: 0.38rem 0.72rem;
-      border-radius: 999px;
-      background: rgba(46, 111, 137, 0.1);
-      color: var(--secondary);
-      font-size: 0.82rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .news-grid {
-      grid-template-columns: 1.15fr 0.85fr 0.85fr;
-    }
-
-    .news-card {
-      padding: 1.55rem;
-    }
-
-    .news-card.featured {
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 235, 220, 0.98)),
-        #fff;
-    }
-
-    .news-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.38rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(46, 111, 137, 0.1);
-      color: var(--secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-size: 0.76rem;
-      font-weight: 700;
-    }
-
-    .news-date {
-      display: block;
-      margin: 0.95rem 0 0.55rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .news-card h3 {
-      font-size: 1.45rem;
-      margin-bottom: 0.65rem;
-    }
-
-    .gallery-shell {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1.2rem;
-      align-items: stretch;
-    }
-
-    .gallery-frame {
-      padding: 0;
-      overflow: hidden;
-      position: relative;
-      min-height: 520px;
-      background: #eadbc3;
-    }
-
-    .gallery-track {
-      display: flex;
-      height: 100%;
-      transition: transform 0.75s cubic-bezier(.4,0,.2,1);
-    }
-
-    .gallery-slide {
-      min-width: 100%;
-      min-height: 520px;
-      position: relative;
-    }
-
-    .gallery-slide img {
-      width: 100%;
-      height: 100%;
-      min-height: 520px;
-      object-fit: cover;
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      inset: auto 0 0;
-      padding: 2rem;
-      background: linear-gradient(180deg, transparent, rgba(31, 22, 17, 0.82));
-      color: #fffaf2;
-    }
-
-    .gallery-overlay h3 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .gallery-overlay p {
-      margin: 0;
-      max-width: 44ch;
-      color: rgba(255, 250, 242, 0.84);
-    }
-
-    .gallery-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      border: 0;
-      border-radius: 999px;
-      background: rgba(255, 250, 241, 0.82);
-      color: var(--text);
-      font-size: 1.55rem;
-      cursor: pointer;
-      z-index: 2;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
-    }
-
-    .gallery-arrow.prev {
-      left: 1rem;
-    }
-
-    .gallery-arrow.next {
-      right: 1rem;
-    }
-
-    .gallery-dots {
-      position: absolute;
-      left: 50%;
-      bottom: 1.2rem;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      gap: 0.55rem;
-    }
-
-    .gallery-dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 999px;
-      border: 0;
-      background: rgba(255, 250, 242, 0.5);
-      cursor: pointer;
-    }
-
-    .gallery-dot.active {
-      background: #fffaf2;
-      transform: scale(1.16);
-    }
-
-    .gallery-side {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .info-card {
-      padding: 1.4rem;
-    }
-
-    .info-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .info-card.media {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .info-card.media img {
-      width: 100%;
-      height: 180px;
-      object-fit: contain;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 0.85rem;
-    }
-
-    .info-card.media .info-body {
-      padding: 1.3rem;
-    }
-
-    .community-grid {
-      grid-template-columns: 0.95fr 1.05fr;
-      align-items: start;
-    }
-
-    .comment-panel {
-      padding: 1.5rem;
-    }
-
-    .comment-panel h3 {
-      font-size: 1.35rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .comment-panel p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .comment-hint {
-      margin-top: 1rem;
-      padding: 1rem 1.1rem;
-      border-radius: var(--radius-md);
-      background: rgba(46, 111, 137, 0.08);
-      color: #395b67;
-      font-size: 0.94rem;
-    }
-
-    form {
-      display: grid;
-      gap: 0.9rem;
-      margin-top: 1.1rem;
-    }
-
-    label {
-      display: grid;
-      gap: 0.35rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    .muted-label {
-      font-weight: 400;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.95rem 1rem;
-      border-radius: 16px;
-      border: 1px solid rgba(89, 63, 44, 0.14);
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: rgba(207, 109, 46, 0.52);
-      box-shadow: 0 0 0 4px rgba(207, 109, 46, 0.12);
-    }
-
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .switch-row {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .switch-row input {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--secondary);
-    }
-
-    .comment-actions {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .comment-feed {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .comment-card {
-      padding: 1.15rem 1.2rem;
-      border-radius: 20px;
-      border: 1px solid rgba(89, 63, 44, 0.1);
-      background: var(--paper-strong);
-      box-shadow: 0 14px 28px rgba(76, 48, 28, 0.08);
-    }
-
-    .comment-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.7rem;
-    }
-
-    .comment-meta strong {
-      font-size: 1rem;
-    }
-
-    .comment-meta span,
-    .comment-card p {
-      color: var(--muted);
-    }
-
-    .comment-card p {
-      margin: 0;
-      white-space: pre-wrap;
-    }
-
-    .empty-state {
-      padding: 1.5rem;
-      border-radius: 20px;
-      border: 1px dashed rgba(89, 63, 44, 0.2);
-      text-align: center;
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    .contact-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .contact-card,
-    .collab-card {
-      padding: 1.55rem;
-    }
-
-    .contact-card h3,
-    .collab-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.65rem;
-    }
-
-    .contact-list,
-    .partner-list {
-      display: grid;
-      gap: 0.9rem;
-      margin-top: 1rem;
-    }
-
-    .contact-item,
-    .partner-item {
-      padding: 0.95rem 1rem;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.5);
-      border: 1px solid rgba(89, 63, 44, 0.08);
-    }
-
-    .contact-item strong,
-    .partner-item strong {
-      display: block;
-      margin-bottom: 0.18rem;
-    }
-
-    .contact-note {
-      margin-top: 1rem;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .site-footer {
-      padding: 0 0 2.5rem;
-    }
-
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .legal-note {
-      margin-top: 1rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      animation: rise 0.75s ease forwards;
-    }
-
-    .reveal.delay-1 { animation-delay: 0.12s; }
-    .reveal.delay-2 { animation-delay: 0.22s; }
-    .reveal.delay-3 { animation-delay: 0.32s; }
-
-    #fan-stage {
-      position: relative;
-      width: 100%;
-      min-height: 340px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      overflow: visible;
-    }
-
-    .fan-base {
-      position: absolute;
-      bottom: 38px;
-      width: 120px;
-      height: 22px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #7c553e, #b1805c, #7c553e);
-      box-shadow: 0 10px 24px rgba(45, 30, 20, 0.18);
-    }
-
-    .fan-pivot {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #453127;
-      z-index: 10;
-      box-shadow: 0 0 0 6px rgba(255, 250, 241, 0.95);
-    }
-
-    .fan-letter {
-      position: absolute;
-      bottom: 42px;
-      left: 50%;
-      transform-origin: center bottom;
-      width: 52px;
-      height: 182px;
-      margin-left: -26px;
-      border-radius: 24px 24px 8px 8px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 18px;
-      color: #fffef8;
-      font-size: 2rem;
-      font-weight: 700;
-      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
-      border: 2px solid rgba(255, 255, 255, 0.28);
-      opacity: 0;
-      transform: rotate(0deg);
-      transition: transform 0.7s cubic-bezier(.4,0,.2,1), opacity 0.35s ease;
-    }
-
-    @keyframes rise {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .story-grid,
-      .filler-grid,
-      .program-grid,
-      .news-grid,
-      .gallery-shell,
-      .community-grid,
-      .contact-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .shell {
-        width: min(var(--max), calc(100% - 1.2rem));
-      }
-
-      .nav,
-      .section-head {
-        display: block;
-      }
-
-      .nav-links {
-        margin-top: 1rem;
-        justify-content: flex-start;
-      }
-
-      .hero {
-        padding-top: 3rem;
-      }
-
-      .hero-meta {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 2.8rem;
-      }
-
-      .gallery-frame,
-      .gallery-slide,
-      .gallery-slide img {
-        min-height: 380px;
-      }
-
-      .gallery-overlay {
-        padding: 1.4rem;
-      }
-
-      .gallery-overlay h3 {
-        font-size: 1.55rem;
-      }
-
-      #fan-stage {
-        min-height: 290px;
-      }
-
-      .fan-letter {
-        width: 44px;
-        height: 156px;
-        margin-left: -22px;
-        font-size: 1.65rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Asociación Abaniko. Entidad social en Cádiz dedicada al acompañamiento, la inclusión y la mejora de la calidad de vida.">
+<title>Asociación Abaniko | Inclusión, apoyo y comunidad · Cádiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terracota:  #C4572F;
+  --terracota-d:#8F3A1D;
+  --verde:      #1F6A62;
+  --verde-l:    #2D9B8B;
+  --ocre:       #D9A441;
+  --ocre-l:     #F2C76A;
+  --crema:      #FBF5E6;
+  --crema-d:    #F0E6CC;
+  --oscuro:     #1A100A;
+  --muted:      #7A6355;
+  --blanco:     #FFFDF8;
+  --line:       rgba(90,63,44,0.12);
+  --r-xl: 32px;
+  --r-lg: 22px;
+  --r-md: 14px;
+  --sh: 0 32px 80px rgba(60,35,18,0.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--crema);
+  color: var(--oscuro);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+body.is-loading { overflow: hidden; }
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── GRAIN OVERLAY ─────────────────────────────── */
+body::before {
+  content:'';
+  position: fixed; inset: 0; z-index: 9998;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 160px;
+  opacity: 0.4;
+}
+
+/* ─── LOADER ─────────────────────────────────────── */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--oscuro);
+  transition: opacity .6s ease, visibility .6s ease;
+}
+#loader.hide { opacity: 0; visibility: hidden; }
+
+.loader-inner {
+  text-align: center;
+  color: var(--crema);
+  padding: 2rem;
+}
+.loader-inner .l-eyebrow {
+  font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--ocre); margin-bottom: 1.4rem;
+}
+.loader-inner .l-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-weight: 900;
+  color: var(--crema);
+  letter-spacing: -.03em;
+  line-height: 1;
+  margin-bottom: 2.4rem;
+}
+
+#fan-wrap {
+  position: relative;
+  height: 300px;
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: visible;
+}
+.fan-base {
+  position: absolute; bottom: 28px;
+  width: 100px; height: 16px; border-radius: 999px;
+  background: linear-gradient(90deg, #5a3728, #a0694a, #5a3728);
+}
+.fan-pivot {
+  position: absolute; bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--ocre);
+  z-index: 20;
+  box-shadow: 0 0 0 5px rgba(26,16,10,.8);
+}
+.fan-letter {
+  position: absolute; bottom: 28px; left: 50%;
+  transform-origin: center bottom;
+  width: 50px; height: 178px; margin-left: -25px;
+  border-radius: 24px 24px 8px 8px;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 16px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900;
+  color: #fffef8;
+  text-shadow: 0 4px 12px rgba(0,0,0,.3);
+  border: 2px solid rgba(255,255,255,.2);
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: transform .75s cubic-bezier(.4,0,.2,1), opacity .4s ease;
+  will-change: transform, opacity;
+}
+.fan-status {
+  margin-top: 1.4rem;
+  font-size: .82rem; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(251,245,230,.55);
+}
+
+/* ─── HEADER ─────────────────────────────────────── */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(18px) saturate(1.4);
+  background: rgba(26,16,10,.82);
+  border-bottom: 1px solid rgba(217,164,65,.15);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: .9rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand {
+  display: flex; align-items: center; gap: .9rem;
+}
+.brand-logo {
+  width: 48px; height: 48px; border-radius: 14px;
+  object-fit: contain; background: var(--crema);
+  padding: 4px;
+  border: 1px solid rgba(217,164,65,.3);
+}
+.brand-text strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--crema); letter-spacing: .02em;
+}
+.brand-text span { font-size: .82rem; color: rgba(251,245,230,.5); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 1.2rem;
+  font-size: .88rem; color: rgba(251,245,230,.6);
+  flex-wrap: wrap; justify-content: flex-end;
+}
+.nav-links a:hover { color: var(--ocre-l); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .45rem;
+  border-radius: 999px; padding: .65rem 1.3rem;
+  border: 1.5px solid transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem; font-weight: 500;
+  cursor: pointer; transition: all .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--terracota); color: #fff; box-shadow: 0 14px 32px rgba(196,87,47,.3); }
+.btn-primary:hover { background: var(--terracota-d); }
+.btn-ghost { background: transparent; color: var(--ocre-l); border-color: rgba(217,164,65,.4); }
+.btn-ghost:hover { background: rgba(217,164,65,.1); }
+.btn-dark { background: var(--oscuro); color: var(--crema); border-color: rgba(251,245,230,.12); }
+.btn-dark:hover { background: #2c1a10; }
+
+/* ─── SHELL ──────────────────────────────────────── */
+.shell { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ─── HERO ───────────────────────────────────────── */
+.hero {
+  min-height: 92vh;
+  display: grid; place-items: center;
+  padding: 6rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+/* decorative circles */
+.hero::before, .hero::after {
+  content:''; position: absolute; border-radius: 50%; pointer-events: none;
+}
+.hero::before {
+  width: 600px; height: 600px;
+  top: -200px; right: -180px;
+  background: radial-gradient(circle, rgba(217,164,65,.18), transparent 65%);
+}
+.hero::after {
+  width: 400px; height: 400px;
+  bottom: -120px; left: -100px;
+  background: radial-gradient(circle, rgba(31,106,98,.15), transparent 65%);
+}
+
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  gap: 3rem; align-items: center; position: relative; z-index: 1;
+}
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .35rem .85rem; border-radius: 999px;
+  background: rgba(31,106,98,.12); color: var(--verde);
+  font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  border: 1px solid rgba(31,106,98,.2);
+  margin-bottom: 1.2rem;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5.5vw, 5.4rem);
+  font-weight: 900; letter-spacing: -.04em; line-height: 1.0;
+  color: var(--oscuro);
+}
+h1 em { font-style: italic; color: var(--terracota); }
+
+.hero-sub {
+  margin: 1.4rem 0 0; font-size: 1.08rem; color: var(--muted);
+  max-width: 52ch; font-weight: 300;
+}
+.hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 2rem; }
+
+.hero-stats {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.hero-stat strong {
+  display: block; font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; color: var(--terracota);
+}
+.hero-stat span { font-size: .88rem; color: var(--muted); }
+
+/* HERO RIGHT CARD */
+.hero-card {
+  position: relative;
+  border-radius: 36px; overflow: hidden;
+  background: var(--oscuro);
+  padding: 2.2rem;
+  box-shadow: 0 48px 100px rgba(30,15,8,.25);
+}
+.hero-card::before {
+  content:''; position: absolute;
+  inset: -60px -60px auto auto;
+  width: 260px; height: 260px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(217,164,65,.22), transparent 60%);
+  pointer-events: none;
+}
+.hero-card-label {
+  font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ocre); margin-bottom: 1.2rem;
+}
+.hero-logo-wrap {
+  background: rgba(251,245,230,.07);
+  border-radius: 24px;
+  padding: 2rem;
+  display: grid; place-items: center;
+  border: 1px solid rgba(217,164,65,.15);
+  margin-bottom: 1.4rem;
+}
+.hero-logo-wrap img { width: min(100%, 200px); filter: brightness(1.05); }
+
+.card-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-style: italic;
+  color: rgba(251,245,230,.85); line-height: 1.5;
+  border-left: 3px solid var(--ocre); padding-left: 1rem;
+}
+.card-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  margin-top: 1.2rem; padding: .5rem .9rem;
+  border-radius: 999px; background: rgba(31,106,98,.25);
+  color: #5ecfc3; font-size: .82rem; font-weight: 500;
+}
+.badge-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--verde-l);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+
+/* ─── SECTION COMMONS ────────────────────────────── */
+section { padding: 5rem 0; }
+
+.section-head { margin-bottom: 3rem; }
+.section-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900; letter-spacing: -.03em; line-height: 1.05;
+}
+.section-head p { margin-top: .8rem; color: var(--muted); max-width: 58ch; font-weight: 300; }
+
+/* ─── QUIÉNES SOMOS ──────────────────────────────── */
+.quienes { background: var(--oscuro); color: var(--crema); position: relative; overflow: hidden; }
+.quienes::after {
+  content:''; position: absolute; right: -100px; top: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,87,47,.15), transparent 60%);
+  pointer-events: none;
+}
+.quienes .section-head h2 { color: var(--crema); }
+.quienes .section-head p { color: rgba(251,245,230,.6); }
+.quienes .eyebrow { background: rgba(217,164,65,.15); color: var(--ocre-l); border-color: rgba(217,164,65,.2); }
+
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.story-panel {
+  border-radius: var(--r-xl); padding: 2rem;
+  border: 1px solid rgba(217,164,65,.12);
+  background: rgba(251,245,230,.05);
+  transition: background .25s ease;
+}
+.story-panel:hover { background: rgba(251,245,230,.09); }
+.story-panel h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700; margin-bottom: .8rem;
+  color: var(--ocre-l);
+}
+.story-panel p { color: rgba(251,245,230,.7); font-weight: 300; }
+
+/* ─── PROGRAMAS ──────────────────────────────────── */
+.program-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+.program-card {
+  border-radius: var(--r-xl); padding: 2rem;
+  border: 1px solid var(--line);
+  background: var(--blanco);
+  box-shadow: var(--sh);
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative; overflow: hidden;
+}
+.program-card::before {
+  content:''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(196,87,47,.04), transparent 60%);
+  opacity: 0; transition: opacity .3s ease;
+}
+.program-card:hover { transform: translateY(-6px); box-shadow: 0 48px 100px rgba(60,35,18,.18); }
+.program-card:hover::before { opacity: 1; }
+
+.prog-icon {
+  width: 56px; height: 56px;
+  border-radius: 18px; margin-bottom: 1.4rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 900; color: #fff;
+}
+.prog-icon.tc { background: linear-gradient(135deg, var(--terracota), #E07A45); }
+.prog-icon.gr { background: linear-gradient(135deg, var(--verde), #2DBF9F); }
+.prog-icon.oc { background: linear-gradient(135deg, #B8891C, var(--ocre)); }
+
+.program-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 700; margin-bottom: .7rem;
+}
+.program-card p { color: var(--muted); font-weight: 300; }
+
+/* ─── IMPACTO ─────────────────────────────────────── */
+.impacto { background: var(--terracota); color: var(--crema); position: relative; overflow: hidden; }
+.impacto::before {
+  content:''; position: absolute; left: -80px; bottom: -80px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.08), transparent 60%);
+}
+.impacto .section-head h2 { color: var(--crema); }
+.impacto .section-head p { color: rgba(255,255,255,.7); }
+.impacto .eyebrow { background: rgba(255,255,255,.15); color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.2); }
+
+.impact-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; }
+.impact-card {
+  padding: 1.8rem;
+  border-radius: var(--r-xl);
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(8px);
+  transition: background .2s ease;
+}
+.impact-card:hover { background: rgba(255,255,255,.18); }
+.impact-card strong {
+  display: block; font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; font-weight: 900; margin-bottom: .5rem;
+  color: #fff;
+}
+.impact-card p { color: rgba(255,255,255,.75); font-size: .95rem; font-weight: 300; }
+
+/* ─── NOTICIAS ───────────────────────────────────── */
+.news-grid { display: grid; grid-template-columns: 1.2fr .9fr .9fr; gap: 1.2rem; }
+.news-card {
+  border-radius: var(--r-xl); padding: 2rem;
+  border: 1px solid var(--line); background: var(--blanco);
+  box-shadow: var(--sh);
+}
+.news-card.featured {
+  background: var(--oscuro); color: var(--crema);
+  border-color: rgba(217,164,65,.2);
+}
+.news-card.featured p,
+.news-card.featured .news-date { color: rgba(251,245,230,.65); }
+
+.news-tag {
+  display: inline-flex; align-items: center;
+  padding: .3rem .7rem; border-radius: 999px;
+  font-size: .74rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+}
+.news-tag.new { background: rgba(31,106,98,.12); color: var(--verde); }
+.news-tag.act { background: rgba(217,164,65,.15); color: #9B6B0E; }
+.news-tag.com { background: rgba(196,87,47,.1); color: var(--terracota-d); }
+.news-tag.feat { background: rgba(217,164,65,.2); color: var(--ocre); }
+
+.news-date { display: block; margin: .8rem 0 .5rem; color: var(--muted); font-size: .88rem; }
+.news-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem; font-weight: 700; margin-bottom: .7rem; line-height: 1.15;
+}
+.news-card p { color: var(--muted); font-weight: 300; }
+.news-list { margin: 1rem 0 0 1.2rem; color: var(--muted); display: grid; gap: .35rem; font-weight: 300; }
+
+/* ─── GALERÍA ─────────────────────────────────────── */
+.gallery-shell { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.2rem; align-items: stretch; }
+
+.gallery-main {
+  position: relative; border-radius: var(--r-xl); overflow: hidden;
+  min-height: 540px; background: var(--crema-d);
+  box-shadow: var(--sh);
+}
+.gallery-track { display: flex; height: 100%; transition: transform .75s cubic-bezier(.4,0,.2,1); }
+.gallery-slide { position: relative; min-width: 100%; min-height: 540px; }
+.gallery-slide img { width: 100%; height: 100%; min-height: 540px; object-fit: cover; }
+.gallery-caption {
+  position: absolute; inset: auto 0 0;
+  padding: 2.5rem;
+  background: linear-gradient(0deg, rgba(15,8,4,.85) 0%, rgba(15,8,4,.4) 60%, transparent 100%);
+  color: var(--crema);
+}
+.gallery-caption h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; margin-bottom: .4rem; line-height: 1.1;
+}
+.gallery-caption p { color: rgba(251,245,230,.8); font-weight: 300; max-width: 44ch; }
+
+.gallery-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%; border: 0;
+  background: rgba(251,245,230,.85); color: var(--oscuro);
+  font-size: 1.5rem; cursor: pointer;
+  box-shadow: 0 16px 32px rgba(0,0,0,.14);
+  transition: background .2s, transform .2s;
+  z-index: 2; display: flex; align-items: center; justify-content: center;
+}
+.gallery-arrow:hover { background: #fff; transform: translateY(-50%) scale(1.06); }
+.gallery-arrow.prev { left: 1rem; }
+.gallery-arrow.next { right: 1rem; }
+
+.gallery-dots {
+  position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: .5rem; z-index: 2;
+}
+.gdot {
+  width: 9px; height: 9px; border-radius: 999px; border: 0;
+  background: rgba(255,255,255,.4); cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.gdot.on { background: #fff; transform: scale(1.25); }
+
+.gallery-side { display: grid; gap: 1rem; }
+.side-card {
+  border-radius: var(--r-xl); overflow: hidden;
+  border: 1px solid var(--line); background: var(--blanco);
+  box-shadow: 0 18px 40px rgba(60,35,18,.09);
+  display: grid; grid-template-columns: 110px 1fr;
+}
+.side-card img { width: 110px; height: 100%; object-fit: cover; }
+.side-card-body { padding: 1.2rem; display: grid; align-content: center; gap: .3rem; }
+.side-card-body h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700;
+}
+.side-card-body p { font-size: .88rem; color: var(--muted); font-weight: 300; }
+
+/* ─── COMENTARIOS ────────────────────────────────── */
+.comments-bg { background: var(--crema-d); }
+.comment-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; align-items: start; }
+
+.comment-panel {
+  border-radius: var(--r-xl); padding: 2rem;
+  border: 1px solid var(--line); background: var(--blanco);
+  box-shadow: var(--sh);
+}
+.comment-panel h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 700; margin-bottom: .5rem;
+}
+.comment-panel > p { color: var(--muted); font-weight: 300; margin-bottom: 1.2rem; }
+
+.hint-box {
+  padding: 1rem 1.2rem; border-radius: var(--r-md);
+  background: rgba(31,106,98,.08); border-left: 3px solid var(--verde);
+  color: #1a4d47; font-size: .9rem; margin-bottom: 1.2rem; font-weight: 300;
+}
+
+form { display: grid; gap: .9rem; }
+label { display: grid; gap: .3rem; font-size: .92rem; font-weight: 500; }
+.lsub { font-weight: 300; color: var(--muted); font-size: .84rem; }
+input, textarea, select {
+  width: 100%; border: 1.5px solid rgba(90,63,44,.15);
+  border-radius: var(--r-md); background: var(--crema);
+  color: var(--oscuro); font: inherit; padding: .85rem 1rem;
+  outline: none; transition: border-color .2s, box-shadow .2s;
+}
+input:focus, textarea:focus {
+  border-color: var(--terracota);
+  box-shadow: 0 0 0 4px rgba(196,87,47,.12);
+}
+textarea { min-height: 140px; resize: vertical; }
+
+.switch-row {
+  display: flex; align-items: center; gap: .7rem;
+  font-size: .9rem; color: var(--muted); cursor: pointer;
+}
+.switch-row input { width: 16px; height: 16px; accent-color: var(--verde); cursor: pointer; }
+
+.form-actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: .4rem; }
+
+.comment-feed { display: grid; gap: 1rem; margin-top: 1rem; }
+.comment-card {
+  padding: 1.2rem 1.4rem; border-radius: 20px;
+  border: 1px solid rgba(90,63,44,.1);
+  background: var(--crema); transition: box-shadow .2s;
+}
+.comment-card:hover { box-shadow: 0 10px 28px rgba(60,35,18,.1); }
+.comment-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; margin-bottom: .6rem; flex-wrap: wrap;
+}
+.comment-meta strong { font-weight: 600; font-size: .97rem; }
+.comment-meta span { color: var(--muted); font-size: .84rem; }
+.comment-card p { color: #47392f; white-space: pre-wrap; font-weight: 300; }
+.empty-state {
+  padding: 1.6rem; border-radius: 18px; text-align: center;
+  border: 1.5px dashed rgba(90,63,44,.2); color: var(--muted); background: rgba(255,255,255,.4);
+  font-weight: 300;
+}
+
+/* ─── FOOTER ─────────────────────────────────────── */
+.site-footer {
+  background: var(--oscuro); color: var(--crema);
+  padding: 4rem 0 2.5rem;
+}
+.footer-grid { display: grid; grid-template-columns: 1.3fr .7fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+.footer-brand strong {
+  display: block; font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700; margin-bottom: .5rem; color: var(--crema);
+}
+.footer-brand p { color: rgba(251,245,230,.55); font-weight: 300; max-width: 36ch; }
+
+.footer-nav h4, .footer-contact h4 {
+  font-size: .82rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ocre); margin-bottom: 1rem;
+}
+.footer-nav ul, .footer-contact ul {
+  list-style: none; display: grid; gap: .6rem;
+}
+.footer-nav a { color: rgba(251,245,230,.6); font-size: .9rem; font-weight: 300; }
+.footer-nav a:hover { color: var(--ocre-l); }
+.footer-contact li { color: rgba(251,245,230,.6); font-size: .9rem; font-weight: 300; }
+
+.footer-bottom {
+  padding-top: 1.8rem; border-top: 1px solid rgba(251,245,230,.08);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; flex-wrap: wrap;
+  font-size: .84rem; color: rgba(251,245,230,.35);
+}
+
+/* ─── REVEAL ANIMATIONS ─────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: .1s; }
+.reveal.d2 { transition-delay: .2s; }
+.reveal.d3 { transition-delay: .3s; }
+.reveal.d4 { transition-delay: .4s; }
+
+/* ─── DIVIDERS ───────────────────────────────────── */
+.wave-divider { line-height: 0; }
+.wave-divider svg { display: block; width: 100%; }
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  .program-grid { grid-template-columns: 1fr 1fr; }
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+  .news-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-shell { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .hero-grid, .story-grid, .program-grid,
+  .news-grid, .comment-layout, .footer-grid { grid-template-columns: 1fr; }
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+  .side-card { grid-template-columns: 90px 1fr; }
+  .nav-links { display: none; }
+  h1 { font-size: 2.8rem; }
+  .hero { min-height: auto; padding: 4rem 0 3rem; }
+  #fan-wrap { height: 250px; }
+  .fan-letter { width: 42px; height: 150px; margin-left: -21px; font-size: 1.6rem; }
+}
+</style>
 </head>
-<body class="loading">
-  <div id="site-loader" class="site-loader" aria-live="polite">
-    <div class="loader-card">
-      <span class="eyebrow">Asociación Abaniko</span>
-      <strong>Preparando la web</strong>
-      <p>Cargando programas, noticias, imágenes y contenido para mostrar una versión más moderna de Abaniko.</p>
-      <div id="fan-stage" aria-label="Animación del abanico durante la carga">
-        <div class="fan-base"></div>
-        <div class="fan-pivot"></div>
+
+<body class="is-loading">
+
+<!-- ══════════════════════════════════════════════════
+  LOADER
+══════════════════════════════════════════════════ -->
+<div id="loader" role="status" aria-live="polite">
+  <div class="loader-inner">
+    <div class="l-eyebrow">Asociación Abaniko · Cádiz</div>
+    <div class="l-title">Abriendo<br><em>puertas.</em></div>
+    <div id="fan-wrap" aria-label="Animación de abanico con las letras A·B·A·N·I·K·O">
+      <div class="fan-base"></div>
+      <div class="fan-pivot"></div>
+    </div>
+    <div class="fan-status" id="fan-status">Abriendo el abanico…</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+  HEADER
+══════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="#inicio">
+      <img class="brand-logo"
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwNzVX0fOq1eC1GGlUCVY9Kij45wQBgZNy25IoZeL9CLhpDtmXeyEG8zpwUP6VXm_2S_2MzW_IzeU8KH7Lt6j1_bR6aiJFyJNqmhTcoFZcJJsf0CC6e9SOVEG9LcLsNy_a9-Hti_Pe_64/s1600/LogoBlog.png"
+        alt="Logo Asociación Abaniko"
+        onerror="this.style.display='none'">
+      <div class="brand-text">
+        <strong>Abaniko</strong>
+        <span>Cádiz · Inclusión social</span>
       </div>
-      <div class="loader-status">Abriendo Abaniko...</div>
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#programas">Programas</a>
+      <a href="#impacto">Impacto</a>
+      <a href="#noticias">Noticias</a>
+      <a href="#galeria">Galería</a>
+      <a href="#comentarios" class="btn btn-ghost">Comentarios</a>
+      <a href="#contacto" class="btn btn-primary">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════
+  HERO
+══════════════════════════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="shell hero-grid">
+    <div>
+      <span class="eyebrow">&#9670; Asociación social en Cádiz</span>
+      <h1>Un espacio para<br><em>acompañar,</em><br>impulsar y crecer.</h1>
+      <p class="hero-sub">
+        Abaniko trabaja para mejorar la calidad de vida de las personas,
+        fomentar la autonomía y crear comunidad donde cada historia
+        tenga apoyo, escucha y oportunidades reales.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#comentarios">Dejar un comentario</a>
+        <a class="btn btn-dark" href="#programas">Ver programas</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hero-stat">
+          <strong>+15</strong>
+          <span>Años de recorrido social</span>
+        </div>
+        <div class="hero-stat">
+          <strong>100%</strong>
+          <span>Compromiso con la inclusión</span>
+        </div>
+        <div class="hero-stat">
+          <strong>Cádiz</strong>
+          <span>Presencia local cercana</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card reveal d1">
+      <div class="hero-card-label">Identidad Abaniko</div>
+      <div class="hero-logo-wrap">
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwNzVX0fOq1eC1GGlUCVY9Kij45wQBgZNy25IoZeL9CLhpDtmXeyEG8zpwUP6VXm_2S_2MzW_IzeU8KH7Lt6j1_bR6aiJFyJNqmhTcoFZcJJsf0CC6e9SOVEG9LcLsNy_a9-Hti_Pe_64/s1600/LogoBlog.png"
+          alt="Emblema Asociación Abaniko"
+          onerror="this.style.display='none'">
+      </div>
+      <p class="card-quote">
+        "Una imagen abierta a la diversidad, el movimiento y el acompañamiento."
+      </p>
+      <div class="card-badge">
+        <span class="badge-dot"></span>
+        Activos desde 2009
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="shell nav">
-        <a class="brand" href="#inicio">
-          <img class="brand-mark" src="assets/images/abaniko-logo.png" alt="Logo de la Asociación Abaniko">
-          <div class="brand-copy">
-            <strong>Asociación Abaniko</strong>
-            <span>Cádiz · Inclusión, autonomía y comunidad desde 2009</span>
-          </div>
-        </a>
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1A100A"/>
+  </svg>
+</div>
 
-        <nav class="nav-links" aria-label="Navegación principal">
-          <a href="#quienes-somos">Quiénes somos</a>
-          <a href="#ocio">Ocio</a>
-          <a href="#deportes">Deportes</a>
-          <a href="#empleo">Empleo</a>
-          <a href="#autonomia">Autonomía</a>
-          <a href="#noticias">Noticias</a>
-          <a href="#comentarios">Comentarios</a>
-          <a class="button secondary" href="#contacto">Contacto</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="inicio">
-      <section class="hero">
-        <div class="shell hero-grid">
-          <div class="hero-copy reveal">
-            <span class="eyebrow">Basada en la web original de Abaniko</span>
-            <h1>La misma identidad social de Abaniko, ahora con una web más clara, moderna y útil.</h1>
-            <p>
-              Tomando como referencia la página oficial, esta versión reúne los programas de ocio,
-              deportes, empleo, autonomía doméstica y contacto en una sola experiencia más visual,
-              ordenada y preparada para publicarse.
-            </p>
-            <p>
-              La misión sigue siendo la misma: mejorar la calidad de vida de personas en situación
-              de vulnerabilidad, promover su inclusión y acompañar procesos reales de autonomía e integración.
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="#noticias">Ver noticias</a>
-              <a class="button secondary" href="#comentarios">Dejar comentario</a>
-            </div>
-            <div class="social-links" aria-label="Redes sociales de Abaniko">
-              <a class="social-button facebook" href="https://www.facebook.com/asociacion.abaniko?fref=ts" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/icon-facebook-blog.png" alt="">
-                <span>Facebook</span>
-              </a>
-              <a class="social-button instagram" href="https://www.instagram.com/asoc.abaniko/" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/instagram-icon.png" alt="">
-                <span>Instagram</span>
-              </a>
-              <a class="social-button twitter" href="https://twitter.com/AsocAbaniko" target="_blank" rel="noopener noreferrer">
-                <img src="assets/images/icon-twitter-blog.png" alt="">
-                <span>X / Twitter</span>
-              </a>
-            </div>
-            <div class="hero-meta">
-              <div class="meta-chip">
-                <strong>2009</strong>
-                <span>Nacimiento de la asociación</span>
-              </div>
-              <div class="meta-chip">
-                <strong>Cádiz</strong>
-                <span>Trabajo cercano en la provincia</span>
-              </div>
-              <div class="meta-chip">
-                <strong>956 415 065</strong>
-                <span>Teléfono mostrado en la web de referencia</span>
-              </div>
-            </div>
-          </div>
-
-          <aside class="hero-side reveal delay-1">
-            <div class="hero-visual">
-              <img src="assets/images/actividad-museo.jpg" alt="Actividad del grupo de ocio de Asociación Abaniko">
-            </div>
-            <div class="hero-note">
-              <h3>Una web mejorada, sin perder el origen</h3>
-              <p>
-                Se conservan los apartados clave del blog original: quiénes sois, programas, noticias,
-                colaboración y contacto, pero con una presentación más limpia y actual.
-              </p>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section id="quienes-somos">
-        <div class="shell">
-          <div class="section-head reveal">
-            <div>
-              <span class="eyebrow">Quiénes somos</span>
-              <h2>Una asociación de profesionales unida por un objetivo común.</h2>
-              <p>
-                Según la página original, Abaniko nace en 2009 para mejorar la calidad de vida de personas
-                de colectivos socialmente desfavorecidos o en riesgo de exclusión social en la provincia de Cádiz.
-              </p>
-            </div>
-          </div>
-
-          <div class="story-grid">
-            <article class="story-card reveal delay-1">
-              <h3>Qué es Abaniko</h3>
-              <p>
-                Abaniko es una asociación orientada al acompañamiento de niños, jóvenes, mujeres, personas con discapacidad,
-                familias y comunidad en general. Su razón de ser es la inclusión, la autonomía y la mejora de la calidad de vida.
-              </p>
-              <p>
-                Esta nueva web mantiene ese mismo mensaje y lo organiza mejor para que cualquier visitante entienda rápidamente
-                qué hace la entidad y cómo puede contactar o colaborar.
-              </p>
-            </article>
-
-            <article class="story-card reveal delay-2">
-              <h3>Quiénes la forman y qué experiencia tiene</h3>
-              <p>
-                La web original menciona un equipo formado por psicólogos, maestros, mediadores, orientadores sociolaborales,
-                monitores deportivos, enfermeros y profesionales de talleres y formación.
-              </p>
-              <ul>
-                <li>Programas educativos y de habilidades sociales.</li>
-                <li>Autonomía personal y vida independiente.</li>
-                <li>Orientación e inserción sociolaboral.</li>
-                <li>Deporte, ocio, tiempo libre y formación ocupacional.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="programas">
-        <div class="shell">
-          <div class="section-head reveal">
-            <div>
-              <span class="eyebrow">Programas</span>
-              <h2>Los apartados principales del blog original, transformados en una web más accesible.</h2>
-              <p>
-                He reorganizado los contenidos de Ocio, Deportes, Empleo y Autonomía Doméstica para que tengan más presencia
-                visual y una lectura mucho más cómoda.
-              </p>
-            </div>
-          </div>
-
-          <div class="program-grid">
-            <article class="program-card reveal delay-1" id="ocio">
-              <div class="program-top">
-                <div class="program-badge">O</div>
-                <span class="program-time">Viernes · 17:00 a 20:00</span>
-              </div>
-              <h3>Programa de Ocio y Tiempo Libre</h3>
-              <p>
-                Basado en la página “Prog de Ocio”, este programa busca que las personas participantes adquieran herramientas
-                para organizar su propio ocio de una forma sana, creativa, libre y placentera.
-              </p>
-              <ul>
-                <li>Actividades culturales y salidas.</li>
-                <li>Espacios de convivencia y socialización.</li>
-                <li>Participación adaptada a las propuestas del grupo.</li>
-              </ul>
-            </article>
-
-            <article class="program-card reveal delay-2" id="deportes">
-              <div class="program-top">
-                <div class="program-badge">D</div>
-                <span class="program-time">Lun / Mié · 18:00 a 19:30</span>
-              </div>
-              <h3>Deporte para todos</h3>
-              <p>
-                La web original describe este proyecto como un lugar de encuentro donde niños y jóvenes desarrollan actividades
-                deportivas conjuntas, tradicionales y alternativas, aprovechando también el entorno de la Bahía de Cádiz.
-              </p>
-              <ul>
-                <li>Baloncesto, fútbol, hockey y deportes alternativos.</li>
-                <li>Juegos, dinámicas y psicomotricidad.</li>
-                <li>Salidas al entorno natural y urbano.</li>
-              </ul>
-            </article>
-
-            <article class="program-card reveal delay-3" id="empleo">
-              <div class="program-top">
-                <div class="program-badge">E</div>
-                <span class="program-time">Inserción laboral</span>
-              </div>
-              <h3>Programa de Empleo</h3>
-              <p>
-                Según la página “Empleo”, Abaniko trabaja la formación específica y general, la orientación a familias,
-                la prospección de empresas, las prácticas formativas y el acompañamiento en la inserción laboral.
-              </p>
-              <ul>
-                <li>Habilidades prelaborales y autonomía.</li>
-                <li>Formación adaptada a perfiles profesionales.</li>
-                <li>Mediación sociolaboral y apoyo en contratación.</li>
-              </ul>
-            </article>
-
-            <article class="program-card reveal delay-1" id="autonomia">
-              <div class="program-top">
-                <div class="program-badge">A</div>
-                <span class="program-time">Viernes · 10:00 a 13:30</span>
-              </div>
-              <h3>Autonomía Doméstica</h3>
-              <p>
-                La entrada y la página específica de 2024 destacan este programa como una apuesta para fomentar independencia
-                y desarrollo personal a través de un aula-hogar equipada.
-              </p>
-              <ul>
-                <li>Orden, limpieza y autocuidado.</li>
-                <li>Uso básico de electrodomésticos y responsabilidades del hogar.</li>
-                <li>Recetas sencillas, manejo del dinero y organización diaria.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="dia-a-dia">
-        <div class="shell">
-          <div class="section-head reveal">
-            <div>
-              <span class="eyebrow">Información útil</span>
-              <h2>Contenido de apoyo para explicar mejor el trabajo diario de la asociación.</h2>
-              <p>
-                He añadido información de relleno coherente con la identidad de Abaniko para que la web se vea más completa
-                mientras decides qué textos definitivos quieres mantener.
-              </p>
-            </div>
-          </div>
-
-          <div class="filler-grid">
-            <article class="filler-card reveal delay-1">
-              <img src="assets/images/programa-ocio.jpg" alt="Imagen del programa de ocio de Abaniko">
-              <div class="filler-body">
-                <h3>Acompañamiento cercano</h3>
-                <p>
-                  Este bloque puede usarse para explicar cómo se acompaña a cada persona, cómo se hace el seguimiento
-                  y cómo se adaptan las actividades a las necesidades reales del grupo.
-                </p>
-              </div>
-            </article>
-
-            <article class="filler-card reveal delay-2">
-              <img src="assets/images/abanicos.jpg" alt="Imagen simbólica de Abaniko">
-              <div class="filler-body">
-                <h3>Participación y comunidad</h3>
-                <p>
-                  También sirve para contar que la entidad no solo organiza talleres, sino que crea espacios de relación,
-                  escucha, apoyo mutuo y participación activa en la vida social.
-                </p>
-              </div>
-            </article>
-
-            <article class="filler-card reveal delay-3">
-              <img src="assets/images/actividad-04.jpg" alt="Actividad grupal de Abaniko">
-              <div class="filler-body">
-                <h3>Procesos que crecen con el tiempo</h3>
-                <p>
-                  Aquí puedes hablar de avances, pequeños logros cotidianos, nuevas metas, coordinación con familias
-                  y cualquier información adicional que ayude a entender el impacto del proyecto.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="noticias">
-        <div class="shell">
-          <div class="section-head reveal">
-            <div>
-              <span class="eyebrow">Noticias</span>
-              <h2>Un bloque pensado para publicar actividades, anuncios y novedades del grupo.</h2>
-              <p>
-                La web de Blogger original está muy apoyada en entradas. Aquí ese mismo espíritu se transforma en un panel
-                de noticias más visual y más útil para visitantes nuevos.
-              </p>
-            </div>
-          </div>
-
-          <div class="news-grid">
-            <article class="news-card featured reveal delay-1">
-              <span class="news-tag">Destacada</span>
-              <span class="news-date">1 de febrero de 2024</span>
-              <h3>Nuevo programa de Autonomía Doméstica</h3>
-              <p>
-                La noticia principal de la página de referencia anuncia la puesta en marcha del nuevo programa de autonomía
-                doméstica para trabajar tareas básicas del hogar, autocuidado, recetas sencillas y manejo del dinero.
-              </p>
-              <ul>
-                <li>Programa en aula-hogar.</li>
-                <li>Contacto visible para familias interesadas.</li>
-                <li>Enfoque directo en independencia personal.</li>
-              </ul>
-            </article>
-
-            <article class="news-card reveal delay-2">
-              <span class="news-tag">Ocio</span>
-              <span class="news-date">1 de febrero de 2024</span>
-              <h3>Más actividades del grupo de ocio</h3>
-              <p>
-                El blog original comparte fotitos de salidas y encuentros: Museo del Carnaval, Casa de la Juventud,
-                parques, refrescos, paseos y convivencia cotidiana.
-              </p>
-            </article>
-
-            <article class="news-card reveal delay-3">
-              <span class="news-tag">Empleo</span>
-              <span class="news-date">1 de febrero de 2024</span>
-              <h3>Programa de Inserción Laboral</h3>
-              <p>
-                Otra de las últimas publicaciones recoge asambleas semanales, formación básica, trabajo en parejas
-                y habilidades prelaborales dentro del programa de empleo.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="galeria">
-        <div class="shell">
-          <div class="section-head reveal">
-            <div>
-              <span class="eyebrow">Galería</span>
-              <h2>Imágenes del proyecto con un carrusel automático más sólido que el del blog original.</h2>
-              <p>
-                He mantenido la idea de mostrar actividad real, pero con imágenes locales dentro del proyecto para que
-                la web no dependa de enlaces externos al publicarla.
-              </p>
-            </div>
-          </div>
-
-          <div class="gallery-shell">
-            <article class="gallery-frame reveal delay-1" aria-label="Carrusel automático de imágenes de Abaniko">
-              <div id="gallery-track" class="gallery-track">
-                <figure class="gallery-slide">
-                  <img src="assets/images/actividad-11.jpg" alt="Actividad del grupo de ocio en un espacio cultural">
-                  <figcaption class="gallery-overlay">
-                    <h3>Salidas culturales</h3>
-                    <p>Una forma de aprender, disfrutar y compartir experiencias fuera del entorno habitual.</p>
-                  </figcaption>
-                </figure>
-                <figure class="gallery-slide">
-                  <img src="assets/images/actividad-03.jpg" alt="Encuentro grupal de la Asociación Abaniko">
-                  <figcaption class="gallery-overlay">
-                    <h3>Encuentros del grupo</h3>
-                    <p>Momentos compartidos para reforzar vínculos, habilidades sociales y participación.</p>
-                  </figcaption>
-                </figure>
-                <figure class="gallery-slide">
-                  <img src="assets/images/actividad-04.jpg" alt="Actividad comunitaria de Abaniko">
-                  <figcaption class="gallery-overlay">
-                    <h3>Vida comunitaria</h3>
-                    <p>La presencia del grupo en espacios cotidianos forma parte del trabajo de inclusión social.</p>
-                  </figcaption>
-                </figure>
-                <figure class="gallery-slide">
-                  <img src="assets/images/actividad-06.jpg" alt="Actividad exterior del grupo">
-                  <figcaption class="gallery-overlay">
-                    <h3>Experiencias compartidas</h3>
-                    <p>Más imágenes reales descargadas de la web original para que la nueva versión tenga más vida y contexto.</p>
-                  </figcaption>
-                </figure>
-                <figure class="gallery-slide">
-                  <img src="assets/images/actividad-08.jpg" alt="Participación en actividad colectiva">
-                  <figcaption class="gallery-overlay">
-                    <h3>Participación activa</h3>
-                    <p>El día a día de la asociación también se puede contar desde la cercanía, la convivencia y la acción.</p>
-                  </figcaption>
-                </figure>
-                <figure class="gallery-slide">
-                  <img src="assets/images/actividad-09.jpg" alt="Actividad del grupo en formato vertical">
-                  <figcaption class="gallery-overlay">
-                    <h3>Nuevos momentos para mostrar</h3>
-                    <p>La galería ya cuenta con más imágenes locales reales para futuras noticias, tarjetas o secciones nuevas.</p>
-                  </figcaption>
-                </figure>
-              </div>
-              <button class="gallery-arrow prev" id="gallery-prev" type="button" aria-label="Imagen anterior">&#8249;</button>
-              <button class="gallery-arrow next" id="gallery-next" type="button" aria-label="Imagen siguiente">&#8250;</button>
-              <div id="gallery-dots" class="gallery-dots" aria-label="Selección de imágenes"></div>
-            </article>
-
-            <div class="gallery-side">
-              <article class="info-card media reveal delay-2">
-                <img src="assets/images/diptico-abaniko.png" alt="Díptico informativo de Abaniko">
-                <div class="info-body">
-                  <h3>Material informativo</h3>
-                  <p>
-                    También he descargado folletos e imágenes de apoyo del blog para que puedas reutilizarlos dentro de la nueva web.
-                  </p>
-                </div>
-              </article>
-              <article class="info-card media reveal delay-3">
-                <img src="assets/images/folleto-empleo.png" alt="Folleto del programa de empleo">
-                <div class="info-body">
-                  <h3>Programas visibles</h3>
-                  <p>
-                    Ocio, empleo, deportes y autonomía pueden tener ahora más apoyo visual con carteles y material del propio proyecto.
-                  </p>
-                </div>
-              </article>
-              <article class="info-card media reveal delay-1">
-                <img src="assets/images/direccion.jpg" alt="Imagen de dirección y ubicación">
-                <div class="info-body">
-                  <h3>Dónde está Abaniko</h3>
-                  <p>
-                    La ubicación y el contacto también se pueden reforzar con imágenes propias para dar más contexto a quien visita la web.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="comentarios">
-        <div class="shell">
-          <div class="section-head reveal">
-            <div>
-              <span class="eyebrow">Comentarios</span>
-              <h2>Un espacio para opinar sin registrarse.</h2>
-              <p>
-                A diferencia del sistema del blog, aquí cualquier persona puede escribir con nombre o de forma anónima sin abrir cuenta.
-              </p>
-            </div>
-          </div>
-
-          <div class="community-grid">
-            <aside class="comment-panel reveal delay-1">
-              <h3>Escribe tu mensaje</h3>
-              <p>
-                Esta versión permite comentarios sin registro. Ahora mismo se guardan en el navegador de quien escribe.
-              </p>
-              <div class="comment-hint">
-                Si luego quieres que todos los visitantes vean los mismos comentarios públicos en internet, el siguiente paso será conectarlos a una base de datos.
-              </div>
-
-              <form id="comment-form">
-                <label for="comment-name">
-                  Nombre
-                  <span class="muted-label">Opcional si eliges publicar como anónimo.</span>
-                </label>
-                <input id="comment-name" name="name" type="text" maxlength="60" placeholder="Ejemplo: María">
-
-                <div class="switch-row">
-                  <input id="comment-anonymous" name="anonymous" type="checkbox">
-                  <label for="comment-anonymous">Publicar como anónimo</label>
-                </div>
-
-                <label for="comment-message">
-                  Comentario
-                  <span class="muted-label">Máximo 500 caracteres.</span>
-                </label>
-                <textarea id="comment-message" name="message" maxlength="500" placeholder="Escribe aquí tu comentario..."></textarea>
-
-                <div class="comment-actions">
-                  <button class="button primary" type="submit">Publicar comentario</button>
-                  <button class="button secondary" type="button" id="clear-comments">Borrar comentarios de este navegador</button>
-                </div>
-              </form>
-            </aside>
-
-            <div class="comment-panel reveal delay-2">
-              <h3>Lo que dice la comunidad</h3>
-              <p>Los mensajes más recientes aparecen primero.</p>
-              <div id="comment-feed" class="comment-feed" aria-live="polite"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contacto">
-        <div class="shell">
-          <div class="section-head reveal">
-            <div>
-              <span class="eyebrow">Contacto y colaboración</span>
-              <h2>Los datos visibles de la web original, ahora presentados de forma más clara.</h2>
-              <p>
-                He tomado como referencia el contenido público del blog para mostrar teléfono, correo, ubicación y colaboración económica.
-              </p>
-            </div>
-          </div>
-
-          <div class="contact-grid">
-            <article class="contact-card reveal delay-1">
-              <h3>Contacto principal</h3>
-              <p>
-                Datos tomados de la página de contacto y de las publicaciones recientes de la web de referencia.
-              </p>
-              <div class="social-links" aria-label="Botones de acceso a las redes sociales">
-                <a class="social-button facebook" href="https://www.facebook.com/asociacion.abaniko?fref=ts" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/icon-facebook-blog.png" alt="">
-                  <span>Ir a Facebook</span>
-                </a>
-                <a class="social-button instagram" href="https://www.instagram.com/asoc.abaniko/" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/instagram-icon.png" alt="">
-                  <span>Ir a Instagram</span>
-                </a>
-                <a class="social-button twitter" href="https://twitter.com/AsocAbaniko" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/icon-twitter-blog.png" alt="">
-                  <span>Ir a X / Twitter</span>
-                </a>
-              </div>
-              <div class="contact-list">
-                <div class="contact-item">
-                  <strong>Teléfono</strong>
-                  <span>956 415 065</span>
-                </div>
-                <div class="contact-item">
-                  <strong>Email</strong>
-                  <span>asoc.abaniko@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                  <strong>Ubicación</strong>
-                  <span>Colegio Campo del Sur · Concepción Arenal s/n · Cádiz</span>
-                </div>
-                <div class="contact-item">
-                  <strong>Redes mencionadas en la web original</strong>
-                  <span>Facebook: asociacion.abaniko · X/Twitter: @AsocAbaniko · Instagram: @AsocAbaniko</span>
-                </div>
-                <div class="contact-item">
-                  <strong>Información adicional de relleno</strong>
-                  <span>Este espacio puede usarse para añadir horarios, persona de referencia, cómo llegar o indicaciones para visitas.</span>
-                </div>
-              </div>
-              <p class="contact-note">
-                Los botones superiores abren directamente las redes sociales públicas que aparecen enlazadas en la web de referencia.
-              </p>
-            </article>
-
-            <article class="collab-card reveal delay-2">
-              <h3>Colabora con nosotros</h3>
-              <p>
-                El blog original incluye un apartado de colaboración y también referencias a entidades con las que trabajan o se relacionan.
-              </p>
-              <div class="contact-list">
-                <div class="contact-item">
-                  <strong>Cuenta de colaboración</strong>
-                  <span>CaixaBank · 2100-2180-12-0200371923</span>
-                </div>
-                <div class="contact-item">
-                  <strong>Entidades citadas en la web</strong>
-                  <span>CEPA · AGAMAMA · ADACCA · Cruz Roja · EQUA · ALENDOY · CUSPYDE</span>
-                </div>
-                <div class="contact-item">
-                  <strong>Cómo puede crecer esta web</strong>
-                  <span>Se puede ampliar con formularios reales, noticias públicas, mapa y gestor sencillo de contenidos.</span>
-                </div>
-                <div class="contact-item">
-                  <strong>Texto de apoyo editable</strong>
-                  <span>Puedes usar este hueco para hablar de voluntariado, patrocinios, donaciones puntuales o alianzas con entidades locales.</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="shell footer-grid">
-        <section class="contact-card reveal">
-          <span class="eyebrow">Resumen</span>
-          <h3>Qué se ha modernizado</h3>
-          <p>
-            Esta versión convierte un blog clásico en una landing web completa: mejor jerarquía, más claridad, secciones más visibles,
-            carrusel, comentarios sin registro y un apartado de noticias mucho más aprovechable.
-          </p>
-        </section>
-
-        <section class="contact-card reveal delay-1">
-          <span class="eyebrow">Importante</span>
-          <h3>Antes de publicarla del todo</h3>
-          <p>
-            Si vas a recoger datos reales o abrir comentarios públicos compartidos, conviene añadir aviso legal, política de privacidad
-            y un sistema de almacenamiento externo para comentarios y noticias.
-          </p>
-          <p class="legal-note">
-            Referencia usada para el contenido: https://asociacionabaniko.blogspot.com/ y sus apartados públicos de programas y contacto.
-          </p>
-        </section>
-      </div>
-    </footer>
+<!-- ══════════════════════════════════════════════════
+  QUIÉNES SOMOS
+══════════════════════════════════════════════════ -->
+<section class="quienes" id="quienes-somos">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">&#9670; Quiénes somos</span>
+      <h2>Una asociación construida<br>desde la cercanía.</h2>
+      <p>
+        Somos un equipo de profesionales que acompaña procesos personales,
+        promueve la participación y genera redes de apoyo para fortalecer la vida diaria.
+      </p>
+    </div>
+    <div class="story-grid">
+      <article class="story-panel reveal d1">
+        <h3>Misión</h3>
+        <p>
+          Favorecer la inclusión social, la autonomía personal y la participación activa
+          de las personas mediante programas útiles, acompañamiento continuado y una mirada humana.
+        </p>
+      </article>
+      <article class="story-panel reveal d2">
+        <h3>Visión</h3>
+        <p>
+          Ser un referente cercano en Cádiz para quienes buscan apoyo, orientación y espacios
+          donde crecer con dignidad, comunidad y oportunidades reales.
+        </p>
+      </article>
+    </div>
   </div>
+</section>
 
-  <script>
-    const LETTERS = ["A", "B", "A", "N", "I", "K", "O"];
-    const COLORS = ["#cf6d2e", "#d4872f", "#d7a344", "#6f8a32", "#2e6f89", "#4066a9", "#7b538f"];
-    const COMMENTS_KEY = "abaniko_comments_v1";
-    const FAN_START_DELAY_MS = 180;
-    const FAN_CLOSE_START_MS = 2600;
-    const FAN_CLOSE_DURATION_MS = 800;
-    const LOADER_MIN_MS = FAN_START_DELAY_MS + FAN_CLOSE_START_MS + FAN_CLOSE_DURATION_MS;
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,0 1080,60 1440,30 L1440,0 L0,0 Z" fill="#1A100A"/>
+  </svg>
+</div>
 
-    const siteLoader = document.getElementById("site-loader");
-    const fanStage = document.getElementById("fan-stage");
-    const galleryTrack = document.getElementById("gallery-track");
-    const galleryDots = document.getElementById("gallery-dots");
-    const galleryPrev = document.getElementById("gallery-prev");
-    const galleryNext = document.getElementById("gallery-next");
-    const commentForm = document.getElementById("comment-form");
-    const commentFeed = document.getElementById("comment-feed");
-    const anonymousToggle = document.getElementById("comment-anonymous");
-    const nameInput = document.getElementById("comment-name");
-    const clearCommentsButton = document.getElementById("clear-comments");
+<!-- ══════════════════════════════════════════════════
+  PROGRAMAS
+══════════════════════════════════════════════════ -->
+<section id="programas">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">&#9670; Programas y actividades</span>
+      <h2>Servicios pensados<br>para el día a día.</h2>
+      <p>Cada programa está diseñado para generar autonomía, inclusión y bienestar real en las personas que acompañamos.</p>
+    </div>
+    <div class="program-grid">
+      <article class="program-card reveal d1">
+        <div class="prog-icon tc">A</div>
+        <h3>Autonomía personal</h3>
+        <p>Talleres y acompañamiento para reforzar hábitos, organización, habilidades prácticas y confianza en el día a día.</p>
+      </article>
+      <article class="program-card reveal d2">
+        <div class="prog-icon gr">O</div>
+        <h3>Ocio y participación</h3>
+        <p>Actividades culturales, convivencia y salidas que crean red social y generan experiencias compartidas e inclusivas.</p>
+      </article>
+      <article class="program-card reveal d3">
+        <div class="prog-icon oc">F</div>
+        <h3>Orientación a familias</h3>
+        <p>Espacios de escucha, información y apoyo para familias que también forman parte esencial de cada proceso.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    let fanLetters = [];
-    const loaderStartedAt = Date.now();
-    let galleryIndex = 0;
-    let galleryTimer = null;
+<!-- ══════════════════════════════════════════════════
+  IMPACTO
+══════════════════════════════════════════════════ -->
+<section class="impacto" id="impacto">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">&#9670; Impacto social</span>
+      <h2>Una presencia que acompaña<br>y deja huella.</h2>
+      <p>Desde 2009 trabajando en Cádiz con vocación, compromiso y presencia real en la comunidad.</p>
+    </div>
+    <div class="impact-grid">
+      <article class="impact-card reveal d1">
+        <strong>2009</strong>
+        <p>Inicio del recorrido de la asociación en Cádiz.</p>
+      </article>
+      <article class="impact-card reveal d2">
+        <strong>Atención</strong>
+        <p>Escucha cercana y seguimiento de procesos personales continuados.</p>
+      </article>
+      <article class="impact-card reveal d3">
+        <strong>Red</strong>
+        <p>Trabajo comunitario y colaboración activa con el entorno gaditano.</p>
+      </article>
+      <article class="impact-card reveal d4">
+        <strong>Futuro</strong>
+        <p>Compromiso con nuevas oportunidades y crecimiento social inclusivo.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    function buildFan() {
-      fanStage.querySelectorAll(".fan-letter").forEach((node) => node.remove());
-      fanLetters = [];
+<!-- ══════════════════════════════════════════════════
+  NOTICIAS
+══════════════════════════════════════════════════ -->
+<section id="noticias">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">&#9670; Noticias</span>
+      <h2>Lo que está pasando<br>en Abaniko.</h2>
+      <p>Actividades, eventos, logros y todo lo que queremos compartir con la comunidad.</p>
+    </div>
+    <div class="news-grid">
+      <article class="news-card featured reveal d1">
+        <span class="news-tag feat">Destacada</span>
+        <span class="news-date">21 mayo 2026</span>
+        <h3>Abaniko estrena su nueva web con identidad renovada.</h3>
+        <p>
+          Desde aquí la asociación mantiene a la comunidad al día con actividades, talleres,
+          encuentros y todo lo que vivimos juntos.
+        </p>
+        <ul class="news-list">
+          <li>Publica novedades del grupo.</li>
+          <li>Anuncia talleres y salidas.</li>
+          <li>Comparte logros y recordatorios.</li>
+        </ul>
+      </article>
+      <article class="news-card reveal d2">
+        <span class="news-tag act">Actividad</span>
+        <span class="news-date">Próxima publicación</span>
+        <h3>Talleres y actividades semanales</h3>
+        <p>
+          Usa esta tarjeta para resumir una actividad próxima con fecha, descripción
+          y una llamada a participar.
+        </p>
+      </article>
+      <article class="news-card reveal d3">
+        <span class="news-tag com">Comunidad</span>
+        <span class="news-date">Próxima publicación</span>
+        <h3>Avisos, anuncios y logros del grupo</h3>
+        <p>
+          Cambios de horario, celebraciones, agradecimientos o información importante
+          para familias y participantes.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
 
-      LETTERS.forEach((letter, index) => {
-        const piece = document.createElement("div");
-        piece.className = "fan-letter";
-        piece.style.background = COLORS[index];
-        piece.style.zIndex = String(index + 1);
-        piece.textContent = letter;
-        fanStage.appendChild(piece);
-        fanLetters.push(piece);
-      });
-    }
+<!-- ══════════════════════════════════════════════════
+  GALERÍA
+══════════════════════════════════════════════════ -->
+<section id="galeria" style="background:var(--crema-d);">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">&#9670; Galería</span>
+      <h2>Momentos, actividades<br>e identidad visual.</h2>
+      <p>Imágenes reales de la asociación, sus programas y la comunidad que la forma.</p>
+    </div>
+    <div class="gallery-shell">
+      <div class="gallery-main reveal d1" aria-label="Carrusel de imágenes">
+        <div id="gtTrack" class="gallery-track">
+          <figure class="gallery-slide">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNlsB_c4cefwP6KQLQBX3y5oCLcT_4JUIQnR1VJeDVUIQe5Z2O-hCUPmrGl_M1gACaKOn0VHIFIJ1jgYZXzuZjPrgPs74z1iEiT-Ugy0ixLhmxqzZb1-paD2Rgyx2eQOB7rtjPCfvb9kV5vsL2rlfc9BdI-RcfQh9eLUkHvTlBoZFUY1gGQeZomCUuRSR_/w400-h300/2ab77e38-d7e8-4732-8659-e2342d4f5546.jpg" alt="Museo del Carnaval">
+            <figcaption class="gallery-caption">
+              <h3>Museo del Carnaval</h3>
+              <p>Participación en espacios culturales para compartir presencia y comunidad.</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfbshQ0li8RTbCKUk_JSMFjzAYpdtSFN_S7RkJF1X4v-ARc7T1hECCFco7BMsOlNMw-BxHxiHBs21x5mTfN1EbIAvvBh8n2dh5JOIRBh1VWSE5SHh2HOiONJvRRUPWY_0w5Yz9oZXJGvBIHIRlrqxeFHHGb4A8GGRiX53iXKDpbBVMhVyeNTb9Vvz0Q/w400-h300/b9dbd3e9-b028-42fd-b73b-14be9f33c9c0.jpg" alt="Actividades grupo de ocio">
+            <figcaption class="gallery-caption">
+              <h3>Grupo de Ocio</h3>
+              <p>Salidas, convivencia y experiencias compartidas en entornos inclusivos.</p>
+            </figcaption>
+          </figure>
+          <figure class="gallery-slide">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzvub-d0_RVOQ_jNrGuWtk-4QfE8u3_FosMgDHrbjCQLD41yBYJytrCpA0z_OMbKR-AGUer47R-Q1GOCa2WwserwudBYGM8BCj7RkWd4GDjnwIxRpsLDh9T8aVxD2tQPVFoPzki9nTrSuARmeuCz-LzODvV2zF5zsu3vIe5d8GKIo-TWSi9AeI4zpeL-Dd/w453-h640/PosterTaller.jpg" alt="Autonomía doméstica 2024">
+            <figcaption class="gallery-caption">
+              <h3>Autonomía Doméstica</h3>
+              <p>Aprendizajes prácticos para reforzar la independencia y la vida diaria.</p>
+            </figcaption>
+          </figure>
+        </div>
+        <button class="gallery-arrow prev" id="gPrev" aria-label="Anterior">&#8249;</button>
+        <button class="gallery-arrow next" id="gNext" aria-label="Siguiente">&#8250;</button>
+        <div id="gDots" class="gallery-dots"></div>
+      </div>
 
-    function getOpenAngle(index, total) {
-      const spread = 146;
-      const start = -(spread / 2);
-      return start + (index / (total - 1)) * spread;
-    }
+      <div class="gallery-side">
+        <article class="side-card reveal d2">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNlsB_c4cefwP6KQLQBX3y5oCLcT_4JUIQnR1VJeDVUIQe5Z2O-hCUPmrGl_M1gACaKOn0VHIFIJ1jgYZXzuZjPrgPs74z1iEiT-Ugy0ixLhmxqzZb1-paD2Rgyx2eQOB7rtjPCfvb9kV5vsL2rlfc9BdI-RcfQh9eLUkHvTlBoZFUY1gGQeZomCUuRSR_/w400-h300/2ab77e38-d7e8-4732-8659-e2342d4f5546.jpg" alt="Actividad cultural">
+          <div class="side-card-body">
+            <h4>Actividades con presencia real</h4>
+            <p>Cada salida enriquece la experiencia del grupo y fortalece vínculos comunitarios.</p>
+          </div>
+        </article>
+        <article class="side-card reveal d3">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzvub-d0_RVOQ_jNrGuWtk-4QfE8u3_FosMgDHrbjCQLD41yBYJytrCpA0z_OMbKR-AGUer47R-Q1GOCa2WwserwudBYGM8BCj7RkWd4GDjnwIxRpsLDh9T8aVxD2tQPVFoPzki9nTrSuARmeuCz-LzODvV2zF5zsu3vIe5d8GKIo-TWSi9AeI4zpeL-Dd/w453-h640/PosterTaller.jpg" alt="Autonomía doméstica">
+          <div class="side-card-body">
+            <h4>Autonomía doméstica</h4>
+            <p>Formación práctica y acompañamiento para la vida independiente desde 2024.</p>
+          </div>
+        </article>
+        <article class="side-card reveal d4">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwNzVX0fOq1eC1GGlUCVY9Kij45wQBgZNy25IoZeL9CLhpDtmXeyEG8zpwUP6VXm_2S_2MzW_IzeU8KH7Lt6j1_bR6aiJFyJNqmhTcoFZcJJsf0CC6e9SOVEG9LcLsNy_a9-Hti_Pe_64/s1600/LogoBlog.png" alt="Logo Abaniko">
+          <div class="side-card-body">
+            <h4>Una identidad abierta</h4>
+            <p>El abanico como símbolo de movimiento, diversidad y apertura hacia la comunidad.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function animateFan() {
-      buildFan();
+<!-- ══════════════════════════════════════════════════
+  COMENTARIOS
+══════════════════════════════════════════════════ -->
+<section id="comentarios" class="comments-bg">
+  <div class="shell">
+    <div class="section-head reveal">
+      <span class="eyebrow">&#9670; Comentarios</span>
+      <h2>Un espacio para opinar<br>sin registro.</h2>
+      <p>Cualquier persona puede escribir y elegir si aparecer con nombre o de forma anónima.</p>
+    </div>
+    <div class="comment-layout">
+      <aside class="comment-panel reveal d1">
+        <h3>Escribe tu mensaje</h3>
+        <p>Sin cuentas ni registros. Los comentarios se guardan en este navegador.</p>
+        <div class="hint-box">
+          Si más adelante quieres que los comentarios se compartan entre todos los visitantes,
+          será necesario conectar una base de datos. La página ya está preparada para ese paso.
+        </div>
+        <form id="comment-form">
+          <label for="c-name">
+            Nombre
+            <span class="lsub">Opcional si marcas modo anónimo.</span>
+          </label>
+          <input id="c-name" name="name" type="text" maxlength="60" placeholder="Ej: María">
 
-      LETTERS.forEach((_, index) => {
-        window.setTimeout(() => {
-          const piece = fanLetters[index];
-          piece.style.opacity = "1";
-          piece.style.transform = "rotate(" + getOpenAngle(index, LETTERS.length) + "deg)";
-        }, index * 180);
-      });
+          <div class="switch-row">
+            <input id="c-anon" name="anonymous" type="checkbox">
+            <label for="c-anon">Publicar como anónimo</label>
+          </div>
 
-      window.setTimeout(() => {
-        LETTERS.forEach((_, index) => {
-          const piece = fanLetters[index];
-          piece.style.transform = "rotate(" + (index * 4 - 12) + "deg)";
-        });
-      }, FAN_CLOSE_START_MS);
-    }
+          <label for="c-msg">
+            Comentario
+            <span class="lsub">Máximo 500 caracteres.</span>
+          </label>
+          <textarea id="c-msg" name="message" maxlength="500" placeholder="Escribe aquí tu comentario…"></textarea>
 
-    function hideLoader() {
-      const elapsed = Date.now() - loaderStartedAt;
-      const wait = Math.max(0, LOADER_MIN_MS - elapsed);
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Publicar comentario</button>
+            <button class="btn btn-dark" type="button" id="clear-btn">Borrar guardados</button>
+          </div>
+        </form>
+      </aside>
 
-      window.setTimeout(() => {
-        siteLoader.classList.add("is-hidden");
-        document.body.classList.remove("loading");
-      }, wait);
-    }
+      <div class="comment-panel reveal d2">
+        <h3>Lo que dice la comunidad</h3>
+        <p>Los mensajes más recientes aparecen primero.</p>
+        <div id="c-feed" class="comment-feed" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function renderGalleryDots() {
-      const slides = Array.from(galleryTrack.querySelectorAll(".gallery-slide"));
-      galleryDots.innerHTML = slides.map((_, index) => {
-        const activeClass = index === galleryIndex ? "gallery-dot active" : "gallery-dot";
-        return '<button class="' + activeClass + '" type="button" data-index="' + index + '" aria-label="Ir a la imagen ' + (index + 1) + '"></button>';
-      }).join("");
-    }
+<!-- ══════════════════════════════════════════════════
+  FOOTER
+══════════════════════════════════════════════════ -->
+<footer id="contacto" class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <strong>Asociación Abaniko</strong>
+        <p>
+          Una asociación de profesionales en Cádiz comprometidos con la inclusión,
+          la autonomía y la mejora de la calidad de vida desde 2009.
+        </p>
+      </div>
+      <nav class="footer-nav">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#programas">Programas</a></li>
+          <li><a href="#impacto">Impacto</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#comentarios">Comentarios</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <ul>
+          <li>📍 Cádiz, Andalucía</li>
+          <li>📧 asoc.abaniko@gmail.com</li>
+          <li>📞 677 854 232</li>
+          <li>🕐 Mañanas y tardes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Asociación Abaniko · Todos los derechos reservados.</span>
+      <span>Cádiz · Inclusión, autonomía y comunidad</span>
+    </div>
+  </div>
+</footer>
 
-    function goToSlide(index) {
-      const slides = galleryTrack.querySelectorAll(".gallery-slide");
-      const total = slides.length;
-      galleryIndex = (index + total) % total;
-      galleryTrack.style.transform = "translateX(-" + (galleryIndex * 100) + "%)";
-      renderGalleryDots();
-    }
+<!-- ══════════════════════════════════════════════════
+  SCRIPTS
+══════════════════════════════════════════════════ -->
+<script>
+/* ─── CONSTANTS ────────────────────────────── */
+const LETTERS = ['A','B','A','N','I','K','O'];
+const COLORS  = ['#C4572F','#CF7B32','#D59A3F','#6F8B2E','#1F6A62','#1C6288','#6C4F8F'];
+const CKEY = 'abaniko_comments_v2';
+const fanWrap = document.getElementById('fan-wrap');
+const fanStatus = document.getElementById('fan-status');
 
-    function restartGalleryTimer() {
-      if (galleryTimer) {
-        window.clearInterval(galleryTimer);
-      }
+/* ─── FAN ANIMATION ────────────────────────── */
+function buildFan() {
+  fanWrap.querySelectorAll('.fan-letter').forEach(n => n.remove());
+  return LETTERS.map((l, i) => {
+    const el = document.createElement('div');
+    el.className = 'fan-letter';
+    el.style.background = COLORS[i];
+    el.style.zIndex = i + 1;
+    el.textContent = l;
+    fanWrap.appendChild(el);
+    return el;
+  });
+}
 
-      galleryTimer = window.setInterval(() => {
-        goToSlide(galleryIndex + 1);
-      }, 4200);
-    }
+function getAngle(i, n) {
+  return -(148 / 2) + (i / (n - 1)) * 148;
+}
 
-    function setupGallery() {
-      if (!galleryTrack) return;
+function animateFan() {
+  const els = buildFan();
+  els.forEach((el, i) => {
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = `rotate(${getAngle(i, LETTERS.length)}deg)`;
+    }, i * 180);
+  });
 
-      renderGalleryDots();
-      goToSlide(0);
-      restartGalleryTimer();
+  const openAt = LETTERS.length * 180 + 600;
+  setTimeout(() => { fanStatus.textContent = 'Cerrando el abanico…'; }, openAt);
 
-      galleryPrev.addEventListener("click", () => {
-        goToSlide(galleryIndex - 1);
-        restartGalleryTimer();
-      });
-
-      galleryNext.addEventListener("click", () => {
-        goToSlide(galleryIndex + 1);
-        restartGalleryTimer();
-      });
-
-      galleryDots.addEventListener("click", (event) => {
-        const target = event.target;
-        if (!(target instanceof HTMLElement)) return;
-        if (!target.dataset.index) return;
-        goToSlide(Number(target.dataset.index));
-        restartGalleryTimer();
-      });
-    }
-
-    function escapeHtml(value) {
-      return value
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#39;");
-    }
-
-    function readComments() {
-      try {
-        const raw = localStorage.getItem(COMMENTS_KEY);
-        if (!raw) return [];
-        const parsed = JSON.parse(raw);
-        return Array.isArray(parsed) ? parsed : [];
-      } catch {
-        return [];
-      }
-    }
-
-    function saveComments(comments) {
-      localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
-    }
-
-    function formatDate(isoDate) {
-      const date = new Date(isoDate);
-      return new Intl.DateTimeFormat("es-ES", {
-        dateStyle: "medium",
-        timeStyle: "short"
-      }).format(date);
-    }
-
-    function renderComments() {
-      const comments = readComments();
-
-      if (!comments.length) {
-        commentFeed.innerHTML = '<div class="empty-state">Todavía no hay comentarios. El primero puede ser el tuyo.</div>';
-        return;
-      }
-
-      commentFeed.innerHTML = comments
-        .slice()
-        .reverse()
-        .map((comment) => {
-          const author = comment.anonymous ? "Anónimo" : escapeHtml(comment.name || "Invitado");
-          const message = escapeHtml(comment.message);
-          return [
-            '<article class="comment-card">',
-            '  <div class="comment-meta">',
-            "    <strong>" + author + "</strong>",
-            "    <span>" + formatDate(comment.createdAt) + "</span>",
-            "  </div>",
-            "  <p>" + message + "</p>",
-            "</article>"
-          ].join("");
-        })
-        .join("");
-    }
-
-    function syncNameState() {
-      nameInput.disabled = anonymousToggle.checked;
-      nameInput.placeholder = anonymousToggle.checked ? "Se publicará como anónimo" : "Ejemplo: María";
-    }
-
-    commentForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(commentForm);
-      const isAnonymous = Boolean(formData.get("anonymous"));
-      const name = String(formData.get("name") || "").trim();
-      const message = String(formData.get("message") || "").trim();
-
-      if (!message) {
-        alert("Escribe un comentario antes de publicarlo.");
-        return;
-      }
-
-      if (!isAnonymous && !name) {
-        alert("Escribe un nombre o marca la opción de anónimo.");
-        return;
-      }
-
-      const comments = readComments();
-      comments.push({
-        anonymous: isAnonymous,
-        name: isAnonymous ? "" : name,
-        message,
-        createdAt: new Date().toISOString()
-      });
-
-      saveComments(comments);
-      commentForm.reset();
-      syncNameState();
-      renderComments();
+  setTimeout(() => {
+    els.forEach((el, i) => {
+      el.style.transition = 'transform .85s cubic-bezier(.4,0,.2,1)';
+      el.style.transform = `rotate(${i * 4.5 - 14}deg)`;
     });
+  }, openAt + 700);
 
-    anonymousToggle.addEventListener("change", syncNameState);
+  setTimeout(() => { fanStatus.textContent = 'Bienvenido/a a Abaniko ✦'; }, openAt + 1700);
 
-    clearCommentsButton.addEventListener("click", () => {
-      const accepted = window.confirm("Se borrarán los comentarios guardados en este navegador. ¿Quieres continuar?");
-      if (!accepted) return;
-      localStorage.removeItem(COMMENTS_KEY);
-      renderComments();
-    });
+  return openAt + 2400;
+}
 
-    syncNameState();
-    setupGallery();
-    renderComments();
-    window.setTimeout(animateFan, FAN_START_DELAY_MS);
-    window.addEventListener("load", hideLoader);
-  </script>
+/* ─── LOADER ───────────────────────────────── */
+const loader = document.getElementById('loader');
+const startedAt = Date.now();
+const minDuration = animateFan() + 200;
+
+function dismissLoader() {
+  const elapsed = Date.now() - startedAt;
+  const wait = Math.max(0, minDuration - elapsed);
+  setTimeout(() => {
+    loader.classList.add('hide');
+    document.body.classList.remove('is-loading');
+  }, wait);
+}
+window.addEventListener('load', dismissLoader);
+
+/* ─── GALLERY ──────────────────────────────── */
+const track = document.getElementById('gtTrack');
+const dotsEl = document.getElementById('gDots');
+let gIdx = 0, gTimer = null;
+
+function renderDots() {
+  const n = track.querySelectorAll('.gallery-slide').length;
+  dotsEl.innerHTML = Array.from({length:n},(_,i) =>
+    `<button class="gdot${i===gIdx?' on':''}" data-i="${i}" aria-label="Imagen ${i+1}"></button>`
+  ).join('');
+}
+
+function goSlide(i) {
+  const n = track.querySelectorAll('.gallery-slide').length;
+  gIdx = (i + n) % n;
+  track.style.transform = `translateX(-${gIdx*100}%)`;
+  renderDots();
+}
+
+function resetTimer() {
+  clearInterval(gTimer);
+  gTimer = setInterval(() => goSlide(gIdx + 1), 4500);
+}
+
+dotsEl.addEventListener('click', e => {
+  const i = e.target.dataset.i;
+  if (i !== undefined) { goSlide(+i); resetTimer(); }
+});
+document.getElementById('gPrev').onclick = () => { goSlide(gIdx - 1); resetTimer(); };
+document.getElementById('gNext').onclick = () => { goSlide(gIdx + 1); resetTimer(); };
+renderDots(); resetTimer();
+
+/* ─── COMMENTS ─────────────────────────────── */
+const form   = document.getElementById('comment-form');
+const feed   = document.getElementById('c-feed');
+const anonCk = document.getElementById('c-anon');
+const nameIn = document.getElementById('c-name');
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+          .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function readC() {
+  try { const r = JSON.parse(localStorage.getItem(CKEY)); return Array.isArray(r)?r:[]; }
+  catch { return []; }
+}
+function saveC(a) { localStorage.setItem(CKEY, JSON.stringify(a)); }
+function fmtDate(d) {
+  return new Intl.DateTimeFormat('es-ES',{dateStyle:'medium',timeStyle:'short'}).format(new Date(d));
+}
+function renderC() {
+  const cs = readC();
+  if (!cs.length) {
+    feed.innerHTML = '<div class="empty-state">Todavía no hay comentarios. El primero puede ser el tuyo.</div>';
+    return;
+  }
+  feed.innerHTML = cs.slice().reverse().map(c => `
+    <article class="comment-card">
+      <div class="comment-meta">
+        <strong>${c.anonymous ? 'Anónimo' : esc(c.name||'Invitado')}</strong>
+        <span>${fmtDate(c.createdAt)}</span>
+      </div>
+      <p>${esc(c.message)}</p>
+    </article>
+  `).join('');
+}
+function syncAnon() {
+  nameIn.disabled = anonCk.checked;
+  nameIn.placeholder = anonCk.checked ? 'Se publicará como Anónimo' : 'Ej: María';
+}
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const fd = new FormData(form);
+  const anon = !!fd.get('anonymous');
+  const name = (fd.get('name')||'').trim();
+  const msg  = (fd.get('message')||'').trim();
+  if (!msg) { alert('Escribe un comentario antes de publicarlo.'); return; }
+  if (!anon && !name) { alert('Escribe un nombre o marca la opción de anónimo.'); return; }
+  const cs = readC();
+  cs.push({ anonymous: anon, name: anon?'':name, message: msg, createdAt: new Date().toISOString() });
+  saveC(cs); form.reset(); syncAnon(); renderC();
+});
+anonCk.addEventListener('change', syncAnon);
+document.getElementById('clear-btn').addEventListener('click', () => {
+  if (!confirm('¿Borrar los comentarios guardados en este navegador?')) return;
+  localStorage.removeItem(CKEY); renderC();
+});
+
+syncAnon(); renderC();
+
+/* ─── REVEAL ON SCROLL ─────────────────────── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
