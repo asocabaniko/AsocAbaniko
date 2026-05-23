@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html' -Pattern 'skip-nav|<main |</main>|form-error|prefersReducedMotion|prefers-reduced-motion' | Select-Object LineNumber, Line | Format-Table -AutoSize\")",
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html' -Pattern 'SyntaxError|expected' | Select-Object LineNumber, Line\")",
+      "Bash(powershell -Command \"\\(Get-Content 'c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html'\\).Count\")",
+      "Bash(powershell -Command \"node --input-type=module 2>&1\")",
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html' -Pattern '</main>|<main ' | Select-Object LineNumber, Line\")",
+      "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html' -Pattern 'a11y-toggle|a11y-panel|ap-open|applyPrefs|A11Y_KEY' | Select-Object LineNumber, Line | Format-Table -AutoSize\")"
+    ]
+  }
+}

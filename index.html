@@ -2180,7 +2180,7 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   background: none; border: 0; padding: 0;
   font-family: 'JetBrains Mono', monospace;
   font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
-  color: rgba(6, 6, 5, 0.38); transition: color .25s;
+  color: rgba(247,239,220,.6); transition: color .25s;
 }
 .footer-legal button:hover { color: var(--ocre-l); }
 
@@ -2199,6 +2199,408 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   color: rgba(248, 242, 242, 0.65); font-weight: 400; cursor: pointer;
 }
 .gdpr-row label a { color: var(--ocre-l); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD WCAG 2.1 AA · RESPONSIVIDAD COMPLETA · MEJORAS VISUALES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── SALTAR AL CONTENIDO ─────────────────────────────────── */
+.skip-nav {
+  position: fixed; left: 1rem; top: -120%; z-index: 99999;
+  background: var(--terracota); color: #fff;
+  padding: .9rem 1.8rem; border-radius: 0 0 var(--r-md) var(--r-md);
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem;
+  text-decoration: none; letter-spacing: -.01em;
+  box-shadow: 0 8px 24px rgba(184,74,40,.45);
+  transition: top .3s var(--ease);
+}
+.skip-nav:focus { top: 0; outline: 3px solid var(--ocre); outline-offset: 2px; }
+
+/* ── FOCO VISIBLE WCAG 2.4.7 ────────────────────────────── */
+:focus { outline: none; }
+:focus-visible {
+  outline: 3px solid var(--terracota);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.btn:focus-visible { outline-color: var(--ocre); outline-offset: 5px; }
+.site-header.scrolled :focus-visible,
+.stats-strip :focus-visible,
+.testimonials-bg :focus-visible,
+.contact-bg :focus-visible,
+.timeline-bg :focus-visible { outline-color: var(--ocre); }
+.faq-item summary:focus-visible { outline-offset: -3px; }
+.si-dot:focus-visible { outline-color: var(--ocre); border-radius: 50%; }
+
+/* ── ERRORES DE FORMULARIO ACCESIBLES ───────────────────── */
+.form-error {
+  max-height: 0; overflow: hidden;
+  opacity: 0; padding: 0; border-width: 0;
+  background: rgba(184,74,40,.1);
+  border: 2px solid var(--terracota);
+  border-radius: var(--r-md);
+  color: var(--terracota-d);
+  font-size: .96rem; font-weight: 500; line-height: 1.5;
+  transition: max-height .3s var(--ease), opacity .3s, padding .3s;
+}
+.form-error.visible {
+  max-height: 120px; opacity: 1;
+  padding: .9rem 1.2rem; border-width: 2px;
+  margin-bottom: 1rem;
+}
+.contact-form .form-error {
+  color: #ffe0d6; background: rgba(184,74,40,.25); border-color: #ff8a6a;
+}
+
+/* ── CONTRASTE MEJORADO WCAG 1.4.3 AA ───────────────────── */
+.footer-bottom { color: rgba(247,239,220,.72); }
+.stat-desc { color: rgba(247,239,220,.88); }
+.tl-content p { color: rgba(247,239,220,.82); }
+.t-info span { color: rgba(247,239,220,.78); }
+.hv-foot { color: rgba(247,239,220,.72); }
+.news-card.feat p { color: rgba(247,239,220,.82); }
+.gallery-caption p { color: rgba(247,239,220,.92); }
+.contact-form > p { color: rgba(247,239,220,.72); }
+.side-card-overlay p { color: rgba(247,239,220,.88); }
+
+/* ── TAMAÑO MÍNIMO DE FUENTE ACCESIBLE ──────────────────── */
+.eyebrow, .stat-label, .team-role, .hv-tag, .footer-col h5,
+.news-tag, .prog-num, .loader-eyebrow, .fan-status,
+.comment-meta span, .footer-legal button, .modal-eyebrow,
+.gc-tag, .ci-block strong, .footer-bottom, .hv-badge,
+.hv-foot, .tl-tag { font-size: max(.78rem, 11px); }
+.c-link, .prog-arrow, .news-link, .team-bio,
+.lsub, .footer-col a { font-size: max(.88rem, 13px); }
+
+/* ── PESO DE FUENTE LEGIBLE EN PANTALLAS PEQUEÑAS ───────── */
+@media (max-width: 900px) {
+  .hero-sub, .section-head p, .program-card p,
+  .collab-card p, .collab-card.featured p,
+  .team-bio, .stat-desc, .tl-content p,
+  .news-card p, .news-card.feat p, .footer-brand p,
+  .faq-content, .quienes-quote, .modal-box p,
+  .modal-box li, .hv-quote, .cb-text,
+  .contact-form > p, .comment-panel > p { font-weight: 400; }
+}
+
+/* ── ÁREA DE TOQUE MÍNIMA 44×44px WCAG 2.5.5 ───────────── */
+@media (pointer: coarse) {
+  .btn { min-height: 48px; }
+  .gallery-arrow { width: 56px; height: 56px; }
+  .nav-toggle { width: 52px; height: 52px; }
+  .modal-close { width: 48px; height: 48px; }
+  #back-top { width: 56px; height: 56px; }
+  #whatsapp-btn { width: 56px; height: 56px; }
+  .faq-item summary { min-height: 56px; }
+  .social-row a { width: 52px; height: 52px; }
+  .gdot { height: 16px; min-width: 36px; cursor: pointer; }
+  .footer-legal button { padding: .5rem 0; min-height: 44px; display: inline-block; }
+  .footer-col a { padding: .4rem 0; display: inline-block; min-height: 36px; }
+  .cb-actions .btn { min-height: 52px; }
+  .si-dot { width: 16px; height: 16px; }
+}
+
+/* ── HERO ALTURA EN MÓVIL 100dvh ────────────────────────── */
+@supports (min-height: 100dvh) {
+  .hero { min-height: 100dvh; }
+}
+
+/* ── PREFERS-REDUCED-MOTION WCAG 2.3.3 ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    transition-delay: 0ms !important;
+  }
+  html { scroll-behavior: auto !important; }
+  .reveal, .reveal-x {
+    opacity: 1 !important; transform: none !important; transition: none !important;
+  }
+  .split-line > span { transform: none !important; }
+  .loader-title span { opacity: 1 !important; transform: none !important; }
+  .loader-eyebrow { opacity: 1 !important; }
+  .marquee-track { animation: none !important; }
+  .hv-logo-circle, .hv-logo-circle::before, .hv-logo-circle::after { animation: none !important; }
+  .hero-meta .dot { animation: none !important; }
+  .hero-orb-1, .hero-orb-2 { animation: none !important; }
+  .fan-letter { transition: none !important; }
+  .hero-arc { display: none; }
+  #cursor, #cursor-dot, #cursor-text, .cursor-trail { display: none !important; }
+  body, a, button, input, textarea, select, label { cursor: auto !important; }
+  .form-error { transition: none; }
+}
+
+/* ── ALTO CONTRASTE DEL SISTEMA ─────────────────────────── */
+@media (prefers-contrast: more) {
+  :root {
+    --terracota: #9a3215; --verde: #0d4035;
+    --muted: #4a3020; --line: rgba(26,15,8,.4);
+    --line-l: rgba(247,239,220,.45);
+  }
+  input, textarea, select { border-width: 2px; border-color: var(--tinta); }
+  .program-card, .team-card, .collab-card, .value-item,
+  .faq-item, .news-card, .comment-card, .ci-block { border-width: 2px; }
+  .nav-links a::after { height: 2.5px; }
+  :focus-visible { outline-width: 4px; }
+  .footer-legal button { color: rgba(247,239,220,.85); }
+  .footer-bottom, .stat-desc, .tl-content p { color: rgba(247,239,220,.95); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE COMPLETO · TODOS LOS BREAKPOINTS
+   ══════════════════════════════════════════════════════════ */
+
+/* ── TABLETS (900px) ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .program-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .news-grid { grid-template-columns: 1fr 1fr; }
+  .news-card.feat { grid-column: 1 / -1; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .collab-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-shell { grid-template-columns: 1fr; }
+  .gallery-side { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+}
+
+/* ── MÓVILES GRANDES (600px) ─────────────────────────────── */
+@media (max-width: 600px) {
+  .shell { padding: 0 1.3rem; }
+  section { padding: 4.5rem 0; }
+  .section-head { margin-bottom: 2.5rem; }
+  .section-head h2 { font-size: clamp(2rem, 8.5vw, 3rem); }
+  .section-head p { font-size: 1.02rem; }
+  .program-grid, .collab-grid, .testimonials-grid,
+  .news-grid, .team-grid, .footer-top { grid-template-columns: 1fr; }
+  .news-card.feat { grid-column: auto; }
+  .gallery-side { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .gallery-side .side-card:nth-child(3) { grid-column: 1 / -1; }
+  .contact-grid { gap: 2.5rem; }
+  .comment-layout { gap: 1.5rem; }
+  .faq-grid { gap: 2rem; }
+  .quienes-grid { gap: 2.5rem; }
+  .tl-item { padding-left: 3rem; }
+  .ci-block { grid-template-columns: 44px 1fr; gap: 1rem; }
+  .ci-icon { width: 44px; height: 44px; border-radius: 12px; }
+  .stat-num { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+  .footer-brand p { max-width: none; }
+  .social-row a { width: 44px; height: 44px; }
+  .footer-legal { gap: 1rem; }
+  .gallery-arrow { width: 44px; height: 44px; }
+}
+
+/* ── MÓVILES MEDIANOS (480px) ────────────────────────────── */
+@media (max-width: 480px) {
+  .shell { padding: 0 1rem; }
+  section { padding: 3.8rem 0; }
+  h1.hero-title { font-size: clamp(2.2rem, 10vw, 3rem); line-height: 1.06; }
+  .hero-sub { font-size: 1.05rem; }
+  .hero { padding: 7rem 0 3.5rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { text-align: center; justify-content: center; }
+  .stats-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .stat { padding: 0; border-left: 0 !important; }
+  .form-actions { flex-direction: column; }
+  .form-actions .btn { justify-content: center; }
+  .cb-actions { flex-direction: column; width: 100%; gap: .6rem; }
+  .cb-actions .btn { justify-content: center; width: 100%; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .footer-legal { gap: .8rem; flex-wrap: wrap; }
+  .row-2 { grid-template-columns: 1fr; }
+  .contact-form { padding: 1.8rem 1.3rem; }
+  .comment-panel { padding: 1.6rem 1.2rem; }
+  .modal-box { padding: 1.8rem 1.2rem; }
+  .nav-inner { padding: .75rem 1rem; }
+  .gallery-side { grid-template-columns: 1fr; }
+  .gallery-side .side-card:nth-child(3) { grid-column: auto; }
+  .gallery-arrow.prev { left: .6rem; }
+  .gallery-arrow.next { right: .6rem; }
+  .tl-year { font-size: 1.8rem; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .testimonial { padding: 2rem 1.8rem; }
+  .collab-card { padding: 2rem 1.5rem; }
+}
+
+/* ── MÓVILES PEQUEÑOS (375px) ────────────────────────────── */
+@media (max-width: 375px) {
+  .shell { padding: 0 .9rem; }
+  section { padding: 3rem 0; }
+  h1.hero-title { font-size: 2rem; }
+  .loader-title { font-size: 2.6rem !important; }
+  .stat-num { font-size: 2.5rem; }
+  .team-grid { grid-template-columns: 1fr; }
+  #whatsapp-btn { right: 4rem; width: 44px; height: 44px; }
+  #back-top { right: .6rem; width: 44px; height: 44px; }
+  .hero-marquee { margin-top: 2.5rem; }
+  .hero-marquee .marquee-track { font-size: .9rem; }
+  .faq-item summary { font-size: 1rem; padding: 1.2rem 1.3rem; }
+  .quienes-quote { font-size: 1.1rem; padding: 1.5rem; }
+  .nav-inner { padding: .7rem .9rem; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   PANEL DE ACCESIBILIDAD · OPCIONES DE VISTA
+   ══════════════════════════════════════════════════════════ */
+
+#a11y-toggle {
+  position: fixed; bottom: 2rem; left: 2rem; z-index: 80;
+  width: 50px; height: 50px; border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: var(--crema-l); color: var(--tinta);
+  display: grid; place-items: center;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease),
+              background .3s, color .3s, border-color .3s, box-shadow .3s;
+  box-shadow: var(--sh-soft);
+}
+body:not(.is-loading) #a11y-toggle { opacity: 1; transform: translateY(0); }
+#a11y-toggle:hover {
+  background: var(--terracota); color: #fff;
+  border-color: transparent; transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(184,74,40,.35);
+}
+#a11y-toggle[aria-expanded="true"] {
+  background: var(--terracota); color: #fff; border-color: transparent;
+}
+#a11y-toggle svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+#a11y-panel {
+  position: fixed; bottom: 5.6rem; left: 2rem; z-index: 81;
+  background: var(--crema-l);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  padding: 0;
+  width: 290px;
+  box-shadow: var(--sh-card-h);
+  opacity: 0; visibility: hidden;
+  transform: translateY(12px) scale(.97);
+  transition: opacity .35s var(--ease), transform .35s var(--ease), visibility .35s;
+  overflow: hidden;
+}
+#a11y-panel.ap-open { opacity: 1; visibility: visible; transform: none; }
+
+.ap-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 1.4rem .9rem;
+  border-bottom: 1px solid var(--line);
+}
+.ap-title-text {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--tinta);
+  display: flex; align-items: center; gap: .55rem;
+}
+.ap-title-text svg { color: var(--terracota); flex-shrink: 0; }
+.ap-close {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--crema);
+  color: var(--tinta); font-size: .85rem;
+  display: grid; place-items: center;
+  transition: background .25s, color .25s;
+}
+.ap-close:hover { background: var(--terracota); color: #fff; border-color: transparent; }
+
+.ap-body { padding: 1.1rem 1.4rem 1.4rem; display: grid; gap: 1.1rem; }
+
+.ap-group { display: grid; gap: .5rem; }
+.ap-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--muted); display: block;
+}
+.ap-options { display: flex; gap: .4rem; }
+.ap-opt {
+  flex: 1; padding: .55rem .35rem;
+  border-radius: var(--r-sm);
+  border: 1.5px solid var(--line);
+  background: var(--crema); color: var(--tinta-2);
+  font-family: 'Inter', sans-serif;
+  font-size: .9rem; font-weight: 500; text-align: center;
+  transition: border-color .2s, background .2s, color .2s, transform .2s var(--ease-bounce);
+  line-height: 1;
+}
+.ap-opt:hover {
+  border-color: var(--terracota); color: var(--terracota);
+  transform: translateY(-2px);
+}
+.ap-opt.ap-active {
+  background: var(--terracota); color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(184,74,40,.3);
+}
+.ap-opt[data-val="normal"] { font-size: .82rem; }
+.ap-opt[data-val="lg"]     { font-size: .96rem; }
+.ap-opt[data-val="xl"]     { font-size: 1.05rem; font-weight: 700; }
+
+.ap-divider { height: 1px; background: var(--line); margin: .2rem 0; }
+
+.ap-reset {
+  width: 100%; padding: .6rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-sm); background: transparent;
+  color: var(--muted); font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  transition: border-color .2s, color .2s, background .2s;
+  margin-top: .3rem;
+}
+.ap-reset:hover { border-color: var(--terracota); color: var(--terracota); background: rgba(184,74,40,.05); }
+
+@media (max-width: 740px) {
+  #a11y-toggle { bottom: 1.2rem; left: 1.2rem; width: 44px; height: 44px; }
+  #a11y-panel { bottom: 4.8rem; left: 1.2rem; width: calc(100vw - 2.4rem); max-width: 320px; }
+}
+@media (max-width: 480px) {
+  #a11y-panel { left: 1rem; width: calc(100vw - 2rem); }
+}
+@media (max-width: 375px) {
+  #a11y-toggle { left: .6rem; bottom: 1rem; }
+  #a11y-panel { left: .6rem; width: calc(100vw - 1.2rem); bottom: 4.5rem; }
+}
+
+/* ── CLASES APLICADAS AL <html> ─────────────────────────── */
+html.fs-lg  { font-size: 112.5%; }
+html.fs-xl  { font-size: 128%; }
+
+html.hc-mode {
+  --terracota: #8c2a10; --verde: #0a3a30;
+  --muted: #3d2010;
+  --line: rgba(26,15,8,.45); --line-l: rgba(247,239,220,.5);
+}
+html.hc-mode input, html.hc-mode textarea, html.hc-mode select { border-width: 2px; border-color: var(--tinta); }
+html.hc-mode .program-card, html.hc-mode .team-card, html.hc-mode .collab-card,
+html.hc-mode .value-item, html.hc-mode .faq-item, html.hc-mode .news-card,
+html.hc-mode .comment-card, html.hc-mode .ci-block { border-width: 2px; }
+html.hc-mode :focus-visible { outline-width: 4px; }
+html.hc-mode .footer-legal button,
+html.hc-mode .footer-bottom { color: rgba(247,239,220,.88); }
+html.hc-mode .stat-desc, html.hc-mode .tl-content p { color: rgba(247,239,220,.95); }
+
+/* Ajuste del panel en alto contraste */
+html.hc-mode #a11y-panel { border-width: 2px; border-color: var(--tinta); }
+html.hc-mode .ap-opt { border-width: 2px; }
+
+html.no-motion *, html.no-motion *::before, html.no-motion *::after {
+  animation-duration: .001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .001ms !important;
+  transition-delay: 0ms !important;
+}
+html.no-motion html { scroll-behavior: auto; }
+html.no-motion .reveal, html.no-motion .reveal-x {
+  opacity: 1 !important; transform: none !important;
+}
+html.no-motion .marquee-track { animation: none !important; }
+html.no-motion .hv-logo-circle, html.no-motion .hv-logo-circle::before,
+html.no-motion .hv-logo-circle::after { animation: none !important; }
+html.no-motion .hero-meta .dot { animation: none !important; }
+html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !important; }
+
+/* ── WRAPPING Y LEGIBILIDAD GLOBAL ──────────────────────── */
+.program-card p, .team-bio, .tl-content p, .quienes-quote,
+.faq-content, .comment-card p, .section-head p, .hero-sub {
+  overflow-wrap: break-word; word-break: break-word;
+}
+::selection { background: var(--terracota); color: #fff; }
 </style>
 
 <script type="application/ld+json">
@@ -2235,6 +2637,8 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 
 <body class="is-loading">
 
+<a href="#main-content" class="skip-nav">Saltar al contenido principal</a>
+
 <div id="cursor"></div>
 <div id="cursor-dot"></div>
 <div id="cursor-text">VER</div>
@@ -2261,6 +2665,52 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 </a>
+
+<!-- ════════════ PANEL ACCESIBILIDAD ════════════ -->
+<button id="a11y-toggle" aria-label="Opciones de visualización" aria-expanded="false" aria-controls="a11y-panel" title="Ajustar vista y accesibilidad">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <line x1="4" y1="6" x2="20" y2="6"/><circle cx="9" cy="6" r="2.2" fill="currentColor" stroke="none"/>
+    <line x1="4" y1="12" x2="20" y2="12"/><circle cx="16" cy="12" r="2.2" fill="currentColor" stroke="none"/>
+    <line x1="4" y1="18" x2="20" y2="18"/><circle cx="11" cy="18" r="2.2" fill="currentColor" stroke="none"/>
+  </svg>
+</button>
+
+<div id="a11y-panel" role="region" aria-label="Opciones de visualización">
+  <div class="ap-header">
+    <span class="ap-title-text">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M20 12a8 8 0 1 1-8-8"/><line x1="20" y1="4" x2="20" y2="8"/><line x1="16" y1="8" x2="20" y2="8"/></svg>
+      Vista y accesibilidad
+    </span>
+    <button class="ap-close" id="a11y-close" aria-label="Cerrar panel de accesibilidad">✕</button>
+  </div>
+  <div class="ap-body">
+    <div class="ap-group">
+      <span class="ap-label" id="ap-fs-label">Tamaño de texto</span>
+      <div class="ap-options" role="group" aria-labelledby="ap-fs-label">
+        <button class="ap-opt ap-active" data-pref="fs" data-val="normal" aria-pressed="true" title="Tamaño normal">A</button>
+        <button class="ap-opt" data-pref="fs" data-val="lg" aria-pressed="false" title="Texto grande">A+</button>
+        <button class="ap-opt" data-pref="fs" data-val="xl" aria-pressed="false" title="Texto muy grande">A++</button>
+      </div>
+    </div>
+    <div class="ap-divider"></div>
+    <div class="ap-group">
+      <span class="ap-label" id="ap-ct-label">Contraste</span>
+      <div class="ap-options" role="group" aria-labelledby="ap-ct-label">
+        <button class="ap-opt ap-active" data-pref="ct" data-val="normal" aria-pressed="true">Normal</button>
+        <button class="ap-opt" data-pref="ct" data-val="high" aria-pressed="false">Alto</button>
+      </div>
+    </div>
+    <div class="ap-divider"></div>
+    <div class="ap-group">
+      <span class="ap-label" id="ap-mo-label">Movimiento</span>
+      <div class="ap-options" role="group" aria-labelledby="ap-mo-label">
+        <button class="ap-opt ap-active" data-pref="mo" data-val="on" aria-pressed="true">Activado</button>
+        <button class="ap-opt" data-pref="mo" data-val="off" aria-pressed="false">Reducido</button>
+      </div>
+    </div>
+    <button class="ap-reset" id="a11y-reset" aria-label="Restablecer configuración por defecto">↺ Restablecer todo</button>
+  </div>
+</div>
 
 <!-- ════════════ MODAL: AVISO LEGAL ════════════ -->
 <div id="modal-legal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legal-h2">
@@ -2371,6 +2821,8 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
     </button>
   </div>
 </header>
+
+<main id="main-content" tabindex="-1">
 
 <!-- ════════════ HERO ════════════ -->
 <section class="hero" id="inicio">
@@ -2924,7 +3376,8 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
         <div class="hint-box">
           Los comentarios se guardan en este navegador. Son visibles solo para ti. Para preguntas directas al equipo, usa el formulario de <a href="#contacto" style="color:var(--verde-d);font-weight:500;">contacto</a>.
         </div>
-        <form id="comment-form">
+        <form id="comment-form" novalidate>
+          <div id="comment-error" class="form-error" role="alert" aria-live="assertive" aria-atomic="true"></div>
           <label for="c-name">
             Nombre
             <span class="lsub">Opcional si marcas modo anónimo.</span>
@@ -2999,7 +3452,8 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
         </div>
       </div>
 
-      <form class="contact-form reveal d2" id="contactForm">
+      <form class="contact-form reveal d2" id="contactForm" novalidate>
+        <div id="contact-error" class="form-error" role="alert" aria-live="assertive" aria-atomic="true"></div>
         <h3>Cuéntanos</h3>
         <p>Rellena el formulario y nos pondremos en contacto contigo.</p>
         <div class="row-2">
@@ -3036,6 +3490,8 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ════════════ FOOTER ════════════ -->
 <footer class="site-footer">
@@ -3290,9 +3746,11 @@ function goSlide(i) {
   renderDots();
 }
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function resetTimer() {
   clearInterval(gTimer);
-  gTimer = setInterval(() => goSlide(gIdx + 1), 5500);
+  if (!prefersReducedMotion) gTimer = setInterval(() => goSlide(gIdx + 1), 5500);
 }
 
 dotsEl.addEventListener('click', e => {
@@ -3348,12 +3806,20 @@ function syncAnon() {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
+  const errDiv = document.getElementById('comment-error');
+  function showErr(msg) {
+    errDiv.textContent = msg;
+    errDiv.classList.add('visible');
+    errDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  function clearErr() { errDiv.textContent = ''; errDiv.classList.remove('visible'); }
   const fd = new FormData(form);
   const anon = !!fd.get('anonymous');
   const name = (fd.get('name') || '').trim();
   const msg = (fd.get('message') || '').trim();
-  if (!msg) { alert('Escribe un comentario antes de publicarlo.'); return; }
-  if (!anon && !name) { alert('Escribe un nombre o marca la opción de anónimo.'); return; }
+  if (!msg) { showErr('Por favor, escribe un comentario antes de publicarlo.'); return; }
+  if (!anon && !name) { showErr('Por favor, escribe un nombre o marca la opción "Publicar como anónimo".'); return; }
+  clearErr();
   const cs = readC();
   cs.push({ anonymous: anon, name: anon ? '' : name, message: msg, createdAt: new Date().toISOString() });
   saveC(cs);
@@ -3376,11 +3842,18 @@ renderC();
    ═══════════════════════════════════════════ */
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();
+  const errDiv = document.getElementById('contact-error');
+  function showErr(msg) {
+    errDiv.textContent = msg;
+    errDiv.classList.add('visible');
+    errDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
   const fd = new FormData(e.target);
   if (!fd.get('gdpr')) {
-    alert('Debes aceptar la política de privacidad para enviar el formulario.');
+    showErr('Debes aceptar la política de privacidad para enviar el formulario.');
     return;
   }
+  errDiv.textContent = ''; errDiv.classList.remove('visible');
   const name    = (fd.get('name')    || '').trim();
   const email   = (fd.get('email')   || '').trim();
   const reason  = (fd.get('reason')  || '').trim();
@@ -3448,7 +3921,7 @@ window.addEventListener('scroll', () => {
 /* ═══════════════════════════════════════════
    CURSOR TRAIL
    ═══════════════════════════════════════════ */
-if (window.matchMedia('(hover: hover)').matches) {
+if (window.matchMedia('(hover: hover)').matches && !prefersReducedMotion) {
   const TRAIL_N = 6;
   const trails = Array.from({length: TRAIL_N}, (_, i) => {
     const d = document.createElement('div');
@@ -3475,6 +3948,7 @@ if (window.matchMedia('(hover: hover)').matches) {
 /* ═══════════════════════════════════════════
    MAGNETIC BUTTONS
    ═══════════════════════════════════════════ */
+if (!prefersReducedMotion)
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('mousemove', e => {
     const r = btn.getBoundingClientRect();
@@ -3493,6 +3967,7 @@ document.querySelectorAll('.btn').forEach(btn => {
 /* ═══════════════════════════════════════════
    3D CARD TILT
    ═══════════════════════════════════════════ */
+if (!prefersReducedMotion)
 document.querySelectorAll('.program-card, .team-card, .collab-card').forEach(card => {
   const str = card.classList.contains('program-card') ? 9 : 7;
   card.addEventListener('mousemove', e => {
@@ -3513,6 +3988,7 @@ document.querySelectorAll('.program-card, .team-card, .collab-card').forEach(car
 /* ═══════════════════════════════════════════
    HERO SPOTLIGHT + PARALLAX
    ═══════════════════════════════════════════ */
+if (prefersReducedMotion) { /* skip spotlight and parallax */ } else {
 const heroSpot = document.querySelector('.hero-spotlight');
 const heroArcEl = document.querySelector('.hero-arc');
 const heroEl = document.querySelector('.hero');
@@ -3534,6 +4010,7 @@ window.addEventListener('scroll', () => {
       `translateY(${sy * 0.22}px) rotate(${(sy * 0.014).toFixed(2)}deg)`;
   }
 }, {passive: true});
+} // end !prefersReducedMotion (spotlight + parallax)
 
 /* ═══════════════════════════════════════════
    INDICADOR DE SECCIÓN
@@ -3648,6 +4125,86 @@ document.querySelectorAll('.counter').forEach(el => {
     });
   }, {threshold: 0.8});
   glowObs.observe(el);
+});
+
+/* ═══════════════════════════════════════════
+   PANEL DE ACCESIBILIDAD
+   ═══════════════════════════════════════════ */
+const a11yToggle  = document.getElementById('a11y-toggle');
+const a11yPanel   = document.getElementById('a11y-panel');
+const a11yClose   = document.getElementById('a11y-close');
+const a11yReset   = document.getElementById('a11y-reset');
+const A11Y_KEY    = 'abaniko_a11y_v1';
+const html        = document.documentElement;
+
+function loadPrefs() {
+  try { return JSON.parse(localStorage.getItem(A11Y_KEY)) || {}; }
+  catch { return {}; }
+}
+function savePrefs(p) { localStorage.setItem(A11Y_KEY, JSON.stringify(p)); }
+
+function applyPrefs(p) {
+  /* Font size */
+  html.classList.remove('fs-lg', 'fs-xl');
+  if (p.fs === 'lg') html.classList.add('fs-lg');
+  if (p.fs === 'xl') html.classList.add('fs-xl');
+  /* Contrast */
+  html.classList.toggle('hc-mode', p.ct === 'high');
+  /* Motion */
+  const noMotion = p.mo === 'off';
+  html.classList.toggle('no-motion', noMotion);
+  if (noMotion) { clearInterval(gTimer); } else { resetTimer(); }
+  /* Sync button states */
+  document.querySelectorAll('.ap-opt').forEach(btn => {
+    const pref = btn.dataset.pref;
+    const val  = btn.dataset.val;
+    const defaults = { fs: 'normal', ct: 'normal', mo: 'on' };
+    const active = val === (p[pref] ?? defaults[pref]);
+    btn.classList.toggle('ap-active', active);
+    btn.setAttribute('aria-pressed', active);
+  });
+}
+
+/* Init */
+const prefs = loadPrefs();
+if (prefersReducedMotion && prefs.mo === undefined) prefs.mo = 'off';
+applyPrefs(prefs);
+
+/* Toggle panel */
+function openPanel()  { a11yPanel.classList.add('ap-open');    a11yToggle.setAttribute('aria-expanded', 'true');  a11yClose.focus(); }
+function closePanel() { a11yPanel.classList.remove('ap-open'); a11yToggle.setAttribute('aria-expanded', 'false'); }
+
+a11yToggle.addEventListener('click', () => {
+  a11yPanel.classList.contains('ap-open') ? closePanel() : openPanel();
+});
+a11yClose.addEventListener('click', () => { closePanel(); a11yToggle.focus(); });
+
+/* Close on outside click */
+document.addEventListener('click', e => {
+  if (!a11yPanel.contains(e.target) && e.target !== a11yToggle) closePanel();
+});
+
+/* Close on Escape */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && a11yPanel.classList.contains('ap-open')) {
+    closePanel(); a11yToggle.focus();
+  }
+});
+
+/* Option buttons */
+a11yPanel.querySelectorAll('.ap-opt').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const p = loadPrefs();
+    p[btn.dataset.pref] = btn.dataset.val;
+    savePrefs(p);
+    applyPrefs(p);
+  });
+});
+
+/* Reset */
+a11yReset.addEventListener('click', () => {
+  localStorage.removeItem(A11Y_KEY);
+  applyPrefs({});
 });
 </script>
 </body>
