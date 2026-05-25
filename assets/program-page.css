@@ -1164,7 +1164,7 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 }
 .site-header.scrolled #themeToggle {
   border-color: rgba(247,239,220,.2);
-  color: var(--crema-l);
+  color: rgba(247,239,220,.8);
 }
 .theme-icon-sun  { display: none; }
 .theme-icon-moon { display: block; }
@@ -1245,7 +1245,7 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 
 /* Buttons */
 [data-theme="dark"] .btn-ghost {
-  color: var(--crema);
+  color: var(--tinta);
   border-color: rgba(237,227,205,.15);
 }
 [data-theme="dark"] .btn-ghost:hover {
