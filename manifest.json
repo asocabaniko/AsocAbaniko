@@ -1,0 +1,19 @@
+{
+  "name": "Asociación Abaniko",
+  "short_name": "Abaniko",
+  "description": "Inclusión, autonomía y comunidad en Cádiz desde 2009.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F7EFDC",
+  "theme_color": "#B84A28",
+  "lang": "es",
+  "categories": ["social", "education"],
+  "icons": [
+    {
+      "src": "assets/images/abaniko-logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -16,12 +16,52 @@
 <meta property="og:title" content="Asociación Abaniko · Inclusión y Autonomía en Cádiz">
 <meta property="og:description" content="Entidad social en Cádiz que acompaña, apoya e impulsa la autonomía y participación de personas con discapacidad desde 2009.">
 <meta property="og:site_name" content="Asociación Abaniko">
+<meta property="og:image" content="https://www.asociacionabaniko.org/assets/images/facebook-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Asociación Abaniko · Cádiz">
 <meta name="twitter:description" content="Inclusión, autonomía y acompañamiento en Cádiz desde 2009. Programas, ocio y apoyo a familias.">
+<meta name="twitter:image" content="https://www.asociacionabaniko.org/assets/images/twitter-card.png">
 <!-- Canonical -->
 <link rel="canonical" href="https://www.asociacionabaniko.org/">
+<link rel="manifest" href="manifest.json">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "@id": "https://www.asociacionabaniko.org/#org",
+  "name": "Asociación Abaniko",
+  "url": "https://www.asociacionabaniko.org",
+  "logo": "https://www.asociacionabaniko.org/assets/images/abaniko-logo.png",
+  "image": "https://www.asociacionabaniko.org/assets/images/facebook-card.png",
+  "description": "Entidad social en Cádiz dedicada al acompañamiento, la inclusión y la mejora de la calidad de vida desde 2009.",
+  "telephone": "+34677854232",
+  "email": "asoc.abaniko@gmail.com",
+  "foundingDate": "2009",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cádiz",
+    "addressRegion": "Andalucía",
+    "addressCountry": "ES"
+  },
+  "sameAs": [
+    "https://www.instagram.com/asociacionabaniko/",
+    "https://www.facebook.com/asociacionabaniko"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Programas Abaniko",
+    "itemListElement": [
+      { "@type": "Offer", "name": "Autonomía Personal", "url": "https://www.asociacionabaniko.org/autonomia.html" },
+      { "@type": "Offer", "name": "Ocio y Participación", "url": "https://www.asociacionabaniko.org/ocio.html" },
+      { "@type": "Offer", "name": "Orientación a Familias", "url": "https://www.asociacionabaniko.org/familias.html" }
+    ]
+  }
+}
+</script>
 <!-- Favicon SVG inline -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B84A28'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Georgia%2C serif' font-size='22' font-weight='900' font-style='italic' fill='%23F7EFDC'%3EA%3C%2Ftext%3E%3C%2Fsvg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23B84A28'/%3E%3Ctext x='90' y='135' text-anchor='middle' font-family='Georgia%2C serif' font-size='120' font-weight='900' font-style='italic' fill='%23F7EFDC'%3EA%3C%2Ftext%3E%3C%2Fsvg%3E">
@@ -2601,6 +2641,567 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
   overflow-wrap: break-word; word-break: break-word;
 }
 ::selection { background: var(--terracota); color: #fff; }
+
+/* ════════════════════════════════════════════════════════════
+   HERO VISUAL — imagen real de fondo
+   ════════════════════════════════════════════════════════════ */
+.hv-bg-photo {
+  position: absolute; inset: 0;
+  background: url('assets/images/abanicos.jpg') center/cover no-repeat;
+  opacity: .28;
+  mix-blend-mode: luminosity;
+  filter: grayscale(.3) sepia(.1);
+}
+
+/* ════════════════════════════════════════════════════════════
+   STATS — BENTO GRID
+   ════════════════════════════════════════════════════════════ */
+.stats-bento {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.2rem;
+  position: relative; z-index: 2;
+  min-height: 400px;
+}
+.bento-cell {
+  border-radius: var(--r-xl);
+  padding: 2.4rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .4s var(--ease);
+}
+.bento-cell:hover { transform: scale(1.02); }
+
+.bento-main {
+  grid-row: 1 / 3;
+  background: var(--terracota);
+  justify-content: space-between;
+}
+.bento-main::before {
+  content:''; position: absolute;
+  bottom: -80px; right: -80px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  pointer-events: none;
+}
+.bento-main::after {
+  content:''; position: absolute;
+  top: -60px; left: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.12);
+  pointer-events: none;
+}
+.bento-verde { background: var(--verde); }
+.bento-dark  { background: rgba(247,239,220,.07); border: 1px solid var(--line-l); }
+.bento-cadiz { background: var(--tinta-2); overflow: hidden; }
+.bento-cadiz-bg {
+  position: absolute; inset: 0;
+  background: url('assets/images/abanicos.jpg') center/cover no-repeat;
+  filter: brightness(.3) saturate(.5);
+  transition: transform 6s linear;
+}
+.bento-cadiz:hover .bento-cadiz-bg { transform: scale(1.06); }
+
+.b-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .25em; text-transform: uppercase;
+  color: rgba(247,239,220,.6);
+  margin-bottom: auto;
+  position: relative; z-index: 1;
+}
+.b-big-num {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: .82;
+  letter-spacing: -.05em;
+  color: var(--crema);
+  position: relative; z-index: 1;
+  margin: 1.2rem 0 .8rem;
+}
+.b-big-num em { font-style: italic; color: rgba(247,239,220,.65); font-size: .65em; }
+.b-mid-num {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: .85;
+  letter-spacing: -.04em;
+  color: var(--crema);
+  position: relative; z-index: 1;
+  margin: auto 0 .6rem;
+}
+.b-mid-num em { font-style: italic; color: var(--ocre-l); font-size: .7em; }
+.b-cadiz-num {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900; font-style: italic;
+  color: var(--crema-l);
+  position: relative; z-index: 1;
+  letter-spacing: -.03em;
+  margin: auto 0 .5rem;
+}
+.b-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(247,239,220,.55);
+  position: relative; z-index: 1;
+}
+.b-desc {
+  font-size: .88rem;
+  color: rgba(247,239,220,.55);
+  font-weight: 300;
+  position: relative; z-index: 1;
+  margin-top: .4rem;
+  max-width: 28ch;
+}
+@media (max-width: 1100px) {
+  .stats-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+  }
+  .bento-main { grid-row: auto; }
+}
+@media (max-width: 600px) {
+  .stats-bento { grid-template-columns: 1fr; min-height: auto; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   PROGRAM CARDS v2 — cabecera con imagen
+   ════════════════════════════════════════════════════════════ */
+.prog-header {
+  height: 200px;
+  margin: -2.4rem -2rem 1.8rem;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  overflow: hidden;
+  position: relative;
+}
+.prog-header img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .65s var(--ease);
+  filter: saturate(.85);
+}
+.prog-header::after {
+  content:''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(26,15,8,.1) 0%, rgba(26,15,8,.65) 100%);
+}
+.program-card:hover .prog-header img { transform: scale(1.08); }
+.ph-badge {
+  position: absolute; bottom: 1rem; left: 1.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(247,239,220,.9);
+  z-index: 2;
+}
+
+/* ════════════════════════════════════════════════════════════
+   NEWS CARDS v2 — cabecera con imagen
+   ════════════════════════════════════════════════════════════ */
+.news-img-hdr {
+  height: 180px;
+  margin: -2rem -2rem 1.4rem;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  overflow: hidden;
+  position: relative;
+}
+.news-card.feat .news-img-hdr {
+  height: 220px;
+  margin: -2.4rem -2.4rem 1.8rem;
+}
+.news-img-hdr img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .65s var(--ease);
+  filter: saturate(.85);
+}
+.news-img-hdr::after {
+  content:''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(26,15,8,.55));
+}
+.news-card:hover .news-img-hdr img { transform: scale(1.07); }
+
+/* ════════════════════════════════════════════════════════════
+   IMPACT BANNER — sección fotográfica entre programas y timeline
+   ════════════════════════════════════════════════════════════ */
+.impact-banner {
+  position: relative;
+  min-height: 520px;
+  display: flex; align-items: center;
+  overflow: hidden;
+  padding: 0;
+}
+.ib-bg {
+  position: absolute; inset: 0;
+  background: url('assets/images/actividad-museo.jpg') center/cover no-repeat;
+  filter: brightness(.28) saturate(.55);
+  transform: scale(1.04);
+  transition: transform 9s cubic-bezier(.15,.05,.35,1);
+}
+.impact-banner:hover .ib-bg { transform: scale(1); }
+.ib-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg,
+    rgba(184,74,40,.55) 0%,
+    rgba(26,15,8,.82) 60%,
+    rgba(27,94,85,.4) 100%);
+}
+.ib-inner {
+  position: relative; z-index: 2;
+  width: 100%;
+  padding: 6rem 0;
+  text-align: center;
+  color: var(--crema);
+}
+.ib-inner .eyebrow { justify-content: center; color: var(--ocre-l); }
+.ib-inner .eyebrow::before { background: var(--ocre-l); }
+.ib-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: .92;
+  letter-spacing: -.045em;
+  margin: 1.2rem 0 1.4rem;
+  max-width: 16ch;
+  margin-left: auto; margin-right: auto;
+}
+.ib-title em { font-style: italic; color: var(--ocre-l); }
+.ib-sub {
+  font-size: 1.1rem;
+  color: rgba(247,239,220,.8);
+  font-weight: 300;
+  max-width: 50ch;
+  margin: 0 auto 2.4rem;
+  line-height: 1.6;
+}
+.ib-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.ib-nums {
+  display: flex; gap: 3rem; justify-content: center;
+  margin-top: 3rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid rgba(247,239,220,.15);
+  flex-wrap: wrap; gap: 2rem;
+}
+.ib-num-item { text-align: center; }
+.ib-num-item .n { font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 900; font-style: italic; color: var(--ocre-l); }
+.ib-num-item .l { font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(247,239,220,.55); margin-top: .3rem; }
+
+/* ════════════════════════════════════════════════════════════
+   GALLERY MASONRY — cuadrícula fotográfica
+   ════════════════════════════════════════════════════════════ */
+.gallery-masonry {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 185px;
+  gap: .85rem;
+  margin-top: 2.4rem;
+}
+.gm-item {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  position: relative;
+}
+.gm-item.tall  { grid-row: span 2; }
+.gm-item.wide  { grid-column: span 2; }
+.gm-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .55s var(--ease), filter .35s;
+  filter: saturate(.88);
+  display: block;
+}
+.gm-item:hover img { transform: scale(1.09); filter: saturate(1.15); }
+.gm-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,15,8,.7) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity .4s var(--ease);
+  display: flex; align-items: flex-end;
+  padding: .9rem 1rem;
+}
+.gm-item:hover .gm-overlay { opacity: 1; }
+.gm-overlay span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--crema-l);
+}
+@media (max-width: 1100px) {
+  .gallery-masonry { grid-template-columns: repeat(3, 1fr); }
+  .gm-item.wide { grid-column: span 1; }
+}
+@media (max-width: 600px) {
+  .gallery-masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   PRE-FOOTER CTA
+   ════════════════════════════════════════════════════════════ */
+.prefooter-cta {
+  background: var(--verde-d);
+  padding: 6rem 0;
+  position: relative; overflow: hidden;
+}
+.prefooter-cta::before {
+  content:''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 0% 60%, rgba(184,74,40,.25) 0, transparent 50%),
+    radial-gradient(ellipse at 100% 40%, rgba(217,164,65,.18) 0, transparent 50%);
+  pointer-events: none;
+}
+.prefooter-cta::after {
+  content:''; position: absolute;
+  right: -150px; top: 50%; transform: translateY(-50%);
+  width: 500px; height: 500px; border-radius: 50%;
+  border: 1px dashed rgba(247,239,220,.1);
+  pointer-events: none;
+}
+.pfc-inner {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 3rem; align-items: center;
+}
+.pfc-text h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: .92;
+  letter-spacing: -.04em;
+  color: var(--crema);
+}
+.pfc-text h2 em { color: var(--ocre-l); font-style: italic; }
+.pfc-text p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: rgba(247,239,220,.65);
+  font-weight: 300;
+  max-width: 46ch;
+}
+.pfc-btns {
+  display: flex; flex-direction: column; gap: .8rem; min-width: 210px;
+}
+@media (max-width: 900px) {
+  .pfc-inner { grid-template-columns: 1fr; }
+  .pfc-btns { flex-direction: row; flex-wrap: wrap; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   TEAM CARDS — mejora visual
+   ════════════════════════════════════════════════════════════ */
+.team-avatar::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('assets/images/abanicos.jpg') center/cover;
+  opacity: .12;
+  mix-blend-mode: luminosity;
+}
+
+/* ════════════════════════════════════════════════════════════
+   QUIENES — mejora blockquote
+   ════════════════════════════════════════════════════════════ */
+.quienes-highlight {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+.qh-item {
+  padding: 1.4rem 1.6rem;
+  background: var(--crema);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+.qh-item .qh-n {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem; font-weight: 900; font-style: italic;
+  color: var(--terracota);
+}
+.qh-item .qh-l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--muted);
+  margin-top: .3rem;
+}
+
+/* ════════════════════════════════════════════════════════════
+   ANIMACIONES BESTIAS · sistema de entrada cinematográfico
+   ════════════════════════════════════════════════════════════ */
+
+/* — Split-word reveal — */
+.sw-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+.sw-inner {
+  display: inline-block;
+  transform: translateY(115%) rotate(5deg);
+  transition: transform .9s cubic-bezier(.22,.68,0,1.2);
+  will-change: transform;
+}
+.sw-inner.sw-in {
+  transform: translateY(0) rotate(0);
+}
+
+/* — Clip-path wipe para secciones hero — */
+.reveal-clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.1s cubic-bezier(.2,1,.36,1);
+}
+.reveal-clip.visible {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* — Card blast (scale + blur) — */
+.program-card.reveal,
+.team-card.reveal,
+.news-card.reveal,
+.collab-card.reveal {
+  opacity: 0;
+  transform: translateY(55px) scale(0.93);
+  filter: blur(6px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease), filter .7s;
+}
+.program-card.reveal.visible,
+.team-card.reveal.visible,
+.news-card.reveal.visible,
+.collab-card.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* — Bento slide con blur — */
+.bento-cell.reveal {
+  opacity: 0;
+  transform: translateY(70px) scale(0.91);
+  filter: blur(10px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease), filter .85s;
+}
+.bento-cell.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+.bento-main.reveal { transition-delay: 0s; }
+.bento-verde.reveal { transition-delay: .12s; }
+.bento-dark.reveal  { transition-delay: .24s; }
+.bento-cadiz.reveal { transition-delay: .36s; }
+
+/* — Timeline items: slide desde la izquierda — */
+.tl-item.reveal {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.tl-item.reveal.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* — Value items: slide-x — */
+.value-item.reveal {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity .85s var(--ease), transform .85s var(--ease);
+}
+.value-item.reveal.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* — Testimonials: scale-fade — */
+.testimonial.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  filter: blur(4px);
+  transition: opacity .85s var(--ease), transform .85s var(--ease), filter .6s;
+}
+.testimonial.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* — Gallery masonry items: clip desde abajo — */
+.gm-item.reveal {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.gm-item.reveal.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* — Eyebrow line draw animado — */
+.eyebrow-anim::before {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .8s cubic-bezier(.22,1,.36,1) .15s;
+}
+.eyebrow-anim.ew-drawn::before {
+  transform: scaleX(1);
+}
+
+/* — Hero title underline draw — */
+h1.hero-title em::after {
+  transform-origin: left;
+  transform: scaleX(0) skewX(-12deg);
+  transition: transform 1.1s cubic-bezier(.22,1,.36,1) .7s;
+}
+h1.hero-title em.em-drawn::after {
+  transform: scaleX(1) skewX(-12deg);
+}
+
+/* — Impact banner parallax (manejado vía JS) — */
+.ib-bg { will-change: transform; }
+
+/* — Número destello al completar el contador — */
+@keyframes numFlash {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.08); }
+  70%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+.b-big-num.flash,
+.b-mid-num.flash { animation: numFlash .55s var(--ease-bounce); }
+
+/* — Side-card slide-in alterno — */
+.side-card.reveal {
+  opacity: 0;
+  transform: translateX(40px) scale(0.95);
+  transition: opacity .85s var(--ease), transform .85s var(--ease);
+}
+.side-card.reveal.visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* — Quienes highlight fade-up — */
+.qh-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.quienes-highlight.visible-parent .qh-item:nth-child(1) { opacity:1; transform:none; transition-delay:0s; }
+.quienes-highlight.visible-parent .qh-item:nth-child(2) { opacity:1; transform:none; transition-delay:.12s; }
+.quienes-highlight.visible-parent .qh-item:nth-child(3) { opacity:1; transform:none; transition-delay:.24s; }
+
+/* — Marquee pausa al hover — */
+.hero-marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* — Stat-item fade-stagger (side-card-overlay) — */
+.ci-block.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .75s var(--ease), transform .75s var(--ease);
+}
+.ci-block.reveal.visible { opacity:1; transform:none; }
 </style>
 
 <script type="application/ld+json">
@@ -2866,6 +3467,7 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
 
     <div class="hero-visual reveal d2">
       <div class="hero-visual-bg"></div>
+      <div class="hv-bg-photo" aria-hidden="true"></div>
       <div class="hv-content">
         <div class="hv-top">
           <span class="hv-tag">▸ Identidad / 01</span>
@@ -2890,30 +3492,52 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
   </div>
 </section>
 
-<!-- ════════════ STATS ════════════ -->
+<!-- ════════════ STATS — BENTO ════════════ -->
 <section class="stats-strip">
   <div class="shell">
-    <div class="stats-grid">
-      <div class="stat reveal">
-        <div class="stat-num"><span class="counter" data-target="15">0</span><span class="plus">+</span></div>
-        <div class="stat-label">Años activos</div>
-        <p class="stat-desc">Una trayectoria construida desde la cercanía y la constancia.</p>
+    <div class="stats-bento">
+
+      <!-- CELDA GRANDE: años -->
+      <div class="bento-cell bento-main reveal">
+        <span class="b-eyebrow">Trayectoria activa · Est. 2009</span>
+        <div class="b-big-num">
+          <span class="counter" data-target="15">0</span><em>+</em>
+        </div>
+        <div>
+          <div class="b-label">Años activos en Cádiz</div>
+          <p class="b-desc">Una trayectoria construida desde la cercanía, la escucha y la constancia.</p>
+        </div>
       </div>
-      <div class="stat reveal d1">
-        <div class="stat-num"><span class="counter" data-target="100">0</span><span class="pct">%</span></div>
-        <div class="stat-label">Compromiso</div>
-        <p class="stat-desc">Todo lo que hacemos parte de la dignidad y la autonomía.</p>
+
+      <!-- CELDA verde: personas -->
+      <div class="bento-cell bento-verde reveal d1">
+        <span class="b-eyebrow">Impacto real</span>
+        <div class="b-mid-num">
+          <span class="counter" data-target="200">0</span><em>+</em>
+        </div>
+        <div class="b-label">Personas atendidas</div>
+        <p class="b-desc">Procesos personales acompañados a lo largo de los años.</p>
       </div>
-      <div class="stat reveal d2">
-        <div class="stat-num"><span class="counter" data-target="200">0</span><span class="plus">+</span></div>
-        <div class="stat-label">Personas atendidas</div>
-        <p class="stat-desc">Procesos personales acompañados a lo largo de los años.</p>
+
+      <!-- CELDA oscura: compromiso -->
+      <div class="bento-cell bento-dark reveal d2">
+        <span class="b-eyebrow">Dedicación total</span>
+        <div class="b-mid-num">
+          <span class="counter" data-target="100">0</span><em>%</em>
+        </div>
+        <div class="b-label">Compromiso</div>
+        <p class="b-desc">Todo lo que hacemos parte de la dignidad y la autonomía.</p>
       </div>
-      <div class="stat reveal d3">
-        <div class="stat-num"><em>Cádiz</em></div>
-        <div class="stat-label">Nuestro territorio</div>
-        <p class="stat-desc">Presencia local, mirada cercana, red comunitaria.</p>
+
+      <!-- CELDA foto: Cádiz -->
+      <div class="bento-cell bento-cadiz reveal d3">
+        <div class="bento-cadiz-bg" aria-hidden="true"></div>
+        <span class="b-eyebrow">Nuestro territorio</span>
+        <div class="b-cadiz-num"><em>Cádiz</em></div>
+        <div class="b-label">Presencia local · Mirada cercana</div>
+        <p class="b-desc">Red comunitaria en la provincia desde 2009.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -2932,6 +3556,20 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
         "No diseñamos servicios desde un despacho: los construimos junto a las personas que los necesitan."
         <footer>— Equipo Abaniko</footer>
       </blockquote>
+      <div class="quienes-highlight reveal d2">
+        <div class="qh-item">
+          <div class="qh-n">15+</div>
+          <div class="qh-l">Años</div>
+        </div>
+        <div class="qh-item">
+          <div class="qh-n">200+</div>
+          <div class="qh-l">Personas</div>
+        </div>
+        <div class="qh-item">
+          <div class="qh-n">3</div>
+          <div class="qh-l">Programas</div>
+        </div>
+      </div>
     </div>
 
     <div class="values-list">
@@ -2970,7 +3608,10 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
     </div>
     <div class="program-grid">
       <article class="program-card reveal d1">
-        <div class="prog-num">▸ Programa 01</div>
+        <div class="prog-header">
+          <img src="assets/images/autonomia-domestica.jpg" alt="Taller de autonomía personal" loading="lazy">
+          <span class="ph-badge">▸ Programa 01</span>
+        </div>
         <div class="prog-icon c1">A</div>
         <h3>Autonomía personal</h3>
         <p>Talleres y acompañamiento para reforzar hábitos, organización, habilidades prácticas y confianza en el día a día.</p>
@@ -2981,7 +3622,10 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
         </ul>
       </article>
       <article class="program-card reveal d2">
-        <div class="prog-num">▸ Programa 02</div>
+        <div class="prog-header">
+          <img src="assets/images/programa-ocio.jpg" alt="Ocio inclusivo y participación" loading="lazy">
+          <span class="ph-badge">▸ Programa 02</span>
+        </div>
         <div class="prog-icon c2">O</div>
         <h3>Ocio y participación</h3>
         <p>Actividades culturales, convivencia y salidas que crean red social y generan experiencias compartidas e inclusivas.</p>
@@ -2992,7 +3636,10 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
         </ul>
       </article>
       <article class="program-card reveal d3">
-        <div class="prog-num">▸ Programa 03</div>
+        <div class="prog-header">
+          <img src="assets/images/abanicos.jpg" alt="Orientación a familias" loading="lazy">
+          <span class="ph-badge">▸ Programa 03</span>
+        </div>
         <div class="prog-icon c3">F</div>
         <h3>Orientación a familias</h3>
         <p>Espacios de escucha, información y apoyo para familias que también forman parte esencial de cada proceso.</p>
@@ -3002,6 +3649,44 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
           <li>Información y recursos</li>
         </ul>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ IMPACT BANNER ════════════ -->
+<section class="impact-banner" aria-label="Mensaje de impacto">
+  <div class="ib-bg" aria-hidden="true"></div>
+  <div class="ib-overlay" aria-hidden="true"></div>
+  <div class="shell ib-inner">
+    <span class="eyebrow reveal">Nuestro propósito · Cada día</span>
+    <h2 class="ib-title reveal d1">
+      Cada persona<br>merece <em>su espacio</em><br>para crecer.
+    </h2>
+    <p class="ib-sub reveal d2">
+      Desde 2009 acompañamos a personas y familias en Cádiz con programas
+      reales, escucha honesta y una comunidad que cuida.
+    </p>
+    <div class="ib-btns reveal d3">
+      <a href="#programas" class="btn btn-primary"><span>Ver nuestros programas</span></a>
+      <a href="#colabora" class="btn btn-outline-light"><span>Cómo colaborar →</span></a>
+    </div>
+    <div class="ib-nums reveal d4">
+      <div class="ib-num-item">
+        <div class="n">15+</div>
+        <div class="l">Años</div>
+      </div>
+      <div class="ib-num-item">
+        <div class="n">200+</div>
+        <div class="l">Personas</div>
+      </div>
+      <div class="ib-num-item">
+        <div class="n">3</div>
+        <div class="l">Programas</div>
+      </div>
+      <div class="ib-num-item">
+        <div class="n">Cádiz</div>
+        <div class="l">Territorio</div>
+      </div>
     </div>
   </div>
 </section>
@@ -3197,6 +3882,9 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
     </div>
     <div class="news-grid">
       <article class="news-card feat reveal d1">
+        <div class="news-img-hdr">
+          <img src="assets/images/actividad-01.jpg" alt="Nueva identidad Abaniko" loading="lazy">
+        </div>
         <span class="news-tag fe">★ Destacada</span>
         <span class="news-date">21 mayo 2026</span>
         <h3>Abaniko estrena identidad y nueva web</h3>
@@ -3204,6 +3892,9 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
         <a href="#contacto" class="news-link">Contactar</a>
       </article>
       <article class="news-card reveal d2">
+        <div class="news-img-hdr">
+          <img src="assets/images/actividad-museo.jpg" alt="Salida al museo de Cádiz" loading="lazy">
+        </div>
         <span class="news-tag act">Actividad</span>
         <span class="news-date">Próximamente</span>
         <h3>Salida al museo de Cádiz</h3>
@@ -3211,6 +3902,9 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
         <a href="#contacto" class="news-link">Inscribirme</a>
       </article>
       <article class="news-card reveal d3">
+        <div class="news-img-hdr">
+          <img src="assets/images/actividad-02.jpg" alt="Voluntariado verano" loading="lazy">
+        </div>
         <span class="news-tag com">Comunidad</span>
         <span class="news-date">Convocatoria abierta</span>
         <h3>Buscamos voluntariado para verano</h3>
@@ -3233,7 +3927,7 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
       <div class="gallery-main reveal d1">
         <div id="gtTrack" class="gallery-track">
           <figure class="gallery-slide">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNlsB_c4cefwP6KQLQBX3y5oCLcT_4JUIQnR1VJeDVUIQe5Z2O-hCUPmrGl_M1gACaKOn0VHIFIJ1jgYZXzuZjPrgPs74z1iEiT-Ugy0ixLhmxqzZb1-paD2Rgyx2eQOB7rtjPCfvb9kV5vsL2rlfc9BdI-RcfQh9eLUkHvTlBoZFUY1gGQeZomCUuRSR_/w400-h300/2ab77e38-d7e8-4732-8659-e2342d4f5546.jpg" alt="Museo del Carnaval">
+            <img src="assets/images/actividad-museo.jpg" alt="Museo del Carnaval">
             <figcaption class="gallery-caption">
               <span class="gc-tag">▸ Cultura · 2024</span>
               <h3>Museo del Carnaval</h3>
@@ -3241,7 +3935,7 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
             </figcaption>
           </figure>
           <figure class="gallery-slide">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfbshQ0li8RTbCKUk_JSMFjzAYpdtSFN_S7RkJF1X4v-ARc7T1hECCFco7BMsOlNMw-BxHxiHBs21x5mTfN1EbIAvvBh8n2dh5JOIRBh1VWSE5SHh2HOiONJvRRUPWY_0w5Yz9oZXJGvBIHIRlrqxeFHHGb4A8GGRiX53iXKDpbBVMhVyeNTb9Vvz0Q/w400-h300/b9dbd3e9-b028-42fd-b73b-14be9f33c9c0.jpg" alt="Grupo de ocio" loading="lazy">
+            <img src="assets/images/actividad-01.jpg" alt="Grupo de ocio" loading="lazy">
             <figcaption class="gallery-caption">
               <span class="gc-tag">▸ Ocio · 2025</span>
               <h3>Grupo de Ocio</h3>
@@ -3249,7 +3943,7 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
             </figcaption>
           </figure>
           <figure class="gallery-slide">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzvub-d0_RVOQ_jNrGuWtk-4QfE8u3_FosMgDHrbjCQLD41yBYJytrCpA0z_OMbKR-AGUer47R-Q1GOCa2WwserwudBYGM8BCj7RkWd4GDjnwIxRpsLDh9T8aVxD2tQPVFoPzki9nTrSuARmeuCz-LzODvV2zF5zsu3vIe5d8GKIo-TWSi9AeI4zpeL-Dd/w453-h640/PosterTaller.jpg" alt="Autonomía doméstica" loading="lazy">
+            <img src="assets/images/autonomia-domestica.jpg" alt="Autonomía doméstica" loading="lazy">
             <figcaption class="gallery-caption">
               <span class="gc-tag">▸ Autonomía · 2024</span>
               <h3>Autonomía Doméstica</h3>
@@ -3264,21 +3958,21 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
 
       <div class="gallery-side">
         <article class="side-card reveal d2">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNlsB_c4cefwP6KQLQBX3y5oCLcT_4JUIQnR1VJeDVUIQe5Z2O-hCUPmrGl_M1gACaKOn0VHIFIJ1jgYZXzuZjPrgPs74z1iEiT-Ugy0ixLhmxqzZb1-paD2Rgyx2eQOB7rtjPCfvb9kV5vsL2rlfc9BdI-RcfQh9eLUkHvTlBoZFUY1gGQeZomCUuRSR_/w400-h300/2ab77e38-d7e8-4732-8659-e2342d4f5546.jpg" alt="Actividad cultural">
+          <img src="assets/images/actividad-03.jpg" alt="Actividad cultural" loading="lazy">
           <div class="side-card-overlay">
             <h4>Cultura en la calle</h4>
             <p>Salidas que fortalecen vínculos comunitarios.</p>
           </div>
         </article>
         <article class="side-card reveal d3">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzvub-d0_RVOQ_jNrGuWtk-4QfE8u3_FosMgDHrbjCQLD41yBYJytrCpA0z_OMbKR-AGUer47R-Q1GOCa2WwserwudBYGM8BCj7RkWd4GDjnwIxRpsLDh9T8aVxD2tQPVFoPzki9nTrSuARmeuCz-LzODvV2zF5zsu3vIe5d8GKIo-TWSi9AeI4zpeL-Dd/w453-h640/PosterTaller.jpg" alt="Autonomía">
+          <img src="assets/images/autonomia-domestica.jpg" alt="Autonomía" loading="lazy">
           <div class="side-card-overlay">
             <h4>Autonomía doméstica</h4>
             <p>Formación práctica desde 2024.</p>
           </div>
         </article>
         <article class="side-card reveal d4">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfbshQ0li8RTbCKUk_JSMFjzAYpdtSFN_S7RkJF1X4v-ARc7T1hECCFco7BMsOlNMw-BxHxiHBs21x5mTfN1EbIAvvBh8n2dh5JOIRBh1VWSE5SHh2HOiONJvRRUPWY_0w5Yz9oZXJGvBIHIRlrqxeFHHGb4A8GGRiX53iXKDpbBVMhVyeNTb9Vvz0Q/w400-h300/b9dbd3e9-b028-42fd-b73b-14be9f33c9c0.jpg" alt="Comunidad">
+          <img src="assets/images/actividad-04.jpg" alt="Comunidad" loading="lazy">
           <div class="side-card-overlay">
             <h4>Comunidad activa</h4>
             <p>Encuentros, risas y vínculos reales.</p>
@@ -3286,6 +3980,47 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
         </article>
       </div>
     </div>
+
+    <!-- Masonry fotográfica -->
+    <div class="gallery-masonry">
+      <div class="gm-item tall reveal d1">
+        <img src="assets/images/actividad-05.jpg" alt="Actividad 5" loading="lazy">
+        <div class="gm-overlay"><span>Actividades · 2024</span></div>
+      </div>
+      <div class="gm-item wide reveal d2">
+        <img src="assets/images/actividad-06.jpg" alt="Actividad 6" loading="lazy">
+        <div class="gm-overlay"><span>Ocio inclusivo</span></div>
+      </div>
+      <div class="gm-item reveal d3">
+        <img src="assets/images/actividad-07.jpg" alt="Actividad 7" loading="lazy">
+        <div class="gm-overlay"><span>Comunidad</span></div>
+      </div>
+      <div class="gm-item reveal d1">
+        <img src="assets/images/actividad-08.jpg" alt="Actividad 8" loading="lazy">
+        <div class="gm-overlay"><span>Talleres</span></div>
+      </div>
+      <div class="gm-item reveal d2">
+        <img src="assets/images/actividad-09.jpg" alt="Actividad 9" loading="lazy">
+        <div class="gm-overlay"><span>Autonomía</span></div>
+      </div>
+      <div class="gm-item wide reveal d3">
+        <img src="assets/images/actividad-10.jpg" alt="Actividad 10" loading="lazy">
+        <div class="gm-overlay"><span>Grupo de ocio · 2025</span></div>
+      </div>
+      <div class="gm-item tall reveal d4">
+        <img src="assets/images/actividad-11.jpg" alt="Actividad 11" loading="lazy">
+        <div class="gm-overlay"><span>Salidas · Cádiz</span></div>
+      </div>
+      <div class="gm-item reveal d1">
+        <img src="assets/images/actividad-museo.jpg" alt="Museo" loading="lazy">
+        <div class="gm-overlay"><span>Cultura · 2024</span></div>
+      </div>
+      <div class="gm-item reveal d2">
+        <img src="assets/images/abanicos.jpg" alt="Abanicos" loading="lazy">
+        <div class="gm-overlay"><span>Identidad Abaniko</span></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -3493,6 +4228,21 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
 
 </main>
 
+<!-- ════════════ PRE-FOOTER CTA ════════════ -->
+<section class="prefooter-cta" aria-label="Únete a Abaniko">
+  <div class="shell pfc-inner">
+    <div class="pfc-text">
+      <h2>¿Listo para<br>ser parte de <em>Abaniko?</em></h2>
+      <p>Voluntariado, donaciones, membresía o simplemente una primera conversación. Cualquier gesto multiplica el impacto en la comunidad gaditana.</p>
+    </div>
+    <div class="pfc-btns">
+      <a href="#colabora" class="btn btn-primary"><span>Quiero colaborar</span></a>
+      <a href="#contacto" class="btn btn-outline-light"><span>Escríbenos →</span></a>
+      <a href="tel:+34677854232" class="btn btn-outline-light"><span>☎ 677 854 232</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ════════════ FOOTER ════════════ -->
 <footer class="site-footer">
   <div class="shell">
@@ -3504,9 +4254,15 @@ html.no-motion .hero-orb-1, html.no-motion .hero-orb-2 { animation: none !import
         </div>
         <p>Una asociación de profesionales en Cádiz comprometidos con la inclusión, la autonomía y la mejora de la calidad de vida desde 2009.</p>
         <div class="social-row">
-          <a href="#" aria-label="Instagram">◐</a>
-          <a href="#" aria-label="Facebook">◑</a>
-          <a href="#" aria-label="Email">✉</a>
+          <a href="https://www.instagram.com/asociacionabaniko/" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/asociacionabaniko" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="mailto:asoc.abaniko@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="3"/><polyline points="2,4 12,13 22,4"/></svg>
+          </a>
         </div>
       </div>
 
@@ -4098,13 +4854,20 @@ if (galleryMain) {
 }
 
 /* ═══════════════════════════════════════════
-   FLECHAS EN TARJETAS DE PROGRAMAS
+   FLECHAS Y ENLACES EN TARJETAS DE PROGRAMAS
    ═══════════════════════════════════════════ */
-document.querySelectorAll('.program-card').forEach(card => {
-  const arrow = document.createElement('span');
-  arrow.className = 'prog-arrow';
-  arrow.textContent = 'Saber más';
-  card.appendChild(arrow);
+const PROG_PAGES = ['autonomia.html', 'ocio.html', 'familias.html'];
+document.querySelectorAll('.program-card').forEach((card, i) => {
+  const link = document.createElement('a');
+  link.className = 'prog-arrow';
+  link.href = PROG_PAGES[i] || '#programas';
+  link.textContent = 'Ver programa completo';
+  card.appendChild(link);
+  /* Make the whole card clickable */
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', e => {
+    if (!e.target.closest('a')) window.location.href = PROG_PAGES[i] || '#programas';
+  });
 });
 
 /* ═══════════════════════════════════════════
@@ -4206,6 +4969,153 @@ a11yReset.addEventListener('click', () => {
   localStorage.removeItem(A11Y_KEY);
   applyPrefs({});
 });
+
+/* ═══════════════════════════════════════════
+   SPLIT-WORD ANIMATION
+   ═══════════════════════════════════════════ */
+if (!prefersReducedMotion) {
+  function splitWords(el) {
+    if (!el || el.dataset.split) return;
+    el.dataset.split = '1';
+    /* Walk text nodes only, wrap each word */
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(tn => {
+      const frag = document.createDocumentFragment();
+      tn.textContent.split(/(\s+)/).forEach(part => {
+        if (/^\s+$/.test(part) || part === '') {
+          frag.appendChild(document.createTextNode(part));
+        } else {
+          const wrap = document.createElement('span');
+          wrap.className = 'sw-word';
+          const inner = document.createElement('span');
+          inner.className = 'sw-inner';
+          inner.textContent = part;
+          wrap.appendChild(inner);
+          frag.appendChild(wrap);
+        }
+      });
+      tn.replaceWith(frag);
+    });
+  }
+
+  /* Apply to hero h1 + all section h2 */
+  const splitTargets = document.querySelectorAll('h1.hero-title, .section-head h2');
+  splitTargets.forEach(splitWords);
+
+  const heroTitleEl = document.querySelector('h1.hero-title');
+
+  /* Observe section h2s (NOT hero title — it's handled post-loader) */
+  const wordObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const inners = e.target.querySelectorAll('.sw-inner');
+      /* Skip if already animated */
+      if (inners.length && inners[0].classList.contains('sw-in')) {
+        wordObs.unobserve(e.target); return;
+      }
+      inners.forEach((w, i) => setTimeout(() => w.classList.add('sw-in'), i * 80));
+      /* Eyebrow draw */
+      const eyebrow = e.target.closest('section')?.querySelector('.eyebrow');
+      if (eyebrow) setTimeout(() => eyebrow.classList.add('eyebrow-anim', 'ew-drawn'), 100);
+      /* Em underline */
+      const em = e.target.querySelector('em');
+      if (em) setTimeout(() => em.classList.add('em-drawn'), 420);
+      wordObs.unobserve(e.target);
+    });
+  }, { threshold: 0.18 });
+
+  /* Only observe section headings, not hero (handled below) */
+  document.querySelectorAll('.section-head h2').forEach(h => wordObs.observe(h));
+
+  /* Hero title: trigger after the loader dismisses */
+  if (heroTitleEl) {
+    const origTrigger = triggerInitialReveal;
+    triggerInitialReveal = function() {
+      origTrigger();
+      const inners = heroTitleEl.querySelectorAll('.sw-inner');
+      inners.forEach((w, i) => setTimeout(() => w.classList.add('sw-in'), 280 + i * 95));
+      const em = heroTitleEl.querySelector('em');
+      if (em) setTimeout(() => em.classList.add('em-drawn'), 950);
+      const eyebrow = document.querySelector('.hero .eyebrow');
+      if (eyebrow) setTimeout(() => eyebrow.classList.add('eyebrow-anim', 'ew-drawn'), 180);
+    };
+  }
+}
+
+/* ═══════════════════════════════════════════
+   IMPACT BANNER · PARALLAX SCROLL
+   ═══════════════════════════════════════════ */
+if (!prefersReducedMotion) {
+  const ibBg = document.querySelector('.ib-bg');
+  const ibSection = document.querySelector('.impact-banner');
+  if (ibBg && ibSection) {
+    window.addEventListener('scroll', () => {
+      const rect = ibSection.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      const progress = -rect.top / (rect.height + window.innerHeight);
+      ibBg.style.transform = `scale(1.12) translateY(${progress * 60}px)`;
+    }, { passive: true });
+  }
+
+  /* Also parallax hero bg elements */
+  const heroOrb1 = document.querySelector('.hero-orb-1');
+  const heroOrb2 = document.querySelector('.hero-orb-2');
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY;
+    if (sy > window.innerHeight * 1.2) return;
+    if (heroOrb1) heroOrb1.style.transform = `translateY(${sy * 0.18}px) scale(1.2)`;
+    if (heroOrb2) heroOrb2.style.transform = `translateY(${sy * -0.12}px) scale(1.15)`;
+  }, { passive: true });
+}
+
+/* ═══════════════════════════════════════════
+   COUNTER FLASH al terminar (complementa countObs)
+   ═══════════════════════════════════════════ */
+{
+  document.querySelectorAll('.counter').forEach(el => {
+    const numParent = el.closest('.b-big-num, .b-mid-num');
+    if (!numParent) return;
+    const flashObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        /* Espera a que el contador termine (~1650ms) y añade flash visual */
+        setTimeout(() => {
+          numParent.classList.add('flash');
+          setTimeout(() => numParent.classList.remove('flash'), 600);
+        }, 1700);
+        flashObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    flashObs.observe(el);
+  });
+}
+
+/* ═══════════════════════════════════════════
+   QUIENES HIGHLIGHT stagger
+   ═══════════════════════════════════════════ */
+{
+  const qhObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('visible-parent');
+      qhObs.unobserve(e.target);
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.quienes-highlight').forEach(el => qhObs.observe(el));
+}
+
+/* ═══════════════════════════════════════════
+   GALLERY MASONRY — observe gm-items
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.gm-item').forEach(el => obs.observe(el));
+
+/* ═══════════════════════════════════════════
+   CI-BLOCKS observe
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.ci-block').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
