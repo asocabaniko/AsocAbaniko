@@ -1145,6 +1145,149 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   .float-contact-btn::before { display: none; }
 }
 
+/* ─────────────────── THEME TOGGLE BUTTON ─────────────────── */
+#themeToggle {
+  display: grid; place-items: center;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  color: var(--tinta);
+  flex-shrink: 0;
+  transition: all .3s var(--ease);
+}
+#themeToggle:hover {
+  background: var(--page-accent);
+  color: #fff;
+  border-color: transparent;
+  transform: rotate(15deg);
+}
+.site-header.scrolled #themeToggle {
+  border-color: rgba(247,239,220,.2);
+  color: var(--crema-l);
+}
+.theme-icon-sun  { display: none; }
+.theme-icon-moon { display: block; }
+[data-theme="dark"] .theme-icon-sun  { display: block; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+
+/* ─────────────────── DARK MODE ─────────────────── */
+[data-theme="dark"] {
+  --crema:   #1E1108;
+  --crema-l: #2A1B10;
+  --crema-d: #130C04;
+  --tinta:   #EDE3CD;
+  --tinta-2: #C4B496;
+  --muted:   #9A7D62;
+  --line:    rgba(237,227,205,.09);
+  --line-l:  rgba(237,227,205,.07);
+  --sh-card:   0 24px 64px -16px rgba(0,0,0,.55);
+  --sh-card-h: 0 40px 96px -16px rgba(0,0,0,.65);
+  --sh-soft:   0 12px 40px -12px rgba(0,0,0,.45);
+}
+
+/* Header — hardcoded rgba */
+[data-theme="dark"] .site-header {
+  background: rgba(20,12,5,.88);
+  border-bottom-color: rgba(237,227,205,.07);
+}
+[data-theme="dark"] .site-header.scrolled {
+  background: rgba(8,4,1,.95);
+  border-bottom-color: rgba(217,164,65,.12);
+}
+
+/* Grain — multiply doesn't work on dark bg */
+[data-theme="dark"] body::before {
+  mix-blend-mode: screen;
+  opacity: .025;
+}
+
+/* Dark sections — keep dark bg, restore text to light */
+[data-theme="dark"] .pp-numbers  { background: #0E0700; }
+[data-theme="dark"] .pp-steps    { background: #0E0700; color: var(--tinta); }
+[data-theme="dark"] .pp-steps .section-head h2  { color: var(--tinta); }
+[data-theme="dark"] .pp-step-content h3         { color: var(--tinta); }
+[data-theme="dark"] .pp-cta      { background: #160D05; color: var(--tinta); }
+[data-theme="dark"] .pp-cta h2   { color: var(--tinta); }
+[data-theme="dark"] .site-footer { background: #100800; color: var(--tinta); }
+[data-theme="dark"] .pp-highlight { background: #0E0700; }
+[data-theme="dark"] .pp-highlight p { color: var(--tinta); }
+[data-theme="dark"] .pp-gallery-item { background: #0E0700; }
+
+/* Header — scrolled brand text uses var(--crema) which is now dark */
+[data-theme="dark"] .site-header.scrolled .brand-text strong { color: var(--tinta); }
+
+/* Brand mark "A" icon — var(--crema-l) is now dark */
+[data-theme="dark"] .brand-mark { color: var(--tinta); }
+[data-theme="dark"] .fb-mark    { color: var(--tinta); }
+
+/* Mobile nav overlay */
+[data-theme="dark"] .nav-links { background: #0E0700; }
+
+/* Decorative card bg number (was dark-on-light, now light-on-dark) */
+[data-theme="dark"] .pp-feature-card::after {
+  color: rgba(237,227,205,.05);
+}
+[data-theme="dark"] .pp-feature-card:hover::after {
+  color: rgba(237,227,205,.1);
+}
+
+/* Step number ring */
+[data-theme="dark"] .pp-step-num {
+  box-shadow: 0 0 0 5px #0E0700, 0 0 20px rgba(0,0,0,.45);
+}
+
+/* Tooltip backgrounds */
+[data-theme="dark"] .float-contact-btn::before {
+  background: #0E0700;
+  color: var(--tinta);
+}
+
+/* Buttons */
+[data-theme="dark"] .btn-ghost {
+  color: var(--crema);
+  border-color: rgba(237,227,205,.15);
+}
+[data-theme="dark"] .btn-ghost:hover {
+  background: rgba(237,227,205,.1);
+  color: var(--tinta);
+  border-color: rgba(237,227,205,.3);
+}
+[data-theme="dark"] .btn-dark {
+  background: rgba(237,227,205,.1);
+  color: var(--tinta);
+  border: 1.5px solid rgba(237,227,205,.15);
+}
+[data-theme="dark"] .btn-dark:hover {
+  background: rgba(237,227,205,.18);
+}
+
+/* Back to top */
+[data-theme="dark"] #back-top {
+  background: var(--crema-l);
+  border-color: rgba(237,227,205,.1);
+}
+
+/* Form inputs */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: var(--crema-l);
+  border-color: rgba(237,227,205,.12);
+  color: var(--tinta);
+}
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+  background: var(--crema);
+  border-color: var(--ocre);
+  box-shadow: 0 0 0 4px rgba(201,149,72,.18);
+}
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: rgba(237,227,205,.35);
+}
+
 /* ─────────────────── PREFERS-REDUCED-MOTION ─────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

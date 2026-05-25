@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script>!function(){var t=localStorage.getItem('abaniko-theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')}()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Orientación a Familias · Asociación Abaniko, Cádiz. Un espacio de escucha, información y apoyo para las familias que forman parte del proceso.">
 <meta name="keywords" content="orientación familias, Asociación Abaniko, Cádiz, apoyo familiar, grupos familiares, discapacidad, acompañamiento familiar">
@@ -208,6 +209,10 @@
       </div>
     </a>
 
+    <button id="themeToggle" class="nav-toggle" style="border-radius:50%;width:38px;height:38px;" aria-label="Cambiar modo oscuro/claro">
+      <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
@@ -809,6 +814,17 @@ if (!prefersReduced) {
     if (e.key === 'Escape')     close();
     if (e.key === 'ArrowRight') show(idx + 1);
     if (e.key === 'ArrowLeft')  show(idx - 1);
+  });
+})();
+
+/* ── DARK MODE TOGGLE ── */
+(function() {
+  const btn = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  btn.addEventListener('click', () => {
+    const dark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', dark ? 'light' : 'dark');
+    localStorage.setItem('abaniko-theme', dark ? 'light' : 'dark');
   });
 })();
 </script>
