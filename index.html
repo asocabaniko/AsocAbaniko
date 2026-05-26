@@ -3341,6 +3341,23 @@ h1.hero-title em.em-drawn::after {
 
 /* Impact banner (always-dark photo + overlay) */
 [data-theme="dark"] .ib-inner { color: var(--tinta); }
+
+/* Designed by */
+.footer-credit {
+  text-align: center;
+  padding: 1rem 0 .4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(247,239,220,.28);
+}
+.footer-credit a {
+  color: rgba(247,239,220,.48);
+  text-decoration: none;
+  transition: color .25s;
+}
+.footer-credit a:hover { color: var(--ocre-l); }
 </style>
 
 <script type="application/ld+json">
@@ -4453,6 +4470,7 @@ h1.hero-title em.em-drawn::after {
       </div>
       <span>CÁDIZ · INCLUSIÓN · AUTONOMÍA · COMUNIDAD</span>
     </div>
+    <p class="footer-credit">Diseñado por <a href="#" aria-label="DeCa · Diseñador">DeCa</a></p>
   </div>
 </footer>
 

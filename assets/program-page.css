@@ -1208,6 +1208,23 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   .float-contact-btn::before { display: none; }
 }
 
+/* ─────────────────── DESIGNED BY ─────────────────── */
+.footer-credit {
+  text-align: center;
+  padding: 1rem 0 .4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(247,239,220,.28);
+}
+.footer-credit a {
+  color: rgba(247,239,220,.48);
+  text-decoration: none;
+  transition: color .25s;
+}
+.footer-credit a:hover { color: var(--page-accent); }
+
 /* ─────────────────── PAGE TRANSITION ─────────────────── */
 html { transition: opacity .32s ease; }
 html.page-exit { opacity: 0; pointer-events: none; }
