@@ -565,6 +565,51 @@ h1.hero-title em::after {
   margin-top: 2.5rem;
 }
 
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .9rem;
+  margin-top: 1.35rem;
+  max-width: 54rem;
+}
+.hero-highlight-card {
+  position: relative;
+  padding: 1rem 1rem 1.05rem;
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(26,15,8,.08);
+  background: linear-gradient(180deg, rgba(247,239,220,.95), rgba(247,239,220,.72));
+  box-shadow: 0 20px 45px -30px rgba(26,15,8,.35);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+}
+.hero-highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 55px -30px rgba(26,15,8,.42);
+  border-color: rgba(184,74,40,.2);
+}
+.hero-highlight-kicker {
+  display: inline-flex;
+  margin-bottom: .45rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .66rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--terracota);
+}
+.hero-highlight-card strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-size: 1.08rem;
+  line-height: 1.05;
+  color: var(--tinta);
+}
+.hero-highlight-card span:last-child {
+  display: block;
+  margin-top: .4rem;
+  font-size: .92rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .hero-marquee {
   margin-top: 4rem;
   padding: 1.3rem 0;
@@ -1871,6 +1916,7 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 @media (max-width: 1100px) {
   .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
   .hero-visual { aspect-ratio: 3/4; max-height: 520px; }
+  .hero-highlights { grid-template-columns: 1fr; max-width: 100%; }
   .quienes-grid, .contact-grid, .faq-grid { grid-template-columns: 1fr; gap: 3rem; }
   .program-grid, .collab-grid, .testimonials-grid, .news-grid { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }
@@ -2449,6 +2495,7 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   .hero { padding: 7rem 0 3.5rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .btn { text-align: center; justify-content: center; }
+  .hero-highlight-card { padding: .95rem 1rem; }
   .stats-grid { grid-template-columns: 1fr; gap: 2rem; }
   .stat { padding: 0; border-left: 0 !important; }
   .form-actions { flex-direction: column; }
@@ -3261,6 +3308,13 @@ h1.hero-title em.em-drawn::after {
 [data-theme="dark"] .testimonials-bg { color: var(--tinta); }
 [data-theme="dark"] .site-footer     { background: #100800; color: var(--tinta); }
 [data-theme="dark"] .hero-visual     { background: #0E0700; }
+[data-theme="dark"] .hero-highlight-card {
+  background: linear-gradient(180deg, rgba(42,27,16,.96), rgba(22,13,5,.92));
+  border-color: rgba(237,227,205,.08);
+  box-shadow: 0 24px 50px -34px rgba(0,0,0,.65);
+}
+[data-theme="dark"] .hero-highlight-card strong { color: var(--tinta); }
+[data-theme="dark"] .hero-highlight-card span:last-child { color: rgba(237,227,205,.68); }
 [data-theme="dark"] #loader          { background: #0E0700; }
 [data-theme="dark"] .loader-title    { color: var(--tinta); }
 [data-theme="dark"] .nav-links       { background: #0E0700; }
@@ -3392,7 +3446,21 @@ h1.hero-title em.em-drawn::after {
 </script>
 </head>
 
-<body class="is-loading">
+<body>
+
+<script>
+(() => {
+  const loaderKey = 'abaniko_loader_seen';
+  try {
+    window.__ABANIKO_SKIP_LOADER__ = sessionStorage.getItem(loaderKey) === '1';
+  } catch (error) {
+    window.__ABANIKO_SKIP_LOADER__ = false;
+  }
+  if (!window.__ABANIKO_SKIP_LOADER__) {
+    document.body.classList.add('is-loading');
+  }
+})();
+</script>
 
 <a href="#main-content" class="skip-nav">Saltar al contenido principal</a>
 
@@ -3613,6 +3681,23 @@ h1.hero-title em.em-drawn::after {
       <div class="hero-actions reveal d3">
         <a class="btn btn-primary" href="#colabora"><span>Únete a Abaniko</span></a>
         <a class="btn btn-ghost" href="#programas"><span>Ver programas →</span></a>
+      </div>
+      <div class="hero-highlights reveal d4" aria-label="LÃ­neas principales de acompaÃ±amiento">
+        <div class="hero-highlight-card">
+          <span class="hero-highlight-kicker">Programa 01</span>
+          <strong>AutonomÃ­a personal</strong>
+          <span>Rutinas, hogar y confianza diaria.</span>
+        </div>
+        <div class="hero-highlight-card">
+          <span class="hero-highlight-kicker">Programa 02</span>
+          <strong>Ocio inclusivo</strong>
+          <span>Salidas, cultura y participaciÃ³n real.</span>
+        </div>
+        <div class="hero-highlight-card">
+          <span class="hero-highlight-kicker">Programa 03</span>
+          <strong>Apoyo a familias</strong>
+          <span>Escucha, orientaciÃ³n y acompaÃ±amiento.</span>
+        </div>
       </div>
 
       <div class="hero-marquee">
@@ -4549,19 +4634,45 @@ function animateFan() {
 }
 
 const loader = document.getElementById('loader');
+const loaderSessionKey = 'abaniko_loader_seen';
+const skipLoader = Boolean(window.__ABANIKO_SKIP_LOADER__);
 const startedAt = Date.now();
-const minDuration = animateFan() + 200;
+const minDuration = skipLoader ? 0 : animateFan() + 200;
+let loaderDismissed = false;
+
+function finalizeLoader({ persist = true } = {}) {
+  if (loaderDismissed) return;
+  loaderDismissed = true;
+  loader.classList.add('hide');
+  document.body.classList.remove('is-loading');
+  if (persist) {
+    try { sessionStorage.setItem(loaderSessionKey, '1'); } catch (error) {}
+  }
+  triggerInitialReveal();
+}
+
 function dismissLoader() {
+  if (skipLoader) {
+    finalizeLoader({ persist: false });
+    return;
+  }
   const elapsed = Date.now() - startedAt;
   const wait = Math.max(0, minDuration - elapsed);
-  setTimeout(() => {
-    loader.classList.add('hide');
-    document.body.classList.remove('is-loading');
-    triggerInitialReveal();
-  }, wait);
+  setTimeout(() => finalizeLoader(), wait);
 }
-window.addEventListener('load', dismissLoader);
-setTimeout(dismissLoader, 6000); // fallback
+
+if (skipLoader) {
+  finalizeLoader({ persist: false });
+} else {
+  window.addEventListener('load', dismissLoader);
+  setTimeout(dismissLoader, 6000); // fallback
+}
+
+window.addEventListener('pageshow', event => {
+  if (event.persisted) {
+    finalizeLoader({ persist: false });
+  }
+});
 
 /* ═══════════════════════════════════════════
    STICKY HEADER · SCROLL PROGRESS · BACK TOP
