@@ -110,7 +110,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; transition: opacity .32s ease; }
+html.page-exit { opacity: 0; pointer-events: none; }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
@@ -1869,6 +1870,7 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
    ════════════════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
   .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { aspect-ratio: 3/4; max-height: 520px; }
   .quienes-grid, .contact-grid, .faq-grid { grid-template-columns: 1fr; gap: 3rem; }
   .program-grid, .collab-grid, .testimonials-grid, .news-grid { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }
@@ -1892,6 +1894,13 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
     display: flex;
   }
   .nav-links.open { transform: translateX(0); }
+  .nav-links > a { opacity: 0; transform: translateX(22px); transition: opacity .35s var(--ease), transform .35s var(--ease); }
+  .nav-links.open > a:nth-child(1) { opacity: 1; transform: none; transition-delay: .15s; }
+  .nav-links.open > a:nth-child(2) { opacity: 1; transform: none; transition-delay: .22s; }
+  .nav-links.open > a:nth-child(3) { opacity: 1; transform: none; transition-delay: .29s; }
+  .nav-links.open > a:nth-child(4) { opacity: 1; transform: none; transition-delay: .36s; }
+  .nav-links.open > a:nth-child(5) { opacity: 1; transform: none; transition-delay: .43s; }
+  .nav-links.open > a:nth-child(6) { opacity: 1; transform: none; transition-delay: .50s; }
   .nav-links a {
     color: rgba(247,239,220,.78);
     font-size: 1.35rem;
@@ -1920,11 +1929,12 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   .tl-item { grid-template-columns: 1fr; gap: 1rem; padding-left: 40px; }
   .tl-item::before { left: 2px; top: 1rem; }
   .tl-content { padding-left: 0; }
-  .hero-visual { aspect-ratio: 1; }
+  .hero-visual { aspect-ratio: 1; max-height: 420px; }
   .float-tag { display: none; }
   .row-2 { grid-template-columns: 1fr; }
   .gallery-caption { padding: 2rem 1.5rem 1.5rem; }
   .gallery-caption h3 { font-size: 1.5rem; }
+  input, textarea, select { font-size: max(1rem, 16px); }
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -3291,6 +3301,46 @@ h1.hero-title em.em-drawn::after {
 }
 [data-theme="dark"] input::placeholder, [data-theme="dark"] textarea::placeholder { color: rgba(237,227,205,.35); }
 [data-theme="dark"] ::selection { background: var(--terracota); color: #fff; }
+
+/* Bento stats — terracota/verde/dark bg cells always need light text */
+[data-theme="dark"] .b-big-num   { color: rgba(247,239,220,.9); }
+[data-theme="dark"] .b-mid-num   { color: rgba(247,239,220,.9); }
+[data-theme="dark"] .b-cadiz-num { color: rgba(247,239,220,.85); }
+
+/* Stats strip — stat-num has explicit crema that overrides the container */
+[data-theme="dark"] .stat-num { color: var(--tinta); }
+
+/* Timeline — section heading has explicit crema */
+[data-theme="dark"] .timeline-bg .section-head h2 { color: var(--tinta); }
+
+/* Team avatar initials on always-dark gradient bg */
+[data-theme="dark"] .team-avatar { color: rgba(247,239,220,.7); }
+
+/* Testimonials — section heading uses var(--crema-l), fix for dark mode */
+[data-theme="dark"] .testimonials-bg .section-head h2 { color: var(--tinta); }
+[data-theme="dark"] .testimonial.featured { background: #1A0F08; }
+
+/* Collab featured card — verde bg is always dark */
+[data-theme="dark"] .collab-card.featured { color: var(--tinta); }
+
+/* Gallery caption / side-card overlay — hardcoded dark gradient */
+[data-theme="dark"] .gallery-caption { color: var(--tinta); }
+[data-theme="dark"] .side-card-overlay { color: var(--tinta); }
+
+/* Contact info block spans */
+[data-theme="dark"] .ci-block span { color: var(--tinta); }
+
+/* Contact form heading */
+[data-theme="dark"] .contact-form h3 { color: var(--tinta); }
+
+/* Timeline dot ring — match dark bg so ring is visible */
+[data-theme="dark"] .tl-item::before { box-shadow: 0 0 0 5px #0E0700, 0 0 18px var(--ocre); }
+
+/* Pre-footer CTA (verde-d bg is always dark) */
+[data-theme="dark"] .pfc-text h2 { color: var(--tinta); }
+
+/* Impact banner (always-dark photo + overlay) */
+[data-theme="dark"] .ib-inner { color: var(--tinta); }
 </style>
 
 <script type="application/ld+json">
@@ -4544,9 +4594,12 @@ const obs = new IntersectionObserver(entries => {
       obs.unobserve(e.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0.08, rootMargin: '0px' });
 
 document.querySelectorAll('.reveal, .reveal-x, .split-line').forEach(el => obs.observe(el));
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible), .reveal-x:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 2500);
 
 function triggerInitialReveal() {
   document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
@@ -5220,6 +5273,24 @@ document.querySelectorAll('.ci-block').forEach(el => obs.observe(el));
     const dark = root.getAttribute('data-theme') === 'dark';
     root.setAttribute('data-theme', dark ? 'light' : 'dark');
     localStorage.setItem('abaniko-theme', dark ? 'light' : 'dark');
+  });
+})();
+
+/* ── PAGE TRANSITIONS ── */
+(function() {
+  window.addEventListener('pageshow', e => {
+    if (e.persisted) document.documentElement.classList.remove('page-exit');
+  });
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('#') || href.startsWith('mailto:') ||
+        href.startsWith('tel:') || href.startsWith('http') ||
+        a.target === '_blank') return;
+    e.preventDefault();
+    document.documentElement.classList.add('page-exit');
+    setTimeout(() => { location.href = href; }, 310);
   });
 })();
 </script>

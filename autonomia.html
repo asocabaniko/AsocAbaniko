@@ -165,6 +165,11 @@
       <a href="index.html" class="btn btn-outline-light"><span>Volver al inicio</span></a>
     </div>
   </div>
+
+  <div class="pp-scroll-cue" aria-hidden="true">
+    <span>Descubre</span>
+    <div class="psc-line"></div>
+  </div>
 </section>
 
 <!-- ════════════ NUMBERS ════════════ -->
@@ -550,9 +555,12 @@ const revealObs = new IntersectionObserver(entries => {
       revealObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0.08, rootMargin: '0px' });
 
 document.querySelectorAll('.reveal, .reveal-x').forEach(el => revealObs.observe(el));
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible), .reveal-x:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 2500);
 
 /* ─── SPLIT-WORD ANIMATION ─── */
 const splitObs = new IntersectionObserver(entries => {
@@ -570,6 +578,9 @@ const splitObs = new IntersectionObserver(entries => {
 document.querySelectorAll('h1, h2').forEach(h => {
   if (h.querySelector('.sw-word')) splitObs.observe(h);
 });
+setTimeout(() => {
+  document.querySelectorAll('.sw-inner:not(.sw-in)').forEach(el => el.classList.add('sw-in'));
+}, 1800);
 
 /* ─── HERO IMAGE: Ken Burns + Parallax ─── */
 {
@@ -703,6 +714,43 @@ if (!prefersReduced) {
     if (e.key === 'Escape')     close();
     if (e.key === 'ArrowRight') show(idx + 1);
     if (e.key === 'ArrowLeft')  show(idx - 1);
+  });
+})();
+
+/* ── 3D CARD TILT ── */
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.pp-feature-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transition = 'transform .08s, box-shadow .3s, border-color .3s';
+      card.style.transform =
+        `perspective(700px) rotateY(${x * 8}deg) rotateX(${-y * 6}deg) translateY(-8px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform .6s cubic-bezier(.23,1,.32,1), box-shadow .5s, border-color .3s';
+      card.style.transform = '';
+      setTimeout(() => { card.style.transition = ''; }, 650);
+    });
+  });
+}
+
+/* ── PAGE TRANSITION ── */
+(function() {
+  window.addEventListener('pageshow', e => {
+    if (e.persisted) document.documentElement.classList.remove('page-exit');
+  });
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('#') || href.startsWith('mailto:') ||
+        href.startsWith('tel:') || href.startsWith('http') ||
+        a.target === '_blank') return;
+    e.preventDefault();
+    document.documentElement.classList.add('page-exit');
+    setTimeout(() => { location.href = href; }, 310);
   });
 })();
 

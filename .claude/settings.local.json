@@ -7,7 +7,9 @@
       "Bash(powershell -Command \"node --input-type=module 2>&1\")",
       "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html' -Pattern '</main>|<main ' | Select-Object LineNumber, Line\")",
       "Bash(powershell -Command \"Select-String -Path 'c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html' -Pattern 'a11y-toggle|a11y-panel|ap-open|applyPrefs|A11Y_KEY' | Select-Object LineNumber, Line | Format-Table -AutoSize\")",
-      "Bash(Start-Process \"c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html\")"
+      "Bash(Start-Process \"c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html\")",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\" -Recurse -File)",
+      "Bash(Select-Object FullName)"
     ]
   }
 }

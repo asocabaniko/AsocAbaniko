@@ -520,6 +520,25 @@ section { padding: 7rem 0; position: relative; }
 }
 .pp-feature-card:hover .pp-feature-icon { transform: rotate(-8deg) scale(1.1); }
 
+/* Shimmer sweep on hover */
+.pp-feature-icon::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255,255,255,.38) 50%,
+    transparent 70%
+  );
+  transform: translateX(-150%) skewX(-15deg);
+  transition: transform 0s;
+  pointer-events: none; border-radius: inherit;
+}
+.pp-feature-card:hover .pp-feature-icon::after {
+  transform: translateX(150%) skewX(-15deg);
+  transition: transform .65s var(--ease);
+}
+
 .pp-feature-card h3 {
   font-family: 'Fraunces', serif;
   font-size: 1.35rem; font-weight: 700;
@@ -1107,6 +1126,36 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   .pp-numbers-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* ─────────────────── SCROLL CUE ─────────────────── */
+.pp-scroll-cue {
+  position: absolute;
+  bottom: 2.4rem; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex; flex-direction: column; align-items: center; gap: .4rem;
+  color: rgba(247,239,220,.45);
+  pointer-events: none;
+  animation: ppFadeUp .9s var(--ease) 1.8s both;
+}
+.psc-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, transparent, rgba(247,239,220,.5));
+  animation: pscDrop 1.6s var(--ease) 2s infinite;
+  transform-origin: top;
+}
+.pp-scroll-cue span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: max(.6rem, 9px); letter-spacing: .28em; text-transform: uppercase;
+  white-space: nowrap;
+}
+@keyframes pscDrop {
+  0%   { transform: scaleY(0); opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1) translateY(10px); opacity: 0; }
+}
+@media (max-width: 740px) { .pp-scroll-cue { display: none; } }
+
 /* ─────────────────── FLOATING CONTACT ─────────────────── */
 .float-contact {
   position: fixed; bottom: 2rem; left: 1.5rem; z-index: 82;
@@ -1127,6 +1176,20 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 .float-contact-btn:hover { transform: scale(1.14); box-shadow: 0 14px 36px rgba(0,0,0,.3); }
 .float-contact-btn.fc-wa { background: #25D366; }
 .float-contact-btn.fc-ph { background: var(--page-accent); }
+
+/* Pulse ring on WhatsApp button */
+.float-contact.fc-visible .fc-wa::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  animation: fcPulse 2.2s 1s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes fcPulse {
+  0%   { transform: scale(1);   opacity: .55; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
 .float-contact-btn::before {
   content: attr(data-tip);
   position: absolute; left: calc(100% + .7rem); top: 50%;
@@ -1144,6 +1207,10 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   .float-contact-btn { width: 48px; height: 48px; }
   .float-contact-btn::before { display: none; }
 }
+
+/* ─────────────────── PAGE TRANSITION ─────────────────── */
+html { transition: opacity .32s ease; }
+html.page-exit { opacity: 0; pointer-events: none; }
 
 /* ─────────────────── THEME TOGGLE BUTTON ─────────────────── */
 #themeToggle {
@@ -1236,6 +1303,19 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 [data-theme="dark"] .pp-step-num {
   box-shadow: 0 0 0 5px #0E0700, 0 0 20px rgba(0,0,0,.45);
 }
+
+/* Quote section — page-accent bg is always dark */
+[data-theme="dark"] .pp-quote { color: var(--tinta); }
+[data-theme="dark"] .pp-quote blockquote { color: var(--tinta); }
+
+/* Gallery overlay — dark overlay is always dark */
+[data-theme="dark"] .pp-gallery-overlay { color: var(--tinta); }
+
+/* Pre-footer CTA — page-accent bg is always dark */
+[data-theme="dark"] .prefooter-cta { color: var(--tinta); }
+
+/* Numbers section — restore light text on dark bg */
+[data-theme="dark"] .pp-numbers { color: var(--tinta); }
 
 /* Tooltip backgrounds */
 [data-theme="dark"] .float-contact-btn::before {
@@ -1353,6 +1433,19 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
     letter-spacing: -.02em;
   }
   .nav-links a:hover { color: var(--ocre-l); }
+
+  /* Stagger nav items */
+  .nav-links > li, .nav-links > a {
+    opacity: 0;
+    transform: translateX(22px);
+    transition: opacity .35s var(--ease), transform .35s var(--ease);
+  }
+  .nav-links.open > li:nth-child(1), .nav-links.open > a:nth-child(1) { opacity: 1; transform: none; transition-delay: .15s; }
+  .nav-links.open > li:nth-child(2), .nav-links.open > a:nth-child(2) { opacity: 1; transform: none; transition-delay: .22s; }
+  .nav-links.open > li:nth-child(3), .nav-links.open > a:nth-child(3) { opacity: 1; transform: none; transition-delay: .29s; }
+  .nav-links.open > li:nth-child(4), .nav-links.open > a:nth-child(4) { opacity: 1; transform: none; transition-delay: .36s; }
+  .nav-links.open > li:nth-child(5), .nav-links.open > a:nth-child(5) { opacity: 1; transform: none; transition-delay: .43s; }
+  .nav-links.open > li:nth-child(6), .nav-links.open > a:nth-child(6) { opacity: 1; transform: none; transition-delay: .50s; }
   .nav-links a.btn {
     padding: .9rem 2.4rem;
     background: var(--page-accent);
@@ -1365,9 +1458,14 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   .nav-links a.btn::after { display: none; }
 
   /* Program page hero */
+  .pp-hero { min-height: 100svh; overflow: clip; }
   .pp-hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
-  .pp-hero-content { padding: 8rem 0 4rem; }
+  .pp-hero-content { padding: 5.5rem 0 3rem; }
   .pp-hero-arc { display: none; }
+  .pp-breadcrumb { padding-top: 4rem; }
+
+  /* Nav header */
+  .nav-inner { padding: .75rem 1.25rem; }
 
   /* Features */
   .pp-features-grid { grid-template-columns: 1fr; }
@@ -1384,22 +1482,59 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 
   /* Quote */
   .pp-quote blockquote { font-size: clamp(1.3rem, 5vw, 2rem); }
+  .pp-quote-inner { padding: 4.5rem 1.5rem; }
+
+  /* CTA */
+  .pp-cta { padding: 5rem 0; }
+
+  /* Feature card */
+  .pp-feature-card { padding: 2rem 1.8rem; }
 
   /* Footer */
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: .6rem; }
   .pfc-inner { grid-template-columns: 1fr; }
   .pfc-btns { flex-direction: column; }
+
+  /* Prevent iOS Safari input zoom */
+  input, textarea, select { font-size: max(1rem, 16px); }
 }
 
 /* 480px */
 @media (max-width: 480px) {
+  .nav-inner { padding: .75rem 1rem; }
+  section { padding: 3.5rem 0; }
+  .pp-hero { min-height: 100svh; }
+  .pp-hero-content { padding: 4rem 0 2.5rem; }
+  .pp-breadcrumb { padding-top: 3rem; }
+  .pp-hero h1 { font-size: clamp(2rem, 11vw, 3rem); }
   .pp-gallery-grid { grid-template-columns: 1fr; }
   .pp-gallery-item:first-child { grid-column: span 1; aspect-ratio: 4/3; }
-  .pp-hero h1 { font-size: clamp(2.2rem, 12vw, 3.5rem); }
   .pp-step { grid-template-columns: 50px 1fr; gap: 1.5rem; }
   .pp-step-num { width: 50px; height: 50px; font-size: 1.2rem; }
   .pp-steps-list::before { left: 24px; }
+  .pp-quote-inner { padding: 3.5rem 1rem; }
+  .pp-cta { padding: 3.5rem 0; }
+  .pp-feature-card { padding: 1.8rem 1.4rem; }
+  .pp-step-content h3 { font-size: 1.25rem; }
+  .pp-number-item { padding: 1.4rem 1rem; }
+}
+
+/* 375px */
+@media (max-width: 375px) {
+  .shell { padding: 0 .9rem; }
+  section { padding: 3rem 0; }
+  .pp-hero { min-height: 100svh; }
+  .pp-hero h1 { font-size: clamp(1.8rem, 12vw, 2.6rem); }
+  .pp-hero-content { padding: 3.5rem 0 2rem; }
+  .pp-breadcrumb { padding-top: 2.5rem; }
+  .pp-hero-actions { flex-direction: column; align-items: stretch; }
+  .pp-hero-actions .btn { text-align: center; justify-content: center; }
+  .pp-number-val { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .pp-number-label { font-size: max(.65rem, 10px); letter-spacing: .14em; }
+  .pp-feature-card { padding: 1.6rem 1.2rem; }
+  .pp-about-text h2 { font-size: clamp(1.7rem, 9vw, 2.4rem); }
+  .pp-cta h2 { font-size: clamp(1.7rem, 9vw, 2.6rem); }
 }
 
 /* Coarse pointer touch targets */
