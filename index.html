@@ -1957,6 +1957,63 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .row-2 label { display: grid; gap: .35rem; }
 
+/* ────── AYUNTAMIENTO BANNER ────── */
+.ayto-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+  margin-top: 2.5rem;
+  padding: 1.8rem 2.4rem;
+  background: var(--crema);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-xl);
+  text-decoration: none;
+  transition: all .4s var(--ease);
+  position: relative; overflow: hidden;
+}
+.ayto-banner::before {
+  content:''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; background: var(--terracota);
+}
+.ayto-banner:hover {
+  border-color: rgba(184,74,40,.3);
+  box-shadow: var(--sh-card);
+  transform: translateY(-3px);
+}
+.ayto-banner-left { display: flex; flex-direction: column; gap: .35rem; }
+.ayto-banner-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--terracota);
+}
+.ayto-banner-left strong {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--tinta);
+}
+.ayto-banner-desc {
+  font-size: .9rem; color: var(--muted); font-weight: 300; max-width: 60ch;
+}
+.ayto-banner-cta {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center;
+  padding: .75rem 1.5rem;
+  background: var(--terracota); color: #fff;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 500;
+  transition: background .3s var(--ease), transform .3s var(--ease);
+  white-space: nowrap;
+}
+.ayto-banner:hover .ayto-banner-cta { background: var(--terracota-d); transform: translateX(4px); }
+[data-theme="dark"] .ayto-banner { background: rgba(247,239,220,.05); border-color: rgba(247,239,220,.1); }
+[data-theme="dark"] .ayto-banner-left strong { color: var(--crema); }
+[data-theme="dark"] .ayto-banner-desc { color: rgba(247,239,220,.55); }
+@media (max-width: 600px) {
+  .ayto-banner { flex-direction: column; align-items: flex-start; }
+  .ayto-banner-cta { width: 100%; justify-content: center; }
+}
+
 /* ════════════════════════════════════════════════════════════
    FOOTER
    ════════════════════════════════════════════════════════════ */
@@ -4498,6 +4555,15 @@ h1.hero-title em.em-drawn::after {
         <a href="#colabora" class="news-link">Apuntarme</a>
       </article>
     </div>
+
+    <a href="https://institucional.cadiz.es/asociaciones/abaniko" target="_blank" rel="noopener" class="ayto-banner reveal">
+      <div class="ayto-banner-left">
+        <span class="ayto-banner-label">Fuente oficial</span>
+        <strong>Abaniko en el Ayuntamiento de Cádiz</strong>
+        <span class="ayto-banner-desc">Consulta la ficha oficial, convocatorias y noticias publicadas por el Ayuntamiento sobre nuestra asociación.</span>
+      </div>
+      <span class="ayto-banner-cta">Ver en cadiz.es →</span>
+    </a>
   </div>
 </section>
 
