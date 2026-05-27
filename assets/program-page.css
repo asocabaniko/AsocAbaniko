@@ -1412,7 +1412,7 @@ html.page-exit { opacity: 0; pointer-events: none; }
 
 /* ═══════════════════ RESPONSIVE ═══════════════════ */
 
-/* 1100px */
+/* ── 1100px · tablet landscape ───────────────────── */
 @media (max-width: 1100px) {
   .pp-about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .pp-features-grid { grid-template-columns: 1fr 1fr; }
@@ -1423,7 +1423,27 @@ html.page-exit { opacity: 0; pointer-events: none; }
   .pfc-btns { flex-direction: row; flex-wrap: wrap; }
 }
 
-/* 740px */
+/* ── 900px · tablet portrait ─────────────────────── */
+@media (max-width: 900px) {
+  section { padding: 5.5rem 0; }
+
+  /* Gallery: 3 cols → 2 cols (first item full-width) */
+  .pp-gallery-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .pp-gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/8; }
+
+  /* Numbers: stay 3-col but tighter padding */
+  .pp-number-item { padding: 2rem 1.2rem; }
+
+  /* Footer cols → 2 */
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  /* Font weight legibility */
+  .pp-about-text p, .pp-feature-card p,
+  .pp-step-content p, .pp-cta p,
+  .footer-brand p, .pfc-text p { font-weight: 400; }
+}
+
+/* ── 740px · mobile (hamburger nav) ──────────────── */
 @media (max-width: 740px) {
   body { cursor: auto; }
   section { padding: 5rem 0; }
@@ -1480,22 +1500,21 @@ html.page-exit { opacity: 0; pointer-events: none; }
   .pp-hero-content { padding: 5.5rem 0 3rem; }
   .pp-hero-arc { display: none; }
   .pp-breadcrumb { padding-top: 4rem; }
+  .pp-hero-actions { flex-wrap: wrap; gap: .75rem; }
 
   /* Nav header */
   .nav-inner { padding: .75rem 1.25rem; }
 
-  /* Features */
+  /* Features: 2-col → 1-col */
   .pp-features-grid { grid-template-columns: 1fr; }
 
-  /* Steps */
+  /* Steps connector */
   .pp-steps-list::before { left: 29px; }
-
-  /* Gallery */
-  .pp-gallery-grid { grid-template-columns: 1fr 1fr; }
-  .pp-gallery-item:first-child { grid-column: span 2; }
-
-  /* Steps */
   .pp-step { grid-template-columns: 60px 1fr; }
+
+  /* Gallery: 2-col (already from 900px) */
+  .pp-gallery-grid { grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .pp-gallery-item:first-child { grid-column: span 2; }
 
   /* Quote */
   .pp-quote blockquote { font-size: clamp(1.3rem, 5vw, 2rem); }
@@ -1517,7 +1536,44 @@ html.page-exit { opacity: 0; pointer-events: none; }
   input, textarea, select { font-size: max(1rem, 16px); }
 }
 
-/* 480px */
+/* ── 600px · phones grandes / landscape ─────────── */
+@media (max-width: 600px) {
+  .shell { padding: 0 1.1rem; }
+  section { padding: 4.2rem 0; }
+  .section-head { margin-bottom: 2.5rem; }
+  .section-head h2 { font-size: clamp(2rem, 8.5vw, 3rem); }
+  .section-head p { font-size: 1rem; }
+
+  /* Hero */
+  .pp-hero h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+  .pp-hero-content { padding: 5rem 0 2.8rem; }
+  .pp-hero-actions { flex-direction: column; align-items: stretch; }
+  .pp-hero-actions .btn { text-align: center; justify-content: center; min-height: 52px; }
+  .pp-hero-subtitle { font-size: 1rem; }
+
+  /* Gallery: 2-col → 1-col (full images, better than cramped 2-col) */
+  .pp-gallery-grid { grid-template-columns: 1fr; gap: .75rem; }
+  .pp-gallery-item:first-child { grid-column: span 1; aspect-ratio: 16/9; }
+
+  /* Quote */
+  .pp-quote-inner { padding: 3.8rem 1rem; }
+  .pp-quote blockquote { font-size: clamp(1.2rem, 6vw, 1.8rem); }
+
+  /* CTA */
+  .pp-cta { padding: 4rem 0; }
+
+  /* Numbers: 3-col → 2-col */
+  .pp-numbers-grid { grid-template-columns: 1fr 1fr; }
+  .pp-number-item:nth-child(3) { grid-column: span 2; border-right: none; border-top: 1px solid rgba(247,239,220,.07); }
+
+  /* Steps */
+  .pp-step { gap: 1.5rem; }
+
+  /* Pre-footer */
+  .pfc-btns { flex-direction: column; }
+}
+
+/* ── 480px · phones medianos ─────────────────────── */
 @media (max-width: 480px) {
   .nav-inner { padding: .75rem 1rem; }
   section { padding: 3.5rem 0; }
@@ -1537,7 +1593,7 @@ html.page-exit { opacity: 0; pointer-events: none; }
   .pp-number-item { padding: 1.4rem 1rem; }
 }
 
-/* 375px */
+/* ── 375px · phones pequeños ─────────────────────── */
 @media (max-width: 375px) {
   .shell { padding: 0 .9rem; }
   section { padding: 3rem 0; }
@@ -1552,18 +1608,19 @@ html.page-exit { opacity: 0; pointer-events: none; }
   .pp-feature-card { padding: 1.6rem 1.2rem; }
   .pp-about-text h2 { font-size: clamp(1.7rem, 9vw, 2.4rem); }
   .pp-cta h2 { font-size: clamp(1.7rem, 9vw, 2.6rem); }
+  .pp-step { gap: 1.2rem; }
+  .pp-step-content h3 { font-size: 1.15rem; }
 }
 
-/* Coarse pointer touch targets */
+/* ── Coarse pointer · touch targets mínimos WCAG 2.5.5 ── */
 @media (pointer: coarse) {
+  .btn { min-height: 48px; }
   #back-top { width: 56px; height: 56px; }
   .nav-toggle { width: 52px; height: 52px; }
   .social-row a { width: 52px; height: 52px; }
-}
-
-/* Font weight legibility on small screens */
-@media (max-width: 900px) {
-  .pp-about-text p, .pp-feature-card p,
-  .pp-step-content p, .pp-cta p,
-  .footer-brand p, .pfc-text p { font-weight: 400; }
+  .float-contact-btn { width: 56px; height: 56px; }
+  .lb-close { width: 52px; height: 52px; }
+  .lb-prev, .lb-next { width: 56px; height: 56px; }
+  .pp-gallery-item { cursor: pointer; }
+  .faq-item summary { min-height: 56px; }
 }
