@@ -10,7 +10,10 @@
       "Bash(Start-Process \"c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\\\\index.html\")",
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\DAVID\\\\Desktop\\\\Pagina Abaniko\" -Recurse -File)",
       "Bash(Select-Object FullName)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
