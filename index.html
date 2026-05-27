@@ -2152,15 +2152,20 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   section { padding: 5rem 0; }
   .nav-toggle { display: flex; }
   .nav-links {
-    position: fixed; inset: 0;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
     background: linear-gradient(160deg, var(--tinta) 0%, var(--tinta-2) 100%);
     flex-direction: column; justify-content: center; align-items: center;
     gap: 0;
     transform: translateX(100%);
     transition: transform .5s var(--ease);
-    z-index: 89;
+    z-index: 9990;
     display: flex;
     padding: 5rem 2rem 3rem;
+    padding-bottom: max(3rem, env(safe-area-inset-bottom));
+  }
+  @supports (height: 100dvh) {
+    .nav-links { height: 100dvh; }
   }
   .nav-links.open { transform: translateX(0); }
   .nav-links > a {
@@ -2774,6 +2779,111 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
   .faq-item summary { font-size: 1rem; padding: 1.2rem 1.3rem; }
   .quienes-quote { font-size: 1.1rem; padding: 1.5rem; }
   .nav-inner { padding: .7rem .9rem; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE FIXES COMPLETOS
+   ══════════════════════════════════════════════════════════ */
+
+/* ── 1. BURGER OVERLAY: quitar backdrop-filter en móvil para que
+        position:fixed del nav-links cubra toda la pantalla ── */
+@media (max-width: 740px) {
+  .site-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(247,239,220,.97);
+  }
+  .site-header.scrolled {
+    background: rgba(20,12,5,.97);
+  }
+  [data-theme="dark"] .site-header {
+    background: rgba(14,8,2,.97);
+  }
+  [data-theme="dark"] .site-header.scrolled {
+    background: rgba(6,3,0,.99);
+  }
+}
+
+/* ── 2. TEXTO OVERFLOW GLOBAL: prevenir corte de palabras sin hifenado ── */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: none;
+}
+
+/* ── 3. HERO META: no cortar en una sola línea ── */
+@media (max-width: 600px) {
+  .hero-meta {
+    flex-wrap: wrap;
+    gap: .4rem .8rem;
+    font-size: .62rem;
+    letter-spacing: .14em;
+  }
+  .hero-meta .dot { flex-shrink: 0; }
+}
+
+/* ── 4. HERO VISUAL: contener el texto de la cita ── */
+@media (max-width: 740px) {
+  .hero-visual { overflow: hidden; max-width: 100%; }
+  .hv-quote { font-size: 1rem; }
+  .hv-content { padding: 1.8rem; }
+}
+
+/* ── 5. HERO HIGHLIGHTS: forzar 1 columna en móvil ── */
+@media (max-width: 600px) {
+  .hero-highlights {
+    grid-template-columns: 1fr !important;
+    max-width: 100%;
+  }
+}
+
+/* ── 6. HERO SUB: contener overflow ── */
+@media (max-width: 600px) {
+  .hero-sub { max-width: 100%; overflow-wrap: break-word; }
+}
+
+/* ── 7. PRÁCTICAS: evitar overflow en tarjeta de actividades ── */
+@media (max-width: 600px) {
+  .practicas-aside { padding: 1.5rem; }
+  .practicas-aside-item { gap: .7rem; }
+  .practicas-cta-box { padding: 1.8rem 1.4rem; }
+}
+
+/* ── 8. INTERN CAROUSEL: padding y texto en pantallas pequeñas ── */
+@media (max-width: 480px) {
+  .intern-carousel-slide { padding: 2.5rem 1.4rem 2rem; }
+  .ics-quote { font-size: 1.05rem; }
+}
+
+/* ── 9. INTERN CARDS (practicantes): 1 columna en móvil pequeño ── */
+@media (max-width: 480px) {
+  .interns-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── 10. SECTION HEADS: heading size en móvil pequeño ── */
+@media (max-width: 480px) {
+  .section-head h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); }
+  .practicas-intro-text h3 { font-size: 1.4rem; }
+  .timeline-bg .section-head h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); }
+  /* Cita quienes somos: fuente y padding más compactos */
+  .quienes-quote {
+    font-size: 1.05rem;
+    padding: 1.4rem;
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ── 11. BENTO STATS: ajuste texto en celdas ── */
+@media (max-width: 480px) {
+  .bento-cell { padding: 1.8rem; }
+  .b-big-num { font-size: clamp(4rem, 18vw, 6rem); }
+}
+
+/* ── 12. HERO GRID: asegurar columna única y contenido visible ── */
+@media (max-width: 740px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .hero { overflow: hidden; }
 }
 
 /* ══════════════════════════════════════════════════════════
