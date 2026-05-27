@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <script>!function(){var t=localStorage.getItem('abaniko-theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')}()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Asociación Abaniko · Cádiz. Entidad social dedicada al acompañamiento, la inclusión y la mejora de la calidad de vida desde 2009. Programas de autonomía, ocio inclusivo y apoyo a familias.">
+<meta name="description" content="Asociación Abaniko · Cádiz. Entidad social dedicada al acompañamiento, la inclusión y la mejora de la calidad de vida desde 2009. Programas de autonomía, ocio inclusivo, apoyo a familias y jardinería y deporte.">
 <meta name="keywords" content="asociación Abaniko, inclusión Cádiz, autonomía personal, discapacidad Cádiz, apoyo familias, ocio inclusivo, voluntariado Cádiz, entidad social Cádiz">
 <meta name="author" content="Asociación Abaniko">
 <meta name="robots" content="index, follow">
@@ -58,7 +58,8 @@
     "itemListElement": [
       { "@type": "Offer", "name": "Autonomía Personal", "url": "https://www.asociacionabaniko.org/autonomia.html" },
       { "@type": "Offer", "name": "Ocio y Participación", "url": "https://www.asociacionabaniko.org/ocio.html" },
-      { "@type": "Offer", "name": "Orientación a Familias", "url": "https://www.asociacionabaniko.org/familias.html" }
+      { "@type": "Offer", "name": "Orientación a Familias", "url": "https://www.asociacionabaniko.org/familias.html" },
+      { "@type": "Offer", "name": "Deporte", "url": "https://www.asociacionabaniko.org/deporte.html" }
     ]
   }
 }
@@ -897,7 +898,7 @@ h1.hero-title em::after {
    ════════════════════════════════════════════════════════════ */
 .programs-bg { background: var(--crema); }
 .program-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
+  display: grid; grid-template-columns: repeat(4,1fr);
   gap: 1.5rem;
 }
 .program-card {
@@ -947,6 +948,7 @@ h1.hero-title em::after {
 .prog-icon.c1 { background: linear-gradient(135deg, var(--terracota), var(--terracota-l)); }
 .prog-icon.c2 { background: linear-gradient(135deg, var(--verde), var(--verde-l)); }
 .prog-icon.c3 { background: linear-gradient(135deg, var(--ocre-d), var(--ocre)); }
+.prog-icon.c4 { background: linear-gradient(135deg, #2E4B18, #7DB84A); }
 
 .program-card h3 {
   font-family: 'Fraunces', serif;
@@ -1089,6 +1091,155 @@ h1.hero-title em::after {
 .team-avatar.av2 { background: linear-gradient(135deg, var(--verde) 0%, #0a3a35 100%); }
 .team-avatar.av3 { background: linear-gradient(135deg, var(--ocre-d) 0%, #5e4416 100%); }
 .team-avatar.av4 { background: linear-gradient(135deg, #6B2D52 0%, #3D1730 100%); }
+.team-avatar.av5 { background: linear-gradient(135deg, #1A5F8E 0%, #0E3A56 100%); }
+.team-avatar.av6 { background: linear-gradient(135deg, #8B2552 0%, #5A163A 100%); }
+.team-avatar.av7 { background: linear-gradient(135deg, #5A3080 0%, #341A52 100%); }
+.team-avatar.av8 { background: linear-gradient(135deg, #2D6B3A 0%, #1A3F22 100%); }
+
+/* ─── PRÁCTICAS ─── */
+.practicas-bg { background: var(--crema-d); padding: 7rem 0; }
+
+.practicas-intro {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  gap: 5rem; align-items: start;
+  margin-bottom: 4rem;
+}
+.practicas-intro-text h3 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700; line-height: 1.12;
+  margin: .8rem 0 1.4rem;
+}
+.practicas-intro-text h3 em { font-style: italic; color: var(--terracota); }
+.practicas-intro-text p {
+  color: var(--muted); line-height: 1.75; margin-bottom: 1rem;
+  font-size: .97rem;
+}
+.practicas-intro-text p:last-child { margin-bottom: 0; }
+
+.practicas-aside {
+  background: var(--tinta);
+  border-radius: var(--r-xl);
+  padding: 2.4rem;
+  display: grid; gap: 1.4rem;
+}
+.practicas-aside-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(247,239,220,.08);
+}
+.practicas-aside-item:last-child { border-bottom: none; padding-bottom: 0; }
+.practicas-aside-icon {
+  font-size: 1.3rem; flex-shrink: 0;
+  width: 40px; height: 40px;
+  background: rgba(247,239,220,.06);
+  border-radius: 10px;
+  display: grid; place-items: center;
+}
+.practicas-aside-item strong {
+  display: block; color: var(--crema);
+  font-size: .88rem; font-weight: 600;
+  margin-bottom: .2rem;
+}
+.practicas-aside-item span {
+  color: rgba(247,239,220,.55);
+  font-size: .82rem; line-height: 1.5;
+}
+
+.practicas-cta-box {
+  margin-top: 3.5rem;
+  padding: 2.4rem 3rem;
+  background: var(--tinta-2);
+  border-radius: var(--r-xl);
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 2rem;
+  flex-wrap: wrap;
+}
+.practicas-cta-box h3 {
+  font-family: 'Fraunces', serif; font-size: 1.45rem;
+  font-weight: 700; color: var(--crema); margin-bottom: .5rem;
+}
+.practicas-cta-box p { color: rgba(247,239,220,.65); font-size: .95rem; }
+.practicas-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+  background: rgba(217,164,65,.18); color: var(--ocre-l);
+  padding: .25rem .7rem; border-radius: 20px;
+  margin-bottom: .6rem;
+}
+
+/* ─── INTERN QUOTE CAROUSEL ─── */
+.intern-carousel-wrap {
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background: var(--tinta);
+  margin-bottom: .5rem;
+}
+.intern-carousel-track {
+  display: flex;
+  transition: transform .7s var(--ease);
+}
+.intern-carousel-slide {
+  min-width: 100%;
+  padding: 3.8rem 5rem 3rem;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: .8rem;
+}
+.ics-mark {
+  font-family: 'Fraunces', serif;
+  font-size: 5rem; font-weight: 900; font-style: italic;
+  color: var(--ocre-l); line-height: .5;
+  opacity: .45; align-self: flex-start;
+}
+.ics-quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  font-style: italic; color: var(--crema);
+  line-height: 1.6; max-width: 700px;
+}
+.ics-author { display: flex; flex-direction: column; align-items: center; gap: .35rem; margin-top: .8rem; }
+.ics-name { font-family: 'Fraunces', serif; font-weight: 700; color: var(--crema); font-size: 1rem; }
+.ics-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--ocre-l);
+}
+.intern-carousel-nav {
+  display: flex; justify-content: center; align-items: center;
+  gap: 1.2rem; padding: 1.4rem 0 0;
+}
+.ic-btn {
+  background: rgba(26,15,8,.08);
+  border: 1px solid var(--line);
+  color: var(--tinta); width: 40px; height: 40px;
+  border-radius: 50%; display: grid; place-items: center;
+  font-size: 1.2rem; cursor: none;
+  transition: background .3s, border-color .3s;
+}
+.ic-btn:hover { background: rgba(26,15,8,.12); border-color: rgba(26,15,8,.25); }
+[data-theme="dark"] .ic-btn { color: var(--crema); background: rgba(247,239,220,.06); border-color: rgba(247,239,220,.14); }
+[data-theme="dark"] .ic-btn:hover { background: rgba(247,239,220,.14); border-color: rgba(247,239,220,.28); }
+.ic-dots { display: flex; gap: .5rem; align-items: center; }
+.ic-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(26,15,8,.18); border: none; cursor: none;
+  transition: background .3s, transform .3s;
+}
+.ic-dot.on { background: var(--terracota); transform: scale(1.35); }
+[data-theme="dark"] .ic-dot { background: rgba(247,239,220,.18); }
+[data-theme="dark"] .ic-dot.on { background: var(--ocre-l); }
+
+@media (max-width: 900px) {
+  .practicas-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 740px) {
+  .intern-carousel-slide { padding: 3rem 2.5rem 2.5rem; }
+}
+@media (max-width: 600px) {
+  .practicas-cta-box { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+  .intern-carousel-slide { padding: 2.5rem 1.5rem 2rem; }
+}
 .team-avatar::after {
   content:''; position: absolute; inset: 0;
   background-image:
@@ -3641,6 +3792,7 @@ h1.hero-title em.em-drawn::after {
       <a href="#programas">Programas</a>
       <a href="#historia">Historia</a>
       <a href="#equipo">Equipo</a>
+      <a href="#practicas">Prácticas</a>
       <a href="#colabora">Colabora</a>
       <a href="#contacto" class="btn btn-primary"><span>Contacto</span></a>
     </nav>
@@ -3897,6 +4049,20 @@ h1.hero-title em.em-drawn::after {
           <li>Información y recursos</li>
         </ul>
       </article>
+      <article class="program-card reveal d4">
+        <div class="prog-header">
+          <img src="assets/images/actividad-09.jpg" alt="Jardinería terapéutica y deporte adaptado" loading="lazy">
+          <span class="ph-badge">▸ Programa 04</span>
+        </div>
+        <div class="prog-icon c4">D</div>
+        <h3>Deporte</h3>
+        <p>Actividad física adaptada, deporte inclusivo en grupo y ocio activo para el bienestar integral de cada participante.</p>
+        <ul class="prog-features">
+          <li>Deporte adaptado en equipo</li>
+          <li>Actividad física y bienestar</li>
+          <li>Ocio activo y saludable</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
@@ -3928,7 +4094,7 @@ h1.hero-title em.em-drawn::after {
         <div class="l">Personas</div>
       </div>
       <div class="ib-num-item">
-        <div class="n">3</div>
+        <div class="n">4</div>
         <div class="l">Programas</div>
       </div>
       <div class="ib-num-item">
@@ -4034,6 +4200,166 @@ h1.hero-title em.em-drawn::after {
         </div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ════════════ PRÁCTICAS ════════════ -->
+<section class="practicas-bg" id="practicas">
+  <div class="shell">
+
+    <div class="section-head reveal">
+      <span class="eyebrow">Prácticas · Formación</span>
+      <h2>Aprendiendo<br>junto a <em>nosotros.</em></h2>
+    </div>
+
+    <!-- Bloque explicativo -->
+    <div class="practicas-intro">
+      <div class="practicas-intro-text reveal">
+        <span class="eyebrow">Centro acreditado de prácticas</span>
+        <h3>Un lugar donde<br><em>aprender de verdad.</em></h3>
+        <p>
+          Abaniko lleva años acogiendo a estudiantes en prácticas de grado universitario y ciclos formativos de grado superior. Creemos que formarse en un contexto real, al lado de personas reales, es la mejor escuela para quien quiere dedicarse al ámbito social.
+        </p>
+        <p>
+          Los alumnos y alumnas que llegan a Abaniko no son observadores pasivos: se incorporan a los equipos de trabajo, participan en los programas y acompañan directamente a las personas usuarias bajo la supervisión del equipo profesional. Aprenden haciendo, con responsabilidad y acompañamiento.
+        </p>
+        <p>
+          Cada año recibimos estudiantes de disciplinas como Trabajo Social, Educación Social, Integración Social, Psicología, Diseño y Comunicación. Si tu centro educativo busca un espacio de prácticas comprometido, cercano y con impacto real, aquí estamos.
+        </p>
+      </div>
+
+      <div class="practicas-aside reveal d2">
+        <div class="practicas-aside-item">
+          <span class="practicas-aside-icon">🎓</span>
+          <div>
+            <strong>Grado universitario</strong>
+            <span>Trabajo Social · Psicología · Educación Social · Diseño y Comunicación</span>
+          </div>
+        </div>
+        <div class="practicas-aside-item">
+          <span class="practicas-aside-icon">📋</span>
+          <div>
+            <strong>Ciclos formativos</strong>
+            <span>Integración Social · Animación Sociocultural · Técnico Superior en DASC</span>
+          </div>
+        </div>
+        <div class="practicas-aside-item">
+          <span class="practicas-aside-icon">🤝</span>
+          <div>
+            <strong>Convenio con el centro</strong>
+            <span>Gestionamos el convenio directamente con tu institución educativa de forma ágil y sin burocracia.</span>
+          </div>
+        </div>
+        <div class="practicas-aside-item">
+          <span class="practicas-aside-icon">✉</span>
+          <div>
+            <strong>¿Quieres saber más?</strong>
+            <span>asoc.abaniko@gmail.com · 677 854 232</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alumnos en prácticas -->
+    <div class="section-head reveal" style="margin-top: 1rem;">
+      <span class="eyebrow">Alumnos en prácticas</span>
+      <h2 style="font-size: clamp(1.8rem,3.5vw,2.6rem);">Quiénes están<br><em>con nosotros.</em></h2>
+    </div>
+    <div class="team-grid">
+      <article class="team-card reveal d1">
+        <div class="team-avatar av5">D</div>
+        <div class="team-info">
+          <div class="practicas-badge">Diseño &amp; Web</div>
+          <h3>David Cebrián</h3>
+          <div class="team-role">Diseño web y comunicación</div>
+          <p class="team-bio">Diseña y desarrolla la imagen digital de Abaniko. Ha construido la web que estás viendo ahora y da forma a la comunicación visual de la asociación.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d2">
+        <div class="team-avatar av6">P</div>
+        <div class="team-info">
+          <div class="practicas-badge">Educación Social</div>
+          <h3>Paula Millán</h3>
+          <div class="team-role">Apoyo en programas</div>
+          <p class="team-bio">Apoya el trabajo directo con participantes, colaborando en talleres, actividades grupales y el acompañamiento del día a día de los programas.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d3">
+        <div class="team-avatar av7">L</div>
+        <div class="team-info">
+          <div class="practicas-badge">Trabajo Social</div>
+          <h3>Lorena</h3>
+          <div class="team-role">Intervención social</div>
+          <p class="team-bio">Colabora en el área de intervención social, acompañamiento a familias y gestión de recursos comunitarios en el entorno de la asociación.</p>
+        </div>
+      </article>
+      <article class="team-card reveal d4">
+        <div class="team-avatar av8">A</div>
+        <div class="team-info">
+          <div class="practicas-badge">Integración Social</div>
+          <h3>Adela</h3>
+          <div class="team-role">Ocio e integración</div>
+          <p class="team-bio">Participa en actividades de ocio inclusivo y dinamización de grupos, aportando energía y creatividad a las sesiones del programa de ocio y deporte.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Carrusel de testimonios de alumnos -->
+    <div class="intern-carousel-wrap reveal" style="margin-top:3rem;">
+      <div id="icTrack" class="intern-carousel-track">
+
+        <div class="intern-carousel-slide">
+          <span class="ics-mark" aria-hidden="true">"</span>
+          <p class="ics-quote">Hacer las prácticas en Abaniko ha sido una experiencia que va mucho más allá del diseño. Aprendí a crear con propósito, pensando siempre en las personas que van a usar lo que construyes. Me llevo un aprendizaje que ninguna clase me habría dado.</p>
+          <div class="ics-author">
+            <span class="ics-name">David Cebrián</span>
+            <span class="ics-role">Diseño Web · Alumno en prácticas</span>
+          </div>
+        </div>
+
+        <div class="intern-carousel-slide">
+          <span class="ics-mark" aria-hidden="true">"</span>
+          <p class="ics-quote">Cada día en Abaniko me reafirmó en mi vocación. Ver el impacto real del trabajo social en personas concretas es algo que ningún libro puede enseñarte. Me llevo muchísimo más de lo que esperaba cuando empecé.</p>
+          <div class="ics-author">
+            <span class="ics-name">Paula Millán</span>
+            <span class="ics-role">Educación Social · Alumna en prácticas</span>
+          </div>
+        </div>
+
+        <div class="intern-carousel-slide">
+          <span class="ics-mark" aria-hidden="true">"</span>
+          <p class="ics-quote">El equipo de Abaniko te trata como una profesional desde el primer día. La cercanía con los participantes y con los compañeros hace que el aprendizaje sea constante, humano y muy significativo. Ha sido la mejor decisión de mi formación.</p>
+          <div class="ics-author">
+            <span class="ics-name">Lorena</span>
+            <span class="ics-role">Trabajo Social · Alumna en prácticas</span>
+          </div>
+        </div>
+
+        <div class="intern-carousel-slide">
+          <span class="ics-mark" aria-hidden="true">"</span>
+          <p class="ics-quote">He aprendido más aquí en pocos meses que en años de teoría. Abaniko te da responsabilidad real desde el principio, te acompaña y confía en ti. Eso es lo que marca la diferencia para crecer como profesional de verdad.</p>
+          <div class="ics-author">
+            <span class="ics-name">Adela</span>
+            <span class="ics-role">Integración Social · Alumna en prácticas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="intern-carousel-nav" aria-label="Navegación del carrusel">
+      <button id="icPrev" class="ic-btn" aria-label="Testimonio anterior">‹</button>
+      <div id="icDots" class="ic-dots" role="tablist"></div>
+      <button id="icNext" class="ic-btn" aria-label="Testimonio siguiente">›</button>
+    </div>
+
+    <div class="practicas-cta-box reveal" style="margin-top:3rem;">
+      <div>
+        <h3>¿Tu centro busca convenio de prácticas?</h3>
+        <p>Colaboramos con centros formativos de la provincia para ofrecer un entorno de aprendizaje real y significativo. Escríbenos y lo organizamos.</p>
+      </div>
+      <a href="#contacto" class="btn btn-primary"><span>Solicitar convenio →</span></a>
+    </div>
+
   </div>
 </section>
 
@@ -5055,6 +5381,7 @@ const SI_MAP = [
   ['programas',    'Programas'],
   ['historia',     'Historia'],
   ['equipo',       'Equipo'],
+  ['practicas',    'Prácticas'],
   ['colabora',     'Colabora'],
   ['noticias',     'Noticias'],
   ['galeria',      'Galería'],
@@ -5134,7 +5461,7 @@ if (galleryMain) {
 /* ═══════════════════════════════════════════
    FLECHAS Y ENLACES EN TARJETAS DE PROGRAMAS
    ═══════════════════════════════════════════ */
-const PROG_PAGES = ['autonomia.html', 'ocio.html', 'familias.html'];
+const PROG_PAGES = ['autonomia.html', 'ocio.html', 'familias.html', 'deporte.html'];
 document.querySelectorAll('.program-card').forEach((card, i) => {
   const link = document.createElement('a');
   link.className = 'prog-arrow';
@@ -5167,6 +5494,55 @@ document.querySelectorAll('.counter').forEach(el => {
   }, {threshold: 0.8});
   glowObs.observe(el);
 });
+
+/* ═══════════════════════════════════════════
+   CARRUSEL TESTIMONIOS ALUMNOS EN PRÁCTICAS
+   ═══════════════════════════════════════════ */
+(function() {
+  const icTrack = document.getElementById('icTrack');
+  const icDotsEl = document.getElementById('icDots');
+  if (!icTrack || !icDotsEl) return;
+  const icSlides = icTrack.querySelectorAll('.intern-carousel-slide').length;
+  let icIdx = 0, icTimer = null;
+  const prefRM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function icDots() {
+    icDotsEl.innerHTML = Array.from({length: icSlides}, (_, i) =>
+      `<button class="ic-dot${i === icIdx ? ' on' : ''}" data-i="${i}" aria-label="Testimonio ${i + 1}" role="tab" aria-selected="${i === icIdx}"></button>`
+    ).join('');
+  }
+  function icGo(i) {
+    icIdx = (i + icSlides) % icSlides;
+    icTrack.style.transform = `translateX(-${icIdx * 100}%)`;
+    icDots();
+  }
+  function icReset() {
+    clearInterval(icTimer);
+    if (!prefRM) icTimer = setInterval(() => icGo(icIdx + 1), 6000);
+  }
+
+  document.getElementById('icPrev').addEventListener('click', () => { icGo(icIdx - 1); icReset(); });
+  document.getElementById('icNext').addEventListener('click', () => { icGo(icIdx + 1); icReset(); });
+  icDotsEl.addEventListener('click', e => {
+    const i = e.target.dataset.i;
+    if (i !== undefined) { icGo(+i); icReset(); }
+  });
+
+  /* Swipe táctil */
+  let icSwX = 0;
+  icTrack.addEventListener('touchstart', e => { icSwX = e.touches[0].clientX; }, { passive: true });
+  icTrack.addEventListener('touchend', e => {
+    const dx = icSwX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 48) { icGo(icIdx + (dx > 0 ? 1 : -1)); icReset(); }
+  }, { passive: true });
+
+  /* Pausa al pasar el ratón */
+  icTrack.parentElement.addEventListener('mouseenter', () => clearInterval(icTimer));
+  icTrack.parentElement.addEventListener('mouseleave', () => icReset());
+
+  icDots();
+  icReset();
+})();
 
 /* ═══════════════════════════════════════════
    PANEL DE ACCESIBILIDAD
