@@ -1178,6 +1178,30 @@ h1.hero-title em::after {
   margin-bottom: .6rem;
 }
 
+/* ─── INSERCIÓN LABORAL ─── */
+.insercion-bg { background: var(--crema); padding: 7rem 0; }
+.insercion-services {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem; margin-top: 3rem;
+}
+.insercion-service-card {
+  padding: 2rem 1.8rem;
+  background: var(--crema-l);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  text-align: center;
+  transition: all .4s var(--ease);
+}
+.insercion-service-card:hover { transform: translateY(-6px); box-shadow: var(--sh-card); border-color: transparent; }
+.insercion-service-icon { font-size: 2.2rem; display: block; margin-bottom: 1rem; }
+.insercion-service-card h4 {
+  font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 700;
+  color: var(--tinta); margin-bottom: .5rem;
+}
+.insercion-service-card p { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+@media (max-width: 900px) { .insercion-services { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .insercion-services { grid-template-columns: 1fr; } }
+
 /* ─── INTERN QUOTE CAROUSEL ─── */
 .intern-carousel-wrap {
   overflow: hidden;
@@ -4034,6 +4058,7 @@ h1.hero-title em.em-drawn::after {
       <a href="#historia">Historia</a>
       <a href="#equipo">Equipo</a>
       <a href="#practicas">Prácticas</a>
+      <a href="#insercion">Inserción</a>
       <a href="#colabora">Colabora</a>
       <a href="#contacto" class="btn btn-primary"><span>Contacto</span></a>
     </nav>
@@ -4622,6 +4647,97 @@ h1.hero-title em.em-drawn::after {
         <p>Colaboramos con centros formativos de la provincia para ofrecer un entorno de aprendizaje real y significativo. Escríbenos y lo organizamos.</p>
       </div>
       <a href="#contacto" class="btn btn-primary"><span>Solicitar convenio →</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════ INSERCIÓN LABORAL ════════════ -->
+<section class="insercion-bg" id="insercion">
+  <div class="shell">
+
+    <div class="section-head reveal">
+      <span class="eyebrow">Inserción Laboral · 07</span>
+      <h2>Conectamos personas<br>con el <em>empleo.</em></h2>
+      <p>Acompañamiento integral para que cada persona encuentre su lugar en el mundo laboral de Cádiz.</p>
+    </div>
+
+    <div class="practicas-intro">
+      <div class="practicas-intro-text reveal">
+        <span class="eyebrow">Inclusión sociolaboral</span>
+        <h3>Porque el trabajo<br><em>cambia vidas.</em></h3>
+        <p>
+          Las personas con discapacidad intelectual se enfrentan a barreras reales en el acceso al empleo. En Abaniko creemos que cada persona tiene capacidades que pueden traducirse en un puesto de trabajo real, digno y sostenido en el tiempo.
+        </p>
+        <p>
+          Nuestro programa acompaña a cada usuario desde la formación prelaboral hasta su integración efectiva en una empresa, con la figura del mediador sociolaboral como apoyo continuo tanto para la persona como para el empleador.
+        </p>
+        <p>
+          Colaboramos con empresas e instituciones de la provincia dispuestas a apostar por la diversidad. Si tu empresa quiere sumarse, te acompañamos en todo el proceso sin complicaciones.
+        </p>
+        <a href="#contacto" class="btn btn-primary" style="margin-top:1.8rem; display:inline-flex;"><span>Contactar con nosotros →</span></a>
+      </div>
+
+      <div class="practicas-aside reveal d2">
+        <div class="practicas-aside-item">
+          <span class="practicas-aside-icon">📚</span>
+          <div>
+            <strong>Formación prelaboral</strong>
+            <span>Cursos PCPI, talleres ocupacionales y desarrollo de habilidades sociales y autonomía personal.</span>
+          </div>
+        </div>
+        <div class="practicas-aside-item">
+          <span class="practicas-aside-icon">🔍</span>
+          <div>
+            <strong>Orientación y búsqueda de empleo</strong>
+            <span>Prospección de empresas, orientación a familias sobre contratación y compatibilidad con pensiones.</span>
+          </div>
+        </div>
+        <div class="practicas-aside-item">
+          <span class="practicas-aside-icon">🏢</span>
+          <div>
+            <strong>Prácticas en empresa</strong>
+            <span>Aprendizaje en entornos reales con entidades públicas y empresas privadas de la provincia.</span>
+          </div>
+        </div>
+        <div class="practicas-aside-item">
+          <span class="practicas-aside-icon">🤝</span>
+          <div>
+            <strong>Mediación sociolaboral</strong>
+            <span>Acompañamos a la empresa, formamos al futuro trabajador y apoyamos su integración desde dentro.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top:1rem;">
+      <span class="eyebrow">Lo que ofrecemos a empresas</span>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Servicios para<br><em>empresas y particulares.</em></h2>
+    </div>
+    <div class="insercion-services">
+      <div class="insercion-service-card reveal d1">
+        <span class="insercion-service-icon">🌿</span>
+        <h4>Jardinería</h4>
+        <p>Mantenimiento de plantas en macetas, jardines, terrazas y zonas ajardinadas de la provincia.</p>
+      </div>
+      <div class="insercion-service-card reveal d2">
+        <span class="insercion-service-icon">🍽️</span>
+        <h4>Hostelería</h4>
+        <p>Tareas de sala, cocina, limpieza y apoyo en espacios de restauración y eventos.</p>
+      </div>
+      <div class="insercion-service-card reveal d3">
+        <span class="insercion-service-icon">📋</span>
+        <h4>Tareas administrativas</h4>
+        <p>Gestión documental, archivo, atención al público y apoyo en oficina.</p>
+      </div>
+    </div>
+
+    <div class="practicas-cta-box reveal" style="margin-top:2.5rem;">
+      <div>
+        <h3>¿Tu empresa quiere colaborar?</h3>
+        <p>Cuéntanos qué necesitas y te explicamos cómo funciona el proceso. Con apoyo de la Diputación de Cádiz y el Colegio de Abogados.</p>
+      </div>
+      <a href="#contacto" class="btn btn-primary"><span>Hablar con nosotros →</span></a>
     </div>
 
   </div>
