@@ -13,7 +13,11 @@
       "WebSearch",
       "Bash(git remote *)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "PowerShell(Get-Command chromium, npx, node -ErrorAction SilentlyContinue)",
+      "Bash(git pull *)",
+      "Bash(git stash *)"
     ]
   }
 }
