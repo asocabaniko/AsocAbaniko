@@ -2208,6 +2208,40 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
     justify-content: center;
   }
   .nav-links a.btn::after { display: none; }
+  /* Open nav: brand mark + tagline (absolutely positioned so they don't disrupt flex) */
+  .nav-links::before {
+    content: 'A';
+    position: absolute; top: 2.2rem; left: 50%;
+    transform: translateX(-50%) scale(.82);
+    width: 50px; height: 50px;
+    background: var(--terracota);
+    border-radius: 13px;
+    font-family: 'Fraunces', serif; font-size: 1.55rem; font-weight: 900;
+    color: #fff; text-align: center; line-height: 50px;
+    opacity: 0;
+    transition: opacity .4s var(--ease), transform .45s var(--ease);
+  }
+  .nav-links.open::before { opacity: 1; transform: translateX(-50%) scale(1); }
+  .nav-links::after {
+    content: 'Asociación Abaniko · Cádiz';
+    position: absolute;
+    bottom: max(2rem, env(safe-area-inset-bottom, 0px));
+    left: 0; right: 0; text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .58rem; letter-spacing: .22em; text-transform: uppercase;
+    color: rgba(247,239,220,.22);
+    opacity: 0;
+    transition: opacity .5s var(--ease);
+    transition-delay: .62s;
+  }
+  .nav-links.open::after { opacity: 1; }
+  /* Bigger, more dramatic link text */
+  .nav-links a { font-size: 1.38rem; }
+  /* Vibrant Contacto button with glow */
+  .nav-links a.btn {
+    box-shadow: 0 8px 28px rgba(184,74,40,.45);
+    color: #fff !important;
+  }
   .program-grid, .collab-grid, .testimonials-grid, .news-grid,
   .team-grid, .footer-top { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
