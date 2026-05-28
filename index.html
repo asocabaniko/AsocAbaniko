@@ -906,7 +906,7 @@ h1.hero-title em::after {
    ════════════════════════════════════════════════════════════ */
 .programs-bg { background: var(--crema); }
 .program-grid {
-  display: grid; grid-template-columns: repeat(4,1fr);
+  display: grid; grid-template-columns: repeat(3,1fr);
   gap: 1.5rem;
 }
 .program-card {
@@ -957,6 +957,7 @@ h1.hero-title em::after {
 .prog-icon.c2 { background: linear-gradient(135deg, var(--verde), var(--verde-l)); }
 .prog-icon.c3 { background: linear-gradient(135deg, var(--ocre-d), var(--ocre)); }
 .prog-icon.c4 { background: linear-gradient(135deg, #2E4B18, #7DB84A); }
+.prog-icon.c5 { background: linear-gradient(135deg, #1B3D6E, #2E72B5); }
 
 .program-card h3 {
   font-family: 'Fraunces', serif;
@@ -2727,6 +2728,7 @@ textarea { min-height: 140px; resize: vertical; font-family: inherit; }
 /* ── TABLETS (900px) ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .program-grid { grid-template-columns: 1fr 1fr; }
+  .program-grid > article:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .testimonials-grid { grid-template-columns: 1fr 1fr; }
   .news-grid { grid-template-columns: 1fr 1fr; }
   .news-card.feat { grid-column: 1 / -1; }
@@ -4262,22 +4264,8 @@ h1.hero-title em.em-drawn::after {
       </article>
       <article class="program-card reveal d2">
         <div class="prog-header">
-          <img src="assets/images/programa-ocio.jpg" alt="Ocio inclusivo y participación" loading="lazy">
-          <span class="ph-badge">▸ Programa 02</span>
-        </div>
-        <div class="prog-icon c2">O</div>
-        <h3>Ocio y participación</h3>
-        <p>Actividades culturales, convivencia y salidas que crean red social y generan experiencias compartidas e inclusivas.</p>
-        <ul class="prog-features">
-          <li>Salidas culturales</li>
-          <li>Grupo de ocio mensual</li>
-          <li>Eventos comunitarios</li>
-        </ul>
-      </article>
-      <article class="program-card reveal d3">
-        <div class="prog-header">
           <img src="assets/images/abanicos.jpg" alt="Orientación a familias" loading="lazy">
-          <span class="ph-badge">▸ Programa 03</span>
+          <span class="ph-badge">▸ Programa 02</span>
         </div>
         <div class="prog-icon c3">F</div>
         <h3>Orientación a familias</h3>
@@ -4288,10 +4276,39 @@ h1.hero-title em.em-drawn::after {
           <li>Información y recursos</li>
         </ul>
       </article>
+      <article class="program-card reveal d3">
+        <div class="prog-header">
+          <img src="assets/images/folleto-empleo.png" alt="Inserción laboral — empleo e integración sociolaboral" loading="lazy">
+          <span class="ph-badge">▸ Programa 03</span>
+        </div>
+        <div class="prog-icon c5">IL</div>
+        <h3>Inserción laboral</h3>
+        <p>Acompañamiento integral para el acceso y mantenimiento del empleo, conectando a nuestros usuarios con empresas e instituciones de Cádiz.</p>
+        <ul class="prog-features">
+          <li>Orientación y formación prelaboral</li>
+          <li>Búsqueda de empleo y prospección de empresas</li>
+          <li>Prácticas en empresa e instituciones</li>
+          <li>Mediación sociolaboral</li>
+        </ul>
+      </article>
       <article class="program-card reveal d4">
         <div class="prog-header">
-          <img src="assets/images/deporte-balon.jpg" alt="Deporte adaptado — actividad con balón" loading="lazy">
+          <img src="assets/images/programa-ocio.jpg" alt="Ocio inclusivo y participación" loading="lazy">
           <span class="ph-badge">▸ Programa 04</span>
+        </div>
+        <div class="prog-icon c2">O</div>
+        <h3>Ocio y participación</h3>
+        <p>Actividades culturales, convivencia y salidas que crean red social y generan experiencias compartidas e inclusivas.</p>
+        <ul class="prog-features">
+          <li>Salidas culturales</li>
+          <li>Grupo de ocio mensual</li>
+          <li>Eventos comunitarios</li>
+        </ul>
+      </article>
+      <article class="program-card reveal d5">
+        <div class="prog-header">
+          <img src="assets/images/deporte-balon.jpg" alt="Deporte adaptado — actividad con balón" loading="lazy">
+          <span class="ph-badge">▸ Programa 05</span>
         </div>
         <div class="prog-icon c4">D</div>
         <h3>Deporte</h3>
